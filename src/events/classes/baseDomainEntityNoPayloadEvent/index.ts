@@ -1,0 +1,1 @@
+export {BaseDomainEntityNoPayloadEvent} from './baseDomainEntityNoPayloadEvent';

@@ -1,0 +1,1 @@
+Boilerplate for Typescript projects which use Clean architecture pattern

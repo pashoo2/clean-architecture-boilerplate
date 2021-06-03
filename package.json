@@ -1,0 +1,49 @@
+{
+  "name": "@pashoo/clean-architecture-boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Clean architecture boilerplate",
+  "keywords": [
+    "clean",
+    "architecture",
+    "ddd",
+    "layered",
+    "architecture",
+    "frontend",
+    "typescript"
+  ],
+  "author": "Paul Akulich",
+  "homepage": "https://github.com/pashoo2/clean-architecture-boilerplate",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc --project ./tsconfig.build.json",
+    "fix": "gts fix",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "test": "jest",
+    "test:only": "jest"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pashoo2/clean-architecture-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pashoo2/clean-architecture-boilerplate/issues"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.11.2",
+    "gts": "^3.1.0",
+    "jest": "^27.0.3",
+    "ts-jest": "27.0.2",
+    "typescript": "^4.0.3"
+  }
+}
