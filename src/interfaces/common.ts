@@ -1,9 +1,14 @@
 export type TSimpleType = boolean | string | number | null | undefined;
 
 // https://github.com/piotrwitek/utility-types/blob/df2502ef504c4ba8bd9de81a45baef112b7921d0/src/mapped-types.ts#L257
-export type OmitByValue<T, ValueType> = Pick<
+export type OmitByValueType<T, ValueType> = Pick<
   T,
   {[Key in keyof T]-?: T[Key] extends ValueType ? never : Key}[keyof T]
+>;
+
+export type PickByValueType<T, ValueType> = Pick<
+  T,
+  {[Key in keyof T]-?: T[Key] extends ValueType ? Key : never}[keyof T]
 >;
 
 // https://stackoverflow.com/questions/52443276/how-to-exclude-getter-only-properties-from-type-in-typescript/52473108#52473108
@@ -30,7 +35,7 @@ type ReadonlyKeys<T> = {
 }[keyof T];
 
 export type TPickReadOnlyProperties<C extends Object> = ReadonlyKeys<
-  OmitByValue<C, Function>
+  OmitByValueType<C, Function>
 >;
 
 export type DeepPartial<T> = {

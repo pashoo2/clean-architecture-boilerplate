@@ -25,7 +25,8 @@
     "prepare": "npm run compile",
     "pretest": "npm run typecheck",
     "posttest": "npm run lint",
-    "test": "jest"
+    "test": "jest",
+    "test:only": "jest"
   },
   "files": [
     "src"
