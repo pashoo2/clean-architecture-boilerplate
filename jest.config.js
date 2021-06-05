@@ -5,6 +5,6 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  setupFilesAfterEnv: ['<rootDir>/config/jest/setupDomainServices.ts'],
+  cache: true,
   moduleDirectories: ['node_modules', './'],
 };
