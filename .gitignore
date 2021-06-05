@@ -6,7 +6,7 @@ dist/
 # Log files
 *.log
 
-# JetBrains IDE
+# IDE
 .idea/
 .vscode/
 
@@ -31,3 +31,6 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+
+# Typescript incremental builds cahce
+*.tsbuildinfo

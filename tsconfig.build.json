@@ -3,6 +3,7 @@
     "compilerOptions": {
         "outDir": "build",
         "noEmit": false,
+        "incremental": false
     },
     "exclude": [
         "config/**/*.ts"
