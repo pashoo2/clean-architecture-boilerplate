@@ -1,5 +1,13 @@
 export type TSimpleType = boolean | string | number | null | undefined;
 
+export type TSimpleArray = Array<TSimpleType | ISimpleObject>;
+
+export interface ISimpleObject
+  extends Partial<{
+    [key: string]: TSimpleType | ISimpleObject | TSimpleArray;
+    [key: number]: TSimpleType | ISimpleObject | TSimpleArray;
+  }> {}
+
 // https://github.com/piotrwitek/utility-types/blob/df2502ef504c4ba8bd9de81a45baef112b7921d0/src/mapped-types.ts#L257
 export type OmitByValueType<T, ValueType> = Pick<
   T,

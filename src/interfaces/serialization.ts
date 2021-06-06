@@ -1,4 +1,4 @@
-import {TSimpleType} from './common';
+import {TSimpleType, ISimpleObject, TSimpleArray} from './common';
 
 export interface ISerializable<S extends TSimpleType> {
   serialize(): S;
@@ -17,7 +17,17 @@ interface ISerializableSimpleObject {
   [key: string]: TSerializableSimple;
 }
 
-export type TSerializableSimple = {} | TSimpleType | ISerializableSimpleObject;
+export type TSerializableSimple =
+  | ISimpleObject
+  | TSimpleType
+  | TSimpleArray
+  | ISerializableSimpleObject
+  | Date
+  | Number
+  | String
+  | {
+      toString(): TSerializableSimple;
+    };
 
 export interface IParsable<S extends TSimpleType, P extends unknown> {
   parse(serialized: S): P;

@@ -1,8 +1,15 @@
-import {isSimpleObject} from './isSimpleObject';
+import {isSimpleType} from './isSimpleType';
 
-describe('isSimpleObject utility', () => {
+describe('isSimpleTypeOrArrayOrObject utility', () => {
   it('Should return false for {}', () => {
-    expect(isSimpleObject({})).toBe(false);
+    expect(isSimpleType({})).toBe(false);
+  });
+  it('Should return false for a class instance', () => {
+    class TestClass {
+      a = 1;
+      b = 2;
+    }
+    expect(isSimpleType(new TestClass())).toBe(false);
   });
   it("Should return false for { a: 1, [0]: 'b', valueOf(): Date }", () => {
     const obj = {
@@ -12,28 +19,34 @@ describe('isSimpleObject utility', () => {
         return new Date();
       },
     };
-    expect(isSimpleObject(obj)).toBe(false);
+    expect(isSimpleType(obj)).toBe(false);
   });
-  it('Should return false for "() => {}"', () => {
-    expect(isSimpleObject(() => {})).toBe(false);
+  it('Should return false for a function', () => {
+    expect(isSimpleType(() => {})).toBe(false);
+    function testFunction() {
+      return 'test';
+    }
+    expect(isSimpleType(testFunction)).toBe(false);
   });
-  it('Should return false Date', () => {
-    expect(isSimpleObject(new Date())).toBe(false);
+  it('Should return false for a Date', () => {
+    expect(isSimpleType(new Date())).toBe(false);
   });
-
-  it('Should return false Regexp', () => {
-    expect(isSimpleObject(new RegExp('[a-z]'))).toBe(false);
+  it('Should return false for a Symbol', () => {
+    expect(isSimpleType(Symbol.for('symbol'))).toBe(false);
   });
-  it('Should return true String', () => {
-    expect(isSimpleObject(new String('[a-z]'))).toBe(true);
+  it('Should return false an Regexp', () => {
+    expect(isSimpleType(new RegExp('[a-z]'))).toBe(false);
   });
-  it('Should return true Number', () => {
-    expect(isSimpleObject(new Number(0))).toBe(true);
+  it('Should return true for a String', () => {
+    expect(isSimpleType(new String('a,b,c'))).toBe(true);
   });
-  it('Should return true null', () => {
-    expect(isSimpleObject(null)).toBe(true);
+  it('Should return true for a Number', () => {
+    expect(isSimpleType(new Number(0))).toBe(true);
   });
-  it('Should return true for undefined', () => {
-    expect(isSimpleObject(undefined)).toBe(true);
+  it('Should return true for a null', () => {
+    expect(isSimpleType(null)).toBe(true);
+  });
+  it('Should return true for an undefined', () => {
+    expect(isSimpleType(undefined)).toBe(true);
   });
 });

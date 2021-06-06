@@ -8,7 +8,7 @@ import {
   ITransferable,
   TPickTransferableProperties,
 } from 'src/interfaces/transferable';
-import {isSimpleType} from 'src/utilities/implementations/typeGuards';
+import {isSimpleTypeOrArrayOrObject} from '../../typeGuards/isSimpleTypeOrArrayOrObject';
 
 export async function convertTransferableToSerializableAsync<
   O extends Object,
@@ -23,7 +23,7 @@ export async function convertTransferableToSerializableAsync<
       const key = propertyName as keyof TO;
 
       value = objectTransferable[key];
-      if (isSimpleType(value)) {
+      if (isSimpleTypeOrArrayOrObject(value) || value instanceof Date) {
         serializableValues[key] = value as TSerializableSimple as R[keyof TO];
         return;
       }
@@ -46,9 +46,7 @@ export async function convertTransferableToSerializableAsync<
         )) as TSerializableSimple as R[keyof TO];
         return;
       }
-      serializableValues[key] = (await convertTransferableToSerializableAsync(
-        value.valueOf()
-      )) as TSerializableSimple as R[keyof TO];
+      serializableValues[key] = value.toString() as R[keyof TO];
     })
   );
   return serializableValues;

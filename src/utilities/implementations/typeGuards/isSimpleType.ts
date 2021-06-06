@@ -1,12 +1,17 @@
 import {TSimpleType} from 'src/interfaces/common';
 
+function isAnyNumber(v: unknown): v is Number | number {
+  return typeof v === 'number' || v instanceof Number;
+}
+
 export function isSimpleType(v: unknown): v is TSimpleType {
   if (
     v === null ||
-    typeof v === 'string' ||
+    v === undefined ||
     typeof v === 'boolean' ||
-    typeof v === 'undefined' ||
-    (typeof v === 'number' && isFinite(v))
+    typeof v === 'string' ||
+    v instanceof String ||
+    (isAnyNumber(v) && isFinite(v.valueOf()))
   ) {
     return true;
   }
