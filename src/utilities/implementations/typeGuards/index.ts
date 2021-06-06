@@ -1,3 +1,3 @@
-export * from './isSimpleObject';
+export * from './isSimpleTypeOrArrayOrObject';
 
 export * from './isSimpleType';

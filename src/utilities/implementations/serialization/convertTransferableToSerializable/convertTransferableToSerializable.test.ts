@@ -32,7 +32,46 @@ class TransferableEntity extends BaseEntity<IdVO, typeof ENTITY_CLASS_TYPE> {
           get type() {
             return ENTITY_CLASS_TYPE;
           },
+          get simpleObject() {
+            return {
+              a: 'a',
+              b: 1,
+            };
+          },
+          get objectWithToString() {
+            return {
+              toString() {
+                return 'objectWithToString';
+              },
+            };
+          },
         };
+      },
+    };
+  }
+
+  public get simpleObject() {
+    return {
+      isSimple: true,
+    };
+  }
+
+  public get dateObject() {
+    return new Date();
+  }
+
+  public get numericValue() {
+    return 1;
+  }
+
+  public get infiniteNumber() {
+    return Infinity;
+  }
+
+  public get objectWithToString() {
+    return {
+      toString() {
+        return 'objectWithToString';
       },
     };
   }
@@ -48,12 +87,27 @@ class TransferableEntity extends BaseEntity<IdVO, typeof ENTITY_CLASS_TYPE> {
   }
 
   public getTransferableProps() {
-    const {id, type, isDeleted, nestedObject} = this;
+    const {
+      id,
+      type,
+      isDeleted,
+      nestedObject,
+      dateObject,
+      infiniteNumber,
+      numericValue,
+      simpleObject,
+      objectWithToString,
+    } = this;
     return {
       id,
       type,
       isDeleted,
       nestedObject,
+      dateObject,
+      infiniteNumber,
+      numericValue,
+      simpleObject,
+      objectWithToString,
     } as TPickTransferableProperties<TransferableEntity> as TPickTransferableProperties<this>;
   }
 }
@@ -84,6 +138,15 @@ describe('Transferable object utilities', () => {
         }),
         getTransferableProps: expect.any(Function),
       },
+      simpleObject: expect.objectContaining({
+        isSimple: true,
+      }),
+      dateObject: expect.any(Date),
+      numericValue: 1,
+      infiniteNumber: Infinity,
+      objectWithToString: expect.objectContaining({
+        toString: expect.any(Function),
+      }),
     });
   });
 
@@ -100,7 +163,19 @@ describe('Transferable object utilities', () => {
         nestedObject: {
           id: ENTITY_ID,
           type: ENTITY_CLASS_TYPE,
+          simpleObject: {
+            a: 'a',
+            b: 1,
+          },
+          objectWithToString: 'objectWithToString',
         },
+        simpleObject: {
+          isSimple: true,
+        },
+        dateObject: expect.any(Date),
+        numericValue: 1,
+        infiniteNumber: 'Infinity',
+        objectWithToString: 'objectWithToString',
       });
     });
   });
