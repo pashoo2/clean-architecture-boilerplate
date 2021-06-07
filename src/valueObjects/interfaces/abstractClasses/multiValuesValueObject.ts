@@ -11,7 +11,7 @@ export abstract class MultiValuesValueObject<
     return this.__value;
   }
 
-  protected constructor(private __value: V) {
+  constructor(private __value: V) {
     this._validate();
   }
 
@@ -19,6 +19,13 @@ export abstract class MultiValuesValueObject<
 
   public equalsTo(anotherValueObject: IMultiValuesValueObject<V>): boolean {
     const {value: anotherValueObjectValue} = anotherValueObject;
+    const anotherValueObjectValueKeys = Object.keys(anotherValueObjectValue);
+
+    if (
+      anotherValueObjectValueKeys.length !== Object.keys(this.__value).length
+    ) {
+      return false;
+    }
     return Object.keys(anotherValueObjectValue).every(key => {
       const valueForKeyAnotherObject = anotherValueObjectValue[key];
       const valueForKeyThisObject = this.value[key];
@@ -27,12 +34,14 @@ export abstract class MultiValuesValueObject<
         return true;
       }
       if (
-        valueForKeyThisObject instanceof Date &&
+        valueForKeyAnotherObject instanceof Date &&
         valueForKeyThisObject instanceof Date
       ) {
         return (
-          valueForKeyThisObject.toISOString() ===
-          valueForKeyThisObject.toISOString()
+          valueForKeyAnotherObject.getMilliseconds() ===
+            valueForKeyThisObject.getMilliseconds() &&
+          valueForKeyAnotherObject.toISOString() ===
+            valueForKeyThisObject.toISOString()
         );
       }
       return false;
