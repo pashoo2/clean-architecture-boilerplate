@@ -27,15 +27,13 @@ describe('multiValuesValueObject', () => {
     expect(instance.value).toEqual({
       value: testValue,
     });
+  });
+
+  it('Should serialize a value into a string that includes value passed as a parameter in the constructor', () => {
+    const testValue = 'testValue';
+    const instance = new MultiValuesValueObjectTestClass({value: testValue});
+
     expect(instance.serialize()).toEqual(expect.stringContaining(testValue));
-    expect(
-      instance.equalsTo(new MultiValuesValueObjectTestClass({value: testValue}))
-    ).toBe(true);
-    expect(
-      instance.equalsTo(
-        new MultiValuesValueObjectTestClass({value: `not ${testValue}`})
-      )
-    ).toBe(false);
   });
 
   describe('"equalsTo" method', () => {
