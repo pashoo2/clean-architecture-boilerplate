@@ -1,3 +1,4 @@
+import {MultiValuesValueObject} from './multiValuesValueObject';
 import {
   IMultiValuesValueObject,
   IMultiValuesValueObjectAsync,
@@ -8,10 +9,6 @@ export abstract class MultiValuesValueObjectAsync<
   V extends IMultiValuesValueObjectValue
 > implements IMultiValuesValueObjectAsync<V>
 {
-  get value(): V {
-    return this.__value;
-  }
-
   protected constructor(private __value: V) {
     this._validate();
   }

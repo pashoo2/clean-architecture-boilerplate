@@ -32,7 +32,7 @@ export abstract class BaseValueObjectStringSerialization<V extends TSimpleType>
   extends BaseValueObject<V, string>
   implements IBaseValueObjectStringSerialization<V>
 {
-  serialize(): string {
+  public serialize(): string {
     return String(this.value);
   }
 }
