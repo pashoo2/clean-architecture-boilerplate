@@ -5,7 +5,7 @@ describe('multiValuesValueObject', () => {
   class BaseValueObjectTestClass<
     V extends TSimpleType = string
   > extends BaseValueObject<V> {
-    serialize() {
+    public serialize(): string {
       return JSON.stringify(this.value);
     }
 
