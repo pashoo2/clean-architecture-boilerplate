@@ -13,15 +13,23 @@ export function compareObjectsDeepWithCompareValuesFunction<
   objectSecond: O2,
   compareValues: ICompareValues<any, any>
 ): boolean {
-  const objectFirstKeys = Object.keys(objectFirst);
+  if ((objectFirst as unknown) === objectSecond) {
+    return true;
+  }
+
+  const objectFirstKeys = Object.keys(objectFirst) as Array<keyof O1>;
 
   if (objectFirstKeys.length !== Object.keys(objectSecond).length) {
     return false;
   }
-  return (Object.keys(objectFirst) as Array<keyof O1>).every(key => {
+  // TODO - for an object with cycle references it will throw
+  return objectFirstKeys.every(key => {
     const objectFirstValueForKey = objectFirst[key];
     const objectSecondValueForKey = (objectSecond as unknown as O1)[key];
 
+    if (objectFirstValueForKey === objectSecondValueForKey) {
+      return true;
+    }
     return compareValues(objectFirstValueForKey, objectSecondValueForKey);
   });
 }

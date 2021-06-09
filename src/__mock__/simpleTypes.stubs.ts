@@ -1,0 +1,45 @@
+export const SIMPLE_TYPE_VALUES_SET_EMPTY = [
+  null,
+  undefined,
+  NaN,
+  0,
+  0.0,
+  '',
+  ' ',
+  void 0,
+];
+
+export const SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_NUMBERS = [
+  Number.MIN_SAFE_INTEGER,
+  Number.MAX_VALUE,
+  Number.POSITIVE_INFINITY,
+  Number.NEGATIVE_INFINITY,
+  1,
+  1.1,
+];
+
+export const SIMPLE_TYPE_VALUES_SET_EMPTY_NUMBERS = [NaN, 0, 0.0];
+
+export const SIMPLE_TYPE_VALUES_SET_NUMBERS = [
+  ...SIMPLE_TYPE_VALUES_SET_EMPTY_NUMBERS,
+  ...SIMPLE_TYPE_VALUES_SET_EMPTY_NUMBERS.map(Number),
+  ...SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_NUMBERS,
+  ...SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_NUMBERS.map(Number),
+];
+
+export const SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS = [
+  '0',
+  ' 0 ',
+  ' string, ',
+  ' String, ',
+  '!@#$%&*()123456№;%:+-.,`"\'',
+];
+
+export const SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS = ['', ' ', '  '];
+
+export const SIMPLE_TYPE_VALUES_SET_STRINGS = [
+  ...SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS,
+  ...SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS.map(String),
+  ...SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS,
+  ...SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS.map(String),
+];
