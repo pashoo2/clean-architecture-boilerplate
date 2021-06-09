@@ -12,7 +12,7 @@ export interface ICompareAnyWithStrategy<
 }
 
 export interface ICompareValuesStrategy<S extends ICompareValuesStrategy<S>> {
-  compareSimpleTypeStrategy: ICompareSimpleTypeValues<TSimpleType, TSimpleType>;
+  compareSimpleType: ICompareSimpleTypeValues<TSimpleType, TSimpleType>;
   compareDates: ICompareDateValues;
   compareObjects: ICompareObjectsWithStrategy<Object, Object, S>;
   compareOther: ICompareAnyWithStrategy<any, any, S>;
@@ -30,4 +30,8 @@ export interface ICompareValuesByStrategy<
   S extends ICompareValuesStrategy<S>
 > {
   (firstValue: V1, secondValue: V2, strategy: S): boolean;
+}
+
+export interface ICompareValues<V1, V2> {
+  (firstValue: V1, secondValue: V2): boolean;
 }

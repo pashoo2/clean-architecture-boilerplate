@@ -1,16 +1,17 @@
-import {ICompareValuesByStrategy} from './../../interfaces/comparison/valuesComparisonStrategies';
-import {ICompareValuesShallowStrategy} from '../../interfaces/comparison/valuesComparisonStrategies';
+import {
+  ICompareValuesShallowStrategy,
+  ICompareValues,
+} from '../../interfaces/comparison/valuesComparisonStrategies';
 import {ICompareValuesStrategy} from '../../interfaces/comparison/valuesComparisonStrategies';
+import {compareValuesFunctionFabric} from './compareByStrategy';
 
-export function compareObjectsDeepWithStrategy<
+export function compareObjectsDeepWithCompareValuesFunction<
   O1 extends Object,
-  O2 extends Object,
-  S extends ICompareValuesStrategy<S>
+  O2 extends Object
 >(
   objectFirst: O1,
   objectSecond: O2,
-  comparisonStrategy: S,
-  compareValuesByStrategy: ICompareValuesByStrategy<any, any, S>
+  compareValues: ICompareValues<any, any>
 ): boolean {
   const objectFirstKeys = Object.keys(objectFirst);
 
@@ -21,11 +22,7 @@ export function compareObjectsDeepWithStrategy<
     const objectFirstValueForKey = objectFirst[key];
     const objectSecondValueForKey = (objectSecond as unknown as O1)[key];
 
-    return compareValuesByStrategy(
-      objectFirstValueForKey,
-      objectSecondValueForKey,
-      comparisonStrategy
-    );
+    return compareValues(objectFirstValueForKey, objectSecondValueForKey);
   });
 }
 
@@ -33,28 +30,32 @@ export function compareObjectsShallowWithStrategy<
   O1 extends Object,
   O2 extends Object,
   S extends ICompareValuesShallowStrategy
->(
-  objectFirst: O1,
-  objectSecond: O2,
-  comparisonStrategy: S,
-  compareValuesByStrategy: ICompareValuesByStrategy<
-    any,
-    any,
-    ICompareValuesStrategy<any>
-  >
-): boolean {
+>(objectFirst: O1, objectSecond: O2, shallowComparisonStrategy: S): boolean {
   function compareNested(o1: any, o2: any): boolean {
     return o1 === o2;
   }
   const shallowStrategy: ICompareValuesStrategy<any> = {
-    ...comparisonStrategy,
+    ...shallowComparisonStrategy,
     compareObjects: compareNested,
     compareOther: compareNested,
   };
-  return compareObjectsDeepWithStrategy(
+  const compareValues = compareValuesFunctionFabric(shallowStrategy);
+  return compareObjectsDeepWithCompareValuesFunction(
     objectFirst,
     objectSecond,
-    shallowStrategy,
-    compareValuesByStrategy
+    compareValues
+  );
+}
+
+export function compareObjectsDeepWithStrategy<
+  O1 extends Object,
+  O2 extends Object,
+  S extends ICompareValuesStrategy<S>
+>(objectFirst: O1, objectSecond: O2, comparisonStrategy: S): boolean {
+  const compareValues = compareValuesFunctionFabric(comparisonStrategy);
+  return compareObjectsDeepWithCompareValuesFunction(
+    objectFirst,
+    objectSecond,
+    compareValues
   );
 }
