@@ -1,4 +1,7 @@
-import {ICompareValuesStrategy} from '../../interfaces/comparison/valuesComparisonStrategies';
+import {
+  ICompareValues,
+  ICompareValuesStrategy,
+} from '../../interfaces/comparison/valuesComparisonStrategies';
 import {isSimpleType} from '../typeGuards/isSimpleType';
 
 export function compareValuesByStrategy<
@@ -12,10 +15,7 @@ export function compareValuesByStrategy<
   // Simple value types
   if (isSimpleType(firstValue)) {
     if (isSimpleType(secondValue)) {
-      return comparisonStrategy.compareSimpleTypeStrategy(
-        firstValue,
-        secondValue
-      );
+      return comparisonStrategy.compareSimpleType(firstValue, secondValue);
     }
   }
   // Dates
@@ -39,4 +39,17 @@ export function compareValuesByStrategy<
     secondValue,
     comparisonStrategy
   );
+}
+
+export function compareValuesFunctionFabric<
+  V1,
+  V2,
+  S extends ICompareValuesStrategy<S>
+>(comparisonStrategy: S): ICompareValues<V1, V2> {
+  return (firstValue: V1, secondValue: V2) =>
+    compareValuesByStrategy<V1, V2, S>(
+      firstValue,
+      secondValue,
+      comparisonStrategy
+    );
 }
