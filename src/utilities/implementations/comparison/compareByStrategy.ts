@@ -12,6 +12,7 @@ export function compareValuesByStrategy<
   if ((firstValue as unknown) === secondValue) {
     return true;
   }
+
   // Simple value types
   if (isSimpleType(firstValue)) {
     if (isSimpleType(secondValue)) {
@@ -24,6 +25,7 @@ export function compareValuesByStrategy<
       return comparisonStrategy.compareDates(firstValue, secondValue);
     }
   }
+  // Objects
   if (typeof firstValue === 'object') {
     if (typeof secondValue === 'object') {
       // Nested objects
@@ -34,6 +36,7 @@ export function compareValuesByStrategy<
       );
     }
   }
+  // Any other values
   return comparisonStrategy.compareOther(
     firstValue,
     secondValue,

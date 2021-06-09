@@ -1,7 +1,11 @@
 import {TSimpleType} from 'src/interfaces/common';
 
-function isAnyNumber(v: unknown): v is Number | number {
+export function isAnyNumber(v: unknown): v is Number | number {
   return typeof v === 'number' || v instanceof Number;
+}
+
+export function isString(v: unknown): v is String | string {
+  return typeof v === 'string' || v instanceof String;
 }
 
 export function isSimpleType(v: unknown): v is TSimpleType {
@@ -9,9 +13,8 @@ export function isSimpleType(v: unknown): v is TSimpleType {
     v === null ||
     v === undefined ||
     typeof v === 'boolean' ||
-    typeof v === 'string' ||
-    v instanceof String ||
-    (isAnyNumber(v) && isFinite(v.valueOf()))
+    isString(v) ||
+    (isAnyNumber(v) && Number.isFinite(v.valueOf()))
   ) {
     return true;
   }
