@@ -1,3 +1,4 @@
+import {isObjectWithoutConstructor} from 'src/utilities/implementations/typeGuards';
 import {
   ICompareValues,
   ICompareValuesStrategy,
@@ -9,10 +10,14 @@ export function compareValuesByStrategy<
   V2,
   S extends ICompareValuesStrategy<S>
 >(firstValue: V1, secondValue: V2, comparisonStrategy: S): boolean {
+  if (arguments.length < 3) {
+    throw new Error(
+      '3 arguments are required by the "compareValuesByStrategy"'
+    );
+  }
   if ((firstValue as unknown) === secondValue) {
     return true;
   }
-
   // Simple value types
   if (isSimpleType(firstValue)) {
     if (isSimpleType(secondValue)) {
@@ -26,10 +31,21 @@ export function compareValuesByStrategy<
     }
   }
   // Objects
-  if (typeof firstValue === 'object') {
-    if (typeof secondValue === 'object') {
+  if (isObjectWithoutConstructor(firstValue)) {
+    if (isObjectWithoutConstructor(secondValue)) {
       // Nested objects
       return comparisonStrategy.compareObjects(
+        firstValue,
+        secondValue,
+        comparisonStrategy
+      );
+    }
+  }
+  // Arrays
+  if (Array.isArray(firstValue)) {
+    if (Array.isArray(secondValue)) {
+      // Nested arrays
+      return comparisonStrategy.compareArrays(
         firstValue,
         secondValue,
         comparisonStrategy

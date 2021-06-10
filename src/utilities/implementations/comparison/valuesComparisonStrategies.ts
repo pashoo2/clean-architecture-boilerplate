@@ -14,5 +14,6 @@ export const shallowComparisonStrategy: ICompareValuesShallowStrategy = {
 export const deepComparisonStrategy: ICompareValuesStrategy<any> = {
   ...shallowComparisonStrategy,
   compareObjects: compareObjectsDeepWithStrategy,
+  compareArrays: compareObjectsDeepWithStrategy,
   compareOther: (v1, v2) => v1 === v2,
 };

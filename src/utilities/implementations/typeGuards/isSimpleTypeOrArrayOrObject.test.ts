@@ -1,10 +1,39 @@
 import {
+  isObjectWithoutConstructor,
   isSimpleArray,
   isSimpleObject,
   isSimpleTypeOrArrayOrObject,
 } from 'src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject';
+import {
+  OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES,
+  OBJECT_TYPE_VALUES_SET_DATES,
+  OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
+  OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR,
+  OBJECT_TYPE_VALUE_WITHOUT_CONSTRUCTOR_WITH_SIMPLE_VALUES,
+} from 'src/__mock__/objectTypes.stubs';
 
-describe('isSimpleTypeOrArrayOrObject utility', () => {
+describe('isSimpleTypeOrArrayOrObject utilities', () => {
+  describe('isObjectWithoutConstructor', () => {
+    test.each([
+      ...OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR,
+      ...OBJECT_TYPE_VALUES_SET_DATES,
+    ])('Should return false for "%s" object has a constructor', testValue => {
+      expect(isObjectWithoutConstructor(testValue as any)).toBe(false);
+    });
+    test.each([
+      ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
+    ])(
+      'Should return true for the "%s" object has no a constructor',
+      testValue => {
+        expect(isObjectWithoutConstructor(testValue as any)).toBe(true);
+      }
+    );
+    it('Should return true for the "%s" array', () => {
+      OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES.forEach(
+        testValue => expect(isObjectWithoutConstructor(testValue)).toBe(false)
+      );
+    });
+  });
   describe('isSimpleObject', () => {
     it('Should return true for {}', () => {
       expect(isSimpleObject({})).toBe(true);
@@ -82,6 +111,25 @@ describe('isSimpleTypeOrArrayOrObject utility', () => {
     });
     it('Should return false for undefined', () => {
       expect(isSimpleObject(undefined)).toBe(false);
+    });
+
+    test.each([
+      ...OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR,
+      ...OBJECT_TYPE_VALUES_SET_DATES,
+    ])('Should return false for "%" object has a constructor', testValue => {
+      expect(isSimpleObject(testValue)).toBe(false);
+    });
+
+    it('Should return false for the "%" array', () => {
+      [...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES].forEach(
+        testValue => expect(isSimpleObject(testValue)).toBe(false)
+      );
+    });
+
+    it("Should return true for object that doesn't have a constructor", () => {
+      expect(
+        isSimpleObject(OBJECT_TYPE_VALUE_WITHOUT_CONSTRUCTOR_WITH_SIMPLE_VALUES)
+      ).toBe(true);
     });
   });
   describe('isSimpleArray', () => {
@@ -188,8 +236,34 @@ describe('isSimpleTypeOrArrayOrObject utility', () => {
     it('Should return false for undefined', () => {
       expect(isSimpleArray(undefined)).toBe(false);
     });
+
+    test.each([
+      ...OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR,
+      ...OBJECT_TYPE_VALUES_SET_DATES,
+    ])('Should return false for "%" object has a constructor', testValue => {
+      expect(isSimpleArray(testValue)).toBe(false);
+    });
+
+    it('Should return true for "%" array', () => {
+      OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES.forEach(
+        testValue => expect(isSimpleArray(testValue)).toBe(true)
+      );
+    });
+
+    test.each(OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR)(
+      'Should return true for "%" object doesn\'t have a constructor',
+      testValue => {
+        expect(isSimpleArray(testValue)).toBe(false);
+      }
+    );
   });
   describe('isSimpleTypeOrArrayOrObject', () => {
+    test.each([
+      ...OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR,
+      ...OBJECT_TYPE_VALUES_SET_DATES,
+    ])('Should return false for "%" object has a constructor', testValue => {
+      expect(isSimpleTypeOrArrayOrObject(testValue)).toBe(false);
+    });
     it('Should return true for an array of simple values', () => {
       const obj = {
         get a() {
@@ -261,6 +335,16 @@ describe('isSimpleTypeOrArrayOrObject utility', () => {
         },
       };
       expect(isSimpleTypeOrArrayOrObject(obj)).toBe(true);
+    });
+    it('Should return true for the "%" array', () => {
+      OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES.forEach(
+        testValue => expect(isSimpleTypeOrArrayOrObject(testValue)).toBe(true)
+      );
+    });
+    it('Should return true for the "%" object has no a constructor', () => {
+      OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES.forEach(
+        testValue => expect(isObjectWithoutConstructor(testValue)).toBe(false)
+      );
     });
   });
 });

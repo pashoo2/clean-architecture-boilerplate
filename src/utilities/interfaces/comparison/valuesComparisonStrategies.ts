@@ -15,13 +15,14 @@ export interface ICompareValuesStrategy<S extends ICompareValuesStrategy<S>> {
   compareSimpleType: ICompareSimpleTypeValues<TSimpleType, TSimpleType>;
   compareDates: ICompareDateValues;
   compareObjects: ICompareObjectsWithStrategy<Object, Object, S>;
+  compareArrays: ICompareObjectsWithStrategy<Object, Object, S>;
   compareOther: ICompareAnyWithStrategy<any, any, S>;
 }
 
 export interface ICompareValuesShallowStrategy
   extends Omit<
     ICompareValuesStrategy<any>,
-    'compareObjects' | 'compareOther'
+    'compareObjects' | 'compareOther' | 'compareArrays'
   > {}
 
 export interface ICompareValuesByStrategy<
