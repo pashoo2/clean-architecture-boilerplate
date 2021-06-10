@@ -1,4 +1,5 @@
 import {compareObjectsDeepWithCompareValuesFunction} from './objectComparison';
+
 describe('Object comparison utilities', () => {
   describe('compareObjectsDeepWithCompareValuesFunction', () => {
     it('Should return true for the same object', () => {
@@ -35,14 +36,14 @@ describe('Object comparison utilities', () => {
       const count = 100;
       const mockComparatorFn = jest.fn(() => true);
 
-      function createDifferent(item: number): string {
+      function createDifferentValue(item: number): string {
         return `0${item}`;
       }
 
       let idx = 0;
       while (idx < count) {
         testObject1[idx] = idx;
-        testObject2[idx] = createDifferent(idx);
+        testObject2[idx] = createDifferentValue(idx);
         idx += 1;
       }
       expect(
@@ -56,14 +57,19 @@ describe('Object comparison utilities', () => {
 
       idx = 0;
       while (idx < count) {
-        expect(mockComparatorFn).toBeCalledWith(idx, createDifferent(idx));
+        expect(mockComparatorFn).toBeCalledWith(idx, createDifferentValue(idx));
+        idx += 1;
       }
     });
   });
   describe('compareObjectsShallowWithStrategy', () => {
+    describe('Objects', () => {});
+    describe('Arrays', () => {});
     // TODO
   });
   describe('compareObjectsDeepWithStrategy', () => {
+    describe('Objects', () => {});
+    describe('Arrays', () => {});
     // TODO
   });
 });

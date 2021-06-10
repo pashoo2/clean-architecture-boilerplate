@@ -11,7 +11,7 @@ import {
   deepComparisonStrategy,
 } from './valuesComparisonStrategies';
 import {ICompareValuesStrategy} from '../../interfaces/comparison/valuesComparisonStrategies';
-import { OBJECT_TYPE_VALUES_SET_ARRAYS, OBJECT_TYPE_VALUES_SET_OBJECTS } from '../../../__mock__/objectTypes.stubs';
+import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from '../../../__mock__/objectTypes.stubs';
 
 describe('Strategies for comparison', () => {
   function testStrategyCommonMethods(
@@ -141,8 +141,7 @@ describe('Strategies for comparison', () => {
         ...SIMPLE_TYPE_VALUES_SET_EMPTY,
         ...SIMPLE_TYPE_VALUES_SET_NUMBERS,
         ...SIMPLE_TYPE_VALUES_SET_STRINGS,
-        ...OBJECT_TYPE_VALUES_SET_ARRAYS,
-        ...OBJECT_TYPE_VALUES_SET_OBJECTS,
+        ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
       ])(
         'Should return true for the value "%s" compared to itself',
         testValue => {
@@ -159,6 +158,11 @@ describe('Strategies for comparison', () => {
         }
       );
     });
-    // TODO - compare objects
+    describe('compareObjects', () => {
+      // TODO
+    });
+    describe('compareArrays', () => {
+      // TODO
+    });
   });
 });
