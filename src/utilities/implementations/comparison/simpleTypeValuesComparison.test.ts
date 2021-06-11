@@ -34,16 +34,16 @@ describe('Utils for comparison simple type values', () => {
         return true;
       }
       if (
-        typeof valueFromSet === 'number' &&
-        typeof testValue === 'number' &&
+        (typeof valueFromSet === 'number' || valueFromSet instanceof Number) &&
+        (typeof testValue === 'number' || testValue instanceof Number) &&
         Number.isNaN(testValue) &&
         Number.isNaN(valueFromSet)
       ) {
         return true;
       }
       if (
-        typeof valueFromSet === 'string' &&
-        typeof testValue === 'string' &&
+        (typeof valueFromSet === 'string' || valueFromSet instanceof String) &&
+        (typeof testValue === 'string' || testValue instanceof String) &&
         String(valueFromSet).trim() === String(testValue).trim()
       ) {
         return true;

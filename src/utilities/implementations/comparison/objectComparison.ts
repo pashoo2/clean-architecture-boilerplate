@@ -45,6 +45,7 @@ export function compareObjectsShallowWithStrategy<
   const shallowStrategy: ICompareValuesStrategy<any> = {
     ...shallowComparisonStrategy,
     compareObjects: compareNested,
+    compareArrays: compareNested,
     compareOther: compareNested,
   };
   const compareValues = compareValuesFunctionFabric(shallowStrategy);
