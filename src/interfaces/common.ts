@@ -1,4 +1,11 @@
-export type TSimpleType = boolean | string | number | null | undefined;
+export type TSimpleType =
+  | boolean
+  | string
+  | number
+  | null
+  | undefined
+  | String
+  | Number;
 
 export type TSimpleArray = Array<TSimpleType | TSimpleObject>;
 
