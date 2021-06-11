@@ -11,7 +11,12 @@ import {
   deepComparisonStrategy,
 } from './valuesComparisonStrategies';
 import {ICompareValuesStrategy} from '../../interfaces/comparison/valuesComparisonStrategies';
-import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from '../../../__mock__/objectTypes.stubs';
+import {
+  OBJECT_TYPE_VALUES_SET_ARRAYS,
+  OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES,
+  OBJECT_TYPE_VALUES_SET_OBJECTS,
+  OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
+} from '../../../__mock__/objectTypes.stubs';
 
 describe('Strategies for comparison', () => {
   function testStrategyCommonMethods(
@@ -237,10 +242,357 @@ describe('Strategies for comparison', () => {
       });
     });
     describe('compareObjects', () => {
-      // TODO
+      describe('deepComparisonStrategy', () => {
+        it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
+          'Should return true for the same object "%p"',
+          testValue => {
+            expect(
+              deepComparisonStrategy.compareObjects(
+                testValue,
+                testValue,
+                deepComparisonStrategy
+              )
+            ).toBe(true);
+          }
+        );
+        it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
+          'Should return true for an object "%p" has the same keys and values',
+          testValue => {
+            const valueToCompareWith = {
+              ...testValue,
+            };
+            expect(
+              deepComparisonStrategy.compareObjects(
+                testValue,
+                valueToCompareWith,
+                deepComparisonStrategy
+              )
+            ).toBe(true);
+          }
+        );
+        it.each(OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR)(
+          'Should return false for an object different form "%p" by one property value',
+          testValue => {
+            const valueToCompareWith = {
+              ...testValue,
+              [Object.keys(testValue)[0]]: Math.random() + Date.now(),
+            };
+            expect(
+              deepComparisonStrategy.compareObjects(
+                testValue,
+                valueToCompareWith,
+                deepComparisonStrategy
+              )
+            ).toBe(false);
+          }
+        );
+        it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
+          'Should return true for an object that have a nested object with the same values',
+          testValue => {
+            const nestedObjectFirst = {
+              a: {
+                ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+              },
+              b: null,
+              c: 1,
+            };
+            const nestedObjectSecond = {
+              ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+              d: {
+                ...nestedObjectFirst,
+              },
+            };
+            const testValueWithNestedObject = {
+              ...testValue,
+              nested: {
+                ...nestedObjectSecond,
+                nested: {
+                  ...nestedObjectFirst,
+                },
+              },
+            };
+            const valueToCompareWith = {
+              ...testValue,
+              nested: {
+                ...nestedObjectSecond,
+                nested: {
+                  ...nestedObjectFirst,
+                },
+              },
+            };
+
+            expect(
+              deepComparisonStrategy.compareObjects(
+                testValueWithNestedObject,
+                valueToCompareWith,
+                deepComparisonStrategy
+              )
+            ).toBe(true);
+          }
+        );
+        it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
+          'Should return false for an object that have a nested object with the same values except a one',
+          testValue => {
+            const nestedObjectFirst = {
+              a: {
+                ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+              },
+              b: null,
+              c: 1,
+            };
+            const nestedObjectSecond = {
+              ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+              d: {
+                ...nestedObjectFirst,
+              },
+            };
+            const testValueWithNestedObject = {
+              ...testValue,
+              nested: {
+                ...nestedObjectSecond,
+                nested: {
+                  ...nestedObjectFirst,
+                  c: 2,
+                },
+              },
+            };
+            const valueToCompareWith = {
+              ...testValue,
+              nested: {
+                ...nestedObjectSecond,
+                nested: {
+                  ...nestedObjectFirst,
+                },
+              },
+            };
+            expect(
+              deepComparisonStrategy.compareObjects(
+                testValueWithNestedObject,
+                valueToCompareWith,
+                deepComparisonStrategy
+              )
+            ).toBe(false);
+          }
+        );
+      });
+      it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
+        'Should return true for an object that have a nested array with the same values',
+        testValue => {
+          const nestedArrayFirst = [
+            [...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0]],
+            null,
+            1,
+          ];
+          const nestedArraySecond = [
+            ...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0],
+            [...nestedArrayFirst],
+          ];
+          const nestedObjectFirst = {
+            a: {
+              ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+            },
+            b: null,
+            c: 1,
+            array: nestedArraySecond,
+          };
+          const nestedObjectSecond = {
+            ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+            d: {
+              ...nestedObjectFirst,
+              array: nestedArrayFirst,
+            },
+          };
+          const testValueWithNestedObject = {
+            ...testValue,
+            nested: {
+              ...nestedObjectSecond,
+              nested: {
+                ...nestedObjectFirst,
+                nestedArraySecond: [...nestedArraySecond],
+              },
+            },
+          };
+          const valueToCompareWith = {
+            ...testValue,
+            nested: {
+              ...nestedObjectSecond,
+              nested: {
+                ...nestedObjectFirst,
+                nestedArraySecond: [...nestedArraySecond],
+              },
+            },
+          };
+
+          expect(
+            deepComparisonStrategy.compareObjects(
+              testValueWithNestedObject,
+              valueToCompareWith,
+              deepComparisonStrategy
+            )
+          ).toBe(true);
+        }
+      );
+      it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
+        'Should return false for an object that have a nested array with the same values except a one',
+        testValue => {
+          const nestedArrayFirst = [
+            [...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0]],
+            null,
+            1,
+          ];
+          const nestedArraySecond = [
+            ...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0],
+            [...nestedArrayFirst],
+          ];
+          const nestedObjectFirst = {
+            a: {
+              ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+            },
+            b: null,
+            c: 1,
+          };
+          const nestedObjectSecond = {
+            ...OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0],
+            d: {
+              ...nestedObjectFirst,
+            },
+          };
+          const testValueWithNestedObject = {
+            ...testValue,
+            nested: {
+              ...nestedObjectSecond,
+              nested: {
+                ...nestedObjectFirst,
+                nestedArraySecond,
+              },
+            },
+          };
+          const valueToCompareWith = {
+            ...testValue,
+            nested: {
+              ...nestedObjectSecond,
+              nested: {
+                ...nestedObjectFirst,
+                nestedArraySecond: [...nestedArraySecond].map((v, idx) =>
+                  idx === 0 ? Math.random() + Date.now() : v
+                ),
+              },
+            },
+          };
+          expect(
+            deepComparisonStrategy.compareObjects(
+              testValueWithNestedObject,
+              valueToCompareWith,
+              deepComparisonStrategy
+            )
+          ).toBe(false);
+        }
+      );
     });
     describe('compareArrays', () => {
-      // TODO
+      it('Should return true for the same array', () => {
+        OBJECT_TYPE_VALUES_SET_ARRAYS.forEach(testValue => {
+          expect(
+            deepComparisonStrategy.compareArrays(
+              testValue,
+              testValue,
+              deepComparisonStrategy
+            )
+          ).toBe(true);
+        });
+      });
+      it('Should return true for an array has the same keys and values', () => {
+        OBJECT_TYPE_VALUES_SET_ARRAYS.forEach(testValue => {
+          const valueToCompareWith = [...testValue];
+          expect(
+            deepComparisonStrategy.compareArrays(
+              testValue,
+              valueToCompareWith,
+              deepComparisonStrategy
+            )
+          ).toBe(true);
+        });
+      });
+      it('Should return false for an array different form another by one property value', () => {
+        OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES.forEach(
+          testValue => {
+            const valueToCompareWith = [...testValue];
+            valueToCompareWith[valueToCompareWith.length - 1] =
+              Math.random() + Date.now();
+            expect(
+              deepComparisonStrategy.compareArrays(
+                testValue,
+                valueToCompareWith,
+                deepComparisonStrategy
+              )
+            ).toBe(false);
+          }
+        );
+      });
+      it('Should return true for an array that have a nested array with the same values', () => {
+        OBJECT_TYPE_VALUES_SET_ARRAYS.forEach(testValue => {
+          const nestedArrayFirst = [
+            [...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0]],
+            null,
+            1,
+          ];
+          const nestedArraySecond = [
+            ...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0],
+            [...nestedArrayFirst],
+          ];
+          const testValueWithNestedObject = {
+            ...testValue,
+            ...nestedArraySecond,
+            ...nestedArrayFirst,
+          };
+          const valueToCompareWith = {
+            ...testValue,
+            ...nestedArraySecond,
+            ...nestedArrayFirst,
+          };
+
+          expect(
+            deepComparisonStrategy.compareArrays(
+              testValueWithNestedObject,
+              valueToCompareWith,
+              deepComparisonStrategy
+            )
+          ).toBe(true);
+        });
+      });
+      it('Should return false for an array that have a nested arrays with the same values except an one', () => {
+        OBJECT_TYPE_VALUES_SET_ARRAYS.forEach(testValue => {
+          const nestedArrayFirst = [
+            [...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0]],
+            null,
+            1,
+          ];
+          const nestedArraySecond = [
+            ...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0],
+            [...nestedArrayFirst],
+          ];
+          const testValueWithNestedObject = {
+            ...testValue,
+            ...nestedArraySecond,
+            ...nestedArrayFirst,
+          };
+          const valueToCompareWith = {
+            ...testValue,
+            ...nestedArraySecond,
+            ...nestedArrayFirst,
+          };
+          valueToCompareWith[valueToCompareWith.length] =
+            Math.random() + Date.now();
+
+          expect(
+            deepComparisonStrategy.compareArrays(
+              testValueWithNestedObject,
+              valueToCompareWith,
+              deepComparisonStrategy
+            )
+          ).toBe(false);
+        });
+      });
     });
   });
 });

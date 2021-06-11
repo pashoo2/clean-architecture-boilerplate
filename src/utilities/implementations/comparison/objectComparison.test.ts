@@ -216,21 +216,6 @@ describe('Object comparison utilities', () => {
     });
   });
 
-  // test('test it', () => {
-  //   const testValue =
-  //     OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR[0];
-  //   const valueToCompareWith = {
-  //     ...testValue,
-  //   };
-  //   expect(
-  //     compareObjectsDeepByStrategy(
-  //       testValue,
-  //       valueToCompareWith,
-  //       comparisonStrategyDeepMock as any
-  //     )
-  //   ).toBe(true);
-  // });
-
   describe.each([
     'compareObjectsShallowByStrategy',
     'compareObjectsDeepByStrategy',
@@ -503,7 +488,7 @@ describe('Object comparison utilities', () => {
         };
       });
       it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
-        'Should return true for an object that have a nested object with the same values',
+        'Should return true for an object that have a nested array with the same values',
         testValue => {
           const nestedArrayFirst = [
             [...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0]],
@@ -560,7 +545,7 @@ describe('Object comparison utilities', () => {
         }
       );
       it.each(OBJECT_TYPE_VALUES_SET_OBJECTS)(
-        'Should return false for an object that have a nested object with the same values except a one',
+        'Should return false for an object that have a nested array with the same values except a one',
         testValue => {
           const nestedArrayFirst = [
             [...OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES[0]],
