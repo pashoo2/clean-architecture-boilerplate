@@ -1,3 +1,4 @@
+import {areSimpleValuesEqual} from 'src/utilities/implementations/comparison/simpleTypeValuesComparison';
 import {
   ICompareValuesShallowStrategy,
   ICompareValues,
@@ -34,13 +35,13 @@ export function compareObjectsDeepWithCompareValuesFunction<
   });
 }
 
-export function compareObjectsShallowWithStrategy<
+export function compareObjectsShallowByStrategy<
   O1 extends Object,
   O2 extends Object,
   S extends ICompareValuesShallowStrategy
 >(objectFirst: O1, objectSecond: O2, shallowComparisonStrategy: S): boolean {
   function compareNested(o1: any, o2: any): boolean {
-    return o1 === o2;
+    return areSimpleValuesEqual(o1, o2);
   }
   const shallowStrategy: ICompareValuesStrategy<any> = {
     ...shallowComparisonStrategy,
@@ -56,7 +57,7 @@ export function compareObjectsShallowWithStrategy<
   );
 }
 
-export function compareObjectsDeepWithStrategy<
+export function compareObjectsDeepByStrategy<
   O1 extends Object,
   O2 extends Object,
   S extends ICompareValuesStrategy<S>

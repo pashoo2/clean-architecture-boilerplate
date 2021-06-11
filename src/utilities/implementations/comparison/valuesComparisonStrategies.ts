@@ -4,7 +4,7 @@ import {
 } from '../../interfaces/comparison/valuesComparisonStrategies';
 import {areDatesEqual} from './objectTypeValuesComparison';
 import {areSimpleValuesEqual} from './simpleTypeValuesComparison';
-import {compareObjectsDeepWithStrategy} from './objectComparison';
+import {compareObjectsDeepByStrategy} from './objectComparison';
 
 export const shallowComparisonStrategy: ICompareValuesShallowStrategy = {
   compareDates: areDatesEqual,
@@ -13,7 +13,7 @@ export const shallowComparisonStrategy: ICompareValuesShallowStrategy = {
 
 export const deepComparisonStrategy: ICompareValuesStrategy<any> = {
   ...shallowComparisonStrategy,
-  compareObjects: compareObjectsDeepWithStrategy,
-  compareArrays: compareObjectsDeepWithStrategy,
-  compareOther: (v1, v2) => v1 === v2,
+  compareObjects: compareObjectsDeepByStrategy,
+  compareArrays: compareObjectsDeepByStrategy,
+  compareOther: areSimpleValuesEqual,
 };

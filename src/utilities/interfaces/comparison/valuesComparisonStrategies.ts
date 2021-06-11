@@ -3,7 +3,7 @@ import {TSimpleType} from '../../../interfaces';
 import {ICompareDateValues} from './objectTypeValuesComparison';
 import {ICompareObjectsWithStrategy} from './objectsComparition';
 
-export interface ICompareAnyWithStrategy<
+export interface ICompareAnyByStrategy<
   V1 extends any,
   V2 extends any,
   S extends ICompareValuesStrategy<S>
@@ -16,7 +16,7 @@ export interface ICompareValuesStrategy<S extends ICompareValuesStrategy<S>> {
   compareDates: ICompareDateValues;
   compareObjects: ICompareObjectsWithStrategy<Object, Object, S>;
   compareArrays: ICompareObjectsWithStrategy<Object, Object, S>;
-  compareOther: ICompareAnyWithStrategy<any, any, S>;
+  compareOther: ICompareAnyByStrategy<any, any, S>;
 }
 
 export interface ICompareValuesShallowStrategy
