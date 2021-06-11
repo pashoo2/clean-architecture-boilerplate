@@ -10,6 +10,9 @@ describe('Utils for comparison simple type values', () => {
     it('Should return false if no arguments passed', () => {
       expect((areSimpleValuesEqual as any)()).toBe(false);
     });
+    it('Should return true for two NaN values', () => {
+      expect(areSimpleValuesEqual(NaN, NaN)).toBe(true);
+    });
     it.each(SIMPLE_TYPE_VALUES_SET_EMPTY)(
       'Should return true for the same simple empty values "%s"',
       testValue => {

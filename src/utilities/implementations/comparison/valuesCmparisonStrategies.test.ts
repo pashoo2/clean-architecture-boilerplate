@@ -145,9 +145,6 @@ describe('Strategies for comparison', () => {
       ])(
         'Should return true for the value "%s" compared to itself',
         testValue => {
-          if (typeof testValue === 'number' && Number.isNaN(testValue)) {
-            return;
-          }
           expect(
             deepComparisonStrategy.compareOther(
               testValue,
@@ -157,6 +154,87 @@ describe('Strategies for comparison', () => {
           ).toBe(true);
         }
       );
+      it('Should return true for two NaN values compared', () => {
+        expect(
+          deepComparisonStrategy.compareOther(NaN, NaN, deepComparisonStrategy)
+        ).toBe(true);
+      });
+      it('Should return false if NaN is compared with 0', () => {
+        expect(
+          deepComparisonStrategy.compareOther(NaN, 0, deepComparisonStrategy)
+        ).toBe(false);
+      });
+      it('Should return false if NaN is compared with undefined', () => {
+        expect(
+          deepComparisonStrategy.compareOther(
+            NaN,
+            undefined,
+            deepComparisonStrategy
+          )
+        ).toBe(false);
+      });
+      it('Should return false if NaN is compared with null', () => {
+        expect(
+          deepComparisonStrategy.compareOther(
+            NaN,
+            undefined,
+            deepComparisonStrategy
+          )
+        ).toBe(false);
+      });
+      it('Should return false if undefined is compared with null', () => {
+        expect(
+          deepComparisonStrategy.compareOther(
+            null,
+            undefined,
+            deepComparisonStrategy
+          )
+        ).toBe(false);
+      });
+      it('Should return false if undefined is compared with 0', () => {
+        expect(
+          deepComparisonStrategy.compareOther(
+            0,
+            undefined,
+            deepComparisonStrategy
+          )
+        ).toBe(false);
+      });
+      it('Should return false if undefined is compared with false', () => {
+        expect(
+          deepComparisonStrategy.compareOther(
+            false,
+            undefined,
+            deepComparisonStrategy
+          )
+        ).toBe(false);
+      });
+      it('Should return false if 0 is compared with false', () => {
+        expect(
+          deepComparisonStrategy.compareOther(false, 0, deepComparisonStrategy)
+        ).toBe(false);
+      });
+      it('Should return false if 0 is compared with an empty string', () => {
+        expect(
+          deepComparisonStrategy.compareOther('', 0, deepComparisonStrategy)
+        ).toBe(false);
+      });
+      it('Should return true for two Infinity numbers compared', () => {
+        expect(
+          deepComparisonStrategy.compareOther(
+            Infinity,
+            Infinity,
+            deepComparisonStrategy
+          )
+        ).toBe(true);
+        expect(
+          deepComparisonStrategy.compareOther(
+            -Infinity,
+            -Infinity,
+            deepComparisonStrategy
+          )
+        ).toBe(true);
+      });
     });
     describe('compareObjects', () => {
       // TODO
