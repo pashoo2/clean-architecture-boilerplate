@@ -9,4 +9,4 @@ export * from './identityValueObject';
 export * from './multipleValuesValueObjectBase';
 
 export * from './uuidValueObject';
-export {IMultiValuesValueObjectAsync} from "./multipleValuesValueObjectAsync";
+export {IMultiValuesValueObjectAsync} from './multipleValuesValueObjectAsync';
