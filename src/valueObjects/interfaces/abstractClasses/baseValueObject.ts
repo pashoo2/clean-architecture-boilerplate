@@ -17,9 +17,7 @@ export abstract class BaseValueObject<
     this._validate();
   }
 
-  public serialize(): string {
-    return JSON.stringify(this.value);
-  }
+  public abstract serialize(): S;
 
   public equalsTo(anotherValueObject: IBaseValueObject<V, S>): boolean {
     return anotherValueObject.value === this.value;
@@ -33,6 +31,6 @@ export abstract class BaseValueObjectStringSerialization<V extends TSimpleType>
   implements IBaseValueObjectStringSerialization<V>
 {
   public serialize(): string {
-    return String(this.value);
+    return JSON.stringify(this.value);
   }
 }

@@ -9,8 +9,8 @@ describe('multiValuesValueObject', () => {
       return JSON.stringify(this.value);
     }
 
-    async equalsTo(v): Promise<boolean> {
-        super.value
+    async equalsTo(v: any): Promise<boolean> {
+      return this.value === v.value;
     }
 
     protected _validate() {
@@ -33,121 +33,25 @@ describe('multiValuesValueObject', () => {
     });
   });
 
-  it('Should serialize a value into a string that includes value passed as a parameter in the constructor', () => {
+  it('Should serialize a value into a string that includes value passed as a parameter in the constructor', async () => {
     const testValue = 'testValue';
     const instance = new MultiValuesValueObjectTestClass({value: testValue});
 
-    expect(instance.serialize()).toEqual(expect.stringContaining(testValue));
+    await expect(instance.serialize()).resolves.toEqual(
+      expect.stringContaining(testValue)
+    );
   });
 
   describe('"equalsTo" method', () => {
-    it('Should return a boolean value', () => {
+    it('Should return a boolean value', async () => {
       const instance = new MultiValuesValueObjectTestClass({
         value: 'testValue',
       });
-
-      expect(
-        typeof instance.equalsTo(
-          new MultiValuesValueObjectTestClass({value: ''})
-        ) === 'boolean'
-      ).toBe(true);
-    });
-    it('Should return true for an object with the same keys and values simple type', () => {
-      const testValue = {
-        value: 'test',
-      };
-      const instance = new MultiValuesValueObjectTestClass(testValue);
-      expect(
-        instance.equalsTo(new MultiValuesValueObjectTestClass(testValue))
-      ).toBe(true);
-    });
-    it('Should return true for an object with the same keys and values Date type', () => {
-      const testValue = {
-        value: 'test',
-        dateValue: new Date(),
-      };
-      const instance = new MultiValuesValueObjectTestClass(testValue);
-
-      expect(
-        instance.equalsTo(new MultiValuesValueObjectTestClass(testValue))
-      ).toBe(true);
-    });
-    it("Should return false if another value object doesn't contain one of props", () => {
-      const testValue = {
-        value: 'test',
-      };
-      const instance = new MultiValuesValueObjectTestClass(testValue);
-
-      expect(
-        instance.equalsTo(new MultiValuesValueObjectTestClass({} as any))
-      ).toBe(false);
-
-      const testValueWithDate = {value: 'test', dateValue: new Date()};
-      const instanceWithDate = new MultiValuesValueObjectTestClass(
-        testValueWithDate
+      const result = await instance.equalsTo(
+        new MultiValuesValueObjectTestClass({value: ''})
       );
 
-      expect(
-        instanceWithDate.equalsTo(
-          new MultiValuesValueObjectTestClass({value: testValueWithDate.value})
-        )
-      ).toBe(false);
-      expect(
-        instanceWithDate.equalsTo(
-          new MultiValuesValueObjectTestClass({
-            dateValue: testValueWithDate.dateValue,
-          } as any)
-        )
-      ).toBe(false);
-    });
-    it('Should return false for a different simple values', () => {
-      const testValue = {
-        value: 'test',
-      };
-      const instance = new MultiValuesValueObjectTestClass(testValue);
-
-      expect(
-        instance.equalsTo(
-          new MultiValuesValueObjectTestClass({
-            value: `${testValue.value} not the same`,
-          })
-        )
-      ).toBe(false);
-      expect(
-        instance.equalsTo(
-          new MultiValuesValueObjectTestClass({
-            value: `${testValue.value}   `,
-          })
-        )
-      ).toBe(false);
-    });
-    it('Should return false for Dates differ with seconds or milliseconds', () => {
-      const testDate = new Date();
-      const differentDate = new Date();
-      const testValue = {
-        value: '',
-        dateValue: testDate,
-      };
-      const instance = new MultiValuesValueObjectTestClass(testValue);
-
-      differentDate.setMilliseconds(testDate.getMilliseconds() + 1);
-      expect(
-        instance.equalsTo(
-          new MultiValuesValueObjectTestClass({
-            ...testValue,
-            dateValue: differentDate,
-          })
-        )
-      ).toBe(false);
-      differentDate.setSeconds(testDate.getSeconds() + 1);
-      expect(
-        instance.equalsTo(
-          new MultiValuesValueObjectTestClass({
-            ...testValue,
-            dateValue: differentDate,
-          })
-        )
-      ).toBe(false);
+      expect(typeof result === 'boolean').toBe(true);
     });
   });
 });

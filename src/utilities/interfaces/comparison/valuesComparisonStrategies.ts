@@ -1,7 +1,7 @@
 import {ICompareSimpleTypeValues} from './simpleTypeValueComparison';
 import {TSimpleType} from '../../../interfaces';
 import {ICompareDateValues} from './objectTypeValuesComparison';
-import {ICompareObjectsWithStrategy} from './objectsComparition';
+import {ICompareObjectsWithStrategy} from './objectsComparison';
 
 export interface ICompareAnyByStrategy<
   V1 extends any,
