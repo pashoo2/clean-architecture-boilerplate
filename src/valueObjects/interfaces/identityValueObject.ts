@@ -1,7 +1,7 @@
 import {
   IMultiValuesValueObject,
   IMultiValuesValueObjectValue,
-} from './multipleValuesValueObject';
+} from './multipleValuesValueObjectBase';
 import {IBaseValueObject} from './baseValueObject';
 
 export interface IIdentityValueObjectSimple

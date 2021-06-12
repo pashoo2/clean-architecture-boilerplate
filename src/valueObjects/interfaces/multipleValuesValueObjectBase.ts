@@ -1,11 +1,12 @@
 import {
   ISerializable,
-  ISerializableAsync,
+  ISerializer,
+  TSerializableValue,
 } from '../../interfaces/serialization';
-import {IComparable, IComparableAsync} from '../../interfaces/comparison';
-import {TSerializableValue} from '../../interfaces/serialization';
+import {IComparable} from '../../interfaces/comparison';
 import {Constructor} from 'src/interfaces/classes';
 import {ICompareValues} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
+import {IValidator} from 'src/interfaces/validation';
 
 export interface IMultiValuesValueObjectValue {
   [key: string]: TSerializableValue;
@@ -27,8 +28,8 @@ export interface IMultipleValuesValueObjectBaseFabricParameters<
   V extends IMultiValuesValueObjectValue
 > {
   compareValues: ICompareValues<V, V>;
-  serializeValue: (value: V) => string;
-  validateValue: (value: V) => void;
+  serializeValue: ISerializer<V, string>;
+  validateValue: IValidator<V>;
 }
 
 export interface IMultipleValuesValueObjectBaseFabric<
@@ -41,9 +42,3 @@ export interface IMultipleValuesValueObjectBaseFabric<
 
 export interface IMultiValuesValueObject<V extends IMultiValuesValueObjectValue>
   extends IMultiValuesValueObjectBase<V> {}
-
-export interface IMultiValuesValueObjectAsync<
-  V extends IMultiValuesValueObjectValue
-> extends Omit<IMultiValuesValueObjectBase<V>, 'serialize' | 'equalsTo'>,
-    ISerializableAsync<string>,
-    IComparableAsync<IMultiValuesValueObject<V>> {}

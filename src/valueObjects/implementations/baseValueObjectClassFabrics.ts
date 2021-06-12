@@ -17,7 +17,7 @@ export function baseValueObjectClassFabric<
   V,
   S
 >): IBaseValueObjectConstructor<V, S> {
-  class BaseValueObjectWithValuesEqualityChecker extends BaseValueObject<V, S> {
+  class ValueObjectBaseClass extends BaseValueObject<V, S> {
     public equalsTo(vo: IBaseValueObject<V, S>): boolean {
       return Boolean(compareValues(this.value, vo.value));
     }
@@ -29,5 +29,5 @@ export function baseValueObjectClassFabric<
       validateValue(this.value);
     }
   }
-  return BaseValueObjectWithValuesEqualityChecker;
+  return ValueObjectBaseClass;
 }

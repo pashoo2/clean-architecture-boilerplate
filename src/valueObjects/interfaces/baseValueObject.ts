@@ -1,7 +1,8 @@
 import {Constructor} from 'src/interfaces/classes';
 import {TSimpleType} from 'src/interfaces/common';
 import {IComparable} from 'src/interfaces/comparison';
-import {ISerializable} from 'src/interfaces/serialization';
+import {ISerializable, ISerializer} from 'src/interfaces/serialization';
+import {IValidator} from 'src/interfaces/validation';
 import {ICompareValues} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
 
 export interface IBaseValueObject<
@@ -27,8 +28,8 @@ export interface IBaseValueObjectConstructorFabricParameters<
   S extends TSimpleType
 > {
   compareValues: ICompareValues<V, V>;
-  serializeValue: (value: V) => S;
-  validateValue: (value: V) => void;
+  serializeValue: ISerializer<V, S>;
+  validateValue: IValidator<V>;
 }
 
 export interface IBaseValueObjectConstructorFabric<

@@ -1,8 +1,8 @@
 import {
   IMultiValuesValueObject,
-  IMultiValuesValueObjectAsync,
   IMultiValuesValueObjectValue,
-} from '../multipleValuesValueObject';
+} from '../multipleValuesValueObjectBase';
+import {IMultiValuesValueObjectAsync} from '../multipleValuesValueObjectAsync';
 
 export abstract class MultiValuesValueObjectAsync<
   V extends IMultiValuesValueObjectValue

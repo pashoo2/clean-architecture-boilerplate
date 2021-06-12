@@ -13,17 +13,17 @@ export function multipleValuesValueObjectBaseFabric<
   serializeValue,
   validateValue,
 }: IMultipleValuesValueObjectBaseFabricParameters<V>): IMultipleValuesValueObjectBaseConstructor<V> {
-  class BaseValueObjectWithValuesEqualityChecker extends MultiValuesValueObject<V> {
+  class MultiValueObjectBaseClass extends MultiValuesValueObject<V> {
     public equalsTo(vo: IMultiValuesValueObject<V>): boolean {
       return Boolean(compareValues(this.value, vo.value));
     }
     public serialize(): string {
-      return serializeValue(this.value);
+      return String(serializeValue(this.value));
     }
 
     protected _validate(): void {
       validateValue(this.value);
     }
   }
-  return BaseValueObjectWithValuesEqualityChecker;
+  return MultiValueObjectBaseClass;
 }
