@@ -1,10 +1,8 @@
 import {DeepPartial} from 'src/interfaces/common';
 import {TServicesList} from 'src/services/interfaces/common/servicesList';
-import {
-  IServicesContainer,
-  ServicesContainerAbstractClass,
-} from 'src/services/interfaces/common/servicesContainer';
+import {IServicesContainer} from 'src/services/interfaces/common/servicesContainer';
 import {mergeDeep} from 'src/utilities/implementations/objects';
+import {ServicesContainerAbstractClass} from '../../interfaces/abstractClasses/serviceContainerAbstractClass';
 
 export class ServicesContainerBase<L extends TServicesList>
   extends ServicesContainerAbstractClass<L>
@@ -12,6 +10,9 @@ export class ServicesContainerBase<L extends TServicesList>
 {
   constructor(private __services: L) {
     super(__services);
+    if (!__services) {
+      throw new Error('A services list should be passed as a parameter');
+    }
   }
 
   registerServices(updatedServices: DeepPartial<L>): void {
