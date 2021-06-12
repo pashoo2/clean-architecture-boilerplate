@@ -1,5 +1,13 @@
 import {TSimpleType, TSimpleObject, TSimpleArray} from './common';
 
+export interface ISerializer<V, S extends TSimpleType> {
+  (value: V): S;
+}
+
+export interface ISerializerAsync<V, S extends TSimpleType> {
+  (value: V): Promise<S>;
+}
+
 export interface ISerializable<S extends TSimpleType> {
   serialize(): S;
 }

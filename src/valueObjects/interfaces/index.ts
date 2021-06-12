@@ -6,6 +6,7 @@ export * from './emailValueObject';
 
 export * from './identityValueObject';
 
-export * from './multipleValuesValueObject';
+export * from './multipleValuesValueObjectBase';
 
 export * from './uuidValueObject';
+export {IMultiValuesValueObjectAsync} from "./multipleValuesValueObjectAsync";

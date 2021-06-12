@@ -36,3 +36,7 @@ export interface ICompareValuesByStrategy<
 export interface ICompareValues<V1, V2> {
   (firstValue: V1, secondValue: V2): boolean;
 }
+
+export interface ICompareValuesAsync<V1, V2> {
+  (firstValue: V1, secondValue: V2): Promise<boolean>;
+}

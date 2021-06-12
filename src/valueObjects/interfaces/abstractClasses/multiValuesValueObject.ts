@@ -1,7 +1,7 @@
 import {
   IMultiValuesValueObject,
   IMultiValuesValueObjectValue,
-} from '../multipleValuesValueObject';
+} from '../multipleValuesValueObjectBase';
 
 export abstract class MultiValuesValueObject<
   V extends IMultiValuesValueObjectValue

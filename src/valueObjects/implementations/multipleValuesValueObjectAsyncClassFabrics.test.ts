@@ -1,4 +1,4 @@
-import {multipleValuesValueObjectBaseFabric} from 'src/valueObjects/implementations/multipleValuesValueObjectClassFabrics';
+import {multipleValuesValueObjectAsyncFabric} from 'src/valueObjects/implementations/multipleValuesValueObjectAsyncClassFabrics';
 
 describe('Fabrics allows to construct various constructors of the multiple values value object interface', () => {
   describe('multipleValuesValueObjectBaseFabric', () => {
@@ -8,7 +8,7 @@ describe('Fabrics allows to construct various constructors of the multiple value
       testValue = {testValue: true};
     });
     it('Should return a class allows to construct a value object', () => {
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: jest.fn(),
@@ -20,9 +20,9 @@ describe('Fabrics allows to construct various constructors of the multiple value
       expect(typeof vo.serialize === 'function').toBe(true);
       expect(typeof vo.equalsTo === 'function').toBe(true);
     });
-    it('Should call "compareValues" parameter function when the method "equalsTo" is invoked with values of value objects compared', () => {
+    it('Should call "compareValues" parameter function when the method "equalsTo" is invoked with values of value objects compared', async () => {
       const comparator = jest.fn();
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: comparator,
@@ -35,12 +35,12 @@ describe('Fabrics allows to construct various constructors of the multiple value
         testValueToCompareWith as any
       );
       expect(comparator).not.toBeCalled();
-      vo.equalsTo(voToCompareWith);
+      await vo.equalsTo(voToCompareWith);
       expect(comparator).toBeCalledWith(testValue, testValueToCompareWith);
     });
-    test('The method "equalsTo" must return a boolean', () => {
+    test('The method "equalsTo" must return a boolean', async () => {
       const comparator = jest.fn(() => 'comparator') as any;
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: comparator,
@@ -48,14 +48,14 @@ describe('Fabrics allows to construct various constructors of the multiple value
         validateValue: jest.fn(),
       });
       const vo = new MultipleValuesValueObject(testValue);
-      expect(typeof vo.equalsTo(vo) === 'boolean').toBe(true);
+      expect(typeof (await vo.equalsTo(vo)) === 'boolean').toBe(true);
     });
-    test('The method "equalsTo" must throw if a parameter "compareValues" throws', () => {
+    test('The method "equalsTo" must throw if a parameter "compareValues" throws', async () => {
       const errorMessageExpected = 'errorExpected';
       const comparator = jest.fn(() => {
         throw new Error(errorMessageExpected);
       }) as any;
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: comparator,
@@ -63,11 +63,13 @@ describe('Fabrics allows to construct various constructors of the multiple value
         validateValue: jest.fn(),
       });
       const vo = new MultipleValuesValueObject(testValue);
-      expect(() => vo.equalsTo(vo)).toThrowError(errorMessageExpected);
+      await expect(() => vo.equalsTo(vo)).rejects.toThrowError(
+        errorMessageExpected
+      );
     });
-    it('Should call "serializeValue" parameter function with the value when the "serialize" method invoked', () => {
+    it('Should call "serializeValue" parameter function with the value when the "serialize" method invoked', async () => {
       const serializer = jest.fn();
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: jest.fn(),
@@ -76,13 +78,13 @@ describe('Fabrics allows to construct various constructors of the multiple value
       });
       const vo = new MultipleValuesValueObject(testValue);
       expect(serializer).not.toBeCalled();
-      vo.serialize();
+      await vo.serialize();
       expect(serializer).toBeCalledWith(testValue);
     });
-    it('Should return exact the same value as a "serializeValue" parameter function return if the "serialize" method invoked', () => {
-      const expectedSerializedValue = 'expectedSerializedValue';
-      const serializer = jest.fn(() => expectedSerializedValue);
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+    it('Should return a string from "serialize" method invoked', async () => {
+      const expectedSerializedValue = {};
+      const serializer = jest.fn(() => expectedSerializedValue) as any;
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: jest.fn(),
@@ -90,14 +92,16 @@ describe('Fabrics allows to construct various constructors of the multiple value
         validateValue: jest.fn(),
       });
       const vo = new MultipleValuesValueObject(testValue);
-      expect(vo.serialize()).toBe(expectedSerializedValue);
+      await expect(vo.serialize()).resolves.toEqual(
+        expect.stringContaining('')
+      );
     });
-    test('The method "serialize" must throw if a parameter "serialize" throws', () => {
+    test('The method "serialize" must throw if a parameter "serialize" throws', async () => {
       const errorMessageExpected = 'errorExpected';
       const serializer = jest.fn(() => {
         throw new Error(errorMessageExpected);
       }) as any;
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: jest.fn(),
@@ -105,11 +109,13 @@ describe('Fabrics allows to construct various constructors of the multiple value
         validateValue: jest.fn(),
       });
       const vo = new MultipleValuesValueObject(testValue);
-      expect(() => vo.serialize()).toThrowError(errorMessageExpected);
+      await expect(() => vo.serialize()).rejects.toThrowError(
+        errorMessageExpected
+      );
     });
     it('Should call a "validateValue" parameter function with the value passed in a constructor', () => {
       const validator = jest.fn(() => 'some value');
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: jest.fn(),
@@ -125,7 +131,7 @@ describe('Fabrics allows to construct various constructors of the multiple value
       const validator = jest.fn(() => {
         throw new Error(errorMessageExpected);
       });
-      const MultipleValuesValueObject = multipleValuesValueObjectBaseFabric<
+      const MultipleValuesValueObject = multipleValuesValueObjectAsyncFabric<
         typeof testValue
       >({
         compareValues: jest.fn(),
