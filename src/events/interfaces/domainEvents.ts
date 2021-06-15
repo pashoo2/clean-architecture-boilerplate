@@ -32,7 +32,7 @@ export interface IDomainEventProperties<
    * @type {number}
    * @memberof IDomainEvent
    */
-  readonly version: number;
+  readonly metaVersion: number;
   /**
    * Payload of the event
    *

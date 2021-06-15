@@ -41,6 +41,17 @@ export const OBJECT_TYPE_VALUE_WITHOUT_CONSTRUCTOR_WITH_SIMPLE_VALUES = [
   return acc;
 }, {} as any);
 
+export const OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR_SERIALIZABLE =
+  [
+    [
+      ...SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_FINITE_NUMBERS,
+      ...SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS,
+    ].reduce((acc, value, index) => {
+      acc[`k-${index}`] = value;
+      return acc;
+    }, {} as any),
+  ];
+
 export const OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR = [
   [
     ...SIMPLE_TYPE_VALUES_SET_STRINGS,

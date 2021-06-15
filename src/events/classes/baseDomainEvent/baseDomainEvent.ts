@@ -4,15 +4,14 @@ import {
   TDomainEventPayload,
 } from 'src/events/interfaces/domainEvents';
 
-export interface IBaseDomainEventParameters<
-  P extends TDomainEventPayload = TDomainEventPayload
-> {
-  payload: P;
-  version?: number;
+export interface IBaseDomainEventParametersWithoutPayload {
+  id: string;
+  metaVersion?: number;
 }
 
-export interface IBaseDomainEventClassServices {
-  getUniqueIdentifierString(): string;
+export interface IBaseDomainEventParameters<P extends TDomainEventPayload>
+  extends IBaseDomainEventParametersWithoutPayload {
+  payload: P;
 }
 
 export abstract class BaseDomainEventClass<
@@ -24,8 +23,8 @@ export abstract class BaseDomainEventClass<
     return this._name;
   }
 
-  public get version(): number {
-    return this.__version;
+  public get metaVersion(): number {
+    return this.__metaVersion;
   }
 
   public get payload(): P {
@@ -38,22 +37,34 @@ export abstract class BaseDomainEventClass<
 
   protected abstract _name: N;
 
-  private __version: number;
-  private __payload: P;
-  private __id: string;
+  private readonly __metaVersion: number;
+  private readonly __payload: P;
+  private readonly __id: string;
 
   constructor(
-    {
-      payload,
-      version = 1,
-    }: P extends never
-      ? IBaseDomainEventParameters
-      : IBaseDomainEventParameters<P>,
-    {getUniqueIdentifierString}: IBaseDomainEventClassServices
+    parameters: P extends undefined
+      ? IBaseDomainEventParametersWithoutPayload
+      : IBaseDomainEventParameters<P>
   ) {
-    this.__version = version;
-    this.__id = getUniqueIdentifierString();
+    const {
+      id,
+      payload = undefined,
+      metaVersion = 1,
+    } = parameters as IBaseDomainEventParameters<P>;
+
+    if (!id) {
+      throw new Error('The "identity" parameter must not be empty');
+    }
+    if (
+      metaVersion !== null &&
+      (typeof metaVersion !== 'number' || metaVersion === 0)
+    ) {
+      throw new Error('A meta version value must be a number');
+    }
+
+    this.__id = id;
     this.__payload = payload as P;
+    this.__metaVersion = metaVersion;
   }
 
   public serialize(): string {
@@ -66,9 +77,9 @@ export abstract class BaseDomainEventClass<
   > {
     return {
       id: this.id,
-      version: this.version,
       name: this.name,
       payload: this.payload,
+      metaVersion: this.metaVersion,
     };
   }
 }
