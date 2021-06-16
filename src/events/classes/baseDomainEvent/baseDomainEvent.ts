@@ -14,6 +14,11 @@ export interface IBaseDomainEventParameters<P extends TDomainEventPayload>
   payload: P;
 }
 
+export type TBaseDomainEventClassParameters<P extends TDomainEventPayload> =
+  P extends undefined
+    ? IBaseDomainEventParametersWithoutPayload
+    : IBaseDomainEventParameters<P>;
+
 export abstract class BaseDomainEventClass<
   N extends string = string,
   P extends TDomainEventPayload = undefined
@@ -41,11 +46,7 @@ export abstract class BaseDomainEventClass<
   private readonly __payload: P;
   private readonly __id: string;
 
-  constructor(
-    parameters: P extends undefined
-      ? IBaseDomainEventParametersWithoutPayload
-      : IBaseDomainEventParameters<P>
-  ) {
+  constructor(parameters: TBaseDomainEventClassParameters<P>) {
     const {
       id,
       payload = undefined,
