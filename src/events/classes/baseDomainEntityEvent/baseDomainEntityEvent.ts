@@ -1,4 +1,7 @@
-import {IBaseDomainEventParameters} from 'src/events/classes/baseDomainEvent/baseDomainEvent';
+import {
+  BaseDomainEventClass,
+  TBaseDomainEventClassParameters,
+} from 'src/events/classes/baseDomainEvent/baseDomainEvent';
 import {
   TDomainEventPayload,
   IDomainEntityEvent,
@@ -6,14 +9,13 @@ import {
   IDomainEntityEventPropertiesSerialized,
 } from 'src/events/interfaces/domainEvents';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
-import {BaseDomainEvent} from 'src/events/classes/baseDomainEvent';
 
-export interface IBaseDomainEntityEventParameters<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  P extends TDomainEventPayload | undefined = undefined
-> extends IBaseDomainEventParameters<P> {
+export type TBaseDomainEntityEventParameters<
+  Id extends TIdentityValueObject,
+  P extends TDomainEventPayload
+> = TBaseDomainEventClassParameters<P> & {
   entityId: Id;
-}
+};
 
 export abstract class BaseDomainEntityEvent<
     Id extends TIdentityValueObject = TIdentityValueObject,
@@ -21,7 +23,7 @@ export abstract class BaseDomainEntityEvent<
     N extends string = string,
     P extends TDomainEventPayload = undefined
   >
-  extends BaseDomainEvent<N, P>
+  extends BaseDomainEventClass<N, P>
   implements IDomainEntityEvent<Id, Type, N, P>
 {
   public get entityId(): Id {
@@ -36,12 +38,9 @@ export abstract class BaseDomainEntityEvent<
 
   protected abstract _entityType: Type;
 
-  constructor({
-    entityId,
-    ...baseDomainEventProps
-  }: IBaseDomainEntityEventParameters<Id, P>) {
-    super({...baseDomainEventProps});
-    this.__entityId = entityId;
+  constructor(parameters: TBaseDomainEntityEventParameters<Id, P>) {
+    super(parameters);
+    this.__entityId = parameters.entityId;
   }
 
   protected _getSerializableObjectRepresentation(): IDomainEntityEventPropertiesSerialized<
