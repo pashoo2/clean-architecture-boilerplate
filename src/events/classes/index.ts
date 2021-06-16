@@ -8,4 +8,6 @@ export * from './baseDomainEntityNoPayloadEvent';
 
 export * from './baseDomainEvent';
 
+export * from './domainEvent';
+
 export * from './fabricDomainEntityEventConstructor';
