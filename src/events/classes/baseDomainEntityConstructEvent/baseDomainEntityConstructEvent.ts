@@ -1,5 +1,5 @@
-import {BaseDomainEntityNoPayloadEvent} from 'src/events/classes/baseDomainEntityNoPayloadEvent/baseDomainEntityNoPayloadEvent';
 import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from 'src/constants/domainEvents';
+import {BaseDomainEntityEvent} from 'src/events/classes/baseDomainEntityEvent';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export type TDomainEventName = typeof DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED;
@@ -14,7 +14,7 @@ export interface IBaseDomainEntityConstructEventParameters<
 export abstract class BaseDomainEntityConstructEvent<
   Id extends TIdentityValueObject = TIdentityValueObject,
   Type extends string = string
-> extends BaseDomainEntityNoPayloadEvent<
+> extends BaseDomainEntityEvent<
   Id,
   Type,
   typeof DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED

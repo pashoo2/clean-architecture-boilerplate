@@ -2,86 +2,54 @@ import {
   BaseDomainEntityEvent,
   TBaseDomainEntityEventParameters,
 } from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
-import {baseValueObjectClassFabric} from 'src/valueObjects/implementations/baseValueObjectClassFabrics';
-import {multipleValuesValueObjectBaseFabric} from 'src/valueObjects/implementations/multipleValuesValueObjectBaseClassFabrics';
 import {
-  IBaseValueObjectConstructorFabricParameters,
-  IIdentityMultiValueObject,
-  IIdentityValueObjectSimple,
-  IMultipleValuesValueObjectBaseFabricParameters,
-  IMultiValuesValueObjectValue,
-} from 'src/valueObjects/interfaces';
+  MultipleIdentityValueObjectClassMock,
+  SimpleIdentityValueObjectClassMock,
+  UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
+  UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
+} from 'src/__mock__/valueObjects.mock';
 
 describe('Base domain entity event', () => {
   const EVENT_IDENTITY_UNIQUE = 'event id unique';
-  const UNIQUE_ENTITY_IDENTITY_SIMPLE = 'entity id unique';
-  const UNIQUE_ENTITY_IDENTITY_MULTI = {
-    id: 'entity id unique multi',
-    isMulti: true,
-  };
   const ENTITY_TYPE = 'entity type';
   const EVENT_NAME = 'DomainEventClassTest';
 
-  const simpleIdentityValueObjectClassFabricParameters: IBaseValueObjectConstructorFabricParameters<
-    string,
-    string
-  > = {
-    compareValues: jest.fn(() => true),
-    serializeValue: jest.fn(() => UNIQUE_ENTITY_IDENTITY_SIMPLE),
-    validateValue: jest.fn(() => true),
-  };
-  class SimpleIdentityValueObjectClass
-    extends baseValueObjectClassFabric(
-      simpleIdentityValueObjectClassFabricParameters
-    )
-    implements IIdentityValueObjectSimple {}
-
-  const multipleIdentityValueObjectClassFabricParameters: IMultipleValuesValueObjectBaseFabricParameters<IMultiValuesValueObjectValue> =
-    {
-      compareValues: jest.fn(() => true),
-      serializeValue: jest.fn(() =>
-        JSON.stringify(UNIQUE_ENTITY_IDENTITY_MULTI)
-      ),
-      validateValue: jest.fn(() => true),
-    };
-  class MultipleIdentityValueObjectClass
-    extends multipleValuesValueObjectBaseFabric<
-      typeof UNIQUE_ENTITY_IDENTITY_MULTI
-    >(multipleIdentityValueObjectClassFabricParameters)
-    implements IIdentityMultiValueObject<typeof UNIQUE_ENTITY_IDENTITY_MULTI> {}
-
   const parametersWithoutPayloadSimpleEntityId: TBaseDomainEntityEventParameters<
-    SimpleIdentityValueObjectClass,
+    SimpleIdentityValueObjectClassMock,
     undefined
   > = {
     id: EVENT_IDENTITY_UNIQUE,
     metaVersion: 1,
-    entityId: new SimpleIdentityValueObjectClass(UNIQUE_ENTITY_IDENTITY_SIMPLE),
+    entityId: new SimpleIdentityValueObjectClassMock(
+      UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB
+    ),
   };
   const parametersWithoutPayloadMultiEntityId: TBaseDomainEntityEventParameters<
-    MultipleIdentityValueObjectClass,
+    MultipleIdentityValueObjectClassMock,
     undefined
   > = {
     ...parametersWithoutPayloadSimpleEntityId,
-    entityId: new MultipleIdentityValueObjectClass(
-      UNIQUE_ENTITY_IDENTITY_MULTI
+    entityId: new MultipleIdentityValueObjectClassMock(
+      UNIQUE_ENTITY_IDENTITY_MULTI_STUB
     ),
   };
   const parametersWithPayloadSimpleEntityId: TBaseDomainEntityEventParameters<
-    SimpleIdentityValueObjectClass,
+    SimpleIdentityValueObjectClassMock,
     {isPayload: boolean}
   > = {
     id: EVENT_IDENTITY_UNIQUE,
     payload: {isPayload: true},
-    entityId: new SimpleIdentityValueObjectClass(UNIQUE_ENTITY_IDENTITY_SIMPLE),
+    entityId: new SimpleIdentityValueObjectClassMock(
+      UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB
+    ),
   };
   const parametersWithPayloadMultiEntityId: TBaseDomainEntityEventParameters<
-    MultipleIdentityValueObjectClass,
+    MultipleIdentityValueObjectClassMock,
     {isPayload: boolean}
   > = {
     ...parametersWithPayloadSimpleEntityId,
-    entityId: new MultipleIdentityValueObjectClass(
-      UNIQUE_ENTITY_IDENTITY_MULTI
+    entityId: new MultipleIdentityValueObjectClassMock(
+      UNIQUE_ENTITY_IDENTITY_MULTI_STUB
     ),
   };
 
@@ -147,8 +115,8 @@ describe('Base domain entity event', () => {
           entityType: ENTITY_TYPE,
           entityId:
             typeof constructorParameters.entityId.value === 'object'
-              ? expect.objectContaining(UNIQUE_ENTITY_IDENTITY_MULTI)
-              : UNIQUE_ENTITY_IDENTITY_SIMPLE,
+              ? expect.objectContaining(UNIQUE_ENTITY_IDENTITY_MULTI_STUB)
+              : UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
           payload: (constructorParameters as any).payload,
           metaVersion: (constructorParameters as any).metaVersion
             ? (constructorParameters as any).metaVersion
