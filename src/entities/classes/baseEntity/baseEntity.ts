@@ -12,6 +12,9 @@ import {
 } from '../../interfaces/baseEntity';
 import {TPickTransferableProperties} from 'src/interfaces/transferable';
 import {BaseEntityAbstractClass} from 'src/entities/interfaces/baseEntityAbstractClass';
+import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
+import {Constructor} from 'src/interfaces/classes';
+import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
 
 export abstract class BaseEntity<
   Id extends TIdentityValueObject,
@@ -30,7 +33,19 @@ export abstract class BaseEntity<
 
   private __isDeleted: boolean;
 
-  private __domainEventBus: IDomainEventBus<E>;
+  private readonly __domainEventBus: IDomainEventBus<E>;
+
+  private readonly __generateUniqueIdentityString: IServiceGeneratorIdentifierUnique;
+
+  protected readonly _EntityDeleteEventClass: Constructor<
+    BaseDomainEntityDeleteEvent<Id, Type>,
+    [TBaseDomainEntityEventParameters<Id, undefined>]
+  >;
+
+  protected readonly _EntityCreateEventClass: Constructor<
+    BaseDomainEntityCreateEvent<Id, Type>,
+    [TBaseDomainEntityEventParameters<Id, undefined>]
+  >;
 
   protected constructor(
     parameters: IBaseEntityParameters<Id>,
@@ -38,7 +53,7 @@ export abstract class BaseEntity<
   ) {
     super(parameters, services);
     const {id, isDeleted} = parameters;
-    const {domainEventBus} = services;
+    const {domainEventBus, generateUniqueIdentifierString} = services;
 
     if (!id) {
       throw new Error('Each entity should have a unique identity');
@@ -50,8 +65,12 @@ export abstract class BaseEntity<
     this.__id = id;
     this.__isDeleted = isDeleted;
     this.__domainEventBus = domainEventBus;
+    this.__generateUniqueIdentityString = generateUniqueIdentifierString;
     this._validate();
     this._emitCreateEvent();
+
+    this._EntityDeleteEventClass = this.__getEntityDeleteEventClass();
+    this._EntityCreateEventClass = this.__getEntityCreateEventClass();
   }
 
   public equalsTo(anotherEntity: IEntity<Id, Type>): boolean {
@@ -105,16 +124,40 @@ export abstract class BaseEntity<
     this._emit<E['DOMAIN_ENTITY_CONSTRUCTED']>(event);
   }
 
-  private __createEntityDeleteEventInstance(): BaseDomainEntityDeleteEvent<
-    Id,
-    Type
+  protected _getEventUniqueIdentity(): string {
+    return this.__generateUniqueIdentityString();
+  }
+
+  private __getEntityDeleteEventClass(): Constructor<
+    BaseDomainEntityDeleteEvent<Id, Type>,
+    [TBaseDomainEntityEventParameters<Id, undefined>]
   > {
     const entityType = this.type;
     class DeleteEntityEvent extends BaseDomainEntityDeleteEvent<Id, Type> {
       protected _entityType = entityType;
     }
-    return new DeleteEntityEvent({
+    return DeleteEntityEvent;
+  }
+
+  private __getEntityCreateEventClass(): Constructor<
+    BaseDomainEntityCreateEvent<Id, Type>,
+    [TBaseDomainEntityEventParameters<Id, undefined>]
+  > {
+    const entityType = this.type;
+    class CreateEntityEvent extends BaseDomainEntityCreateEvent<Id, Type> {
+      protected _entityType = entityType;
+    }
+    return CreateEntityEvent;
+  }
+
+  private __createEntityDeleteEventInstance(): BaseDomainEntityDeleteEvent<
+    Id,
+    Type
+  > {
+    const DeleteEntityEventClass = this._EntityDeleteEventClass;
+    return new DeleteEntityEventClass({
       entityId: this.id,
+      id: this._getEventUniqueIdentity(),
     });
   }
 
@@ -122,12 +165,10 @@ export abstract class BaseEntity<
     Id,
     Type
   > {
-    const entityType = this.type;
-    class CreateEntityEvent extends BaseDomainEntityCreateEvent<Id, Type> {
-      protected _entityType = entityType;
-    }
-    return new CreateEntityEvent({
+    const CreateEntityEventClass = this._EntityCreateEventClass;
+    return new CreateEntityEventClass({
       entityId: this.id,
+      id: this._getEventUniqueIdentity(),
     });
   }
 }
