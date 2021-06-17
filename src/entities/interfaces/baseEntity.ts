@@ -4,6 +4,7 @@ import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueO
 import {BaseDomainEntityDeleteEvent} from '../../events/classes/baseDomainEntityDeleteEvent';
 import {BaseDomainEntityCreateEvent} from '../../events/classes/baseDomainEntityConstructEvent';
 import {TEntityType} from './entity';
+import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
 
 export interface IBaseEntityParameters<Id extends TIdentityValueObject> {
   id: Id;
@@ -26,4 +27,5 @@ export interface IBaseEntityEventsList<
 
 export interface IBaseEntityServices<E extends TEventsList> {
   domainEventBus: IDomainEventBus<E>;
+  generateUniqueIdentifierString: IServiceGeneratorIdentifierUnique;
 }
