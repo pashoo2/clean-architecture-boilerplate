@@ -55,7 +55,7 @@ export abstract class BaseDomainEntityEvent<
     > = super._getSerializableObjectRepresentation();
     return {
       ...baseDomainEventObjectRepresentation,
-      entityId: this.entityId.serialize() as ReturnType<Id['serialize']>,
+      entityId: this.entityId.value as ReturnType<Id['serialize']>,
       entityType: this.entityType,
     };
   }

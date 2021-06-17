@@ -12,8 +12,6 @@ import {
   IMultiValuesValueObjectValue,
 } from 'src/valueObjects/interfaces';
 
-// TODO - test failed
-
 describe('Base domain entity event', () => {
   const EVENT_IDENTITY_UNIQUE = 'event id unique';
   const UNIQUE_ENTITY_IDENTITY_SIMPLE = 'entity id unique';
@@ -141,19 +139,22 @@ describe('Base domain entity event', () => {
         expect(domainEntityEvent.entityId).toBe(constructorParameters.entityId);
       });
       it('Should be serialized', () => {
-        expect(domainEntityEvent.serialize()).toEqual({
+        const eventSerialized = domainEntityEvent.serialize();
+        const eventSerializedParsed = JSON.parse(eventSerialized);
+        const objectExpected = {
           id: EVENT_IDENTITY_UNIQUE,
           name: EVENT_NAME,
           entityType: ENTITY_TYPE,
           entityId:
-            typeof constructorParameters.entityId === 'object'
+            typeof constructorParameters.entityId.value === 'object'
               ? expect.objectContaining(UNIQUE_ENTITY_IDENTITY_MULTI)
               : UNIQUE_ENTITY_IDENTITY_SIMPLE,
           payload: (constructorParameters as any).payload,
           metaVersion: (constructorParameters as any).metaVersion
             ? (constructorParameters as any).metaVersion
             : 1,
-        });
+        };
+        expect(eventSerializedParsed).toEqual(objectExpected);
       });
     });
   });
