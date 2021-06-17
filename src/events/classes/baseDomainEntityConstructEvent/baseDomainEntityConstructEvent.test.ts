@@ -8,10 +8,10 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
-describe('Domain entity event "CONSTRUCTED"', () => {
-  const EVENT_ENTITY_TYPE = 'EVENT_ENTITY_TYPE' as const;
-  const EVENT_IDENTITY_UNIQUE = 'EVENT_IDENTITY_UNIQUE' as const;
+const EVENT_ENTITY_TYPE = 'EVENT_ENTITY_TYPE' as const;
+const EVENT_IDENTITY_UNIQUE = 'EVENT_IDENTITY_UNIQUE' as const;
 
+describe('Domain entity event "CONSTRUCTED"', () => {
   const parametersWithoutPayloadSimpleEntityId: TBaseDomainEntityEventParameters<
     SimpleIdentityValueObjectClassMock,
     undefined
