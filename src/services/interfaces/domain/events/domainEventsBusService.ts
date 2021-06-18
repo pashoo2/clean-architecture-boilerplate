@@ -8,6 +8,6 @@ import {IClassService} from 'src/services/interfaces/common';
  * @export
  * @interfaces IEventBus
  */
-export interface IServiceAggregateDomainEventsBus<E extends TEventsList>
+export interface IServiceDomainEventsBus<E extends TEventsList>
   extends IDomainEventBus<E>,
     IClassService {}
