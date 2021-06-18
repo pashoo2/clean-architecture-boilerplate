@@ -8,10 +8,7 @@ export interface IDomainEventPayloadKeyValue {
 
 export type TDomainEventPayload = TSerializableValue;
 
-export interface IDomainEventProperties<
-  N extends string = string,
-  P extends TDomainEventPayload = undefined
-> {
+export interface IDomainEventPropertiesWithoutPayload<N extends string> {
   /**
    * A unique identifier of an event
    *
@@ -33,6 +30,12 @@ export interface IDomainEventProperties<
    * @memberof IDomainEvent
    */
   readonly metaVersion: number;
+}
+
+export interface IDomainEventPropertiesWithPayload<
+  N extends string,
+  P extends TDomainEventPayload
+> extends IDomainEventPropertiesWithoutPayload<N> {
   /**
    * Payload of the event
    *
@@ -42,16 +45,28 @@ export interface IDomainEventProperties<
   readonly payload: P;
 }
 
+export type TDomainEventProperties<
+  N extends string,
+  P extends TDomainEventPayload
+> = P extends undefined | void | never
+  ? IDomainEventPropertiesWithoutPayload<N>
+  : IDomainEventPropertiesWithPayload<N, P>;
+
 export interface IDomainEventPropertiesSerialized<
   N extends string = string,
   P extends TDomainEventPayload = undefined
-> extends IDomainEventProperties<N, P> {}
+> extends IDomainEventPropertiesWithPayload<N, P> {}
 
 export interface IDomainEvent<
   N extends string = string,
   P extends TDomainEventPayload = undefined
 > extends ISerializable<string>,
-    IDomainEventProperties<N, P> {}
+    IDomainEventPropertiesWithPayload<N, P> {}
+
+export type TDomainEvent<
+  N extends string = string,
+  P extends TDomainEventPayload = undefined
+> = ISerializable<string> & TDomainEventProperties<N, P>;
 
 export interface IDomainEventFailed<E extends IDomainEvent> {
   name: `failed::${E['name']}`;
@@ -61,6 +76,9 @@ export interface IDomainEventFailed<E extends IDomainEvent> {
 
 export interface IDomainEventListener<DE extends IDomainEvent> {
   (event: DE): void;
+}
+
+export interface IDomainFailedEventListener<DE extends IDomainEvent> {
   (failedEvent: IDomainEventFailed<DE>): void;
 }
 

@@ -1,4 +1,8 @@
-import {IDomainEventFailed, IDomainEventListener} from './domainEvents';
+import {
+  IDomainEventFailed,
+  IDomainEventListener,
+  IDomainFailedEventListener,
+} from './domainEvents';
 import {TEventsList, TGetEvents, TGetEventsNames} from './events';
 
 export interface IDomainEventBus<E extends TEventsList> {
@@ -13,8 +17,13 @@ export interface IDomainEventBus<E extends TEventsList> {
     eventListener: IDomainEventListener<E[N]>
   ): void;
 
+  subscribeFailed<N extends TGetEventsNames<E>>(
+    eventName: N,
+    eventListener: IDomainFailedEventListener<E[N]>
+  ): void;
+
   unsubscribe<N extends TGetEventsNames<E>>(
     eventName: N,
-    eventListener: IDomainEventListener<E[N]>
+    eventListener: IDomainEventListener<E[N]> | IDomainFailedEventListener<E[N]>
   ): void;
 }

@@ -1,6 +1,6 @@
 import {TEventsList} from 'src/events/interfaces';
-import {IServiceAggregateDomainEventsBus} from './domainEventsBusService';
+import {IServiceDomainEventsBus} from './domainEventsBusService';
 
 export interface IDomainCommonServicesEvents<Events extends TEventsList> {
-  domainEventsBus: IServiceAggregateDomainEventsBus<Events>;
+  domainEventsBus: IServiceDomainEventsBus<Events>;
 }

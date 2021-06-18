@@ -29,7 +29,13 @@ export abstract class BaseEntity<
     return this.__isDeleted;
   }
 
+  public get type(): Type {
+    return this._type;
+  }
+
   private readonly __id: Id;
+
+  protected abstract readonly _type: Type;
 
   private __isDeleted: boolean;
 
@@ -47,7 +53,7 @@ export abstract class BaseEntity<
     [TBaseDomainEntityEventParameters<Id, undefined>]
   >;
 
-  protected constructor(
+  constructor(
     parameters: IBaseEntityParameters<Id>,
     services: IBaseEntityServices<E>
   ) {
@@ -88,7 +94,9 @@ export abstract class BaseEntity<
 
   protected abstract _validate(): void;
 
-  public abstract getTransferableProps(): TPickTransferableProperties<this>;
+  public getTransferableProps(): TPickTransferableProperties<this> {
+    return this._getTransferableProps();
+  }
 
   protected _markDeleted(): void {
     this.__isDeleted = true;
@@ -127,6 +135,10 @@ export abstract class BaseEntity<
   protected _getEventUniqueIdentity(): string {
     return this.__generateUniqueIdentityString();
   }
+
+  protected abstract _getTransferableProps<T extends this>(
+    this: T
+  ): TPickTransferableProperties<T>;
 
   private __getEntityDeleteEventClass(): Constructor<
     BaseDomainEntityDeleteEvent<Id, Type>,

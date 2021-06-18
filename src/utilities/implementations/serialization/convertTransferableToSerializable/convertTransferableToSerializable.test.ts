@@ -4,7 +4,7 @@ import {
   ITransferable,
   TPickTransferableProperties,
 } from 'src/interfaces/transferable';
-import {mockDomainEventBus} from 'src/services/interfaces/domain/events/domainEventsBus.mock';
+import {mockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
 import {convertTransferableToSerializableAsync} from 'src/utilities/implementations/serialization/convertTransferableToSerializable/convertTransferableToSerializable';
 import {BaseValueObjectStringSerialization} from 'src/valueObjects/interfaces/abstractClasses';
 
