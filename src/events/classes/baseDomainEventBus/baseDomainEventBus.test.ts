@@ -35,7 +35,7 @@ describe('BaseDomainEventBus', () => {
     };
   });
 
-  it('Should have "emit" method', () => {
+  it('Should have the "emit" method', () => {
     expect(baseDomainEventBus.emit).toEqual(expect.any(Function));
   });
   it('Should emit an event through an EventEmitter instance it has as a parameter', () => {
@@ -45,7 +45,7 @@ describe('BaseDomainEventBus', () => {
     expect(() => baseDomainEventBus.emit(eventTest)).not.toThrow();
     expect(eventExpectedListener).toHaveBeenLastCalledWith(eventTest);
   });
-  it('Should have "emitEventFailed" method', () => {
+  it('Should have the "emitEventFailed" method', () => {
     expect(baseDomainEventBus.emitEventFailed).toEqual(expect.any(Function));
   });
   it('Should emit a failed event through an EventEmitter instance it has as a parameter', () => {
@@ -77,5 +77,101 @@ describe('BaseDomainEventBus', () => {
     ).not.toThrow();
     expect(eventExpectedListener).toHaveBeenCalledTimes(0);
   });
-  // TODO
+  it('Should have a "subscribeOnFailed" method', () => {
+    expect(baseDomainEventBus.subscribeOnFailed).toEqual(expect.any(Function));
+  });
+  it('Should call a callback passed as the "subscribeOnFailed" method\'s argument whenever an event is fired', () => {
+    const eventFailedExpectedListener = jest.fn();
+    expect(() =>
+      baseDomainEventBus.subscribeOnFailed(
+        EVENT_EXPECTED_NAME,
+        eventFailedExpectedListener
+      )
+    ).not.toThrow();
+    expect(() =>
+      baseDomainEventBus.emitEventFailed(eventFailedTest)
+    ).not.toThrow();
+    expect(eventFailedExpectedListener).toHaveBeenCalledTimes(1);
+    expect(eventFailedExpectedListener).toHaveBeenLastCalledWith(
+      eventFailedTest
+    );
+  });
+  it('Should not call a callback passed as the "subscribeOnFailed" method\'s argument whenever an event is fired', () => {
+    const eventFailedExpectedListener = jest.fn();
+    baseDomainEventBus.subscribeOnFailed(
+      EVENT_EXPECTED_NAME,
+      eventFailedExpectedListener
+    );
+    expect(() => baseDomainEventBus.emit(eventTest)).not.toThrow();
+    expect(eventFailedExpectedListener).toHaveBeenCalledTimes(0);
+  });
+  it('Should have "subscribeAllEvents"', () => {
+    expect(baseDomainEventBus.subscribeAllEvents).toEqual(expect.any(Function));
+  });
+  test('A listener subscribed with "subscribeAllEvents" should be called if an event or event failed emitted', () => {
+    const allEventsListener = jest.fn();
+    baseDomainEventBus.subscribeAllEvents(allEventsListener);
+    baseDomainEventBus.emit(eventTest);
+    baseDomainEventBus.emitEventFailed(eventFailedTest);
+    expect(allEventsListener).toBeCalledTimes(2);
+    expect(allEventsListener).toHaveBeenCalledWith(eventTest);
+    expect(allEventsListener).toHaveBeenCalledWith(eventFailedTest);
+  });
+  it('Should have the "unsubscribe" method', () => {
+    expect(baseDomainEventBus.unsubscribe).toEqual(expect.any(Function));
+  });
+  it('Should not call a callback function that is passed as a parameter for the "subscribe" method, after it will be passed as a parameter for the "unsubscribe" method', () => {
+    const eventExpectedListener = jest.fn();
+    expect(() =>
+      baseDomainEventBus.subscribe(EVENT_EXPECTED_NAME, eventExpectedListener)
+    ).not.toThrow();
+    expect(() => baseDomainEventBus.emit(eventTest)).not.toThrow();
+    expect(eventExpectedListener).toHaveBeenCalledWith(eventTest);
+    eventExpectedListener.mockClear();
+    expect(() =>
+      baseDomainEventBus.unsubscribe(EVENT_EXPECTED_NAME, eventExpectedListener)
+    ).not.toThrow();
+    expect(() => baseDomainEventBus.emit(eventTest)).not.toThrow();
+    expect(eventExpectedListener).not.toHaveBeenCalled();
+  });
+  it('Should not call a callback function that is passed as a parameter for the "subscribeOnFailed" method, after it will be passed as a parameter for the "unsubscribe" method', () => {
+    const eventFailedExpectedListener = jest.fn();
+    expect(() =>
+      baseDomainEventBus.subscribeOnFailed(
+        EVENT_EXPECTED_NAME,
+        eventFailedExpectedListener
+      )
+    ).not.toThrow();
+    expect(() =>
+      baseDomainEventBus.emitEventFailed(eventFailedTest)
+    ).not.toThrow();
+    expect(eventFailedExpectedListener).toHaveBeenCalledWith(eventFailedTest);
+    eventFailedExpectedListener.mockClear();
+    expect(() =>
+      baseDomainEventBus.unsubscribe(
+        EVENT_EXPECTED_NAME,
+        eventFailedExpectedListener
+      )
+    ).not.toThrow();
+    expect(() => baseDomainEventBus.emit(eventTest)).not.toThrow();
+    expect(eventFailedExpectedListener).not.toHaveBeenCalled();
+  });
+  it('Should have "unsubscribeListenerAllEvents"', () => {
+    expect(baseDomainEventBus.unsubscribeListenerAllEvents).toEqual(
+      expect.any(Function)
+    );
+  });
+  test('A listener subscribed with "subscribeAllEvents" should not be called if an event or event failed emitted after it was unsubscribed with "unsubscribeListenerAllEvents"', () => {
+    const allEventsListener = jest.fn();
+    baseDomainEventBus.subscribeAllEvents(allEventsListener);
+    baseDomainEventBus.emit(eventTest);
+    baseDomainEventBus.emitEventFailed(eventFailedTest);
+    expect(allEventsListener).toBeCalledTimes(2);
+    expect(allEventsListener).toHaveBeenCalledWith(eventTest);
+    expect(allEventsListener).toHaveBeenCalledWith(eventFailedTest);
+    baseDomainEventBus.unsubscribeListenerAllEvents(allEventsListener);
+    baseDomainEventBus.emit(eventTest);
+    baseDomainEventBus.emitEventFailed(eventFailedTest);
+    expect(allEventsListener).toBeCalledTimes(2);
+  });
 });
