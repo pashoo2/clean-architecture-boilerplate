@@ -8,7 +8,7 @@ import {
 import {TPickTransferableProperties} from 'src/interfaces/transferable';
 import {TGetEvents, TGetEventsNames} from 'src/events/interfaces/events';
 import {IDomainEventListener} from 'src/events/interfaces/domainEvents';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+import {TIdentityValueObject} from 'src/valueObjects/interfaces/index';
 
 export abstract class BaseEntityAbstractClass<
   Id extends TIdentityValueObject,
@@ -34,7 +34,7 @@ export abstract class BaseEntityAbstractClass<
     }
   }
 
-  protected abstract _delete(): void;
+  public abstract delete(): void;
 
   public abstract equalsTo(anotherEntity: IEntity<Id, Type>): boolean;
 

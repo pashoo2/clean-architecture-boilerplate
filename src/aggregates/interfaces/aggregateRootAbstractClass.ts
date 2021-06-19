@@ -6,7 +6,7 @@ import {
 } from 'src/aggregates/interfaces/aggregateRoot';
 import {TGetEventsNames} from 'src/events/interfaces/events';
 import {IDomainEventListener} from 'src/events/interfaces/domainEvents';
-import {BaseEntityAbstractClass} from 'src/entities/interfaces/baseEntityAbstractClass';
+import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export abstract class BaseAggregateRootAbstractClass<

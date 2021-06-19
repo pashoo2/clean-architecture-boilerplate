@@ -1,5 +1,5 @@
 import {IBaseEntityEventsList} from 'src/entities/interfaces/baseEntity';
-import {BaseEntityAbstractClass} from 'src/entities/interfaces/baseEntityAbstractClass';
+import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
 import {TEntityType} from 'src/entities/interfaces/entity';
 import {
   IUseCaseParameters,

@@ -11,7 +11,7 @@ import {
   IBaseEntityServices,
 } from '../../interfaces/baseEntity';
 import {TPickTransferableProperties} from 'src/interfaces/transferable';
-import {BaseEntityAbstractClass} from 'src/entities/interfaces/baseEntityAbstractClass';
+import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
 import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
 import {Constructor} from 'src/interfaces/classes';
 import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
@@ -72,11 +72,12 @@ export abstract class BaseEntity<
     this.__isDeleted = isDeleted;
     this.__domainEventBus = domainEventBus;
     this.__generateUniqueIdentityString = generateUniqueIdentifierString;
-    this._validate();
-    this._emitCreateEvent();
 
     this._EntityDeleteEventClass = this.__getEntityDeleteEventClass();
     this._EntityCreateEventClass = this.__getEntityCreateEventClass();
+
+    this._validate();
+    this._emitCreateEvent();
   }
 
   public equalsTo(anotherEntity: IEntity<Id, Type>): boolean {
@@ -87,16 +88,19 @@ export abstract class BaseEntity<
     );
   }
 
-  protected _delete(): void {
+  public delete(): void {
+    if (this.isDeleted) {
+      return;
+    }
     this._markDeleted();
     this._emitDeleteEvent();
   }
 
-  protected abstract _validate(): void;
-
   public getTransferableProps(): TPickTransferableProperties<this> {
     return this._getTransferableProps();
   }
+
+  protected abstract _validate(): void;
 
   protected _markDeleted(): void {
     this.__isDeleted = true;
