@@ -1,4 +1,5 @@
 import {
+  IDomainAllEventsListener,
   IDomainEventFailed,
   IDomainEventListener,
   IDomainFailedEventListener,
@@ -11,13 +12,14 @@ export interface IDomainEventBus<E extends TEventsList> {
   emitEventFailed<Event extends TGetEvents<E>>(
     event: IDomainEventFailed<Event>
   ): void;
-
+  subscribeAllEvents(
+    eventListener: IDomainAllEventsListener<TGetEvents<E>>
+  ): void;
   subscribe<N extends TGetEventsNames<E>>(
     eventName: N,
     eventListener: IDomainEventListener<E[N]>
   ): void;
-
-  subscribeFailed<N extends TGetEventsNames<E>>(
+  subscribeOnFailed<N extends TGetEventsNames<E>>(
     eventName: N,
     eventListener: IDomainFailedEventListener<E[N]>
   ): void;
@@ -25,5 +27,8 @@ export interface IDomainEventBus<E extends TEventsList> {
   unsubscribe<N extends TGetEventsNames<E>>(
     eventName: N,
     eventListener: IDomainEventListener<E[N]> | IDomainFailedEventListener<E[N]>
+  ): void;
+  unsubscribeListenerAllEvents(
+    eventListener: IDomainAllEventsListener<TGetEvents<E>>
   ): void;
 }

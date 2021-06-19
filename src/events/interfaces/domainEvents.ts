@@ -82,6 +82,10 @@ export interface IDomainFailedEventListener<DE extends IDomainEvent> {
   (failedEvent: IDomainEventFailed<DE>): void;
 }
 
+export interface IDomainAllEventsListener<DE extends IDomainEvent>
+  extends IDomainEventListener<DE>,
+    IDomainFailedEventListener<DE> {}
+
 export interface IDomainEntityEventSpecificProperties<
   Id extends TIdentityValueObject = TIdentityValueObject,
   Type extends string = string
