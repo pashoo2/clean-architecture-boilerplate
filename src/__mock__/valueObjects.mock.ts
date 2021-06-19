@@ -45,3 +45,34 @@ export class MultipleIdentityValueObjectClassMock
   >(multipleIdentityValueObjectClassFabricParameters)
   implements
     IIdentityMultiValueObject<typeof UNIQUE_ENTITY_IDENTITY_MULTI_STUB> {}
+
+const simpleIdentityValueObjectClassFabricWithComparisonParameters: IBaseValueObjectConstructorFabricParameters<
+  string,
+  string
+> = {
+  compareValues: jest.fn((a, b) => String(a).trim() === String(b).trim()),
+  serializeValue: jest.fn(() => UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB),
+  validateValue: jest.fn(() => true),
+};
+
+export class SimpleIdentityValueObjectClassWithComparisonMock
+  extends baseValueObjectClassFabric(
+    simpleIdentityValueObjectClassFabricWithComparisonParameters
+  )
+  implements IIdentityValueObjectSimple {}
+
+const multipleIdentityValueObjectClassFabricWithComparisonParameters: IMultipleValuesValueObjectBaseFabricParameters<IMultiValuesValueObjectValue> =
+  {
+    compareValues: jest.fn((a, b) => JSON.stringify(a) === JSON.stringify(b)),
+    serializeValue: jest.fn(() =>
+      JSON.stringify(UNIQUE_ENTITY_IDENTITY_MULTI_STUB)
+    ),
+    validateValue: jest.fn(() => true),
+  };
+
+export class MultipleIdentityValueObjectClassWithComparisonMock
+  extends multipleValuesValueObjectBaseFabric<
+    typeof UNIQUE_ENTITY_IDENTITY_MULTI_STUB
+  >(multipleIdentityValueObjectClassFabricWithComparisonParameters)
+  implements
+    IIdentityMultiValueObject<typeof UNIQUE_ENTITY_IDENTITY_MULTI_STUB> {}
