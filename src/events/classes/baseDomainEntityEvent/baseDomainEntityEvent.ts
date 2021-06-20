@@ -18,34 +18,34 @@ export type TBaseDomainEntityEventParameters<
 };
 
 export abstract class BaseDomainEntityEvent<
-    Id extends TIdentityValueObject = TIdentityValueObject,
-    Type extends string = string,
+    EntityId extends TIdentityValueObject = TIdentityValueObject,
+    EntityType extends string = string,
     N extends string = string,
     P extends TDomainEventPayload = undefined
   >
   extends BaseDomainEventClass<N, P>
-  implements IDomainEntityEvent<Id, Type, N, P>
+  implements IDomainEntityEvent<EntityId, EntityType, N, P>
 {
-  public get entityId(): Id {
+  public get entityId(): EntityId {
     return this.__entityId;
   }
 
-  public get entityType(): Type {
+  public get entityType(): EntityType {
     return this._entityType;
   }
 
-  private __entityId: Id;
+  private __entityId: EntityId;
 
-  protected abstract _entityType: Type;
+  protected abstract _entityType: EntityType;
 
-  constructor(parameters: TBaseDomainEntityEventParameters<Id, P>) {
+  constructor(parameters: TBaseDomainEntityEventParameters<EntityId, P>) {
     super(parameters);
     this.__entityId = parameters.entityId;
   }
 
   protected _getSerializableObjectRepresentation(): IDomainEntityEventPropertiesSerialized<
-    Id,
-    Type,
+    EntityId,
+    EntityType,
     N,
     P
   > {
@@ -55,7 +55,7 @@ export abstract class BaseDomainEntityEvent<
     > = super._getSerializableObjectRepresentation();
     return {
       ...baseDomainEventObjectRepresentation,
-      entityId: this.entityId.value as ReturnType<Id['serialize']>,
+      entityId: this.entityId.value as ReturnType<EntityId['serialize']>,
       entityType: this.entityType,
     };
   }

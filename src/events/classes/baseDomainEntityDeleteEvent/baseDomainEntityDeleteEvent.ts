@@ -5,11 +5,11 @@ import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 export type TDomainEvent = typeof DOMAIN_ENTITY_EVENT_NAME_DELETE;
 
 export abstract class BaseDomainEntityDeleteEvent<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string
+  EntityId extends TIdentityValueObject = TIdentityValueObject,
+  EntityType extends string = string
 > extends BaseDomainEntityEvent<
-  Id,
-  Type,
+  EntityId,
+  EntityType,
   typeof DOMAIN_ENTITY_EVENT_NAME_DELETE
 > {
   static eventName: TDomainEvent = DOMAIN_ENTITY_EVENT_NAME_DELETE;

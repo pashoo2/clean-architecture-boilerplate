@@ -5,24 +5,35 @@ import {BaseDomainEntityDeleteEvent} from '../../events/classes/baseDomainEntity
 import {BaseDomainEntityCreateEvent} from '../../events/classes/baseDomainEntityConstructEvent';
 import {TEntityType} from './entity';
 import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
+import {IDomainEvent} from 'src/events/interfaces';
 
 export interface IBaseEntityParameters<Id extends TIdentityValueObject> {
   id: Id;
   isDeleted: boolean;
 }
 
-export interface IBaseEntityEventsList<
-  Id extends TIdentityValueObject,
-  Type extends TEntityType
-> extends TEventsList {
+export interface IBaseEntityEventsListCommonEvents<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType
+> extends TEventsList<
+    | typeof BaseDomainEntityDeleteEvent.eventName
+    | typeof BaseDomainEntityCreateEvent.eventName
+  > {
   [BaseDomainEntityDeleteEvent.eventName]: BaseDomainEntityDeleteEvent<
-    Id,
-    Type
+    EntityId,
+    EntityType
   >;
   [BaseDomainEntityCreateEvent.eventName]: BaseDomainEntityCreateEvent<
-    Id,
-    Type
+    EntityId,
+    EntityType
   >;
+}
+
+export interface IBaseEntityEventsList<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType
+> extends IBaseEntityEventsListCommonEvents<EntityId, EntityType> {
+  readonly [eventName: string]: IDomainEvent<typeof eventName>;
 }
 
 export interface IBaseEntityServices<E extends TEventsList> {
