@@ -1,3 +1,3 @@
-export * as classes from './classes';
+export * as abstractClasses from './abstractClasses';
 
 export * as interfaces from './interfaces';

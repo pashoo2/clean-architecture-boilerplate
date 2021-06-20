@@ -5,18 +5,18 @@ import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 export type TDomainEventName = typeof DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED;
 
 export interface IBaseDomainEntityConstructEventParameters<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string
-> extends BaseDomainEntityConstructEvent<Id> {
-  entityType: Type;
+  EntityId extends TIdentityValueObject = TIdentityValueObject,
+  EntityType extends string = string
+> extends BaseDomainEntityConstructEvent<EntityId> {
+  entityType: EntityType;
 }
 
 export abstract class BaseDomainEntityConstructEvent<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string
+  EntityId extends TIdentityValueObject = TIdentityValueObject,
+  EntityType extends string = string
 > extends BaseDomainEntityEvent<
-  Id,
-  Type,
+  EntityId,
+  EntityType,
   typeof DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED
 > {
   static eventName: TDomainEventName = DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED;

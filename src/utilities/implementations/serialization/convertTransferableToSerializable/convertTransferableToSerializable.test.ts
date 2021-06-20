@@ -1,4 +1,4 @@
-import {BaseEntity} from 'src/entities/classes/baseEntity';
+import {BaseEntity} from 'src/entities/abstractClasses/baseEntity';
 import {IBaseEntityParameters} from 'src/entities/interfaces/baseEntity';
 import {
   ITransferable,

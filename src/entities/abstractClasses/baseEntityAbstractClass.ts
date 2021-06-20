@@ -7,14 +7,18 @@ import {
 } from 'src/entities/interfaces/baseEntity';
 import {TPickTransferableProperties} from 'src/interfaces/transferable';
 import {TGetEvents, TGetEventsNames} from 'src/events/interfaces/events';
-import {IDomainEventListener} from 'src/events/interfaces/domainEvents';
+import {
+  IDomainEventFailed,
+  IDomainEventListener,
+  IDomainFailedEventListener,
+} from 'src/events/interfaces/domainEvents';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces/index';
 
 export abstract class BaseEntityAbstractClass<
   Id extends TIdentityValueObject,
   Type extends TEntityType,
   E extends IBaseEntityEventsList<Id, Type>
-> implements IEntity<Id, Type>
+> implements IEntity<Id, Type, E>
 {
   public abstract get id(): Id;
 
@@ -23,13 +27,13 @@ export abstract class BaseEntityAbstractClass<
   public abstract readonly type: Type;
 
   protected constructor(
-    parameters: IBaseEntityParameters<Id>,
-    services: IBaseEntityServices<E>
+    protected readonly _parameters: IBaseEntityParameters<Id>,
+    protected readonly _services: IBaseEntityServices<E>
   ) {
-    if (!parameters) {
+    if (!_parameters) {
       throw new Error('Parameters must be passed to entity constructor');
     }
-    if (!services) {
+    if (!_services) {
       throw new Error('Services must be passed to entity constructor');
     }
   }
@@ -40,19 +44,28 @@ export abstract class BaseEntityAbstractClass<
 
   public abstract getTransferableProps(): TPickTransferableProperties<this>;
 
+  public abstract emit<Event extends TGetEvents<E>>(event: Event): void;
+
+  public abstract emitEventFailed<Ev extends TGetEvents<E>>(
+    eventFailed: IDomainEventFailed<Ev>
+  ): void;
+
+  public abstract subscribe<N extends TGetEventsNames<E>>(
+    eventName: N,
+    eventListener: IDomainEventListener<E[N]>
+  ): void;
+
+  public abstract subscribeOnFailed<N extends TGetEventsNames<E>>(
+    eventName: N,
+    eventListener: IDomainFailedEventListener<E[N]>
+  ): void;
+
+  public abstract unsubscribe<N extends TGetEventsNames<E>>(
+    eventName: N,
+    eventListener: IDomainEventListener<E[N]>
+  ): void;
+
   protected abstract _validate(): void;
 
   protected abstract _markDeleted(): void;
-
-  protected abstract _emit<Event extends TGetEvents<E>>(event: Event): void;
-
-  protected abstract _subscribe<N extends TGetEventsNames<E>>(
-    eventName: N,
-    eventListener: IDomainEventListener<E[N]>
-  ): void;
-
-  protected abstract _unsubscribe<N extends TGetEventsNames<E>>(
-    eventName: N,
-    eventListener: IDomainEventListener<E[N]>
-  ): void;
 }

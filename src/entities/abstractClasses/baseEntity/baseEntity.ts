@@ -1,5 +1,11 @@
-import {BaseDomainEntityCreateEvent} from 'src/events/classes/baseDomainEntityConstructEvent';
-import {BaseDomainEntityDeleteEvent} from 'src/events/classes/baseDomainEntityDeleteEvent';
+import {BaseDomainEntityCreateEvent} from 'src/events/classes/baseDomainEntityConstructEvent/index';
+import {BaseDomainEntityDeleteEvent} from 'src/events/classes/baseDomainEntityDeleteEvent/index';
+import {TGetEvents, TGetEventsNames} from 'src/events/interfaces/events';
+import {
+  IDomainEventFailed,
+  IDomainEventListener,
+  IDomainFailedEventListener,
+} from 'src/events/interfaces/domainEvents';
 import {IEntity} from 'src/entities/interfaces/entity';
 import {TIdentityValueObject} from '../../../valueObjects/interfaces/identityValueObject';
 import {IDomainEventBus} from 'src/events/interfaces/domainEventBus';
@@ -96,6 +102,37 @@ export abstract class BaseEntity<
 
   public getTransferableProps(): TPickTransferableProperties<this> {
     return this._getTransferableProps();
+  }
+
+  public emit<Event extends TGetEvents<E>>(event: Event): void {
+    this.__domainEventBus.emit(event);
+  }
+
+  public emitEventFailed<Ev extends TGetEvents<E>>(
+    eventFailed: IDomainEventFailed<Ev>
+  ): void {
+    this.__domainEventBus.emitEventFailed(eventFailed);
+  }
+
+  public subscribe<N extends TGetEventsNames<E>>(
+    eventName: N,
+    eventListener: IDomainEventListener<E[N]>
+  ): void {
+    this.__domainEventBus.subscribe(eventName, eventListener);
+  }
+
+  public subscribeOnFailed<N extends TGetEventsNames<E>>(
+    eventName: N,
+    eventListener: IDomainFailedEventListener<E[N]>
+  ): void {
+    this.__domainEventBus.subscribeOnFailed(eventName, eventListener);
+  }
+
+  public unsubscribe<N extends TGetEventsNames<E>>(
+    eventName: N,
+    eventListener: IDomainEventListener<E[N]>
+  ): void {
+    this.__domainEventBus.unsubscribe(eventName, eventListener);
   }
 
   protected abstract _validate(): void;

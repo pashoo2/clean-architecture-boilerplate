@@ -5,7 +5,9 @@ export type TEventsList<N extends string = string> = Record<
   IDomainEvent<N, any>
 >;
 
-export type TGetEventsNames<E extends TEventsList> = keyof E extends string
+export type TGetEventsNames<E extends TEventsList<any>> = keyof E extends (
+  E extends TEventsList<infer EventName> ? EventName : never
+)
   ? keyof E
   : never;
 
