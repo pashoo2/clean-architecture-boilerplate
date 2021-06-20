@@ -15,10 +15,7 @@ export interface IBaseEntityParameters<Id extends TIdentityValueObject> {
 export interface IBaseEntityEventsListCommonEvents<
   EntityId extends TIdentityValueObject,
   EntityType extends TEntityType
-> extends TEventsList<
-    | typeof BaseDomainEntityDeleteEvent.eventName
-    | typeof BaseDomainEntityCreateEvent.eventName
-  > {
+> {
   [BaseDomainEntityDeleteEvent.eventName]: BaseDomainEntityDeleteEvent<
     EntityId,
     EntityType
