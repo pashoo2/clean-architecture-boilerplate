@@ -4,9 +4,11 @@ import {
 } from 'src/constants/domainEvents';
 import {BaseEntity} from 'src/entities/abstractClasses/baseEntity/baseEntity';
 import {
+  IBaseEntityEventsList,
   IBaseEntityEventsListCommonEvents,
   IBaseEntityServices,
 } from 'src/entities/interfaces';
+import {TEventsList, TGetEventsNames} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces/index';
 import {getDomainEntityEventMock} from 'src/__mock__/domainEvents';
 import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
@@ -30,6 +32,10 @@ describe('BaseEntity class', () => {
     > {
     [ENTITY_EVENT_NAME]: ReturnType<typeof getDomainEntityEventMock>;
   }
+
+  const d: TGetEventsNames<EntityTestClassEventsList> =
+    'DOMAIN_ENTITY_CONSTRUCTED';
+  console.log(d);
 
   class EntityTestClass extends BaseEntity<
     | MultipleIdentityValueObjectClassWithComparisonMock

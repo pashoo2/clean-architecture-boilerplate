@@ -38,7 +38,7 @@ export class BaseDomainEventBus<E extends TEventsList, EE extends EventEmitter>
     eventName: N,
     eventListener: IDomainEventListener<E[N]>
   ): void {
-    this._eventEmitter.addListener(eventName, eventListener);
+    this._eventEmitter.addListener(String(eventName), eventListener);
   }
   public subscribeOnFailed<N extends TGetEventsNames<E>>(
     eventName: N,
@@ -54,7 +54,7 @@ export class BaseDomainEventBus<E extends TEventsList, EE extends EventEmitter>
       | IDomainFailedEventListener<E[N]>
       | IDomainAllEventsListener<TGetEvents<E>>
   ): void {
-    this._eventEmitter.removeListener(eventName, eventListener);
+    this._eventEmitter.removeListener(String(eventName), eventListener);
     this._eventEmitter.removeListener(
       this._getFailedEventNameByEventName(eventName),
       eventListener
