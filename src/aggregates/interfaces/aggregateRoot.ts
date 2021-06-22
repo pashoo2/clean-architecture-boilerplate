@@ -3,7 +3,7 @@ import {TGetEventsNames} from 'src/events/interfaces/events';
 import {IDomainEventListener} from 'src/events/interfaces/domainEvents';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 import {
-  IBaseEntityEventsListCommonEvents,
+  TBaseEntityEventsListCommonEvents,
   IBaseEntityParameters,
   IBaseEntityServices,
 } from '../../entities/interfaces/baseEntity';
@@ -16,7 +16,7 @@ export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
 export interface IBaseAggregateRootEventsList<
   Id extends TIdentityValueObject,
   Type extends string
-> extends IBaseEntityEventsListCommonEvents<Id, Type> {}
+> extends TBaseEntityEventsListCommonEvents<Id, Type> {}
 
 export interface IBaseAggregateRootServices<
   E extends IBaseAggregateRootEventsList<TIdentityValueObject, string>

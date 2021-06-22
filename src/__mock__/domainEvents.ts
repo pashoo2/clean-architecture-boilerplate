@@ -7,22 +7,20 @@ export const DOMAIN_ENTITY_EVENT_MOCK_NAME =
 
 export function getDomainEntityEventMock<
   EntityId extends TIdentityValueObject,
-  EntityType extends string
+  EntityType extends string,
+  EventName extends string = typeof DOMAIN_ENTITY_EVENT_MOCK_NAME
 >(
   entityId: EntityId,
-  entityType: EntityType
-): BaseDomainEntityEvent<
-  EntityId,
-  EntityType,
-  typeof DOMAIN_ENTITY_EVENT_MOCK_NAME
-> {
+  entityType: EntityType,
+  eventName: EventName = DOMAIN_ENTITY_EVENT_MOCK_NAME as EventName
+): BaseDomainEntityEvent<EntityId, EntityType, EventName> {
   class DomainEntityEventMock extends BaseDomainEntityEvent<
     EntityId,
     EntityType,
-    typeof DOMAIN_ENTITY_EVENT_MOCK_NAME
+    EventName
   > {
-    static eventName = DOMAIN_ENTITY_EVENT_MOCK_NAME;
-    protected _name = DOMAIN_ENTITY_EVENT_MOCK_NAME;
+    static eventName = eventName;
+    protected _name = eventName;
     protected _entityType = entityType;
   }
   return new DomainEntityEventMock({

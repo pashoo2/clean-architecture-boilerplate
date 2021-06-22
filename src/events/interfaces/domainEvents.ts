@@ -68,8 +68,14 @@ export type TDomainEvent<
   P extends TDomainEventPayload = undefined
 > = ISerializable<string> & TDomainEventProperties<N, P>;
 
+export type TDomainEventFailedNameForDomainEventName<EventName extends string> =
+  `failed::${EventName}`;
+
+export type TDomainEventFailedName<E extends IDomainEvent> =
+  TDomainEventFailedNameForDomainEventName<E['name']>;
+
 export interface IDomainEventFailed<E extends IDomainEvent> {
-  name: `failed::${E['name']}`;
+  name: TDomainEventFailedName<E>;
   failedEvent: E;
   error: Error;
 }

@@ -80,7 +80,7 @@ describe('BaseDomainEventBus', () => {
   it('Should have a "subscribeOnFailed" method', () => {
     expect(baseDomainEventBus.subscribeOnFailed).toEqual(expect.any(Function));
   });
-  it('Should call a callback passed as the "subscribeOnFailed" method\'s argument whenever an event is fired', () => {
+  it('Should call a callback passed as the "subscribeOnFailed" method\'s argument whenever an event failed is fired', () => {
     const eventFailedExpectedListener = jest.fn();
     expect(() =>
       baseDomainEventBus.subscribeOnFailed(
@@ -120,7 +120,7 @@ describe('BaseDomainEventBus', () => {
   it('Should have the "unsubscribe" method', () => {
     expect(baseDomainEventBus.unsubscribe).toEqual(expect.any(Function));
   });
-  it('Should not call a callback function that is passed as a parameter for the "subscribe" method, after it will be passed as a parameter for the "unsubscribe" method', () => {
+  it('Should not call a callback function that had been passed as a parameter to the "subscribe" method, if it\'s passed as a parameter for the "unsubscribe" method', () => {
     const eventExpectedListener = jest.fn();
     expect(() =>
       baseDomainEventBus.subscribe(EVENT_EXPECTED_NAME, eventExpectedListener)
@@ -134,7 +134,7 @@ describe('BaseDomainEventBus', () => {
     expect(() => baseDomainEventBus.emit(eventTest)).not.toThrow();
     expect(eventExpectedListener).not.toHaveBeenCalled();
   });
-  it('Should not call a callback function that is passed as a parameter for the "subscribeOnFailed" method, after it will be passed as a parameter for the "unsubscribe" method', () => {
+  it('Should not call a callback function that had been passed as a parameter to the "subscribeOnFailed" method, if it\'s passed as a parameter for the "unsubscribe" method', () => {
     const eventFailedExpectedListener = jest.fn();
     expect(() =>
       baseDomainEventBus.subscribeOnFailed(
@@ -153,7 +153,9 @@ describe('BaseDomainEventBus', () => {
         eventFailedExpectedListener
       )
     ).not.toThrow();
-    expect(() => baseDomainEventBus.emit(eventTest)).not.toThrow();
+    expect(() =>
+      baseDomainEventBus.emitEventFailed(eventFailedTest)
+    ).not.toThrow();
     expect(eventFailedExpectedListener).not.toHaveBeenCalled();
   });
   it('Should have "unsubscribeListenerAllEvents"', () => {

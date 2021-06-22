@@ -1,4 +1,8 @@
-import {IEntity, TEntityType} from 'src/entities/interfaces/entity';
+import {
+  IEntity,
+  IEntityImplementation,
+  TEntityType,
+} from 'src/entities/interfaces/entity';
 
 import {
   IBaseEntityEventsList,
@@ -18,7 +22,7 @@ export abstract class BaseEntityAbstractClass<
   Id extends TIdentityValueObject,
   Type extends TEntityType,
   E extends IBaseEntityEventsList<Id, Type>
-> implements IEntity<Id, Type, E>
+> implements IEntityImplementation<Id, Type, E>
 {
   public abstract get id(): Id;
 

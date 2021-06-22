@@ -16,14 +16,19 @@ export type TEntityType = string;
 
 export interface IEntity<
   Id extends TIdentityValueObject,
-  Type extends TEntityType,
-  E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
-> extends IComparable<IEntity<Id, Type, any>>,
-    ITransferable {
+  Type extends TEntityType
+> {
   readonly id: Id;
   readonly type: Type;
   readonly isDeleted: boolean;
+}
 
+export interface IEntityImplementation<
+  Id extends TIdentityValueObject,
+  Type extends TEntityType,
+  E extends IBaseEntityEventsList<Id, Type>
+> extends IComparable<IEntity<Id, Type>>,
+    ITransferable {
   emit<Event extends TGetEvents<E>>(event: Event): void;
 
   emitEventFailed<Ev extends TGetEvents<E>>(

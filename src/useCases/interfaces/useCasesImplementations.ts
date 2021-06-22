@@ -1,4 +1,4 @@
-import {IBaseEntityEventsListCommonEvents} from 'src/entities/interfaces/baseEntity';
+import {TBaseEntityEventsListCommonEvents} from 'src/entities/interfaces/baseEntity';
 import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
 import {TEntityType} from 'src/entities/interfaces/entity';
 import {
@@ -11,7 +11,11 @@ export type TUseCaseEntitiesClasses<
   T extends TEntityType = TEntityType,
   Id extends TIdentityValueObject = TIdentityValueObject
 > = {
-  [key in T]: BaseEntityAbstractClass<Id, T, IBaseEntityEventsListCommonEvents<Id, T>>;
+  [key in T]: BaseEntityAbstractClass<
+    Id,
+    T,
+    TBaseEntityEventsListCommonEvents<Id, T>
+  >;
 };
 
 export interface IUseCaseWithEntitiesConstructorsSync<

@@ -1,4 +1,4 @@
-import {IDomainEventBus, TEventsList} from 'src/events/interfaces';
+import {IDomainEventBus, IEventsList} from 'src/events/interfaces';
 import {IClassService} from 'src/services/interfaces/common';
 
 /**
@@ -8,6 +8,6 @@ import {IClassService} from 'src/services/interfaces/common';
  * @export
  * @interfaces IEventBus
  */
-export interface IServiceDomainEventsBus<E extends TEventsList>
+export interface IServiceDomainEventsBus<E extends IEventsList>
   extends IDomainEventBus<E>,
     IClassService {}

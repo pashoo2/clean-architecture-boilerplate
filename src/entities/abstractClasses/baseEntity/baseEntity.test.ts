@@ -4,11 +4,14 @@ import {
 } from 'src/constants/domainEvents';
 import {BaseEntity} from 'src/entities/abstractClasses/baseEntity/baseEntity';
 import {
-  IBaseEntityEventsList,
-  IBaseEntityEventsListCommonEvents,
+  TBaseEntityEventsListCommonEvents,
   IBaseEntityServices,
 } from 'src/entities/interfaces';
-import {TEventsList, TGetEventsNames} from 'src/events/interfaces';
+import {BaseDomainEntityEvent} from 'src/events/classes';
+import {
+  IDomainEventFailed,
+  TDomainEventFailedNameForDomainEventName,
+} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces/index';
 import {getDomainEntityEventMock} from 'src/__mock__/domainEvents';
 import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
@@ -23,25 +26,23 @@ import {
 describe('BaseEntity class', () => {
   const ENTITY_TYPE = 'ENTITY_TYPE' as const;
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
+  const ENTITY_EVENT_FAILED_NAME: TDomainEventFailedNameForDomainEventName<
+    typeof ENTITY_EVENT_NAME
+  > = `failed::${ENTITY_EVENT_NAME}`;
 
-  interface EntityTestClassEventsList
-    extends IBaseEntityEventsListCommonEvents<
-      | MultipleIdentityValueObjectClassWithComparisonMock
-      | SimpleIdentityValueObjectClassWithComparisonMock,
-      typeof ENTITY_TYPE
-    > {
+  type TEntityTestClassEventsList = TBaseEntityEventsListCommonEvents<
+    | MultipleIdentityValueObjectClassWithComparisonMock
+    | SimpleIdentityValueObjectClassWithComparisonMock,
+    typeof ENTITY_TYPE
+  > & {
     [ENTITY_EVENT_NAME]: ReturnType<typeof getDomainEntityEventMock>;
-  }
-
-  const d: TGetEventsNames<EntityTestClassEventsList> =
-    'DOMAIN_ENTITY_CONSTRUCTED';
-  console.log(d);
+  };
 
   class EntityTestClass extends BaseEntity<
     | MultipleIdentityValueObjectClassWithComparisonMock
     | SimpleIdentityValueObjectClassWithComparisonMock,
     typeof ENTITY_TYPE,
-    EntityTestClassEventsList
+    TEntityTestClassEventsList
   > {
     protected _type = ENTITY_TYPE;
 
@@ -207,39 +208,59 @@ describe('BaseEntity class', () => {
           );
         });
         describe('Entity events', () => {
-          let entityServiceParameterEventBus: IBaseEntityServices<EntityTestClassEventsList>['domainEventBus'];
+          let entityServiceParameterEventBus: IBaseEntityServices<TEntityTestClassEventsList>['domainEventBus'];
+          let eventTest: BaseDomainEntityEvent<
+            typeof parameters['id'],
+            typeof ENTITY_TYPE,
+            typeof ENTITY_EVENT_NAME
+          >;
+          let eventFailedTest: IDomainEventFailed<typeof eventTest>;
+
           beforeEach(() => {
             entityServiceParameterEventBus = services.domainEventBus;
+            eventTest = getDomainEntityEventMock(
+              parameters.id,
+              ENTITY_TYPE,
+              ENTITY_EVENT_NAME
+            );
+            eventFailedTest = {
+              name: ENTITY_EVENT_FAILED_NAME,
+              failedEvent: eventTest,
+              error: new Error(),
+            };
           });
 
           it('Should have the "emit" method', () => {
-            expect(entityServiceParameterEventBus.emit).toEqual(
-              expect.any(Function)
-            );
+            expect(entity.emit).toEqual(expect.any(Function));
           });
           it('Should have the "emitEventFailed" method', () => {
-            expect(entityServiceParameterEventBus.emitEventFailed).toEqual(
-              expect.any(Function)
-            );
+            expect(entity.emitEventFailed).toEqual(expect.any(Function));
           });
           it('Should have "subscribe" method', () => {
-            expect(entityServiceParameterEventBus.subscribe).toEqual(
-              expect.any(Function)
+            expect(entity.subscribe).toEqual(expect.any(Function));
+          });
+          it("Should emit events via a domain events bus service's instance", () => {
+            const eventExpectedListener = jest.fn();
+            entityServiceParameterEventBus.subscribe(
+              ENTITY_EVENT_NAME,
+              eventExpectedListener
             );
+            expect(() => entity.emit(eventTest)).not.toThrow();
+            expect(eventExpectedListener).toHaveBeenCalledTimes(1);
+            expect(eventExpectedListener).toHaveBeenCalledWith(eventTest);
           });
           it('Should call a callback passed as the "subscribe" method\'s argument whenever an event is fired', () => {
             const eventExpectedListener = jest.fn();
             entity.subscribe(ENTITY_EVENT_NAME, eventExpectedListener);
-            expect(() =>
-              entityServiceParameterEventBus.emit(eventTest)
-            ).not.toThrow();
+            expect(() => entity.emit(eventTest)).not.toThrow();
             expect(eventExpectedListener).toHaveBeenCalledTimes(1);
             expect(eventExpectedListener).toHaveBeenCalledWith(eventTest);
           });
           it('Should not call a callback passed as the "subscribe" method\'s argument whenever a failed event is fired', () => {
             const eventExpectedListener = jest.fn();
+            entity.subscribe(ENTITY_EVENT_NAME, eventExpectedListener);
             entityServiceParameterEventBus.subscribe(
-              EVENT_EXPECTED_NAME,
+              ENTITY_EVENT_NAME,
               eventExpectedListener
             );
             expect(() =>
@@ -247,31 +268,35 @@ describe('BaseEntity class', () => {
             ).not.toThrow();
             expect(eventExpectedListener).toHaveBeenCalledTimes(0);
           });
-          it('Should have a "subscribeOnFailed" method', () => {
-            expect(entityServiceParameterEventBus.subscribeOnFailed).toEqual(
-              expect.any(Function)
-            );
-          });
-          it('Should call a callback passed as the "subscribeOnFailed" method\'s argument whenever an event is fired', () => {
+          it('Should call a callback passed as the "subscribeOnFailed" method\'s argument whenever a event failed is fired', () => {
             const eventFailedExpectedListener = jest.fn();
             expect(() =>
+              entity.subscribeOnFailed(
+                ENTITY_EVENT_NAME,
+                eventFailedExpectedListener
+              )
+            ).not.toThrow();
+            expect(() =>
               entityServiceParameterEventBus.subscribeOnFailed(
-                EVENT_EXPECTED_NAME,
+                ENTITY_EVENT_NAME,
                 eventFailedExpectedListener
               )
             ).not.toThrow();
             expect(() =>
               entityServiceParameterEventBus.emitEventFailed(eventFailedTest)
             ).not.toThrow();
-            expect(eventFailedExpectedListener).toHaveBeenCalledTimes(1);
             expect(eventFailedExpectedListener).toHaveBeenLastCalledWith(
               eventFailedTest
             );
           });
           it('Should not call a callback passed as the "subscribeOnFailed" method\'s argument whenever an event is fired', () => {
             const eventFailedExpectedListener = jest.fn();
+            entity.subscribeOnFailed(
+              ENTITY_EVENT_NAME,
+              eventFailedExpectedListener
+            );
             entityServiceParameterEventBus.subscribeOnFailed(
-              EVENT_EXPECTED_NAME,
+              ENTITY_EVENT_NAME,
               eventFailedExpectedListener
             );
             expect(() =>
@@ -279,76 +304,102 @@ describe('BaseEntity class', () => {
             ).not.toThrow();
             expect(eventFailedExpectedListener).toHaveBeenCalledTimes(0);
           });
-          it('Should have "subscribeAllEvents"', () => {
-            expect(entityServiceParameterEventBus.subscribeAllEvents).toEqual(
-              expect.any(Function)
-            );
-          });
-          test('A listener subscribed with "subscribeAllEvents" should be called if an event or event failed emitted', () => {
+          test('All events emitted must be able to be listened with a subscription through the "subscribeAllEvents" event bus method', () => {
             const allEventsListener = jest.fn();
             entityServiceParameterEventBus.subscribeAllEvents(
               allEventsListener
             );
-            entityServiceParameterEventBus.emit(eventTest);
-            entityServiceParameterEventBus.emitEventFailed(eventFailedTest);
+            entity.emit(eventTest);
+            entity.emitEventFailed(eventFailedTest);
             expect(allEventsListener).toBeCalledTimes(2);
             expect(allEventsListener).toHaveBeenCalledWith(eventTest);
             expect(allEventsListener).toHaveBeenCalledWith(eventFailedTest);
           });
-          it('Should have the "unsubscribe" method', () => {
-            expect(entityServiceParameterEventBus.unsubscribe).toEqual(
-              expect.any(Function)
-            );
-          });
-          it('Should not call a callback function that is passed as a parameter for the "subscribe" method, after it will be passed as a parameter for the "unsubscribe" method', () => {
+          it('Should not call a callback function that had been passed as a parameter to the "subscribe" method, if it have been passed as a parameter to the "unsubscribe" method', () => {
             const eventExpectedListener = jest.fn();
             expect(() =>
-              entityServiceParameterEventBus.subscribe(
-                EVENT_EXPECTED_NAME,
-                eventExpectedListener
-              )
+              entity.subscribe(ENTITY_EVENT_NAME, eventExpectedListener)
             ).not.toThrow();
-            expect(() =>
-              entityServiceParameterEventBus.emit(eventTest)
-            ).not.toThrow();
+            expect(() => entity.emit(eventTest)).not.toThrow();
             expect(eventExpectedListener).toHaveBeenCalledWith(eventTest);
             eventExpectedListener.mockClear();
             expect(() =>
-              entityServiceParameterEventBus.unsubscribe(
-                EVENT_EXPECTED_NAME,
-                eventExpectedListener
+              entity.unsubscribe(ENTITY_EVENT_NAME, eventExpectedListener)
+            ).not.toThrow();
+            expect(() => entity.emit(eventTest)).not.toThrow();
+            expect(eventExpectedListener).not.toHaveBeenCalled();
+          });
+          it('Should call a callback function that had been passed as a parameter to the "subscribe" method of a domain events service bus, if it have been passed as a parameter to the "unsubscribe" method', () => {
+            const eventExpectedListener = jest.fn();
+            const entityServiceParameterEventBusExpectedEventListener =
+              jest.fn();
+            expect(() =>
+              entityServiceParameterEventBus.subscribe(
+                ENTITY_EVENT_NAME,
+                entityServiceParameterEventBusExpectedEventListener
               )
             ).not.toThrow();
             expect(() =>
-              entityServiceParameterEventBus.emit(eventTest)
+              entity.subscribe(ENTITY_EVENT_NAME, eventExpectedListener)
             ).not.toThrow();
-            expect(eventExpectedListener).not.toHaveBeenCalled();
+            expect(() => entity.emit(eventTest)).not.toThrow();
+            expect(eventExpectedListener).toHaveBeenCalledWith(eventTest);
+            eventExpectedListener.mockClear();
+            expect(() =>
+              entity.unsubscribe(ENTITY_EVENT_NAME, eventExpectedListener)
+            ).not.toThrow();
+            expect(() => entity.emit(eventTest)).not.toThrow();
+            expect(
+              entityServiceParameterEventBusExpectedEventListener
+            ).toHaveBeenCalled();
           });
-          it('Should not call a callback function that is passed as a parameter for the "subscribeOnFailed" method, after it will be passed as a parameter for the "unsubscribe" method', () => {
+          it('Should not call a callback function that had been passed as a parameter to the "subscribeOnFailed" method, if it have been passed as a parameter to the "unsubscribe" method', () => {
             const eventFailedExpectedListener = jest.fn();
             expect(() =>
-              entityServiceParameterEventBus.subscribeOnFailed(
-                EVENT_EXPECTED_NAME,
+              entity.subscribeOnFailed(
+                ENTITY_EVENT_NAME,
                 eventFailedExpectedListener
               )
             ).not.toThrow();
-            expect(() =>
-              entityServiceParameterEventBus.emitEventFailed(eventFailedTest)
-            ).not.toThrow();
+            expect(() => entity.emitEventFailed(eventFailedTest)).not.toThrow();
             expect(eventFailedExpectedListener).toHaveBeenCalledWith(
               eventFailedTest
             );
             eventFailedExpectedListener.mockClear();
             expect(() =>
-              entityServiceParameterEventBus.unsubscribe(
-                EVENT_EXPECTED_NAME,
+              entity.unsubscribe(ENTITY_EVENT_NAME, eventFailedExpectedListener)
+            ).not.toThrow();
+            expect(() => entity.emitEventFailed(eventFailedTest)).not.toThrow();
+            expect(eventFailedExpectedListener).not.toHaveBeenCalled();
+          });
+          it('Should call a callback function that had been passed as a parameter to the "subscribeOnFailed" method of a domain events service bus, if it have been passed as a parameter to the "unsubscribe" method', () => {
+            const eventFailedExpectedListener = jest.fn();
+            const entityServiceParameterEventBusExpectedEventListener =
+              jest.fn();
+            expect(() =>
+              entity.subscribeOnFailed(
+                ENTITY_EVENT_NAME,
                 eventFailedExpectedListener
               )
             ).not.toThrow();
             expect(() =>
-              entityServiceParameterEventBus.emit(eventTest)
+              entityServiceParameterEventBus.subscribeOnFailed(
+                ENTITY_EVENT_NAME,
+                entityServiceParameterEventBusExpectedEventListener
+              )
             ).not.toThrow();
-            expect(eventFailedExpectedListener).not.toHaveBeenCalled();
+            expect(() => entity.emitEventFailed(eventFailedTest)).not.toThrow();
+            expect(
+              entityServiceParameterEventBusExpectedEventListener
+            ).toHaveBeenCalledWith(eventFailedTest);
+            entityServiceParameterEventBusExpectedEventListener.mockClear();
+            expect(() =>
+              entity.unsubscribe(ENTITY_EVENT_NAME, eventFailedExpectedListener)
+            ).not.toThrow();
+            expect(() => entity.emitEventFailed(eventFailedTest)).not.toThrow();
+            expect(
+              entityServiceParameterEventBusExpectedEventListener
+            ).toHaveBeenCalled();
           });
         });
       });
