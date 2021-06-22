@@ -1,4 +1,8 @@
-import {IBaseEntityEventsList} from 'src/entities/interfaces/baseEntity';
+import {
+  IBaseEntityEventsList,
+  IBaseEntityParameters,
+  IBaseEntityServices,
+} from 'src/entities/interfaces/baseEntity';
 import {
   IDomainEventFailed,
   IDomainEventListener,
@@ -6,8 +10,12 @@ import {
   TGetEvents,
   TGetEventsNames,
 } from 'src/events/interfaces';
+import {Constructor} from 'src/interfaces/classes';
 import {IComparable} from 'src/interfaces/comparison';
-import {ITransferable} from 'src/interfaces/transferable';
+import {
+  ITransferable,
+  TPickTransferableProperties,
+} from 'src/interfaces/transferable';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 
 export type TEntityIdentity = string;
@@ -49,4 +57,51 @@ export interface IEntityImplementation<
     eventName: N,
     eventListener: IDomainEventListener<E[N]>
   ): void;
+}
+
+// The method shouldn't be accessible from an outside, only within an aggregate
+export interface IEntityImplementationWithDeleteMethod<
+  Id extends TIdentityValueObject,
+  Type extends TEntityType,
+  E extends IBaseEntityEventsList<Id, Type>
+> extends IEntityImplementation<Id, Type, E> {
+  $delete(): void;
+}
+
+export interface IValidateEntity<
+  Id extends TIdentityValueObject,
+  Type extends string
+> {
+  (entity: IEntity<Id, Type>): void;
+}
+
+export interface IGetTransferablePropertiesOfEntity<
+  Id extends TIdentityValueObject,
+  Type extends string
+> {
+  <T extends IEntity<Id, Type>>(entity: T): TPickTransferableProperties<T>;
+}
+
+export interface IEntityFabricParameters<
+  Id extends TIdentityValueObject,
+  Type extends string
+> {
+  type: Type;
+  validateInstance: IValidateEntity<Id, Type>;
+  getTransferableProps: IGetTransferablePropertiesOfEntity<Id, Type>;
+}
+
+export interface IEntityClassFabric<
+  Id extends TIdentityValueObject,
+  Type extends string,
+  E extends IBaseEntityEventsList<Id, Type>,
+  C extends Constructor<
+    IEntityImplementation<Id, Type, E>,
+    [IBaseEntityParameters<Id>, IBaseEntityServices<E>]
+  > = Constructor<
+    IEntityImplementation<Id, Type, E>,
+    [IBaseEntityParameters<Id>, IBaseEntityServices<E>]
+  >
+> {
+  (parameters: IEntityFabricParameters<Id, Type>): C;
 }

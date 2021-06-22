@@ -42,8 +42,6 @@ export abstract class BaseEntityAbstractClass<
     }
   }
 
-  public abstract delete(): void;
-
   public abstract equalsTo(anotherEntity: IEntity<Id, Type>): boolean;
 
   public abstract getTransferableProps(): TPickTransferableProperties<this>;
