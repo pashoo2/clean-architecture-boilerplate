@@ -94,14 +94,6 @@ export abstract class BaseEntity<
     );
   }
 
-  public delete(): void {
-    if (this.isDeleted) {
-      return;
-    }
-    this._markDeleted();
-    this._emitDeleteEvent();
-  }
-
   public getTransferableProps(): TPickTransferableProperties<this> {
     return this._getTransferableProps();
   }
@@ -138,6 +130,14 @@ export abstract class BaseEntity<
   }
 
   protected abstract _validate(): void;
+
+  protected _delete(): void {
+    if (this.isDeleted) {
+      return;
+    }
+    this._markDeleted();
+    this._emitDeleteEvent();
+  }
 
   protected _markDeleted(): void {
     this.__isDeleted = true;

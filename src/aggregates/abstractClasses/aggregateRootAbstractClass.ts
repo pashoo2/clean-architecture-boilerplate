@@ -4,10 +4,8 @@ import {
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
 } from 'src/aggregates/interfaces/aggregateRoot';
-import {TGetEventsNames} from 'src/events/interfaces/events';
-import {IDomainEventListener} from 'src/events/interfaces/domainEvents';
 import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+import {TIdentityValueObject} from 'src/valueObjects/interfaces/index';
 
 export abstract class BaseAggregateRootAbstractClass<
     Id extends TIdentityValueObject,
@@ -25,23 +23,4 @@ export abstract class BaseAggregateRootAbstractClass<
   }
 
   public abstract delete(): void;
-
-  /**
-   * A subscription on an event can only be done
-   * through an aggregate
-   *
-   * @template N
-   * @param {N} eventName
-   * @param {IDomainEventListener<E[N]>} eventListener
-   * @memberof BaseAggregateRoot
-   */
-  public abstract subscribe<N extends TGetEventsNames<E>>(
-    eventName: N,
-    eventListener: IDomainEventListener<E[N]>
-  ): void;
-
-  public abstract unsubscribe<N extends TGetEventsNames<E>>(
-    eventName: N,
-    eventListener: IDomainEventListener<E[N]>
-  ): void;
 }

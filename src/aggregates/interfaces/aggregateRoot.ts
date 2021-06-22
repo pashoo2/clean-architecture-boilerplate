@@ -1,11 +1,9 @@
-import {IEntity} from '../../entities/interfaces/entity';
-import {TGetEventsNames} from 'src/events/interfaces/events';
-import {IDomainEventListener} from 'src/events/interfaces/domainEvents';
+import {IEntityImplementation} from '../../entities/interfaces/entity';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 import {
-  TBaseEntityEventsListCommonEvents,
   IBaseEntityParameters,
   IBaseEntityServices,
+  IBaseEntityEventsList,
 } from '../../entities/interfaces/baseEntity';
 
 export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
@@ -16,7 +14,7 @@ export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
 export interface IBaseAggregateRootEventsList<
   Id extends TIdentityValueObject,
   Type extends string
-> extends TBaseEntityEventsListCommonEvents<Id, Type> {}
+> extends IBaseEntityEventsList<Id, Type> {}
 
 export interface IBaseAggregateRootServices<
   E extends IBaseAggregateRootEventsList<TIdentityValueObject, string>
@@ -29,14 +27,6 @@ export interface IAggregateRoot<
     Id,
     Type
   > = IBaseAggregateRootEventsList<Id, Type>
-> extends IEntity<Id, Type> {
+> extends IEntityImplementation<Id, Type, E> {
   delete(): void;
-  subscribe<N extends TGetEventsNames<E>>(
-    eventName: N,
-    eventHandler: IDomainEventListener<E[N]>
-  ): void;
-  unsubscribe<N extends TGetEventsNames<E>>(
-    eventName: N,
-    eventHandler: IDomainEventListener<E[N]>
-  ): void;
 }
