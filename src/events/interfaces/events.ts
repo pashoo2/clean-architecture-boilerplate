@@ -1,11 +1,10 @@
 import {IDomainEvent} from 'src/events/interfaces/domainEvents';
 
-export type TEventsList = {
+export interface IEventsList {
   [eventName: string]: IDomainEvent<typeof eventName, any>;
-};
+}
 
-export type TGetEventsNames<E> = E[keyof E] extends IDomainEvent<any>
-  ? keyof E
-  : never;
+export type TGetEventsNames<E extends IEventsList> =
+  E[keyof E] extends IDomainEvent<any> ? keyof E : never;
 
-export type TGetEvents<E> = E[keyof E];
+export type TGetEvents<E extends IEventsList> = E[keyof E];

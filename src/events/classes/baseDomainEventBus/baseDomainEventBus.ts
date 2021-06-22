@@ -5,12 +5,12 @@ import {
   IDomainEventFailed,
   IDomainEventListener,
   IDomainFailedEventListener,
-  TEventsList,
+  IEventsList,
   TGetEvents,
   TGetEventsNames,
 } from 'src/events/interfaces';
 
-export class BaseDomainEventBus<E extends TEventsList, EE extends EventEmitter>
+export class BaseDomainEventBus<E extends IEventsList, EE extends EventEmitter>
   implements IDomainEventBus<E>
 {
   protected get _eventEmitter(): EE {

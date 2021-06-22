@@ -1,10 +1,6 @@
 import {BaseDomainEntityCreateEvent} from 'src/events/classes/baseDomainEntityConstructEvent/index';
 import {BaseDomainEntityDeleteEvent} from 'src/events/classes/baseDomainEntityDeleteEvent/index';
-import {
-  TEventsList,
-  TGetEvents,
-  TGetEventsNames,
-} from 'src/events/interfaces/events';
+import {TGetEvents, TGetEventsNames} from 'src/events/interfaces/events';
 import {
   IDomainEventFailed,
   IDomainEventListener,
@@ -88,7 +84,9 @@ export abstract class BaseEntity<
     this._emitCreateEvent();
   }
 
-  public equalsTo(anotherEntity: IEntity<Id, Type>): boolean {
+  public equalsTo<Entity extends IEntity<Id, Type>>(
+    anotherEntity: Entity
+  ): boolean {
     return (
       anotherEntity.type === this.type &&
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

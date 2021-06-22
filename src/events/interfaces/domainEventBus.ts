@@ -4,9 +4,9 @@ import {
   IDomainEventListener,
   IDomainFailedEventListener,
 } from './domainEvents';
-import {TEventsList, TGetEvents, TGetEventsNames} from './events';
+import {IEventsList, TGetEvents, TGetEventsNames} from './events';
 
-export interface IDomainEventBus<E extends TEventsList> {
+export interface IDomainEventBus<E extends IEventsList> {
   emit<Event extends TGetEvents<E>>(event: Event): void;
 
   emitEventFailed<Event extends TGetEvents<E>>(
