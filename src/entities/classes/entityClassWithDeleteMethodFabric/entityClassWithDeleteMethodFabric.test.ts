@@ -1,6 +1,8 @@
+import {DOMAIN_ENTITY_EVENT_NAME_DELETE} from 'src/constants/domainEvents';
+
 // TODO
 
-describe('"delete" method', () => {
+describe('"$delete" method', () => {
   it('Should have "delete" method', () => {
     expect(typeof entity.delete === 'function').toBe(true);
   });
