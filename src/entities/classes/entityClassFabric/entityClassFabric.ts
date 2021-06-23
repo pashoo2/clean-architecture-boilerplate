@@ -21,16 +21,21 @@ export function entityClassFabric<
   [IBaseEntityParameters<Id>, IBaseEntityServices<E>]
 > {
   const {type, validateInstance, getTransferableProps} = parameters;
-  class Entity extends BaseEntity<Id, Type, E> {
+  class EntityConstructor extends BaseEntity<Id, Type, E> {
     protected _type = type;
+    public getTransferableProps<T extends IEntityImplementation<Id, Type, E>>(
+      this: T
+    ): TPickTransferableProperties<T> {
+      return getTransferableProps<T>(this);
+    }
     protected _validate<T extends this>(this: T): void {
       validateInstance(this);
     }
     protected _getTransferableProps<T extends this>(
       this: T
     ): TPickTransferableProperties<T> {
-      return getTransferableProps(this);
+      return getTransferableProps<T>(this);
     }
   }
-  return Entity;
+  return EntityConstructor;
 }

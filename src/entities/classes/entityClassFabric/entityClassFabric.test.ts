@@ -36,7 +36,7 @@ describe('BaseEntity class', () => {
     entityUniqueIdentifier => {
       describe.each([true, false])('Is deleted %p', isDeleted => {
         function getTestsParams(): IRunEntityTestsParameters {
-          const EntityTestClass = entityClassFabric({
+          class EntityTestClass extends entityClassFabric({
             type: ENTITY_TYPE,
             getTransferableProps<T extends IEntity<any, typeof ENTITY_TYPE>>(
               instance: T
@@ -48,7 +48,7 @@ describe('BaseEntity class', () => {
               } as TPickTransferableProperties<T>;
             },
             validateInstance() {},
-          });
+          }) {}
 
           const parameters = {
             id: entityUniqueIdentifier,
@@ -62,7 +62,7 @@ describe('BaseEntity class', () => {
           const entity = new EntityTestClass(parameters, services);
 
           return {
-            EntityTestClass,
+            EntityClass: EntityTestClass,
             entity,
             entityEventFailedName: ENTITY_EVENT_FAILED_NAME,
             entityEventName: ENTITY_EVENT_NAME,
@@ -71,7 +71,7 @@ describe('BaseEntity class', () => {
             isDeleted,
             parameters,
             services,
-          } as unknown as IRunEntityTestsParameters;
+          } as IRunEntityTestsParameters;
         }
 
         runEntityTests(getTestsParams);
