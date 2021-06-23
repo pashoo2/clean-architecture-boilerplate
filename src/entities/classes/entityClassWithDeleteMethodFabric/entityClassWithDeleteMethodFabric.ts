@@ -1,4 +1,4 @@
-import {BaseEntity} from 'src/entities/abstractClasses';
+import {entityClassFabric} from 'src/entities/classes/entityClassFabric';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
@@ -6,7 +6,6 @@ import {
   IEntityFabricParameters,
   IEntityImplementationWithDeleteMethod,
 } from 'src/entities/interfaces';
-import {TPickTransferableProperties} from 'src/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
@@ -20,20 +19,15 @@ export function entityClassWithDeleteMethodFabric<
   IEntityImplementationWithDeleteMethod<Id, Type, E>,
   [IBaseEntityParameters<Id>, IBaseEntityServices<E>]
 > {
-  const {type, validateInstance, getTransferableProps} = parameters;
-  class EntityWithDeleteMethod extends BaseEntity<Id, Type, E> {
-    protected _type = type;
+  class EntityConstructorWithDeleteMethod extends entityClassFabric<
+    Id,
+    Type,
+    E
+  >(parameters) {
     public $delete() {
-      this._delete();
-    }
-    protected _validate<T extends this>(this: T): void {
-      validateInstance(this);
-    }
-    protected _getTransferableProps<T extends this>(
-      this: T
-    ): TPickTransferableProperties<T> {
-      return getTransferableProps(this);
+      // TODO - find a way to resolve the instance type without casting to ANY
+      (this as any)._delete();
     }
   }
-  return EntityWithDeleteMethod;
+  return EntityConstructorWithDeleteMethod;
 }
