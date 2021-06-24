@@ -1,4 +1,4 @@
-import {entityClassFabric} from 'src/entities/classes/entityClassFabric';
+import {entityClassFabric} from 'src/entities/fabrics/entityClassFabric';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,

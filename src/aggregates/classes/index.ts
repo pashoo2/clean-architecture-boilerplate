@@ -1,1 +1,0 @@
-export {BaseAggregateRoot} from './baseAggregateRoot';
