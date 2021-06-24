@@ -1,0 +1,1 @@
+export {aggregateClassFabric} from './aggregateClassFabric';

@@ -3,18 +3,22 @@ import {
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
+  TAggregateType,
 } from 'src/aggregates/interfaces/aggregateRoot';
 import {BaseEntity} from 'src/entities/abstractClasses';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export abstract class BaseAggregateRootAbstractClass<
     Id extends TIdentityValueObject,
-    Type extends string,
+    Type extends TAggregateType,
     E extends IBaseAggregateRootEventsList<Id, Type>
   >
   extends BaseEntity<Id, Type, E>
   implements IAggregateRoot<Id, Type, E>
 {
+  get isAggregate(): true {
+    return true;
+  }
   constructor(
     parameters: IBaseAggregateRootParameters<Id>,
     services: IBaseAggregateRootServices<E>

@@ -6,6 +6,8 @@ import {
   IBaseEntityEventsList,
 } from '../../entities/interfaces/baseEntity';
 
+export type TAggregateType<T extends string = string> = `aggregate:${T}`;
+
 export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
   extends IBaseEntityParameters<Id> {
   isDeleted: boolean;
@@ -13,20 +15,21 @@ export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
 
 export interface IBaseAggregateRootEventsList<
   Id extends TIdentityValueObject,
-  Type extends string
+  Type extends TAggregateType
 > extends IBaseEntityEventsList<Id, Type> {}
 
 export interface IBaseAggregateRootServices<
-  E extends IBaseAggregateRootEventsList<TIdentityValueObject, string>
+  E extends IBaseAggregateRootEventsList<TIdentityValueObject, TAggregateType>
 > extends IBaseEntityServices<E> {}
 
 export interface IAggregateRoot<
   Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string,
+  Type extends TAggregateType = TAggregateType,
   E extends IBaseAggregateRootEventsList<
     Id,
     Type
   > = IBaseAggregateRootEventsList<Id, Type>
 > extends IEntityImplementation<Id, Type, E> {
+  readonly isAggregate: true;
   delete(): void;
 }
