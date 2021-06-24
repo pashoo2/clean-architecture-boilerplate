@@ -1,0 +1,1 @@
+export {entityClassFabricWithServices} from './entityClassFabricWithServices';

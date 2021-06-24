@@ -4,15 +4,15 @@ import {
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
 } from 'src/aggregates/interfaces/aggregateRoot';
-import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces/index';
+import {BaseEntity} from 'src/entities/abstractClasses';
+import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export abstract class BaseAggregateRootAbstractClass<
     Id extends TIdentityValueObject,
     Type extends string,
     E extends IBaseAggregateRootEventsList<Id, Type>
   >
-  extends BaseEntityAbstractClass<Id, Type, E>
+  extends BaseEntity<Id, Type, E>
   implements IAggregateRoot<Id, Type, E>
 {
   constructor(

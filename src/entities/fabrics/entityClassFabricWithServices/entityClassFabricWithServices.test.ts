@@ -2,7 +2,7 @@ import {
   IRunEntityTestsParameters,
   runEntityTests,
 } from 'src/entities/abstractClasses/baseEntity/baseEntity.test';
-import {entityClassFabric} from 'src/entities/classes/entityClassFabric/entityClassFabric';
+import {entityClassFabricWithServices} from 'src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices';
 import {IEntity} from 'src/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces';
@@ -15,7 +15,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
-describe('BaseEntity class', () => {
+describe('entityClassFabricWithServices', () => {
   const ENTITY_TYPE = 'ENTITY_TYPE' as const;
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
   const ENTITY_EVENT_FAILED_NAME: TDomainEventFailedNameForDomainEventName<
@@ -36,30 +36,33 @@ describe('BaseEntity class', () => {
     entityUniqueIdentifier => {
       describe.each([true, false])('Is deleted %p', isDeleted => {
         function getTestsParams(): IRunEntityTestsParameters {
-          class EntityTestClass extends entityClassFabric({
-            type: ENTITY_TYPE,
-            getTransferableProps<T extends IEntity<any, typeof ENTITY_TYPE>>(
-              instance: T
-            ): TPickTransferableProperties<T> {
-              return {
-                id: instance.id,
-                isDeleted: instance.isDeleted,
-                type: instance.type,
-              } as TPickTransferableProperties<T>;
+          const services = {
+            domainEventBus: getMockDomainEventBus(),
+            generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
+          };
+          class EntityTestClass extends entityClassFabricWithServices(
+            {
+              type: ENTITY_TYPE,
+              getTransferableProps<T extends IEntity<any, typeof ENTITY_TYPE>>(
+                instance: T
+              ): TPickTransferableProperties<T> {
+                return {
+                  id: instance.id,
+                  isDeleted: instance.isDeleted,
+                  type: instance.type,
+                } as TPickTransferableProperties<T>;
+              },
+              validateInstance() {},
             },
-            validateInstance() {},
-          }) {}
+            services
+          ) {}
 
           const parameters = {
             id: entityUniqueIdentifier,
             isDeleted,
           };
-          const services = {
-            domainEventBus: getMockDomainEventBus(),
-            generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
-          };
 
-          const entity = new EntityTestClass(parameters, services);
+          const entity = new EntityTestClass(parameters);
 
           return {
             EntityClass: EntityTestClass,
@@ -71,7 +74,7 @@ describe('BaseEntity class', () => {
             isDeleted,
             parameters,
             services,
-          } as IRunEntityTestsParameters;
+          } as unknown as IRunEntityTestsParameters;
         }
 
         runEntityTests(getTestsParams);
