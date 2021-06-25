@@ -19,6 +19,7 @@ export abstract class BaseAggregateRootAbstractClass<
   get isAggregate(): true {
     return true;
   }
+
   constructor(
     parameters: IBaseAggregateRootParameters<Id>,
     services: IBaseAggregateRootServices<E>

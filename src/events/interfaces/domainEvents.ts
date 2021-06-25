@@ -1,3 +1,5 @@
+import {TEntityType} from 'src/entities/interfaces';
+import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {TSimpleType} from 'src/interfaces/common';
 import {ISerializable, TSerializableValue} from 'src/interfaces/serialization';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
@@ -93,33 +95,71 @@ export interface IDomainAllEventsListener<DE extends IDomainEvent>
     IDomainFailedEventListener<DE> {}
 
 export interface IDomainEntityEventSpecificProperties<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType,
+  EventType extends EDomainEntityEventType
 > {
-  readonly entityId: Id;
-  readonly entityType: Type;
+  readonly entityId: EntityId;
+  readonly entityType: EntityType;
+  readonly eventType: EventType;
 }
 
 export interface IDomainEntityEventSpecificPropertiesSerialized<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType,
+  EventType extends EDomainEntityEventType
 > {
-  readonly entityId: ReturnType<Id['serialize']>;
-  readonly entityType: Type;
+  readonly entityId: ReturnType<EntityId['serialize']>;
+  readonly entityType: EntityType;
+  readonly eventType: EventType;
 }
 
 export interface IDomainEntityEventPropertiesSerialized<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string,
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType,
   N extends string = string,
-  P extends TDomainEventPayload = undefined
-> extends IDomainEntityEventSpecificPropertiesSerialized<Id, Type>,
+  P extends TDomainEventPayload = undefined,
+  EventType extends EDomainEntityEventType = EDomainEntityEventType.ENTITY_EVENT
+> extends IDomainEntityEventSpecificPropertiesSerialized<
+      EntityId,
+      EntityType,
+      EventType
+    >,
     IDomainEventPropertiesSerialized<N, P> {}
 
-export interface IDomainEntityEvent<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends string = string,
+export interface IDomainEntityOrAggregateEvent<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType,
   N extends string = string,
-  P extends TDomainEventPayload = undefined
+  P extends TDomainEventPayload = undefined,
+  EventType extends EDomainEntityEventType = EDomainEntityEventType
 > extends IDomainEvent<N, P>,
-    IDomainEntityEventSpecificProperties<Id, Type> {}
+    IDomainEntityEventSpecificProperties<EntityId, EntityType, EventType> {}
+
+export interface IDomainEntityEvent<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType,
+  N extends string = string,
+  P extends TDomainEventPayload = undefined,
+  EventType extends EDomainEntityEventType.ENTITY_EVENT = EDomainEntityEventType.ENTITY_EVENT
+> extends IDomainEntityOrAggregateEvent<
+    EntityId,
+    EntityType,
+    N,
+    P,
+    EventType
+  > {}
+
+export interface IAggregateEvent<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType,
+  N extends string = string,
+  P extends TDomainEventPayload = undefined,
+  EventType extends EDomainEntityEventType.AGGREGATE_EVENT = EDomainEntityEventType.AGGREGATE_EVENT
+> extends IDomainEntityOrAggregateEvent<
+    EntityId,
+    EntityType,
+    N,
+    P,
+    EventType
+  > {}

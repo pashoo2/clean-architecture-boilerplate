@@ -1,0 +1,1 @@
+export {BaseDomainEntityOrAggregateEvent} from './baseDomainEntityOrAggregateEvent';

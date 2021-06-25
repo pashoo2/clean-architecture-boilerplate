@@ -1,32 +1,34 @@
+import {TEntityType} from 'src/entities/interfaces';
 import {
   BaseDomainEventClass,
   TBaseDomainEventClassParameters,
 } from 'src/events/classes/baseDomainEvent/baseDomainEvent';
-import { EDomainEntityEventType } from 'src/events/constants/eventType';
+import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {
   TDomainEventPayload,
-  IDomainEntityEvent,
   IDomainEventPropertiesSerialized,
   IDomainEntityEventPropertiesSerialized,
+  IDomainEntityOrAggregateEvent,
 } from 'src/events/interfaces/domainEvents';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
-export type TBaseDomainEntityEventParameters<
+export type TBaseDomainEntityOrAggregateEventParameters<
   Id extends TIdentityValueObject,
   P extends TDomainEventPayload
 > = TBaseDomainEventClassParameters<P> & {
   entityId: Id;
 };
 
-export abstract class BaseDomainEntityEvent<
-    EntityId extends TIdentityValueObject = TIdentityValueObject,
-    EntityType extends string = string,
+export abstract class BaseDomainEntityOrAggregateEvent<
+    EntityId extends TIdentityValueObject,
+    EntityType extends TEntityType,
     N extends string = string,
     P extends TDomainEventPayload = undefined,
-    EventType extends EDomainEntityEventType = EDomainEntityEventType.ENTITY_EVENT
+    EventType extends EDomainEntityEventType = EDomainEntityEventType
   >
   extends BaseDomainEventClass<N, P>
-  implements IDomainEntityEvent<EntityId, EntityType, N, P>
+  implements
+    IDomainEntityOrAggregateEvent<EntityId, EntityType, N, P, EventType>
 {
   public get entityId(): EntityId {
     return this.__entityId;
@@ -36,13 +38,19 @@ export abstract class BaseDomainEntityEvent<
     return this._entityType;
   }
 
-  public get eventType(): EEve
+  public get eventType(): EventType {
+    return this._eventType;
+  }
 
   private __entityId: EntityId;
 
   protected abstract _entityType: EntityType;
 
-  constructor(parameters: TBaseDomainEntityEventParameters<EntityId, P>) {
+  protected abstract _eventType: EventType;
+
+  constructor(
+    parameters: TBaseDomainEntityOrAggregateEventParameters<EntityId, P>
+  ) {
     super(parameters);
     this.__entityId = parameters.entityId;
   }
@@ -51,7 +59,8 @@ export abstract class BaseDomainEntityEvent<
     EntityId,
     EntityType,
     N,
-    P
+    P,
+    EventType
   > {
     const baseDomainEventObjectRepresentation: IDomainEventPropertiesSerialized<
       N,
@@ -61,6 +70,7 @@ export abstract class BaseDomainEntityEvent<
       ...baseDomainEventObjectRepresentation,
       entityId: this.entityId.value as ReturnType<EntityId['serialize']>,
       entityType: this.entityType,
+      eventType: this.eventType,
     };
   }
 }
