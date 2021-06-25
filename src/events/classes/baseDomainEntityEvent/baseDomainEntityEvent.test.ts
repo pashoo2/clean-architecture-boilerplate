@@ -2,6 +2,8 @@ import {
   BaseDomainEntityEvent,
   TBaseDomainEntityEventParameters,
 } from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {testBaseDomainEntityOrAggregateEvent} from 'src/events/classes/baseDomainEntityOrAggregateEvent/baseDomainEntityOrAggregateEvent.test';
+import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {
   MultipleIdentityValueObjectClassMock,
   SimpleIdentityValueObjectClassMock,
@@ -9,9 +11,10 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
-const EVENT_IDENTITY_UNIQUE = 'EVENT_IDENTITY_UNIQUE';
-const EVENT_NAME = 'EVENT_NAME';
-const ENTITY_TYPE = 'ENTITY_TYPE';
+const EVENT_IDENTITY_UNIQUE = 'EVENT_IDENTITY_UNIQUE' as const;
+const EVENT_NAME = 'EVENT_NAME' as const;
+const ENTITY_TYPE = 'ENTITY_TYPE' as const;
+const EVENT_TYPE = EDomainEntityEventType.ENTITY_EVENT as const;
 
 describe('Base domain entity event', () => {
   const parametersWithoutPayloadSimpleEntityId: TBaseDomainEntityEventParameters<
@@ -53,77 +56,31 @@ describe('Base domain entity event', () => {
     ),
   };
 
-  class DomainEventClassTest extends BaseDomainEntityEvent<any> {
-    protected _name = EVENT_NAME;
-    protected _entityType = ENTITY_TYPE;
-  }
-
   describe.each([
     parametersWithoutPayloadSimpleEntityId,
     parametersWithoutPayloadMultiEntityId,
     parametersWithPayloadSimpleEntityId,
     parametersWithPayloadMultiEntityId,
   ])('Parameters %p', constructorParameters => {
-    let domainEntityEvent: DomainEventClassTest;
-    describe('DomainEventClass', () => {
-      beforeEach(() => {
-        domainEntityEvent = new DomainEventClassTest(constructorParameters);
-      });
-      it('Should have the "name" property', () => {
-        expect(domainEntityEvent.name).toEqual(EVENT_NAME);
-      });
-      it('Should have the "id" property', () => {
-        expect(domainEntityEvent).toHaveProperty('id');
-      });
-      test('The "id" property should be equal to a value returned by the "getUniqueIdentifierString" service', () => {
-        expect(domainEntityEvent.id).toEqual(EVENT_IDENTITY_UNIQUE);
-      });
-      if ((constructorParameters as any).payload) {
-        it('Should have the "payload" property equals to a value passed in a parameters', () => {
-          expect(domainEntityEvent.payload).toEqual(
-            (constructorParameters as any).payload
-          );
-        });
-      } else {
-        it('Should have the "payload" property equals to the "undefined"', () => {
-          expect(domainEntityEvent.payload).toEqual(undefined);
-        });
-      }
-      if ((constructorParameters as any).metaVersion) {
-        it('Should have the "metaVersion" property equals to a value passed in a parameters', () => {
-          expect(domainEntityEvent.metaVersion).toEqual(
-            (constructorParameters as any).metaVersion
-          );
-        });
-      } else {
-        it('Should have the "metaVersion" property', () => {
-          expect(domainEntityEvent).toHaveProperty('metaVersion');
-        });
-      }
-      it(`Should have entity type property equals to the ${ENTITY_TYPE}`, () => {
-        expect(domainEntityEvent.entityType).toBe(ENTITY_TYPE);
-      });
-      it(`Should have entity id property equals to the ${constructorParameters.entityId}`, () => {
-        expect(domainEntityEvent.entityId).toBe(constructorParameters.entityId);
-      });
-      it('Should be serialized', () => {
-        const eventSerialized = domainEntityEvent.serialize();
-        const eventSerializedParsed = JSON.parse(eventSerialized);
-        const objectExpected = {
-          id: EVENT_IDENTITY_UNIQUE,
-          name: EVENT_NAME,
-          entityType: ENTITY_TYPE,
-          entityId:
-            typeof constructorParameters.entityId.value === 'object'
-              ? expect.objectContaining(UNIQUE_ENTITY_IDENTITY_MULTI_STUB)
-              : UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-          payload: (constructorParameters as any).payload,
-          metaVersion: (constructorParameters as any).metaVersion
-            ? (constructorParameters as any).metaVersion
-            : 1,
-        };
-        expect(eventSerializedParsed).toEqual(objectExpected);
-      });
+    class DomainEventClassTest extends BaseDomainEntityEvent<
+      typeof constructorParameters.entityId,
+      typeof ENTITY_TYPE,
+      typeof EVENT_NAME,
+      any
+    > {
+      protected _name = EVENT_NAME;
+      protected _entityType = ENTITY_TYPE;
+    }
+    testBaseDomainEntityOrAggregateEvent({
+      constructorParameters,
+      entityId: constructorParameters.entityId,
+      entityType: ENTITY_TYPE,
+      eventName: EVENT_NAME,
+      eventPayload: (constructorParameters as any).payload,
+      eventType: EVENT_TYPE,
+      getEntity() {
+        return new DomainEventClassTest(constructorParameters);
+      },
     });
   });
 });
