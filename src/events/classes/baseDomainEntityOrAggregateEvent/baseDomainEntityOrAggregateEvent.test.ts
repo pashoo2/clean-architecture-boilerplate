@@ -7,16 +7,14 @@ import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {TDomainEventPayload} from 'src/events/interfaces';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 import {
-  MultipleIdentityValueObjectClassMock,
-  SimpleIdentityValueObjectClassMock,
-  UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
-  UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
-
-const EVENT_IDENTITY_UNIQUE = 'EVENT_IDENTITY_UNIQUE';
-const EVENT_NAME = 'EVENT_NAME' as const;
-const ENTITY_TYPE = 'ENTITY_TYPE' as const;
-const EVENT_TYPE = EDomainEntityEventType.ENTITY_EVENT;
+  DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_MULTI_ENTITY_ID_STUB,
+  DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_SIMPLE_ENTITY_ID_STUB,
+  DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITH_PAYLOAD_MULTI_ENTITY_ID_STUB,
+  DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITH_PAYLOAD_SIMPLE_ENTITY_ID_STUB,
+  EVENT_ENTITY_TYPE_STUB,
+  EVENT_NAME_STUB,
+  EVENT_TYPE_STUB,
+} from 'src/__mock__/domainEvents/constructorParameters.stub';
 
 export interface ITestBaseDomainEntityOrAggregateEventParameters<
   EntityId extends TIdentityValueObject,
@@ -25,7 +23,6 @@ export interface ITestBaseDomainEntityOrAggregateEventParameters<
   P extends TDomainEventPayload = undefined,
   EventType extends EDomainEntityEventType = EDomainEntityEventType
 > {
-  entityId: EntityId;
   entityType: EntityType;
   eventType: EventType;
   eventName: N;
@@ -61,8 +58,8 @@ export function testBaseDomainEntityOrAggregateEvent<
   const {constructorParameters, eventName, entityType, eventType, getEntity} =
     parameters;
 
-  let domainEntityEvent: ReturnType<typeof getEntity>;
   describe('DomainEventClass', () => {
+    let domainEntityEvent: ReturnType<typeof getEntity>;
     beforeEach(() => {
       domainEntityEvent = getEntity();
     });
@@ -72,9 +69,9 @@ export function testBaseDomainEntityOrAggregateEvent<
     it('Should have the "id" property', () => {
       expect(domainEntityEvent).toHaveProperty('id');
     });
-    test('The "id" property should be equal to a value returned by the "getUniqueIdentifierString" service', () => {
-      expect(domainEntityEvent.id).toEqual(EVENT_IDENTITY_UNIQUE);
-    });
+    // test('The "id" property should be equal to a value returned by the "getUniqueIdentifierString" service', () => {
+    //   expect(domainEntityEvent.id).toEqual(entityId);
+    // });
     if ((constructorParameters as any).payload) {
       it('Should have the "payload" property equals to a value passed in a parameters', () => {
         expect(domainEntityEvent.payload).toEqual(
@@ -110,13 +107,15 @@ export function testBaseDomainEntityOrAggregateEvent<
       const eventSerialized = domainEntityEvent.serialize();
       const eventSerializedParsed = JSON.parse(eventSerialized);
       const objectExpected = {
-        id: EVENT_IDENTITY_UNIQUE,
+        id: parameters.constructorParameters.id,
         name: eventName,
         entityType: entityType,
         entityId:
           typeof constructorParameters.entityId.value === 'object'
-            ? expect.objectContaining(UNIQUE_ENTITY_IDENTITY_MULTI_STUB)
-            : UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
+            ? expect.objectContaining(
+                JSON.parse(constructorParameters.entityId.serialize())
+              )
+            : constructorParameters.entityId.value,
         eventType: eventType,
         payload: (constructorParameters as any).payload,
         metaVersion: (constructorParameters as any).metaVersion
@@ -129,72 +128,40 @@ export function testBaseDomainEntityOrAggregateEvent<
 }
 
 describe('Base domain entity or aggregate event', () => {
-  const parametersWithoutPayloadSimpleEntityId: TBaseDomainEntityOrAggregateEventParameters<
-    SimpleIdentityValueObjectClassMock,
-    undefined
-  > = {
-    id: EVENT_IDENTITY_UNIQUE,
-    metaVersion: 1,
-    entityId: new SimpleIdentityValueObjectClassMock(
-      UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB
-    ),
-  };
-  const parametersWithoutPayloadMultiEntityId: TBaseDomainEntityOrAggregateEventParameters<
-    MultipleIdentityValueObjectClassMock,
-    undefined
-  > = {
-    ...parametersWithoutPayloadSimpleEntityId,
-    entityId: new MultipleIdentityValueObjectClassMock(
-      UNIQUE_ENTITY_IDENTITY_MULTI_STUB
-    ),
-  };
-  const parametersWithPayloadSimpleEntityId: TBaseDomainEntityOrAggregateEventParameters<
-    SimpleIdentityValueObjectClassMock,
-    {isPayload: boolean}
-  > = {
-    id: EVENT_IDENTITY_UNIQUE,
-    payload: {isPayload: true},
-    entityId: new SimpleIdentityValueObjectClassMock(
-      UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB
-    ),
-  };
-  const parametersWithPayloadMultiEntityId: TBaseDomainEntityOrAggregateEventParameters<
-    MultipleIdentityValueObjectClassMock,
-    {isPayload: boolean}
-  > = {
-    ...parametersWithPayloadSimpleEntityId,
-    entityId: new MultipleIdentityValueObjectClassMock(
-      UNIQUE_ENTITY_IDENTITY_MULTI_STUB
-    ),
-  };
-
   describe.each([
-    parametersWithoutPayloadSimpleEntityId,
-    parametersWithoutPayloadMultiEntityId,
-    parametersWithPayloadSimpleEntityId,
-    parametersWithPayloadMultiEntityId,
-  ])('Parameters %p', constructorParameters => {
-    class DomainEventClassTest extends BaseDomainEntityOrAggregateEvent<
-      typeof constructorParameters.entityId,
-      typeof ENTITY_TYPE,
-      typeof EVENT_NAME,
-      any,
-      EDomainEntityEventType
-    > {
-      protected _name = EVENT_NAME;
-      protected _entityType = ENTITY_TYPE;
-      protected _eventType = EVENT_TYPE;
+    DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_SIMPLE_ENTITY_ID_STUB,
+    DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_MULTI_ENTITY_ID_STUB,
+    DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITH_PAYLOAD_SIMPLE_ENTITY_ID_STUB,
+    DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITH_PAYLOAD_MULTI_ENTITY_ID_STUB,
+  ])(
+    'Parameters %p',
+    (
+      constructorParameters: TBaseDomainEntityOrAggregateEventParameters<
+        any,
+        any
+      >
+    ) => {
+      class DomainEventClassTest extends BaseDomainEntityOrAggregateEvent<
+        typeof constructorParameters.entityId,
+        typeof EVENT_ENTITY_TYPE_STUB,
+        typeof EVENT_NAME_STUB,
+        any,
+        typeof EVENT_TYPE_STUB
+      > {
+        protected _name = EVENT_NAME_STUB;
+        protected _entityType = EVENT_ENTITY_TYPE_STUB;
+        protected _eventType = EVENT_TYPE_STUB;
+      }
+      testBaseDomainEntityOrAggregateEvent({
+        constructorParameters,
+        entityType: EVENT_ENTITY_TYPE_STUB,
+        eventName: EVENT_NAME_STUB,
+        eventPayload: (constructorParameters as any).payload,
+        eventType: EVENT_TYPE_STUB,
+        getEntity() {
+          return new DomainEventClassTest(constructorParameters);
+        },
+      });
     }
-    testBaseDomainEntityOrAggregateEvent({
-      constructorParameters,
-      entityId: constructorParameters.entityId,
-      entityType: ENTITY_TYPE,
-      eventName: EVENT_NAME,
-      eventPayload: (constructorParameters as any).payload,
-      eventType: EVENT_TYPE,
-      getEntity() {
-        return new DomainEventClassTest(constructorParameters);
-      },
-    });
-  });
+  );
 });
