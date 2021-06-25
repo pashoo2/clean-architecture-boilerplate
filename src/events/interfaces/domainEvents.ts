@@ -1,3 +1,4 @@
+import {TAggregateType} from 'src/aggregates/interfaces';
 import {TEntityType} from 'src/entities/interfaces';
 import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {TSimpleType} from 'src/interfaces/common';
@@ -152,14 +153,7 @@ export interface IDomainEntityEvent<
 
 export interface IAggregateEvent<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends TAggregateType,
   N extends string = string,
-  P extends TDomainEventPayload = undefined,
-  EventType extends EDomainEntityEventType.AGGREGATE_EVENT = EDomainEntityEventType.AGGREGATE_EVENT
-> extends IDomainEntityOrAggregateEvent<
-    EntityId,
-    EntityType,
-    N,
-    P,
-    EventType
-  > {}
+  P extends TDomainEventPayload = undefined
+> extends IDomainEntityEvent<EntityId, EntityType, N, P> {}

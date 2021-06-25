@@ -1,5 +1,5 @@
-import {TBaseDomainEntityOrAggregateEventParameters} from 'src/events/classes/baseDomainEntityOrAggregateEvent/baseDomainEntityOrAggregateEvent';
-import {testBaseDomainEntityOrAggregateEvent} from 'src/events/classes/baseDomainEntityOrAggregateEvent/baseDomainEntityOrAggregateEvent.test';
+import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {testBaseDomainEntityEvent} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent.test';
 import {createDomainEntityEventConstructor} from 'src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor';
 import {
   DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_MULTI_ENTITY_ID_STUB,
@@ -19,12 +19,7 @@ describe('Base domain entity event', () => {
     DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITH_PAYLOAD_MULTI_ENTITY_ID_STUB,
   ])(
     'Parameters %p',
-    (
-      constructorParameters: TBaseDomainEntityOrAggregateEventParameters<
-        any,
-        any
-      >
-    ) => {
+    (constructorParameters: TBaseDomainEntityEventParameters<any, any>) => {
       class DomainEventClassTest extends createDomainEntityEventConstructor<
         typeof EVENT_NAME_STUB,
         typeof EVENT_ENTITY_TYPE_STUB,
@@ -33,7 +28,7 @@ describe('Base domain entity event', () => {
         eventName: EVENT_NAME_STUB,
         entityType: EVENT_ENTITY_TYPE_STUB,
       }) {}
-      testBaseDomainEntityOrAggregateEvent({
+      testBaseDomainEntityEvent({
         constructorParameters,
         entityType: EVENT_ENTITY_TYPE_STUB,
         eventName: EVENT_NAME_STUB,

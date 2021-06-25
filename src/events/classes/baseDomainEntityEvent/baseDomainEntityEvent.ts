@@ -1,9 +1,14 @@
-import {BaseDomainEntityOrAggregateEvent} from 'src/events/classes/baseDomainEntityOrAggregateEvent';
-import {TBaseDomainEventClassParameters} from 'src/events/classes/baseDomainEvent/baseDomainEvent';
+import {TEntityType} from 'src/entities/interfaces';
+import {
+  BaseDomainEventClass,
+  TBaseDomainEventClassParameters,
+} from 'src/events/classes/baseDomainEvent/baseDomainEvent';
 import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {
   TDomainEventPayload,
   IDomainEntityEvent,
+  IDomainEntityEventPropertiesSerialized,
+  IDomainEventPropertiesSerialized,
 } from 'src/events/interfaces/domainEvents';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
@@ -15,18 +20,12 @@ export type TBaseDomainEntityEventParameters<
 };
 
 export abstract class BaseDomainEntityEvent<
-    EntityId extends TIdentityValueObject = TIdentityValueObject,
-    EntityType extends string = string,
+    EntityId extends TIdentityValueObject,
+    EntityType extends TEntityType,
     N extends string = string,
     P extends TDomainEventPayload = undefined
   >
-  extends BaseDomainEntityOrAggregateEvent<
-    EntityId,
-    EntityType,
-    N,
-    P,
-    EDomainEntityEventType.ENTITY_EVENT
-  >
+  extends BaseDomainEventClass<N, P>
   implements
     IDomainEntityEvent<
       EntityId,
@@ -36,5 +35,42 @@ export abstract class BaseDomainEntityEvent<
       EDomainEntityEventType.ENTITY_EVENT
     >
 {
-  protected _eventType = EDomainEntityEventType.ENTITY_EVENT as const;
+  public get entityId(): EntityId {
+    return this.__entityId;
+  }
+
+  public get entityType(): EntityType {
+    return this._entityType;
+  }
+
+  public get eventType() {
+    return EDomainEntityEventType.ENTITY_EVENT;
+  }
+
+  private __entityId: EntityId;
+
+  protected abstract _entityType: EntityType;
+
+  constructor(parameters: TBaseDomainEntityEventParameters<EntityId, P>) {
+    super(parameters);
+    this.__entityId = parameters.entityId;
+  }
+
+  protected _getSerializableObjectRepresentation(): IDomainEntityEventPropertiesSerialized<
+    EntityId,
+    EntityType,
+    N,
+    P
+  > {
+    const baseDomainEventObjectRepresentation: IDomainEventPropertiesSerialized<
+      N,
+      P
+    > = super._getSerializableObjectRepresentation();
+    return {
+      ...baseDomainEventObjectRepresentation,
+      entityId: this.entityId.value as ReturnType<EntityId['serialize']>,
+      entityType: this.entityType,
+      eventType: this.eventType,
+    };
+  }
 }

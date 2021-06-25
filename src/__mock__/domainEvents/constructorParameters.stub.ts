@@ -1,5 +1,4 @@
 import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
-import {TBaseDomainEntityOrAggregateEventParameters} from 'src/events/classes/baseDomainEntityOrAggregateEvent/baseDomainEntityOrAggregateEvent';
 import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {
   MultipleIdentityValueObjectClassMock,
@@ -13,7 +12,7 @@ export const EVENT_NAME_STUB = 'EVENT_NAME' as const;
 export const EVENT_ENTITY_TYPE_STUB = 'ENTITY_TYPE' as const;
 export const EVENT_TYPE_STUB = EDomainEntityEventType.ENTITY_EVENT as const;
 
-export const DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_SIMPLE_ENTITY_ID_STUB: TBaseDomainEntityOrAggregateEventParameters<
+export const DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_SIMPLE_ENTITY_ID_STUB: TBaseDomainEntityEventParameters<
   SimpleIdentityValueObjectClassMock,
   undefined
 > = {
