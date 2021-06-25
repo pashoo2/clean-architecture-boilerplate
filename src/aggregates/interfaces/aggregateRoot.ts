@@ -5,8 +5,10 @@ import {
   IBaseEntityServices,
   IBaseEntityEventsList,
 } from '../../entities/interfaces/baseEntity';
+import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
 
-export type TAggregateType<T extends string = string> = `aggregate:${T}`;
+export type TAggregateType<T extends string = string> =
+  `${typeof AGGREGATE_TYPE_PREFIX}:${T}`;
 
 export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
   extends IBaseEntityParameters<Id> {
