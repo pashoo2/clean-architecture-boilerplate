@@ -12,7 +12,7 @@ import {
 } from 'src/events/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TPickTransferableProperties} from 'src/interfaces/index';
-import {getDomainEntityEventMock} from 'src/__mock__/domainEvents';
+import {getDomainEntityEventMock} from 'src/__mock__/domainEvents/domainEvents.mock';
 import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
 import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
 import {
