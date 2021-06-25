@@ -6,6 +6,7 @@ import {
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 import {BaseDomainEntityEvent} from 'src/events/classes/baseDomainEntityEvent';
 import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {EDomainEntityEventType} from 'src/events/constants/eventType';
 
 export interface IFabricDomainEntityEventParameters<
   EntityType extends string,
@@ -24,7 +25,13 @@ export function createDomainEntityEventConstructor<
   eventName,
   entityType,
 }: IFabricDomainEntityEventParameters<EntityType, EventName>): Constructor<
-  IDomainEntityEvent<EntityId, EntityType, EventName, P>,
+  IDomainEntityEvent<
+    EntityId,
+    EntityType,
+    EventName,
+    P,
+    EDomainEntityEventType.ENTITY_EVENT
+  >,
   [TBaseDomainEntityEventParameters<EntityId, P>]
 > {
   class DomainEntityEvent extends BaseDomainEntityEvent<
