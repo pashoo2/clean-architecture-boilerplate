@@ -1,5 +1,8 @@
 import {BaseEntity} from 'src/entities/abstractClasses';
-import {IBaseEntityAbstractClassImplementationUtitlities} from 'src/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
+import {
+  BaseEntityWithUtilities,
+  IBaseEntityAbstractClassImplementationUtitlities,
+} from 'src/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
@@ -11,26 +14,31 @@ import {TPickTransferableProperties} from 'src/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
-export interface IEntityClassFabricParametersWithUtils<
-  Id extends TIdentityValueObject,
-  Type extends string
-> {
-  classUtilities?: IBaseEntityAbstractClassImplementationUtitlities;
-}
-
-export function entityClassFabric<
+export function entityClassFabricWithServicesAndUtilities<
   Id extends TIdentityValueObject,
   Type extends string,
   E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
 >(
-  parameters: IEntityFabricParameters<Id, Type>
+  parameters: IEntityFabricParameters<Id, Type>,
+  services: IBaseEntityServices<E>,
+  utilities: IBaseEntityAbstractClassImplementationUtitlities
 ): Constructor<
   IEntityImplementation<Id, Type, E>,
-  [IBaseEntityParameters<Id>, IBaseEntityServices<E>]
+  [IBaseEntityParameters<Id>]
 > {
   const {type, validateInstance, getTransferableProps} = parameters;
-  class EntityConstructor extends BaseEntity<Id, Type, E> {
+  class EntityConstructor extends BaseEntityWithUtilities<
+    Id,
+    Type,
+    E,
+    typeof utilities
+  > {
     protected _type = type;
+
+    constructor(parameters: IBaseEntityParameters<Id>) {
+      super(parameters, services, utilities);
+    }
+
     public getTransferableProps<T extends IEntityImplementation<Id, Type, E>>(
       this: T
     ): TPickTransferableProperties<T> {
