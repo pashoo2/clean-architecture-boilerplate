@@ -13,14 +13,14 @@ export interface IValidateAggregate<
   Id extends TIdentityValueObject,
   Type extends TAggregateType
 > {
-  (aggregateRoot: IAggregateRoot<Id, Type>): void;
+  (aggregateRoot: IAggregateRoot<Id, Type, any>): void;
 }
 
 export interface IGetTransferablePropertiesOfAggregateRoot<
   Id extends TIdentityValueObject,
   Type extends TAggregateType
 > {
-  <T extends IAggregateRoot<Id, Type>>(
+  <T extends IAggregateRoot<Id, Type, any>>(
     aggregateRoot: T
   ): TPickTransferableProperties<T>;
 }

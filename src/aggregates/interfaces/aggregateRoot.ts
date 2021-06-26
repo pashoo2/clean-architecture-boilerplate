@@ -25,13 +25,12 @@ export interface IBaseAggregateRootServices<
 > extends IBaseEntityServices<E> {}
 
 export interface IAggregateRoot<
-  Id extends TIdentityValueObject = TIdentityValueObject,
-  Type extends TAggregateType = TAggregateType,
+  Id extends TIdentityValueObject,
+  Type extends TAggregateType,
   E extends IBaseAggregateRootEventsList<
     Id,
     Type
   > = IBaseAggregateRootEventsList<Id, Type>
 > extends IEntityImplementation<Id, Type, E> {
-  readonly isAggregate: true;
   delete(): void;
 }

@@ -1,3 +1,5 @@
-export * as objects from './objects';
+export * from './objects';
 
-export * as serialization from './serialization';
+export * from './serialization';
+
+export * from './comparison';

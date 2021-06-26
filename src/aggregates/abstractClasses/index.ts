@@ -1,1 +1,1 @@
-export * from './aggregateRootAbstractClass';
+export {BaseAggregateRootAbstractClass} from './aggregateRootAbstractClass';
