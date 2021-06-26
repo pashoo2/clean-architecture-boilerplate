@@ -10,9 +10,7 @@ import {IComparable} from 'src/interfaces/comparison';
 import {ITransferable} from 'src/interfaces/transferable';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 
-export type TEntityIdentity = string;
-
-export type TEntityType = string;
+export type TEntityType = string | String;
 
 export interface IEntity<
   Id extends TIdentityValueObject,

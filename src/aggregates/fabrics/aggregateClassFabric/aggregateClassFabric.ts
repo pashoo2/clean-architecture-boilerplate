@@ -1,3 +1,4 @@
+import {BaseAggregateRootAbstractClass} from 'src/aggregates/abstractClasses';
 import {
   IAggregateRoot,
   IBaseAggregateRootEventsList,
@@ -6,7 +7,7 @@ import {
   TAggregateType,
 } from 'src/aggregates/interfaces';
 import {IAggregateRootFabricParameters} from 'src/aggregates/interfaces/aggregateRootFabric';
-import {entityClassWithDeleteMethodFabric} from 'src/entities/fabrics';
+import {TPickTransferableProperties} from 'src/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
@@ -17,21 +18,29 @@ export function aggregateClassFabric<
     Id,
     Type
   > = IBaseAggregateRootEventsList<Id, Type>
->(
-  parameters: IAggregateRootFabricParameters<Id, Type>
-): Constructor<
+>({
+  type,
+  validateInstance,
+  getTransferableProps,
+}: IAggregateRootFabricParameters<Id, Type>): Constructor<
   IAggregateRoot<Id, Type, E>,
   [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
 > {
   class AggregateRootConstructor
-    extends entityClassWithDeleteMethodFabric<Id, Type, E>(parameters)
+    extends BaseAggregateRootAbstractClass<Id, Type, E>
     implements IAggregateRoot<Id, Type, E>
   {
-    get isAggregate(): true {
-      return true;
+    protected _type = type;
+    public delete(): void {
+      this._delete();
     }
-    delete() {
-      this.$delete();
+    public getTransferableProps<T extends this>(
+      this: T
+    ): TPickTransferableProperties<T> {
+      return getTransferableProps(this as IAggregateRoot<Id, Type, E>);
+    }
+    protected _validate(): void {
+      validateInstance(this as IAggregateRoot<Id, Type, any>);
     }
   }
   // TODO - fix

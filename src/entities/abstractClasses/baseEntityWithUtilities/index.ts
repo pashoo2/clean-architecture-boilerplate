@@ -1,0 +1,1 @@
+export {BaseEntityWithUtilities} from './baseEntityWithUtilities';

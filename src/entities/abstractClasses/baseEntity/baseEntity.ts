@@ -6,8 +6,12 @@ import {
   IDomainEventListener,
   IDomainFailedEventListener,
 } from 'src/events/interfaces/domainEvents';
-import {IEntity} from 'src/entities/interfaces/entity';
-import {TIdentityValueObject} from '../../../valueObjects/interfaces/identityValueObject';
+import {IEntity, TEntityType} from 'src/entities/interfaces/entity';
+import {
+  IIdentityMultiValueObject,
+  IIdentityValueObjectSimple,
+  TIdentityValueObject,
+} from '../../../valueObjects/interfaces/identityValueObject';
 import {IDomainEventBus} from 'src/events/interfaces/domainEventBus';
 import {
   IBaseEntityEventsList,
@@ -22,7 +26,7 @@ import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEnt
 
 export abstract class BaseEntity<
   Id extends TIdentityValueObject,
-  Type extends string,
+  Type extends TEntityType,
   E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
 > extends BaseEntityAbstractClass<Id, Type, E> {
   public get id(): Id {
@@ -84,13 +88,10 @@ export abstract class BaseEntity<
     this._emitCreateEvent();
   }
 
-  public equalsTo<Entity extends IEntity<Id, Type>>(
-    anotherEntity: Entity
-  ): boolean {
+  public equalsTo(anotherEntity: IEntity<Id, Type>): boolean {
     return (
-      anotherEntity.type === this.type &&
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      this.id.equalsTo(anotherEntity.id as any)
+      this._compareEntitiesTypes(this.type, anotherEntity.type) &&
+      this._compareEntitiesIdentities(this.id, anotherEntity.id)
     );
   }
 
@@ -132,6 +133,22 @@ export abstract class BaseEntity<
   }
 
   protected abstract _validate(): void;
+
+  protected _compareEntitiesIdentities(
+    firstId: TIdentityValueObject,
+    secondId: TIdentityValueObject
+  ): boolean {
+    return (
+      firstId as IIdentityMultiValueObject | IIdentityValueObjectSimple
+    ).equalsTo(secondId as any);
+  }
+
+  protected _compareEntitiesTypes(
+    firstType: TEntityType,
+    secondType: TEntityType
+  ): boolean {
+    return firstType === secondType;
+  }
 
   protected _delete(): void {
     if (this.isDeleted) {
