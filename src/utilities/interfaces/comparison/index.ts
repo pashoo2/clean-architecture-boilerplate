@@ -1,5 +1,3 @@
-export {ICompareEntitiesIdentities} from './compareEntitiesIdentities';
-export {ICompareEntitiesTypes} from './compareEntitiesTypes';
 export {ICompareDateValues} from './objectTypeValuesComparison';
 export {
   ICompareArraysWithStrategy,

@@ -1,4 +1,4 @@
-import {compareEntitiesIdentities} from 'src/utilities/implementations/comparison/compareEntitiesIdentities';
+import {compareEntitiesIdentities} from 'src/entities/utilities/implementations/compareEntitiesIdentities';
 import {
   MultipleIdentityValueObjectClassMock,
   MultipleIdentityValueObjectClassWithComparisonMock,

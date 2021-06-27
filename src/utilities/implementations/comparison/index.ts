@@ -3,10 +3,6 @@ export {
   compareValuesFunctionFabric,
 } from './compareByStrategy';
 
-export {compareEntitiesIdentities} from './compareEntitiesIdentities';
-
-export {compareEntitiesTypes} from './compareEntitiesTypes';
-
 export {
   compareObjectsDeepByStrategy,
   compareObjectsDeepWithCompareValuesFunction,

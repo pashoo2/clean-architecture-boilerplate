@@ -1,6 +1,8 @@
+import {BaseEntity} from 'src/entities/abstractClasses';
 import {IRunEntityTestsParameters} from 'src/entities/abstractClasses/baseEntity/baseEntity.test';
-import {entityClassWithDeleteMethodAndServicesFabric} from 'src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric';
+import {IBaseEntityAbstractClassImplementationUtitlities} from 'src/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
 import {runTestEntityWithDeleteMethod} from 'src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.test';
+import {entityClassWithDeleteMethodServicesAndUtilitiesFabric} from 'src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric';
 import {IEntity} from 'src/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces';
@@ -13,7 +15,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
-describe('entityClassWithDeleteMethodAndServicesFabric', () => {
+describe('entityClassWithDeleteMethodServicesAndUtilitiesFabric', () => {
   const ENTITY_TYPE = 'ENTITY_TYPE' as const;
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
   const ENTITY_EVENT_FAILED_NAME: TDomainEventFailedNameForDomainEventName<
@@ -33,12 +35,55 @@ describe('entityClassWithDeleteMethodAndServicesFabric', () => {
     'Entity identity %p',
     entityUniqueIdentifier => {
       describe.each([true, false])('Is deleted %p', isDeleted => {
+        const parameters = {
+          id: entityUniqueIdentifier,
+          isDeleted,
+        };
+        const services = {
+          domainEventBus: getMockDomainEventBus(),
+          generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
+        };
+
+        class BaseEntityTestClass extends BaseEntity<
+          | MultipleIdentityValueObjectClassWithComparisonMock
+          | SimpleIdentityValueObjectClassWithComparisonMock,
+          any,
+          any
+        > {
+          protected _type = ENTITY_TYPE;
+
+          protected _getTransferableProps<T extends this>(
+            this: T
+          ): TPickTransferableProperties<T> {
+            return {} as any;
+          }
+
+          protected _validate() {}
+          public compareEntitiesIdentities(...args: any[]) {
+            return this._compareEntitiesIdentities(args[0], args[1]);
+          }
+          public compareEntitiesTypes(...args: any[]) {
+            return this._compareEntitiesTypes(args[0], args[1]);
+          }
+        }
+        const entityBaseEntity = new BaseEntityTestClass(parameters, services);
+
+        const utilities: IBaseEntityAbstractClassImplementationUtitlities = {
+          compareEntitiesTypes: jest.fn((...args: any[]) => {
+            return entityBaseEntity.compareEntitiesTypes(
+              args[0],
+              args[1]
+            ) as any;
+          }),
+          compareEntitiesIdentities: jest.fn((...args: any[]) => {
+            return entityBaseEntity.compareEntitiesIdentities(
+              args[0],
+              args[1]
+            ) as any;
+          }),
+        };
         function getTestsParams(): IRunEntityTestsParameters {
-          const services = {
-            domainEventBus: getMockDomainEventBus(),
-            generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
-          };
-          class EntityTestClass extends entityClassWithDeleteMethodAndServicesFabric(
+          class EntityTestClass extends entityClassWithDeleteMethodServicesAndUtilitiesFabric(
             {
               type: ENTITY_TYPE,
               getTransferableProps<T extends IEntity<any, typeof ENTITY_TYPE>>(
@@ -52,7 +97,8 @@ describe('entityClassWithDeleteMethodAndServicesFabric', () => {
               },
               validateInstance() {},
             },
-            services
+            services,
+            utilities
           ) {}
 
           const parameters = {
@@ -76,6 +122,11 @@ describe('entityClassWithDeleteMethodAndServicesFabric', () => {
         }
 
         runTestEntityWithDeleteMethod(getTestsParams);
+
+        afterAll(() => {
+          expect(utilities.compareEntitiesIdentities).toBeCalled();
+          expect(utilities.compareEntitiesTypes).toBeCalled();
+        });
       });
     }
   );
