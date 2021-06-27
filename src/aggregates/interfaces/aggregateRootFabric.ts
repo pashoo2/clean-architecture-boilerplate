@@ -25,6 +25,13 @@ export interface IGetTransferablePropertiesOfAggregateRoot<
   ): TPickTransferableProperties<T>;
 }
 
+export interface IEqualsToAggregate {
+  (
+    firstAggregate: IAggregateRoot<Id, Type, any>,
+    secongAggreagate: IAggregateRoot<Id, Type, any>
+  ): boolean;
+}
+
 export interface IAggregateRootFabricParameters<
   Id extends TIdentityValueObject,
   Type extends TAggregateType

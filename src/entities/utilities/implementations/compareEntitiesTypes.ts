@@ -1,4 +1,4 @@
-import {TEntityType} from 'src/entities/interfaces';
+import {TEntityType} from 'src/entities/interfaces/index';
 
 export function compareEntitiesTypes(
   firstEntityType: TEntityType,

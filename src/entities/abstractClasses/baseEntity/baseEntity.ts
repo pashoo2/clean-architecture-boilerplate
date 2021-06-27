@@ -95,9 +95,7 @@ export abstract class BaseEntity<
     );
   }
 
-  public getTransferableProps<T extends this>(
-    this: T
-  ): TPickTransferableProperties<T> {
+  public getTransferableProps(): TPickTransferableProperties<this> {
     return this._getTransferableProps();
   }
 

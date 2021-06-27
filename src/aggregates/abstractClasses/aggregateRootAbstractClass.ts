@@ -24,13 +24,11 @@ export abstract class BaseAggregateRootAbstractClass<
     super(parameters, services);
   }
 
-  public equalsTo(anotherEntity: IAggregateRoot<Id, Type>): boolean {
-    this.id.equalsTo(anotherEntity.id as unknown as );
-  }
+  public abstract equalsTo(
+    anotherAggregate: IAggregateRoot<Id, Type, any>
+  ): boolean;
 
-  public abstract getTransferableProps<T extends this>(
-    this: T
-  ): TPickTransferableProperties<T>;
+  public abstract getTransferableProps(): TPickTransferableProperties<this>;
 
   public abstract delete(): void;
 }

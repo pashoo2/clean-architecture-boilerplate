@@ -1,4 +1,4 @@
-import {compareEntitiesTypes} from 'src/utilities/implementations/comparison/compareEntitiesTypes';
+import {compareEntitiesTypes} from 'src/entities/utilities/implementations/compareEntitiesTypes';
 import {SIMPLE_TYPE_VALUES_SET_STRINGS} from 'src/__mock__/simpleTypes.stubs';
 
 describe('Entities types comparison utilities', () => {

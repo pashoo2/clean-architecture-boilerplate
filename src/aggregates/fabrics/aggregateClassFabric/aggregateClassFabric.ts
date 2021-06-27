@@ -34,15 +34,23 @@ export function aggregateClassFabric<
     public delete(): void {
       this._delete();
     }
-    public getTransferableProps<T extends this>(
-      this: T
-    ): TPickTransferableProperties<T> {
-      return getTransferableProps(this as IAggregateRoot<Id, Type, E>);
+    public getTransferableProps(
+      this: IAggregateRoot<Id, Type, E>
+    ): TPickTransferableProperties<this> {
+      return getTransferableProps(
+        this
+      ) as unknown as TPickTransferableProperties<this>; // TODO - fix
     }
-    protected _validate(): void {
-      validateInstance(this as IAggregateRoot<Id, Type, any>);
+    public equalsTo(anotherEntity: IAggregateRoot<Id, Type, E>): boolean {
+      return true;
+    }
+    protected _validate(this: IAggregateRoot<Id, Type, E>): void {
+      validateInstance(this);
     }
   }
   // TODO - fix
-  return AggregateRootConstructor;
+  return AggregateRootConstructor as Constructor<
+    IAggregateRoot<Id, Type, E>,
+    [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
+  >;
 }

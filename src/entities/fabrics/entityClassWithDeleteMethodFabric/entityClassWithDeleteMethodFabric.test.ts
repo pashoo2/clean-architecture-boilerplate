@@ -19,6 +19,72 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
+export function runTestEntityWithDeleteMethod<
+  P extends IRunEntityTestsParameters
+>(getTestsParams: () => P) {
+  runEntityTests(getTestsParams);
+
+  describe('"$delete" method', () => {
+    let entity: IEntityImplementationWithDeleteMethod<
+      any,
+      P['entityType'],
+      any
+    >;
+    let services: P['services'];
+    let parameters: P['parameters'];
+
+    beforeEach(() => {
+      const testsParams = getTestsParams();
+      entity = testsParams.entity as IEntityImplementationWithDeleteMethod<
+        any,
+        any,
+        any
+      >;
+      services = testsParams.services;
+      parameters = testsParams.parameters;
+    });
+
+    it('Should have "$delete" method', () => {
+      expect(typeof entity.$delete === 'function').toBe(true);
+    });
+    it('Should mark the entity as deleted', () => {
+      expect(() => entity.$delete()).not.toThrow();
+      expect(entity.isDeleted).toBe(true);
+    });
+    it('Should emit "DELETE" event if the entity has not been deleted previously', () => {
+      const listenerDeleteEvents = jest.fn();
+      (services.domainEventBus as any).subscribe(
+        DOMAIN_ENTITY_EVENT_NAME_DELETE,
+        listenerDeleteEvents
+      );
+      expect(() => entity.$delete()).not.toThrow();
+      if (parameters.isDeleted) {
+        expect(listenerDeleteEvents).not.toHaveBeenCalledWith(
+          expect.objectContaining({
+            entityId: parameters.id,
+            name: DOMAIN_ENTITY_EVENT_NAME_DELETE,
+          })
+        );
+      } else {
+        expect(listenerDeleteEvents).toHaveBeenCalledWith(
+          expect.objectContaining({
+            entityId: parameters.id,
+            name: DOMAIN_ENTITY_EVENT_NAME_DELETE,
+          })
+        );
+      }
+      listenerDeleteEvents.mockClear();
+      expect(() => entity.$delete()).not.toThrow();
+      expect(listenerDeleteEvents).not.toHaveBeenCalledWith(
+        expect.objectContaining({
+          entityId: parameters.id,
+          name: DOMAIN_ENTITY_EVENT_NAME_DELETE,
+        })
+      );
+    });
+  });
+}
+
 describe('entityClassWithDeleteMethodFabric', () => {
   const ENTITY_TYPE = 'ENTITY_TYPE' as const;
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
@@ -78,68 +144,7 @@ describe('entityClassWithDeleteMethodFabric', () => {
           } as unknown as IRunEntityTestsParameters;
         }
 
-        runEntityTests(getTestsParams);
-
-        describe('"$delete" method', () => {
-          let entity: IEntityImplementationWithDeleteMethod<
-            any,
-            typeof ENTITY_TYPE,
-            any
-          >;
-          let services: IRunEntityTestsParameters['services'];
-          let parameters: IRunEntityTestsParameters['parameters'];
-
-          beforeEach(() => {
-            const testsParams = getTestsParams();
-            entity =
-              testsParams.entity as IEntityImplementationWithDeleteMethod<
-                any,
-                typeof ENTITY_TYPE,
-                any
-              >;
-            services = testsParams.services;
-            parameters = testsParams.parameters;
-          });
-
-          it('Should have "$delete" method', () => {
-            expect(typeof entity.$delete === 'function').toBe(true);
-          });
-          it('Should mark the entity as deleted', () => {
-            expect(() => entity.$delete()).not.toThrow();
-            expect(entity.isDeleted).toBe(true);
-          });
-          it('Should emit "DELETE" event if the entity has not been deleted previously', () => {
-            const listenerDeleteEvents = jest.fn();
-            (services.domainEventBus as any).subscribe(
-              DOMAIN_ENTITY_EVENT_NAME_DELETE,
-              listenerDeleteEvents
-            );
-            expect(() => entity.$delete()).not.toThrow();
-            if (parameters.isDeleted) {
-              expect(listenerDeleteEvents).not.toHaveBeenCalledWith(
-                expect.objectContaining({
-                  entityId: parameters.id,
-                  name: DOMAIN_ENTITY_EVENT_NAME_DELETE,
-                })
-              );
-            } else {
-              expect(listenerDeleteEvents).toHaveBeenCalledWith(
-                expect.objectContaining({
-                  entityId: parameters.id,
-                  name: DOMAIN_ENTITY_EVENT_NAME_DELETE,
-                })
-              );
-            }
-            listenerDeleteEvents.mockClear();
-            expect(() => entity.$delete()).not.toThrow();
-            expect(listenerDeleteEvents).not.toHaveBeenCalledWith(
-              expect.objectContaining({
-                entityId: parameters.id,
-                name: DOMAIN_ENTITY_EVENT_NAME_DELETE,
-              })
-            );
-          });
-        });
+        runTestEntityWithDeleteMethod(getTestsParams);
       });
     }
   );

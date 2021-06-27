@@ -6,6 +6,7 @@ import {
   IBaseEntityEventsList,
 } from '../../entities/interfaces/baseEntity';
 import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
+import {TPickTransferableProperties} from 'src/interfaces';
 
 export type TAggregateType<T extends string = string> =
   `${typeof AGGREGATE_TYPE_PREFIX}:${T}`;
@@ -32,5 +33,7 @@ export interface IAggregateRoot<
     Type
   > = IBaseAggregateRootEventsList<Id, Type>
 > extends IEntityImplementation<Id, Type, E> {
+  equalsTo(anotherEntity: IAggregateRoot<Id, Type, any>): boolean;
+  getTransferableProps(): TPickTransferableProperties<this>;
   delete(): void;
 }

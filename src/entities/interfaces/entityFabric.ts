@@ -1,3 +1,4 @@
+import {TEntityType} from 'src/entities/interfaces';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
@@ -9,35 +10,40 @@ import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export interface IValidateEntity<
-  Id extends TIdentityValueObject,
-  Type extends string
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType
 > {
-  (entity: IEntity<Id, Type>): void;
+  (entity: IEntity<EntityId, EntityType>): void;
 }
 
 export interface IGetTransferablePropertiesOfEntity<
-  Id extends TIdentityValueObject,
-  Type extends string
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType
 > {
-  <T extends IEntity<Id, Type>>(entity: T): TPickTransferableProperties<T>;
+  <T extends IEntity<EntityId, EntityType>>(
+    entity: T
+  ): TPickTransferableProperties<T>;
 }
 
 export interface IEntityFabricParameters<
-  Id extends TIdentityValueObject,
-  Type extends string
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType
 > {
-  type: Type;
-  validateInstance: IValidateEntity<Id, Type>;
-  getTransferableProps: IGetTransferablePropertiesOfEntity<Id, Type>;
+  type: EntityType;
+  validateInstance: IValidateEntity<EntityId, EntityType>;
+  getTransferableProps: IGetTransferablePropertiesOfEntity<
+    EntityId,
+    EntityType
+  >;
 }
 
 export interface IEntityClassFabric<
-  Id extends TIdentityValueObject,
-  Type extends string,
-  E extends IBaseEntityEventsList<Id, Type>
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityType,
+  E extends IBaseEntityEventsList<EntityId, EntityType>
 > {
-  (parameters: IEntityFabricParameters<Id, Type>): Constructor<
-    IEntityImplementation<Id, Type, E>,
-    [IBaseEntityParameters<Id>, IBaseEntityServices<E>]
+  (parameters: IEntityFabricParameters<EntityId, EntityType>): Constructor<
+    IEntityImplementation<EntityId, EntityType, E>,
+    [IBaseEntityParameters<EntityId>, IBaseEntityServices<E>]
   >;
 }

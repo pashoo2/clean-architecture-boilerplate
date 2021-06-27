@@ -1,3 +1,4 @@
+import {ENTITY_TYPE_PREFIX} from 'src/entities/constants/entityType';
 import {IBaseEntityEventsList} from 'src/entities/interfaces/baseEntity';
 import {
   IDomainEventFailed,
@@ -10,7 +11,8 @@ import {IComparable} from 'src/interfaces/comparison';
 import {ITransferable} from 'src/interfaces/transferable';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 
-export type TEntityType = string | String;
+export type TEntityType<T extends string = string> =
+  `${typeof ENTITY_TYPE_PREFIX}${T}`;
 
 export interface IEntity<
   Id extends TIdentityValueObject,
