@@ -15,7 +15,7 @@ export function isValueObject(
   if (typeof valueObject !== 'object') {
     return false;
   }
-  if (!Object.prototype.hasOwnProperty.call(valueObject, 'value')) {
+  if (!('value' in valueObject)) {
     return false;
   }
   if (

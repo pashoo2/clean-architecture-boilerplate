@@ -7,12 +7,6 @@ export const SIMPLE_TYPE_VALUES_SET_EMPTY = [
   '',
   ' ',
   void 0,
-  new Number(),
-  new Number(0),
-  new Number(0.0),
-  new String(),
-  new String(''),
-  new String(' '),
 ];
 
 export const SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_FINITE_NUMBERS = [
@@ -20,8 +14,6 @@ export const SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_FINITE_NUMBERS = [
   Number.MAX_VALUE,
   1,
   1.1,
-  new Number(1),
-  new Number(1.1),
 ];
 
 export const SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_INFINITE_NUMBERS = [
@@ -49,16 +41,9 @@ export const SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS = [
   ' string, ',
   ' String, ',
   '!@#$%&*()123456№;%:+-.,`"\'',
-  new String('!@#$%&*()123456№;%:+-.,`"\''),
-  new String('0'),
 ];
 
-export const SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS = [
-  '',
-  ' ',
-  '  ',
-  new String(''),
-];
+export const SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS = ['', ' ', '  '];
 
 export const SIMPLE_TYPE_VALUES_SET_STRINGS = [
   ...SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS,
