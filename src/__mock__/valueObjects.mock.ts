@@ -24,6 +24,10 @@ const simpleIdentityValueObjectClassFabricParameters: IBaseValueObjectConstructo
   validateValue: jest.fn(() => true),
 };
 
+export class SimpleValueObjectClassMock extends baseValueObjectClassFabric(
+  simpleIdentityValueObjectClassFabricParameters
+) {}
+
 export class SimpleIdentityValueObjectClassMock
   extends baseValueObjectClassFabric(
     simpleIdentityValueObjectClassFabricParameters
