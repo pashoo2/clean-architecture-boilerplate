@@ -6,13 +6,14 @@ import {
   IBaseEntityServices,
   IEntityFabricParameters,
   IEntityImplementationWithDeleteMethod,
+  TEntityType,
 } from 'src/entities/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export function entityClassWithDeleteMethodServicesAndUtilitiesFabric<
   Id extends TIdentityValueObject,
-  Type extends string,
+  Type extends TEntityType,
   E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
 >(
   parameters: IEntityFabricParameters<Id, Type>,

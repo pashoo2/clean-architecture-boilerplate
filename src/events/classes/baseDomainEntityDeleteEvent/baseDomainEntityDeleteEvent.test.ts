@@ -1,6 +1,7 @@
 import {DOMAIN_ENTITY_EVENT_NAME_DELETE} from 'src/constants/domainEvents';
 import {BaseDomainEntityDeleteEvent} from 'src/events/classes/baseDomainEntityDeleteEvent/baseDomainEntityDeleteEvent';
 import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
 import {
   MultipleIdentityValueObjectClassMock,
   SimpleIdentityValueObjectClassMock,
@@ -8,7 +9,6 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
-const EVENT_ENTITY_TYPE = 'EVENT_ENTITY_TYPE' as const;
 const EVENT_IDENTITY_UNIQUE = 'EVENT_IDENTITY_UNIQUE' as const;
 
 describe('Domain entity event "DELETE"', () => {
@@ -34,9 +34,9 @@ describe('Domain entity event "DELETE"', () => {
 
   class DeleteEntityEvent extends BaseDomainEntityDeleteEvent<
     any,
-    typeof EVENT_ENTITY_TYPE
+    typeof ENTITY_TYPE_STUB
   > {
-    protected _entityType = EVENT_ENTITY_TYPE;
+    protected _entityType = ENTITY_TYPE_STUB;
   }
 
   describe.each([
@@ -78,8 +78,8 @@ describe('Domain entity event "DELETE"', () => {
         expect(domainEntityEvent).toHaveProperty('metaVersion');
       });
     }
-    it(`Should have entity type property equals to the ${EVENT_ENTITY_TYPE}`, () => {
-      expect(domainEntityEvent.entityType).toBe(EVENT_ENTITY_TYPE);
+    it(`Should have entity type property equals to the ${ENTITY_TYPE_STUB}`, () => {
+      expect(domainEntityEvent.entityType).toBe(ENTITY_TYPE_STUB);
     });
     it(`Should have entity id property equals to the ${constructorParameters.entityId}`, () => {
       expect(domainEntityEvent.entityId).toBe(constructorParameters.entityId);
@@ -90,7 +90,7 @@ describe('Domain entity event "DELETE"', () => {
       const objectExpected = {
         id: EVENT_IDENTITY_UNIQUE,
         name: DOMAIN_ENTITY_EVENT_NAME_DELETE,
-        entityType: EVENT_ENTITY_TYPE,
+        entityType: ENTITY_TYPE_STUB,
         entityId:
           typeof constructorParameters.entityId.value === 'object'
             ? expect.objectContaining(UNIQUE_ENTITY_IDENTITY_MULTI_STUB)
