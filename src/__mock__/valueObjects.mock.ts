@@ -1,10 +1,13 @@
+import {TSimpleType} from 'src/interfaces';
 import {baseValueObjectClassFabric} from 'src/valueObjects/implementations/baseValueObjectClassFabrics';
 import {multipleValuesValueObjectBaseFabric} from 'src/valueObjects/implementations/multipleValuesValueObjectBaseClassFabrics';
 import {
+  IBaseValueObject,
   IBaseValueObjectConstructorFabricParameters,
   IIdentityMultiValueObject,
   IIdentityValueObjectSimple,
   IMultipleValuesValueObjectBaseFabricParameters,
+  IMultiValuesValueObjectBase,
   IMultiValuesValueObjectValue,
 } from 'src/valueObjects/interfaces';
 
@@ -24,9 +27,11 @@ const simpleIdentityValueObjectClassFabricParameters: IBaseValueObjectConstructo
   validateValue: jest.fn(() => true),
 };
 
-export class SimpleValueObjectClassMock extends baseValueObjectClassFabric(
-  simpleIdentityValueObjectClassFabricParameters
-) {}
+export class SimpleValueObjectClassMock
+  extends baseValueObjectClassFabric(
+    simpleIdentityValueObjectClassFabricParameters
+  )
+  implements IBaseValueObject<TSimpleType, TSimpleType> {}
 
 export class SimpleIdentityValueObjectClassMock
   extends baseValueObjectClassFabric(
@@ -42,6 +47,12 @@ const multipleIdentityValueObjectClassFabricParameters: IMultipleValuesValueObje
     ),
     validateValue: jest.fn(() => true),
   };
+
+export class MultipleValueObjectClassMock
+  extends multipleValuesValueObjectBaseFabric(
+    multipleIdentityValueObjectClassFabricParameters
+  )
+  implements IMultiValuesValueObjectBase<IMultiValuesValueObjectValue> {}
 
 export class MultipleIdentityValueObjectClassMock
   extends multipleValuesValueObjectBaseFabric<

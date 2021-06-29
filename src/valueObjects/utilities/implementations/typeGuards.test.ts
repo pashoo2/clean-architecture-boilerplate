@@ -1,6 +1,7 @@
 import {
   isBaseValueObject,
   isMultipleValuesValueObject,
+  isMultipleValuesValueObjectInsteadOfBase,
   isValueObject,
 } from 'src/valueObjects/utilities/implementations/typeGuards';
 import {
@@ -130,6 +131,24 @@ describe('Utilities for helping to check whether a value is a value object', () 
       }),
     ])('Should return true for the value object "%p"', valueObject => {
       expect(isMultipleValuesValueObject(valueObject)).toBe(true);
+    });
+  });
+  describe('isMultipleValuesValueObjectInsteadOfBase', () => {
+    it.each([
+      new SimpleIdentityValueObjectClassMock(''),
+      new SimpleIdentityValueObjectClassWithComparisonMock(''),
+    ])('Should return false for the value object "%p"', valueObject => {
+      expect(isMultipleValuesValueObjectInsteadOfBase(valueObject)).toBe(false);
+    });
+    it.each([
+      new MultipleIdentityValueObjectClassMock({
+        id: 'id',
+      }),
+      new MultipleIdentityValueObjectClassWithComparisonMock({
+        id: 'id',
+      }),
+    ])('Should return true for the value object "%p"', valueObject => {
+      expect(isMultipleValuesValueObjectInsteadOfBase(valueObject)).toBe(true);
     });
   });
 });
