@@ -18,6 +18,7 @@ export function isEntityTypeStringContainsCorrectCharacters(
 export function isEntityType(typeValue: any): typeValue is TEntityType {
   return (
     isEntityTypeStringContainsCorrectCharacters(typeValue) &&
+    typeValue.trim().length > ENTITY_TYPE_PREFIX.trim().length &&
     typeValue.startsWith(ENTITY_TYPE_PREFIX)
   );
 }

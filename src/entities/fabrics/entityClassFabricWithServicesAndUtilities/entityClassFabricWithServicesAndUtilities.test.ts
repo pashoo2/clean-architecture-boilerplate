@@ -8,6 +8,7 @@ import {entityClassFabricWithServicesAndUtilities} from 'src/entities/fabrics/en
 import {IEntity} from 'src/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces';
+import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
 import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
 import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
 import {
@@ -18,7 +19,6 @@ import {
 } from 'src/__mock__/valueObjects.mock';
 
 describe('entityClassFabricWithServicesAndUtilities', () => {
-  const ENTITY_TYPE = 'ENTITY_TYPE' as const;
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
   const ENTITY_EVENT_FAILED_NAME: TDomainEventFailedNameForDomainEventName<
     typeof ENTITY_EVENT_NAME
@@ -52,7 +52,7 @@ describe('entityClassFabricWithServicesAndUtilities', () => {
           any,
           any
         > {
-          protected _type = ENTITY_TYPE;
+          protected _type = ENTITY_TYPE_STUB;
 
           protected _getTransferableProps<T extends this>(
             this: T
@@ -87,10 +87,10 @@ describe('entityClassFabricWithServicesAndUtilities', () => {
         function getTestsParams(): IRunEntityTestsParameters {
           class EntityTestClass extends entityClassFabricWithServicesAndUtilities(
             {
-              type: ENTITY_TYPE,
-              getTransferableProps<T extends IEntity<any, typeof ENTITY_TYPE>>(
-                instance: T
-              ): TPickTransferableProperties<T> {
+              type: ENTITY_TYPE_STUB,
+              getTransferableProps<
+                T extends IEntity<any, typeof ENTITY_TYPE_STUB>
+              >(instance: T): TPickTransferableProperties<T> {
                 return {
                   id: instance.id,
                   isDeleted: instance.isDeleted,
@@ -115,7 +115,7 @@ describe('entityClassFabricWithServicesAndUtilities', () => {
             entity,
             entityEventFailedName: ENTITY_EVENT_FAILED_NAME,
             entityEventName: ENTITY_EVENT_NAME,
-            entityType: ENTITY_TYPE,
+            entityType: ENTITY_TYPE_STUB,
             entityUniqueIdentifier,
             isDeleted,
             parameters,

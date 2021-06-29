@@ -77,6 +77,10 @@ describe('Entities utilities type guards', () => {
         expect(isEntityType(str)).toBe(false);
       }
     );
+    it(`Should return "false" for a string which consists of only the prefix "${ENTITY_TYPE_PREFIX}"`, () => {
+      expect(isEntityType(ENTITY_TYPE_PREFIX)).toBe(false);
+      expect(isEntityType(`  ${ENTITY_TYPE_PREFIX}   `)).toBe(false);
+    });
     it.each(
       [...SIMPLE_TYPE_VALUES_SET_STRINGS]
         .filter(s => isEntityTypeStringContainsCorrectCharacters(s))
@@ -84,7 +88,7 @@ describe('Entities utilities type guards', () => {
     )(
       `Should return true for the string "%s" prefixed with the "${ENTITY_TYPE_PREFIX}"`,
       str => {
-        expect(isEntityType(`${ENTITY_TYPE_PREFIX}${str}`)).toBe(true);
+        expect(isEntityType(`${ENTITY_TYPE_PREFIX}_${str}`)).toBe(true);
       }
     );
   });

@@ -6,6 +6,7 @@ import {entityClassFabric} from 'src/entities/fabrics/entityClassFabric/entityCl
 import {IEntity} from 'src/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces';
+import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
 import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
 import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
 import {
@@ -16,7 +17,6 @@ import {
 } from 'src/__mock__/valueObjects.mock';
 
 describe('aggregateClassFabric', () => {
-  const ENTITY_TYPE = 'ENTITY_TYPE' as const;
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
   const ENTITY_EVENT_FAILED_NAME: TDomainEventFailedNameForDomainEventName<
     typeof ENTITY_EVENT_NAME
@@ -37,7 +37,7 @@ describe('aggregateClassFabric', () => {
       describe.each([true, false])('Is deleted %p', isDeleted => {
         function getTestsParams(): IRunEntityTestsParameters {
           class EntityTestClass extends entityClassFabric({
-            type: ENTITY_TYPE,
+            type: ENTITY_TYPE_STUB,
             getTransferableProps<T extends IEntity<any, typeof ENTITY_TYPE>>(
               instance: T
             ): TPickTransferableProperties<T> {

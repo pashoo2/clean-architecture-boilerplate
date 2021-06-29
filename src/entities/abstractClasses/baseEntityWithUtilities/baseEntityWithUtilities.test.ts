@@ -11,6 +11,7 @@ import {TBaseEntityEventsListCommonEvents} from 'src/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces/index';
 import {getDomainEntityEventMock} from 'src/__mock__/domainEvents/domainEvents.mock';
+import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
 import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
 import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
 import {
@@ -29,7 +30,6 @@ type TEntityTestClassEventsList = TBaseEntityEventsListCommonEvents<
 };
 
 describe('BaseEntity class', () => {
-  const ENTITY_TYPE = 'ENTITY_TYPE' as const;
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
   const ENTITY_EVENT_FAILED_NAME: TDomainEventFailedNameForDomainEventName<
     typeof ENTITY_EVENT_NAME
@@ -63,7 +63,7 @@ describe('BaseEntity class', () => {
           any,
           TEntityTestClassEventsList
         > {
-          protected _type = ENTITY_TYPE;
+          protected _type = ENTITY_TYPE_STUB;
 
           protected _getTransferableProps<T extends this>(
             this: T
@@ -103,7 +103,7 @@ describe('BaseEntity class', () => {
             any,
             TEntityTestClassEventsList
           > {
-            protected _type = ENTITY_TYPE;
+            protected _type = ENTITY_TYPE_STUB;
 
             protected _getTransferableProps<T extends this>(
               this: T
@@ -133,7 +133,7 @@ describe('BaseEntity class', () => {
             entity,
             entityEventFailedName: ENTITY_EVENT_FAILED_NAME,
             entityEventName: ENTITY_EVENT_NAME,
-            entityType: ENTITY_TYPE,
+            entityType: ENTITY_TYPE_STUB,
             entityUniqueIdentifier,
             isDeleted,
             parameters,

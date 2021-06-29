@@ -9,7 +9,7 @@ import {BaseEntity} from 'src/entities/abstractClasses/baseEntity/baseEntity';
 import {
   ICompareEntitiesIdentities,
   ICompareEntitiesTypes,
-} from 'src/utilities/interfaces/comparison';
+} from 'src/entities/utilities/interfaces';
 
 export interface IBaseEntityAbstractClassImplementationUtitlities {
   compareEntitiesTypes: ICompareEntitiesTypes;
