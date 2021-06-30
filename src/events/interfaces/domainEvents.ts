@@ -1,5 +1,5 @@
-import {TAggregateType} from 'src/aggregates/interfaces';
-import {TEntityType} from 'src/entities/interfaces';
+import {TAggregateTypeMain} from 'src/aggregates/interfaces';
+import {TEntityTypeMain} from 'src/entities/interfaces';
 import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {TSimpleType} from 'src/interfaces/common';
 import {ISerializable, TSerializableValue} from 'src/interfaces/serialization';
@@ -97,7 +97,7 @@ export interface IDomainAllEventsListener<DE extends IDomainEvent>
 
 export interface IDomainEntityEventSpecificProperties<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends string,
   EventType extends EDomainEntityEventType
 > {
   readonly entityId: EntityId;
@@ -107,7 +107,7 @@ export interface IDomainEntityEventSpecificProperties<
 
 export interface IDomainEntityEventSpecificPropertiesSerialized<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends string,
   EventType extends EDomainEntityEventType
 > {
   readonly entityId: ReturnType<EntityId['serialize']>;
@@ -117,7 +117,7 @@ export interface IDomainEntityEventSpecificPropertiesSerialized<
 
 export interface IDomainEntityEventPropertiesSerialized<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends string,
   N extends string = string,
   P extends TDomainEventPayload = undefined,
   EventType extends EDomainEntityEventType = EDomainEntityEventType.ENTITY_EVENT
@@ -130,7 +130,7 @@ export interface IDomainEntityEventPropertiesSerialized<
 
 export interface IDomainEntityOrAggregateEvent<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends string,
   N extends string = string,
   P extends TDomainEventPayload = undefined,
   EventType extends EDomainEntityEventType = EDomainEntityEventType
@@ -139,7 +139,7 @@ export interface IDomainEntityOrAggregateEvent<
 
 export interface IDomainEntityEvent<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends string,
   N extends string = string,
   P extends TDomainEventPayload = undefined,
   EventType extends EDomainEntityEventType.ENTITY_EVENT = EDomainEntityEventType.ENTITY_EVENT
@@ -153,7 +153,7 @@ export interface IDomainEntityEvent<
 
 export interface IAggregateEvent<
   EntityId extends TIdentityValueObject,
-  EntityType extends TAggregateType,
+  EntityType extends TAggregateTypeMain,
   N extends string = string,
   P extends TDomainEventPayload = undefined
 > extends IDomainEntityEvent<EntityId, EntityType, N, P> {}

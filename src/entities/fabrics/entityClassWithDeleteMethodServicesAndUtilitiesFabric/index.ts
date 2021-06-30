@@ -1,1 +1,1 @@
-export {entityClassWithDeleteMethodAndServicesFabric} from './entityClassWithDeleteMethodServicesAndUtilitiesFabric';
+export {entityClassWithDeleteMethodServicesAndUtilitiesFabric} from './entityClassWithDeleteMethodServicesAndUtilitiesFabric';

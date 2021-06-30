@@ -3,7 +3,7 @@ import {
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
-  TAggregateType,
+  TAggregateTypeMain,
 } from 'src/aggregates/interfaces/aggregateRoot';
 import {BaseEntity} from 'src/entities/abstractClasses';
 import {TPickTransferableProperties} from 'src/interfaces';
@@ -11,7 +11,7 @@ import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export abstract class BaseAggregateRootAbstractClass<
     Id extends TIdentityValueObject,
-    Type extends TAggregateType,
+    Type extends TAggregateTypeMain,
     E extends IBaseAggregateRootEventsList<Id, Type>
   >
   extends BaseEntity<Id, Type, E>

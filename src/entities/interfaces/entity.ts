@@ -11,13 +11,10 @@ import {IComparable} from 'src/interfaces/comparison';
 import {ITransferable} from 'src/interfaces/transferable';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 
-export type TEntityType<T extends string = string> =
+export type TEntityTypeMain<T extends string = string> =
   `${typeof ENTITY_TYPE_PREFIX}${T}`;
 
-export interface IEntity<
-  Id extends TIdentityValueObject,
-  Type extends TEntityType
-> {
+export interface IEntity<Id extends TIdentityValueObject, Type extends string> {
   readonly id: Id;
   readonly type: Type;
   readonly isDeleted: boolean;
@@ -25,7 +22,7 @@ export interface IEntity<
 
 export interface IEntityImplementation<
   Id extends TIdentityValueObject,
-  Type extends TEntityType,
+  Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
 > extends IEntity<Id, Type>,
     IComparable<IEntity<Id, Type>>,
@@ -55,7 +52,7 @@ export interface IEntityImplementation<
 // The method shouldn't be accessible from an outside, only within an aggregate
 export interface IEntityImplementationWithDeleteMethod<
   Id extends TIdentityValueObject,
-  Type extends TEntityType,
+  Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
 > extends IEntityImplementation<Id, Type, E> {
   $delete(): void;

@@ -1,8 +1,11 @@
-import {IEntity, TEntityIdentity} from 'src/entities/interfaces/entity';
+import {IEntity} from 'src/entities/interfaces/entity';
+import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
-export interface IEntityRepositoryCRUD<Entity extends IEntity> {
+export interface IEntityRepositoryCRUD<
+  Entity extends IEntity<TIdentityValueObject, string>
+> {
   create(data: Entity): Promise<void>;
-  readById(id: TEntityIdentity): Promise<Entity | undefined>;
+  readById(id: TIdentityValueObject): Promise<Entity | undefined>;
   update(data: Entity): Promise<void>;
-  deleteById(id: TEntityIdentity): Promise<void>;
+  deleteById(id: TIdentityValueObject): Promise<void>;
 }

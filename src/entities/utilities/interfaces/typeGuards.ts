@@ -1,5 +1,5 @@
-import {TEntityType} from 'src/entities/interfaces';
+import {TEntityTypeMain} from 'src/entities/interfaces';
 
 export interface IIsEntityType {
-  (typeValue: any): typeValue is TEntityType;
+  (typeValue: any): typeValue is TEntityTypeMain;
 }

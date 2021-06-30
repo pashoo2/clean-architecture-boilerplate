@@ -1,13 +1,13 @@
-import {IAggregateRoot, TAggregateType} from 'src/aggregates/interfaces/index';
+import {IAggregateRoot, TAggregateTypeMain} from 'src/aggregates/interfaces/index';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces/index';
 
 export interface ICompareAggregatesTypesUtility {
-  (firstAggregate: TAggregateType, secondAggregate: TAggregateType): boolean;
+  (firstAggregate: TAggregateTypeMain, secondAggregate: TAggregateTypeMain): boolean;
 }
 
 export interface ICompareAggregatesUtility {
   (
-    firstAggregate: IAggregateRoot<TIdentityValueObject, TAggregateType, any>,
-    secondAggregate: IAggregateRoot<TIdentityValueObject, TAggregateType, any>
+    firstAggregate: IAggregateRoot<TIdentityValueObject, TAggregateTypeMain, any>,
+    secondAggregate: IAggregateRoot<TIdentityValueObject, TAggregateTypeMain, any>
   ): boolean;
 }

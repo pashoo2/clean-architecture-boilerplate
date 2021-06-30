@@ -3,7 +3,6 @@ import {IEventsList} from '../../events/interfaces/events';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 import {BaseDomainEntityDeleteEvent} from '../../events/classes/baseDomainEntityDeleteEvent';
 import {BaseDomainEntityCreateEvent} from '../../events/classes/baseDomainEntityConstructEvent';
-import {TEntityType} from './entity';
 import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
 
 export interface IBaseEntityParameters<Id extends TIdentityValueObject> {
@@ -13,11 +12,11 @@ export interface IBaseEntityParameters<Id extends TIdentityValueObject> {
 
 export type TBaseEntityEventsListCommonEvents<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType
+  EntityType extends string
 > = {
   [BaseDomainEntityDeleteEvent.eventName]: BaseDomainEntityDeleteEvent<
     EntityId,
-    EntityType
+    string
   >;
   [BaseDomainEntityCreateEvent.eventName]: BaseDomainEntityCreateEvent<
     EntityId,
@@ -27,7 +26,7 @@ export type TBaseEntityEventsListCommonEvents<
 
 export interface IBaseEntityEventsList<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType
+  EntityType extends string
 > extends TBaseEntityEventsListCommonEvents<EntityId, EntityType>,
     IEventsList {}
 

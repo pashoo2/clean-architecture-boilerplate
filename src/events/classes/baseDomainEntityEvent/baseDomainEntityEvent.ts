@@ -1,4 +1,3 @@
-import {TEntityType} from 'src/entities/interfaces';
 import {
   BaseDomainEventClass,
   TBaseDomainEventClassParameters,
@@ -21,7 +20,7 @@ export type TBaseDomainEntityEventParameters<
 
 export abstract class BaseDomainEntityEvent<
     EntityId extends TIdentityValueObject,
-    EntityType extends TEntityType,
+    EntityType extends string,
     N extends string = string,
     P extends TDomainEventPayload = undefined
   >

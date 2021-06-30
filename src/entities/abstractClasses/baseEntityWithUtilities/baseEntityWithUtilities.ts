@@ -1,4 +1,4 @@
-import {TEntityType} from 'src/entities/interfaces/entity';
+import {TEntityTypeMain} from 'src/entities/interfaces/entity';
 import {TIdentityValueObject} from '../../../valueObjects/interfaces/identityValueObject';
 import {
   IBaseEntityEventsList,
@@ -18,7 +18,7 @@ export interface IBaseEntityAbstractClassImplementationUtitlities {
 
 export abstract class BaseEntityWithUtilities<
   Id extends TIdentityValueObject,
-  Type extends TEntityType,
+  Type extends TEntityTypeMain,
   E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>,
   U extends IBaseEntityAbstractClassImplementationUtitlities = IBaseEntityAbstractClassImplementationUtitlities
 > extends BaseEntity<Id, Type, E> {
@@ -41,8 +41,8 @@ export abstract class BaseEntityWithUtilities<
   }
 
   protected _compareEntitiesTypes(
-    firstType: TEntityType,
-    secondType: TEntityType
+    firstType: TEntityTypeMain,
+    secondType: TEntityTypeMain
   ): boolean {
     return this._utilities.compareEntitiesTypes(firstType, secondType);
   }

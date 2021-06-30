@@ -3,7 +3,7 @@ import {entityClassFabric} from 'src/entities/fabrics';
 import {
   IEntity,
   IEntityImplementation,
-  TEntityType,
+  TEntityTypeMain,
 } from 'src/entities/interfaces';
 import {
   validateEntityBasic,
@@ -88,7 +88,7 @@ describe('Basic utilities for an entities validation', () => {
         describe.each([true, false])('Is deleted %p', isDeleted => {
           let entity: IEntityImplementation<
             TIdentityValueObject,
-            TEntityType,
+            TEntityTypeMain,
             any
           >;
           let entityWithWrongType: IEntityImplementation<any, any, any>;

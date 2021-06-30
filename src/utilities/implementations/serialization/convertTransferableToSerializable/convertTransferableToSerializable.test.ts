@@ -7,6 +7,7 @@ import {
 import {mockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
 import {convertTransferableToSerializableAsync} from 'src/utilities/implementations/serialization/convertTransferableToSerializable/convertTransferableToSerializable';
 import {BaseValueObjectStringSerialization} from 'src/valueObjects/interfaces/abstractClasses';
+import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
 
 const ENTITY_CLASS_TYPE = 'TransferableEntity' as const;
 
@@ -17,7 +18,7 @@ class IdVO extends BaseValueObjectStringSerialization<string> {
 }
 class TransferableEntity extends BaseEntity<IdVO, typeof ENTITY_CLASS_TYPE> {
   public get type() {
-    return ENTITY_CLASS_TYPE;
+    return this._type;
   }
 
   public get nestedObject() {
@@ -76,9 +77,12 @@ class TransferableEntity extends BaseEntity<IdVO, typeof ENTITY_CLASS_TYPE> {
     };
   }
 
+  protected _type = ENTITY_CLASS_TYPE;
+
   constructor(parameters: IBaseEntityParameters<IdVO>) {
     super(parameters, {
       domainEventBus: mockDomainEventBus,
+      generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
     });
   }
 
@@ -87,6 +91,12 @@ class TransferableEntity extends BaseEntity<IdVO, typeof ENTITY_CLASS_TYPE> {
   }
 
   public getTransferableProps() {
+    return this._getTransferableProps();
+  }
+
+  protected _getTransferableProps<T extends this>(
+    this: T
+  ): TPickTransferableProperties<T> {
     const {
       id,
       type,
@@ -108,7 +118,7 @@ class TransferableEntity extends BaseEntity<IdVO, typeof ENTITY_CLASS_TYPE> {
       numericValue,
       simpleObject,
       objectWithToString,
-    } as TPickTransferableProperties<TransferableEntity> as TPickTransferableProperties<this>;
+    } as TPickTransferableProperties<TransferableEntity> as TPickTransferableProperties<T>;
   }
 }
 
