@@ -25,21 +25,23 @@ export interface IBaseAggregateRootServices<
   E extends IBaseAggregateRootEventsList<TIdentityValueObject, string>
 > extends IBaseEntityServices<E> {}
 
-export interface IAggregate<
+export interface IAggregateRoot<
   Id extends TIdentityValueObject,
   Type extends string
 > extends IEntity<Id, Type> {}
 
-export interface IAggregateRoot<
+export interface IAggregateRootImplementation<
   Id extends TIdentityValueObject,
   Type extends string,
   E extends IBaseAggregateRootEventsList<
     Id,
     Type
   > = IBaseAggregateRootEventsList<Id, Type>
-> extends IAggregate<Id, Type>,
+> extends IAggregateRoot<Id, Type>,
     IEntityImplementation<Id, Type, E> {
-  equalsTo(anotherAggregate: IAggregate<TIdentityValueObject, string>): boolean;
+  equalsTo(
+    anotherAggregate: IAggregateRoot<TIdentityValueObject, string>
+  ): boolean;
   getTransferableProps(): TPickTransferableProperties<this>;
   delete(): void;
 }

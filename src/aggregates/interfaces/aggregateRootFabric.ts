@@ -1,5 +1,5 @@
 import {
-  IAggregateRoot,
+  IAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
@@ -16,14 +16,14 @@ export interface IValidateAggregate<
   Id extends TIdentityValueObject,
   Type extends string
 > {
-  (aggregateRoot: IAggregateRoot<Id, Type, any>): void;
+  (aggregateRoot: IAggregateRootImplementation<Id, Type, any>): void;
 }
 
 export interface IGetTransferablePropertiesOfAggregateRoot<
   Id extends TIdentityValueObject,
   Type extends string
 > {
-  <T extends IAggregateRoot<Id, Type, any>>(
+  <T extends IAggregateRootImplementation<Id, Type, any>>(
     aggregateRoot: T
   ): TPickTransferableProperties<T>;
 }
@@ -45,7 +45,7 @@ export interface IAggregateRootClassFabric<
   E extends IBaseAggregateRootEventsList<Id, Type>
 > {
   (parameters: IAggregateRootClassFabricParameters<Id, Type>): Constructor<
-    IAggregateRoot<Id, Type, E>,
+    IAggregateRootImplementation<Id, Type, E>,
     [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
   >;
 }

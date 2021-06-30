@@ -29,5 +29,7 @@ export interface IUseCaseWithEntitiesConstructorsSync<
   ): R;
 }
 
-export interface IUseCaseWithEntitiesConstructorsAsync<R, T extends TEntityTypeMain>
-  extends IUseCaseWithEntitiesConstructorsSync<Promise<R>, T> {}
+export interface IUseCaseWithEntitiesConstructorsAsync<
+  R,
+  T extends TEntityTypeMain
+> extends IUseCaseWithEntitiesConstructorsSync<Promise<R>, T> {}
