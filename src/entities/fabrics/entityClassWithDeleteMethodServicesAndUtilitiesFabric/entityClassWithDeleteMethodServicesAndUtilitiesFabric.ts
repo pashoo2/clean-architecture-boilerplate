@@ -18,7 +18,7 @@ export function entityClassWithDeleteMethodServicesAndUtilitiesFabric<
 >(
   parameters: IEntityFabricParameters<Id, Type>,
   services: IBaseEntityServices<E>,
-  utilities: IBaseEntityAbstractClassImplementationUtitlities
+  utilities: IBaseEntityAbstractClassImplementationUtitlities<Id, Type>
 ): Constructor<
   IEntityImplementationWithDeleteMethod<Id, Type, E>,
   [IBaseEntityParameters<Id>]

@@ -3,8 +3,11 @@ import {
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
-  TAggregateTypeMain,
 } from 'src/aggregates/interfaces/aggregateRoot';
+import {
+  ICompareEntitiesIdentities,
+  ICompareEntitiesTypes,
+} from 'src/entities/utilities/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
@@ -25,20 +28,15 @@ export interface IGetTransferablePropertiesOfAggregateRoot<
   ): TPickTransferableProperties<T>;
 }
 
-export interface IEqualsToAggregate {
-  (
-    firstAggregate: IAggregateRoot<TIdentityValueObject, string, any>,
-    secondAggregate: IAggregateRoot<TIdentityValueObject, string, any>
-  ): boolean;
-}
-
-export interface IAggregateRootFabricParameters<
+export interface IAggregateRootClassFabricParameters<
   Id extends TIdentityValueObject,
   Type extends string
 > {
   type: Type;
   validateInstance: IValidateAggregate<Id, Type>;
   getTransferableProps: IGetTransferablePropertiesOfAggregateRoot<Id, Type>;
+  compareEntitiesTypes: ICompareEntitiesTypes<Type>;
+  compareEntitiesIdentities: ICompareEntitiesIdentities<Id>;
 }
 
 export interface IAggregateRootClassFabric<
@@ -46,7 +44,7 @@ export interface IAggregateRootClassFabric<
   Type extends string,
   E extends IBaseAggregateRootEventsList<Id, Type>
 > {
-  (parameters: IAggregateRootFabricParameters<Id, Type>): Constructor<
+  (parameters: IAggregateRootClassFabricParameters<Id, Type>): Constructor<
     IAggregateRoot<Id, Type, E>,
     [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
   >;

@@ -11,16 +11,22 @@ import {
   ICompareEntitiesTypes,
 } from 'src/entities/utilities/interfaces';
 
-export interface IBaseEntityAbstractClassImplementationUtitlities {
-  compareEntitiesTypes: ICompareEntitiesTypes;
-  compareEntitiesIdentities: ICompareEntitiesIdentities;
+export interface IBaseEntityAbstractClassImplementationUtitlities<
+  Id extends TIdentityValueObject,
+  Type extends TEntityTypeMain
+> {
+  compareEntitiesTypes: ICompareEntitiesTypes<Type>;
+  compareEntitiesIdentities: ICompareEntitiesIdentities<Id>;
 }
 
 export abstract class BaseEntityWithUtilities<
   Id extends TIdentityValueObject,
   Type extends TEntityTypeMain,
   E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>,
-  U extends IBaseEntityAbstractClassImplementationUtitlities = IBaseEntityAbstractClassImplementationUtitlities
+  U extends IBaseEntityAbstractClassImplementationUtitlities<
+    Id,
+    Type
+  > = IBaseEntityAbstractClassImplementationUtitlities<Id, Type>
 > extends BaseEntity<Id, Type, E> {
   constructor(
     parameters: IBaseEntityParameters<Id>,
@@ -33,17 +39,11 @@ export abstract class BaseEntityWithUtilities<
     }
   }
 
-  protected _compareEntitiesIdentities(
-    firstId: TIdentityValueObject,
-    secondId: TIdentityValueObject
-  ): boolean {
+  protected _compareEntitiesIdentities(firstId: Id, secondId: Id): boolean {
     return this._utilities.compareEntitiesIdentities(firstId, secondId);
   }
 
-  protected _compareEntitiesTypes(
-    firstType: TEntityTypeMain,
-    secondType: TEntityTypeMain
-  ): boolean {
+  protected _compareEntitiesTypes(firstType: Type, secondType: Type): boolean {
     return this._utilities.compareEntitiesTypes(firstType, secondType);
   }
 }

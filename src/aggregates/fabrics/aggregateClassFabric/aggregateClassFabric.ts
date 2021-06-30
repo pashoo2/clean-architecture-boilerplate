@@ -6,7 +6,7 @@ import {
   IBaseAggregateRootServices,
   TAggregateTypeMain,
 } from 'src/aggregates/interfaces';
-import {IAggregateRootFabricParameters} from 'src/aggregates/interfaces/aggregateRootFabric';
+import {IAggregateRootClassFabricParameters} from 'src/aggregates/interfaces/aggregateRootFabric';
 import {TPickTransferableProperties} from 'src/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
@@ -22,7 +22,9 @@ export function aggregateClassFabric<
   type,
   validateInstance,
   getTransferableProps,
-}: IAggregateRootFabricParameters<Id, Type>): Constructor<
+  compareEntitiesTypes,
+  compareEntitiesIdentities,
+}: IAggregateRootClassFabricParameters<Id, Type>): Constructor<
   IAggregateRoot<Id, Type, E>,
   [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
 > {
@@ -34,22 +36,26 @@ export function aggregateClassFabric<
     public delete(): void {
       this._delete();
     }
-    public getTransferableProps(
-      this: IAggregateRoot<Id, Type, E>
-    ): TPickTransferableProperties<this> {
-      return getTransferableProps(
-        this
-      ) as unknown as TPickTransferableProperties<this>; // TODO - fix
-    }
-    public equalsTo(anotherEntity: IAggregateRoot<Id, Type, E>): boolean {
-      return true;
-    }
     protected _validate(this: IAggregateRoot<Id, Type, E>): void {
       validateInstance(this);
     }
 
-    protected _getTransferableProps(this: IAggregateRoot<Id, Type, E>) {
-      return getTransferableProps(this);
+    protected _getTransferableProps(
+      this: IAggregateRoot<Id, Type, E>
+    ): TPickTransferableProperties<this> {
+      const transferableProps = getTransferableProps(this);
+      return transferableProps as unknown as TPickTransferableProperties<this>;
+    }
+
+    protected _compareEntitiesIdentities(firstId: Id, secondId: Id): boolean {
+      return compareEntitiesIdentities(firstId, secondId);
+    }
+
+    protected _compareEntitiesTypes(
+      firstType: Type,
+      secondType: Type
+    ): boolean {
+      return compareEntitiesTypes(firstType, secondType);
     }
   }
   // TODO - fix

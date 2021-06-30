@@ -176,9 +176,7 @@ export abstract class BaseEntity<
     return this.__generateUniqueIdentityString();
   }
 
-  protected abstract _getTransferableProps<T extends this>(
-    this: T
-  ): TPickTransferableProperties<T>;
+  protected abstract _getTransferableProps(): TPickTransferableProperties<this>;
 
   private __getEntityDeleteEventClass(): Constructor<
     BaseDomainEntityDeleteEvent<Id, Type>,

@@ -25,7 +25,7 @@ export interface IEntityImplementation<
   Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
 > extends IEntity<Id, Type>,
-    IComparable<IEntity<Id, Type>>,
+    IComparable<IEntity<TIdentityValueObject, string>>,
     ITransferable {
   emit<Event extends TGetEvents<E>>(event: Event): void;
 
