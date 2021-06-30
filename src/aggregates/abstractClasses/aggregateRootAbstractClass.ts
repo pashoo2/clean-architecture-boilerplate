@@ -1,6 +1,6 @@
 import {
-  IAggregate,
   IAggregateRoot,
+  IAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
@@ -14,7 +14,7 @@ export abstract class BaseAggregateRootAbstractClass<
     E extends IBaseAggregateRootEventsList<Id, Type>
   >
   extends BaseEntity<Id, Type, E>
-  implements IAggregateRoot<Id, Type, E>
+  implements IAggregateRootImplementation<Id, Type, E>
 {
   constructor(
     parameters: IBaseAggregateRootParameters<Id>,
