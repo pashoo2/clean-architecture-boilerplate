@@ -70,7 +70,10 @@ describe('entityClassFabricWithServicesAndUtilities', () => {
         }
         const entityBaseEntity = new BaseEntityTestClass(parameters, services);
 
-        const utilities: IBaseEntityAbstractClassImplementationUtitlities = {
+        const utilities: IBaseEntityAbstractClassImplementationUtitlities<
+          any,
+          any
+        > = {
           compareEntitiesTypes: jest.fn((...args: any[]) => {
             return entityBaseEntity.compareEntitiesTypes(
               args[0],

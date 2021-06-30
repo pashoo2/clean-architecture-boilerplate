@@ -1,5 +1,3 @@
-import {TEntityTypeMain} from 'src/entities/interfaces';
-
-export interface ICompareEntitiesTypes {
-  (firstEntityType: TEntityTypeMain, secondEntityType: TEntityTypeMain): boolean;
+export interface ICompareEntitiesTypes<T extends string> {
+  (firstEntityType: T, secondEntityType: T): boolean;
 }

@@ -12,10 +12,6 @@ import {TPickTransferableProperties} from 'src/interfaces';
 import {Constructor} from 'src/interfaces/classes';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
-export interface IEntityClassFabricParametersWithUtils {
-  classUtilities?: IBaseEntityAbstractClassImplementationUtitlities;
-}
-
 export function entityClassFabric<
   Id extends TIdentityValueObject,
   Type extends TEntityTypeMain,

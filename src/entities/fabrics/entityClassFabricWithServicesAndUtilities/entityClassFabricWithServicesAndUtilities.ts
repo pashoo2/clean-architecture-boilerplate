@@ -22,7 +22,7 @@ export function entityClassFabricWithServicesAndUtilities<
 >(
   parameters: IEntityFabricParameters<Id, Type>,
   services: IBaseEntityServices<E>,
-  utilities: IBaseEntityAbstractClassImplementationUtitlities
+  utilities: IBaseEntityAbstractClassImplementationUtitlities<Id, Type>
 ): Constructor<
   IEntityImplementation<Id, Type, E>,
   [IBaseEntityParameters<Id>]
