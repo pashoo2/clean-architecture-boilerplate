@@ -38,9 +38,9 @@ describe('aggregateClassFabric', () => {
         function getTestsParams(): IRunEntityTestsParameters {
           class EntityTestClass extends entityClassFabric({
             type: ENTITY_TYPE_STUB,
-            getTransferableProps<T extends IEntity<any, typeof ENTITY_TYPE>>(
-              instance: T
-            ): TPickTransferableProperties<T> {
+            getTransferableProps<
+              T extends IEntity<any, typeof ENTITY_TYPE_STUB>
+            >(instance: T): TPickTransferableProperties<T> {
               return {
                 id: instance.id,
                 isDeleted: instance.isDeleted,
@@ -66,7 +66,7 @@ describe('aggregateClassFabric', () => {
             entity,
             entityEventFailedName: ENTITY_EVENT_FAILED_NAME,
             entityEventName: ENTITY_EVENT_NAME,
-            entityType: ENTITY_TYPE,
+            entityType: ENTITY_TYPE_STUB,
             entityUniqueIdentifier,
             isDeleted,
             parameters,

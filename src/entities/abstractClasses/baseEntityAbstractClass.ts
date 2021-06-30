@@ -1,7 +1,7 @@
 import {
   IEntity,
   IEntityImplementation,
-  TEntityType,
+  TEntityTypeMain,
 } from 'src/entities/interfaces/entity';
 
 import {
@@ -20,7 +20,7 @@ import {TIdentityValueObject} from 'src/valueObjects/interfaces/index';
 
 export abstract class BaseEntityAbstractClass<
   Id extends TIdentityValueObject,
-  Type extends TEntityType,
+  Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
 > implements IEntityImplementation<Id, Type, E>
 {

@@ -1,5 +1,5 @@
-import {TAggregateType} from 'src/aggregates/interfaces';
-import {TEntityType} from 'src/entities/interfaces';
+import {TAggregateTypeMain} from 'src/aggregates/interfaces';
+import {TEntityTypeMain} from 'src/entities/interfaces';
 import {
   BaseDomainEntityEvent,
   TBaseDomainEntityEventParameters,
@@ -19,7 +19,7 @@ import {
 
 export interface ITestBaseDomainEntityOrAggregateEventParameters<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType | TAggregateType,
+  EntityType extends TEntityTypeMain | TAggregateTypeMain,
   N extends string = string,
   P extends TDomainEventPayload = undefined,
   EventType extends EDomainEntityEventType = EDomainEntityEventType
@@ -34,7 +34,7 @@ export interface ITestBaseDomainEntityOrAggregateEventParameters<
 
 export function testBaseDomainEntityEvent<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends TEntityTypeMain,
   N extends string = string,
   P extends TDomainEventPayload = undefined,
   EventType extends EDomainEntityEventType = EDomainEntityEventType

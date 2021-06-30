@@ -1,5 +1,5 @@
 import {ENTITY_TYPE_PREFIX} from 'src/entities/constants/entityType';
-import {TEntityType} from 'src/entities/interfaces';
+import {TEntityTypeMain} from 'src/entities/interfaces';
 
-export const ENTITY_TYPE_STUB: TEntityType<'_entity_type'> =
+export const ENTITY_TYPE_STUB: TEntityTypeMain<'_entity_type'> =
   `${ENTITY_TYPE_PREFIX}_entity_type` as const;

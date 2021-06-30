@@ -1,6 +1,6 @@
 import {TBaseEntityEventsListCommonEvents} from 'src/entities/interfaces/baseEntity';
 import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
-import {TEntityType} from 'src/entities/interfaces/entity';
+import {TEntityTypeMain} from 'src/entities/interfaces/entity';
 import {
   IUseCaseParameters,
   IUseCaseServices,
@@ -8,7 +8,7 @@ import {
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export type TUseCaseEntitiesClasses<
-  T extends TEntityType = TEntityType,
+  T extends TEntityTypeMain = TEntityTypeMain,
   Id extends TIdentityValueObject = TIdentityValueObject
 > = {
   [key in T]: BaseEntityAbstractClass<
@@ -20,7 +20,7 @@ export type TUseCaseEntitiesClasses<
 
 export interface IUseCaseWithEntitiesConstructorsSync<
   R,
-  T extends TEntityType
+  T extends TEntityTypeMain
 > {
   (
     parameters: IUseCaseParameters,
@@ -29,5 +29,5 @@ export interface IUseCaseWithEntitiesConstructorsSync<
   ): R;
 }
 
-export interface IUseCaseWithEntitiesConstructorsAsync<R, T extends TEntityType>
+export interface IUseCaseWithEntitiesConstructorsAsync<R, T extends TEntityTypeMain>
   extends IUseCaseWithEntitiesConstructorsSync<Promise<R>, T> {}

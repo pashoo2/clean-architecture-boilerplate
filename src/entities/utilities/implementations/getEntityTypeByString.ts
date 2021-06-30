@@ -1,10 +1,10 @@
 import {ENTITY_TYPE_PREFIX} from 'src/entities/constants/entityType';
-import {TEntityType} from 'src/entities/interfaces';
+import {TEntityTypeMain} from 'src/entities/interfaces';
 import {isEntityTypeStringContainsCorrectCharacters} from 'src/entities/utilities/implementations/typeGuards';
 
 export function getEntityTypeByString<T extends string | String>(
   stringValue: T
-): TEntityType<T extends String ? ReturnType<T['toString']> : T> {
+): TEntityTypeMain<T extends String ? ReturnType<T['toString']> : T> {
   const stringTrimmed = stringValue.trim() as T extends String
     ? ReturnType<T['toString']>
     : T;

@@ -2,7 +2,7 @@ import {
   ENTITY_TYPE_PREFIX,
   ENTITY_TYPE_VALIDATION_REGEXP,
 } from 'src/entities/constants/entityType';
-import {TEntityType} from 'src/entities/interfaces';
+import {TEntityTypeMain} from 'src/entities/interfaces';
 import {isString} from 'src/utilities/implementations/typeGuards';
 
 export function isEntityTypeStringContainsCorrectCharacters(
@@ -15,7 +15,7 @@ export function isEntityTypeStringContainsCorrectCharacters(
   );
 }
 
-export function isEntityType(typeValue: any): typeValue is TEntityType {
+export function isEntityType(typeValue: any): typeValue is TEntityTypeMain {
   return (
     isEntityTypeStringContainsCorrectCharacters(typeValue) &&
     typeValue.trim().length > ENTITY_TYPE_PREFIX.trim().length &&

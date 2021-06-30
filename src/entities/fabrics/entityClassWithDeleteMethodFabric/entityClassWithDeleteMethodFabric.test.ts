@@ -8,7 +8,7 @@ import {
   IBaseEntityEventsList,
   IEntity,
   IEntityImplementationWithDeleteMethod,
-  TEntityType,
+  TEntityTypeMain,
 } from 'src/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
 import {TPickTransferableProperties} from 'src/interfaces';
@@ -31,8 +31,8 @@ export function runTestEntityWithDeleteMethod<
   describe('"$delete" method', () => {
     let entity: IEntityImplementationWithDeleteMethod<
       TIdentityValueObject,
-      TEntityType,
-      IBaseEntityEventsList<TIdentityValueObject, TEntityType>
+      TEntityTypeMain,
+      IBaseEntityEventsList<TIdentityValueObject, TEntityTypeMain>
     >;
     let services: P['services'];
     let parameters: P['parameters'];

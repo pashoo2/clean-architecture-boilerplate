@@ -24,8 +24,8 @@ describe('Entities types comparison utilities', () => {
       stringEntityType => {
         expect(
           compareEntitiesTypes(
-            `     ${stringEntityType} `,
-            ` ${stringEntityType}       `
+            `     ${stringEntityType} ` as any,
+            ` ${stringEntityType}       ` as any
           )
         ).toBe(true);
       }

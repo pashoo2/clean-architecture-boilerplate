@@ -1,4 +1,4 @@
-import {TEntityType} from 'src/entities/interfaces';
+import {TEntityTypeMain} from 'src/entities/interfaces';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
@@ -11,14 +11,14 @@ import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export interface IValidateEntity<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType
+  EntityType extends TEntityTypeMain
 > {
   (entity: IEntity<EntityId, EntityType>): void;
 }
 
 export interface IGetTransferablePropertiesOfEntity<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType
+  EntityType extends TEntityTypeMain
 > {
   <T extends IEntity<EntityId, EntityType>>(
     entity: T
@@ -27,7 +27,7 @@ export interface IGetTransferablePropertiesOfEntity<
 
 export interface IEntityFabricParameters<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType
+  EntityType extends TEntityTypeMain
 > {
   type: EntityType;
   validateInstance: IValidateEntity<EntityId, EntityType>;
@@ -39,7 +39,7 @@ export interface IEntityFabricParameters<
 
 export interface IEntityClassFabric<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityType,
+  EntityType extends TEntityTypeMain,
   E extends IBaseEntityEventsList<EntityId, EntityType>
 > {
   (parameters: IEntityFabricParameters<EntityId, EntityType>): Constructor<

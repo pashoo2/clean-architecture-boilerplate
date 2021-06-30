@@ -4,7 +4,7 @@ import {
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
-  TAggregateType,
+  TAggregateTypeMain,
 } from 'src/aggregates/interfaces';
 import {IAggregateRootFabricParameters} from 'src/aggregates/interfaces/aggregateRootFabric';
 import {TPickTransferableProperties} from 'src/interfaces';
@@ -13,7 +13,7 @@ import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 
 export function aggregateClassFabric<
   Id extends TIdentityValueObject,
-  Type extends TAggregateType,
+  Type extends TAggregateTypeMain,
   E extends IBaseAggregateRootEventsList<
     Id,
     Type
@@ -46,6 +46,10 @@ export function aggregateClassFabric<
     }
     protected _validate(this: IAggregateRoot<Id, Type, E>): void {
       validateInstance(this);
+    }
+
+    protected _getTransferableProps(this: IAggregateRoot<Id, Type, E>) {
+      return getTransferableProps(this);
     }
   }
   // TODO - fix

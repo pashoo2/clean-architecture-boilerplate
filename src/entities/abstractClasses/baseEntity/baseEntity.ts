@@ -6,7 +6,7 @@ import {
   IDomainEventListener,
   IDomainFailedEventListener,
 } from 'src/events/interfaces/domainEvents';
-import {IEntity, TEntityType} from 'src/entities/interfaces/entity';
+import {IEntity} from 'src/entities/interfaces/entity';
 import {
   IIdentityMultiValueObject,
   IIdentityValueObjectSimple,
@@ -26,7 +26,7 @@ import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEnt
 
 export abstract class BaseEntity<
   Id extends TIdentityValueObject,
-  Type extends TEntityType,
+  Type extends string,
   E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
 > extends BaseEntityAbstractClass<Id, Type, E> {
   public get id(): Id {
@@ -142,8 +142,8 @@ export abstract class BaseEntity<
   }
 
   protected _compareEntitiesTypes(
-    firstType: TEntityType,
-    secondType: TEntityType
+    firstType: string,
+    secondType: string
   ): boolean {
     return firstType === secondType;
   }

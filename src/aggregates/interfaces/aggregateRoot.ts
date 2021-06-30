@@ -8,7 +8,7 @@ import {
 import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
 import {TPickTransferableProperties} from 'src/interfaces';
 
-export type TAggregateType<T extends string = string> =
+export type TAggregateTypeMain<T extends string = string> =
   `${typeof AGGREGATE_TYPE_PREFIX}:${T}`;
 
 export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
@@ -18,16 +18,16 @@ export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
 
 export interface IBaseAggregateRootEventsList<
   Id extends TIdentityValueObject,
-  Type extends TAggregateType
+  Type extends string
 > extends IBaseEntityEventsList<Id, Type> {}
 
 export interface IBaseAggregateRootServices<
-  E extends IBaseAggregateRootEventsList<TIdentityValueObject, TAggregateType>
+  E extends IBaseAggregateRootEventsList<TIdentityValueObject, string>
 > extends IBaseEntityServices<E> {}
 
 export interface IAggregateRoot<
   Id extends TIdentityValueObject,
-  Type extends TAggregateType,
+  Type extends string,
   E extends IBaseAggregateRootEventsList<
     Id,
     Type
