@@ -23,8 +23,13 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
+export interface IRunTestEntityWithDeleteMethod
+  extends IRunEntityTestsParameters {
+  deleteMethodName?: string;
+}
+
 export function runTestEntityWithDeleteMethod<
-  P extends IRunEntityTestsParameters
+  P extends IRunTestEntityWithDeleteMethod
 >(getTestsParams: () => P) {
   runEntityTests(getTestsParams);
 
@@ -36,6 +41,7 @@ export function runTestEntityWithDeleteMethod<
     >;
     let services: P['services'];
     let parameters: P['parameters'];
+    let deleteMethodName: P['deleteMethodName'];
 
     beforeEach(() => {
       const testsParams = getTestsParams();
@@ -46,13 +52,16 @@ export function runTestEntityWithDeleteMethod<
       >;
       services = testsParams.services;
       parameters = testsParams.parameters;
+      deleteMethodName = testsParams.deleteMethodName ?? '$delete';
     });
 
-    it('Should have "$delete" method', () => {
-      expect(typeof entity.$delete === 'function').toBe(true);
+    it('Should have "delete" method', () => {
+      expect(typeof (entity as any)[deleteMethodName] === 'function').toBe(
+        true
+      );
     });
     it('Should mark the entity as deleted', () => {
-      expect(() => entity.$delete()).not.toThrow();
+      expect(() => (entity as any)[deleteMethodName]()).not.toThrow();
       expect(entity.isDeleted).toBe(true);
     });
     it('Should emit "DELETE" event if the entity has not been deleted previously', () => {
@@ -61,7 +70,7 @@ export function runTestEntityWithDeleteMethod<
         DOMAIN_ENTITY_EVENT_NAME_DELETE,
         listenerDeleteEvents
       );
-      expect(() => entity.$delete()).not.toThrow();
+      expect(() => (entity as any)[deleteMethodName]()).not.toThrow();
       if (parameters.isDeleted) {
         expect(listenerDeleteEvents).not.toHaveBeenCalledWith(
           expect.objectContaining({
@@ -78,7 +87,7 @@ export function runTestEntityWithDeleteMethod<
         );
       }
       listenerDeleteEvents.mockClear();
-      expect(() => entity.$delete()).not.toThrow();
+      expect(() => (entity as any)[deleteMethodName]()).not.toThrow();
       expect(listenerDeleteEvents).not.toHaveBeenCalledWith(
         expect.objectContaining({
           entityId: parameters.id,
