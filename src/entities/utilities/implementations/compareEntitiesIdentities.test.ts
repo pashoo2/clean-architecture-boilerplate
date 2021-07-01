@@ -1,4 +1,4 @@
-import {compareEntitiesIdentities} from 'src/entities/utilities/implementations/compareEntitiesIdentities';
+import {compareEntitiesIdentitiesUtility} from 'src/entities/utilities/implementations/compareEntitiesIdentities';
 import {
   MultipleIdentityValueObjectClassMock,
   MultipleIdentityValueObjectClassWithComparisonMock,
@@ -7,7 +7,7 @@ import {
 } from 'src/__mock__/valueObjects.mock';
 
 describe('Utilities for comparing entities identifiers', () => {
-  describe('compareEntitiesIdentities', () => {
+  describe('compareEntitiesIdentitiesUtility', () => {
     const SIMPLE_IDENTITY_DIFFERENT = 'SIMPLE_IDENTITY_DIFFERENT';
     const simpleIdentityDifferent = new SimpleIdentityValueObjectClassMock(
       SIMPLE_IDENTITY_DIFFERENT
@@ -33,11 +33,11 @@ describe('Utilities for comparing entities identifiers', () => {
       multipleIdentityWithComparison,
     ])('Test for identity %p', identity => {
       it('Should return true for equal identities', () => {
-        expect(compareEntitiesIdentities(identity, identity)).toBe(true);
+        expect(compareEntitiesIdentitiesUtility(identity, identity)).toBe(true);
       });
       it('Should return false for not equal identities', () => {
         expect(
-          compareEntitiesIdentities(identity, simpleIdentityDifferent)
+          compareEntitiesIdentitiesUtility(identity, simpleIdentityDifferent)
         ).toBe(false);
       });
     });
@@ -48,11 +48,14 @@ describe('Utilities for comparing entities identifiers', () => {
       it('Should return true if a value objects return true, event if the identities are not equal', () => {
         if (typeof identity.value === 'object') {
           expect(
-            compareEntitiesIdentities(identity, multipleIdentityDifferent)
+            compareEntitiesIdentitiesUtility(
+              identity,
+              multipleIdentityDifferent
+            )
           ).toBe(true);
         } else {
           expect(
-            compareEntitiesIdentities(identity, simpleIdentityDifferent)
+            compareEntitiesIdentitiesUtility(identity, simpleIdentityDifferent)
           ).toBe(true);
         }
       });

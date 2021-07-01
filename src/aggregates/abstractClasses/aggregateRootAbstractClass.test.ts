@@ -20,7 +20,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from 'src/__mock__/valueObjects.mock';
 
-type TAggregateTestClassEventsList = IBaseAggregateRootEventsList<
+export type TAggregateTestClassEventsList = IBaseAggregateRootEventsList<
   | MultipleIdentityValueObjectClassWithComparisonMock
   | SimpleIdentityValueObjectClassWithComparisonMock,
   any
@@ -56,7 +56,7 @@ export interface IRunAggregateTestsParameters<
   >;
 }
 
-function runAggregateTests(
+export function runAggregateTests(
   getParameters: () => IRunAggregateTestsParameters
 ): void {
   const getRunEntityTests = (): ReturnType<

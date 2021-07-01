@@ -5,7 +5,7 @@ import {
   TIdentityValueObject,
 } from 'src/valueObjects/interfaces/index';
 
-export function compareEntitiesIdentities(
+export function compareEntitiesIdentitiesUtility(
   firstId: TIdentityValueObject,
   secondId: TIdentityValueObject
 ): boolean {

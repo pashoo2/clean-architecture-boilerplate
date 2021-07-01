@@ -11,5 +11,5 @@ export function getEntityTypeByString<T extends string | String>(
   if (!isEntityTypeStringContainsCorrectCharacters(stringTrimmed)) {
     throw new Error('The string passed contains non valid characters');
   }
-  return `${ENTITY_TYPE_PREFIX}${stringTrimmed}`;
+  return `${ENTITY_TYPE_PREFIX}__${stringTrimmed}`;
 }

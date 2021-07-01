@@ -30,9 +30,11 @@ export interface IGetTransferablePropertiesOfAggregateRoot<
 
 export interface IAggregateRootClassFabricParameters<
   Id extends TIdentityValueObject,
-  Type extends string
+  Type extends string,
+  E extends IBaseAggregateRootEventsList<Id, Type>
 > {
   type: Type;
+  services: IBaseAggregateRootServices<E>;
   validateInstance: IValidateAggregate<Id, Type>;
   getTransferableProps: IGetTransferablePropertiesOfAggregateRoot<Id, Type>;
   compareEntitiesTypes: ICompareEntitiesTypes<Type>;
@@ -44,8 +46,8 @@ export interface IAggregateRootClassFabric<
   Type extends string,
   E extends IBaseAggregateRootEventsList<Id, Type>
 > {
-  (parameters: IAggregateRootClassFabricParameters<Id, Type>): Constructor<
+  (parameters: IAggregateRootClassFabricParameters<Id, Type, E>): Constructor<
     IAggregateRootImplementation<Id, Type, E>,
-    [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
+    [IBaseAggregateRootParameters<Id>]
   >;
 }
