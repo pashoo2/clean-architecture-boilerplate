@@ -1,3 +1,3 @@
-export * from './compareAggregates';
+export * from './getAggregateTypeByString';
 
-export * from './typeGuargs';
+export * from './typeGuards';
