@@ -3,7 +3,6 @@ import {
   IAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
-  IBaseAggregateRootServices,
   TAggregateTypeMain,
 } from 'src/aggregates/interfaces';
 import {IAggregateRootClassFabricParameters} from 'src/aggregates/interfaces/aggregateRootFabric';
@@ -20,22 +19,25 @@ export function aggregateClassFabric<
   > = IBaseAggregateRootEventsList<Id, Type>
 >({
   type,
+  services,
   validateInstance,
   getTransferableProps,
   compareEntitiesTypes,
   compareEntitiesIdentities,
-}: IAggregateRootClassFabricParameters<Id, Type>): Constructor<
+}: IAggregateRootClassFabricParameters<Id, Type, E>): Constructor<
   IAggregateRootImplementation<Id, Type, E>,
-  [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
+  [IBaseAggregateRootParameters<Id>]
 > {
   class AggregateRootConstructor
     extends BaseAggregateRootAbstractClass<Id, Type, E>
     implements IAggregateRootImplementation<Id, Type, E>
   {
     protected _type = type;
-    public delete(): void {
-      this._delete();
+
+    constructor(parameters: IBaseAggregateRootParameters<Id>) {
+      super(parameters, services);
     }
+
     protected _validate(this: IAggregateRootImplementation<Id, Type, E>): void {
       validateInstance(this);
     }
@@ -44,6 +46,7 @@ export function aggregateClassFabric<
       this: IAggregateRootImplementation<Id, Type, E>
     ): TPickTransferableProperties<this> {
       const transferableProps = getTransferableProps(this);
+      // TODO - resolve the type
       return transferableProps as unknown as TPickTransferableProperties<this>;
     }
 
@@ -59,8 +62,8 @@ export function aggregateClassFabric<
     }
   }
   // TODO - fix
-  return AggregateRootConstructor as any as Constructor<
+  return AggregateRootConstructor as unknown as Constructor<
     IAggregateRootImplementation<Id, Type, E>,
-    [IBaseAggregateRootParameters<Id>, IBaseAggregateRootServices<E>]
+    [IBaseAggregateRootParameters<Id>]
   >;
 }

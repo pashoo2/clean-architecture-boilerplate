@@ -9,7 +9,7 @@ import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
 import {TPickTransferableProperties} from 'src/interfaces';
 
 export type TAggregateTypeMain<T extends string = string> =
-  `${typeof AGGREGATE_TYPE_PREFIX}:${T}`;
+  `${typeof AGGREGATE_TYPE_PREFIX}__${T}`;
 
 export interface IBaseAggregateRootParameters<Id extends TIdentityValueObject>
   extends IBaseEntityParameters<Id> {

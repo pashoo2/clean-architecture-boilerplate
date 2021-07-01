@@ -1,4 +1,4 @@
-export function compareEntitiesTypes(
+export function compareEntitiesTypesUtility(
   firstEntityType: string,
   secondEntityType: string
 ): boolean {

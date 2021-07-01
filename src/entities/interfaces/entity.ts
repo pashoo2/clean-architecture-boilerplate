@@ -12,7 +12,7 @@ import {ITransferable} from 'src/interfaces/transferable';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 
 export type TEntityTypeMain<T extends string = string> =
-  `${typeof ENTITY_TYPE_PREFIX}${T}`;
+  `${typeof ENTITY_TYPE_PREFIX}__${T}`;
 
 export interface IEntity<Id extends TIdentityValueObject, Type extends string> {
   readonly id: Id;
