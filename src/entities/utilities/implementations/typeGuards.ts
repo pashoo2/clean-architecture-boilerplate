@@ -15,7 +15,7 @@ export function isEntityTypeStringContainsCorrectCharacters(
   );
 }
 
-export function isEntityType(typeValue: any): typeValue is TEntityTypeMain {
+export function isEntityMainType(typeValue: any): typeValue is TEntityTypeMain {
   return (
     isEntityTypeStringContainsCorrectCharacters(typeValue) &&
     typeValue.trim().length > ENTITY_TYPE_PREFIX.trim().length &&

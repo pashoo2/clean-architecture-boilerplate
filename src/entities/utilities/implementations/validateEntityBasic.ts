@@ -1,10 +1,10 @@
 import {IEntity, TEntityTypeMain} from 'src/entities/interfaces';
-import {isEntityType} from 'src/entities/utilities/implementations/typeGuards';
+import {isEntityMainType} from 'src/entities/utilities/implementations/typeGuards';
 import {TIdentityValueObject} from 'src/valueObjects/interfaces';
 import {validateEntityIdentity} from 'src/valueObjects/utilities/implementations';
 
 export function validateEntityType(entityType: TEntityTypeMain): void {
-  if (!isEntityType(entityType)) {
+  if (!isEntityMainType(entityType)) {
     throw new Error('The entity type is not valid');
   }
 }
