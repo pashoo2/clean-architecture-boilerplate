@@ -1,5 +1,4 @@
 import {
-  IAggregateRoot,
   IAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
@@ -23,5 +22,7 @@ export abstract class BaseAggregateRootAbstractClass<
     super(parameters, services);
   }
 
-  public abstract delete(): void;
+  public delete(): void {
+    this._delete();
+  }
 }
