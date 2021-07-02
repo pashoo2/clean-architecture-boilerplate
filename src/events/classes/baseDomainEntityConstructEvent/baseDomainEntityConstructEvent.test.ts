@@ -1,6 +1,7 @@
 import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from 'src/constants/domainEvents';
 import {BaseDomainEntityConstructEvent} from 'src/events/classes/baseDomainEntityConstructEvent/baseDomainEntityConstructEvent';
 import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {EDomainEntityEventType} from 'src/events/constants/eventType';
 import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
 import {
   MultipleIdentityValueObjectClassMock,
@@ -97,7 +98,7 @@ describe('Domain entity event "CONSTRUCTED"', () => {
           typeof constructorParameters.entityId.value === 'object'
             ? expect.objectContaining(UNIQUE_ENTITY_IDENTITY_MULTI_STUB)
             : UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-        payload: (constructorParameters as any).payload,
+        eventType: EDomainEntityEventType.ENTITY_EVENT,
         metaVersion: (constructorParameters as any).metaVersion
           ? (constructorParameters as any).metaVersion
           : 1,

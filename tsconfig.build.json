@@ -3,7 +3,11 @@
     "compilerOptions": {
         "outDir": "build",
         "noEmit": false,
-        "incremental": false
+        "incremental": false,
+        "module": "commonjs",
+        "declaration": true,
+        "target": "ES5",
+        "strict": true,
     },
     "exclude": [
         "config/**/*.ts"
