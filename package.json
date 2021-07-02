@@ -1,5 +1,5 @@
 {
-  "name": "@pashoo/clean-architecture-boilerplate",
+  "name": "@pashoo2/clean-architecture-boilerplate",
   "version": "0.0.1",
   "private": false,
   "description": "Clean architecture boilerplate",
@@ -14,7 +14,7 @@
     "frontend",
     "typescript"
   ],
-  "author": "Paul Akulich",
+  "author": "Pavel Akulich",
   "homepage": "https://github.com/pashoo2/clean-architecture-boilerplate",
   "license": "ISC",
   "scripts": {
