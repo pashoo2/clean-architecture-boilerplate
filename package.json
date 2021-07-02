@@ -1,8 +1,10 @@
 {
   "name": "@pashoo/clean-architecture-boilerplate",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "Clean architecture boilerplate",
+  "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
   "keywords": [
     "clean",
     "architecture",
@@ -15,7 +17,6 @@
   "author": "Paul Akulich",
   "homepage": "https://github.com/pashoo2/clean-architecture-boilerplate",
   "license": "ISC",
-  "main": "src/index.ts",
   "scripts": {
     "lint": "gts lint",
     "clean": "gts clean",
@@ -26,14 +27,18 @@
     "pretest": "npm run typecheck",
     "posttest": "npm run lint",
     "test": "jest",
-    "jest": "jest"
+    "jest": "jest",
+    "prepublishOnly": "npm run test",
+    "preversion": "npm run lint",
+    "version": "npm run fix && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "files": [
-    "src"
+    "build/**/*"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:pashoo2/clean-architecture-boilerplate.git"
+    "url": "git+https://github.com/pashoo2/clean-architecture-boilerplate.git"
   },
   "bugs": {
     "url": "https://github.com/pashoo2/clean-architecture-boilerplate/issues"
