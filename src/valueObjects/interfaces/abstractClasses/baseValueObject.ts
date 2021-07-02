@@ -31,6 +31,9 @@ export abstract class BaseValueObjectStringSerialization<V extends TSimpleType>
   implements IBaseValueObjectStringSerialization<V>
 {
   public serialize(): string {
+    if (typeof this.value === 'string') {
+      return this.value;
+    }
     return JSON.stringify(this.value);
   }
 }

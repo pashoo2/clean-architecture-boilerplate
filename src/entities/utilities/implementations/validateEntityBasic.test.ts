@@ -48,7 +48,9 @@ describe('Basic utilities for an entities validation', () => {
     it.each(['', NaN, undefined, null, ENTITY_TYPE_PREFIX])(
       'Should throw for an invalid entity types simple value "%p"',
       () => {
-        expect(() => validateEntityType(`${ENTITY_TYPE_PREFIX}`)).toThrow();
+        expect(() =>
+          validateEntityType(`${ENTITY_TYPE_PREFIX}` as any)
+        ).toThrow();
       }
     );
     it.each([
@@ -58,7 +60,7 @@ describe('Basic utilities for an entities validation', () => {
     ])(
       'Should not throw for a valid entity types simple value "%p"',
       entityTypeValue => {
-        expect(() => validateEntityType(entityTypeValue)).not.toThrow();
+        expect(() => validateEntityType(entityTypeValue as any)).not.toThrow();
       }
     );
   });

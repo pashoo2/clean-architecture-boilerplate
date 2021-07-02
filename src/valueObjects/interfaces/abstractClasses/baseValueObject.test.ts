@@ -117,13 +117,20 @@ describe('Base value object', () => {
           return true;
         }
       }
-      it.each([
-        ...SIMPLE_TYPE_VALUES_SET_NUMBERS,
-        ...SIMPLE_TYPE_VALUES_SET_STRINGS,
-      ])(
-        'Should return a string returned by JSON.stringify for "%s"',
+      it.each([...SIMPLE_TYPE_VALUES_SET_NUMBERS])(
+        'Should return a string returned by JSON.stringify for the numeric value "%s"',
         testValue => {
           const expectedValue = JSON.stringify(testValue);
+          const testVO = new BaseValueObjectTestClass(testValue);
+
+          expect(testVO.serialize()).toBe(expectedValue);
+        }
+      );
+
+      it.each([...SIMPLE_TYPE_VALUES_SET_STRINGS])(
+        'Should return a string returned a string itself for the string "%s"',
+        testValue => {
+          const expectedValue = testValue;
           const testVO = new BaseValueObjectTestClass(testValue);
 
           expect(testVO.serialize()).toBe(expectedValue);
