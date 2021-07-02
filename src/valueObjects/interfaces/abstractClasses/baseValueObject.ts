@@ -1,8 +1,8 @@
 import {
   IBaseValueObject,
   IBaseValueObjectStringSerialization,
-} from 'src/valueObjects/interfaces/baseValueObject';
-import {TSimpleType} from 'src/interfaces/common';
+} from '@root/valueObjects/interfaces/baseValueObject';
+import {TSimpleType} from '@root/interfaces/common';
 
 export abstract class BaseValueObject<
   V extends TSimpleType,

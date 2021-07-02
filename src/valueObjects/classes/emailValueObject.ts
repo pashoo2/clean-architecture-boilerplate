@@ -1,4 +1,4 @@
-import {BaseValueObjectStringSerialization} from 'src/valueObjects/interfaces/abstractClasses/baseValueObject';
+import {BaseValueObjectStringSerialization} from '@root/valueObjects/interfaces/abstractClasses/baseValueObject';
 import {IEmailVO} from '../interfaces/emailValueObject';
 
 function getEmailValidationRegexp(): RegExp {

@@ -1,4 +1,4 @@
-import {isObjectWithoutConstructor} from 'src/utilities/implementations/typeGuards';
+import {isObjectWithoutConstructor} from '@root/utilities/implementations/typeGuards';
 import {
   ICompareValues,
   ICompareValuesStrategy,

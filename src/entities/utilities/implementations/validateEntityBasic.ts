@@ -1,7 +1,7 @@
-import {IEntity, TEntityTypeMain} from 'src/entities/interfaces';
-import {isEntityMainType} from 'src/entities/utilities/implementations/typeGuards';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
-import {validateEntityIdentity} from 'src/valueObjects/utilities/implementations';
+import {IEntity, TEntityTypeMain} from '@root/entities/interfaces';
+import {isEntityMainType} from '@root/entities/utilities/implementations/typeGuards';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
+import {validateEntityIdentity} from '@root/valueObjects/utilities/implementations';
 
 export function validateEntityType(entityType: TEntityTypeMain): void {
   if (!isEntityMainType(entityType)) {

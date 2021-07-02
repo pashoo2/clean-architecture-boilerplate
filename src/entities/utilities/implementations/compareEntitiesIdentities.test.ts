@@ -1,10 +1,10 @@
-import {compareEntitiesIdentitiesUtility} from 'src/entities/utilities/implementations/compareEntitiesIdentities';
+import {compareEntitiesIdentitiesUtility} from '@root/entities/utilities/implementations/compareEntitiesIdentities';
 import {
   MultipleIdentityValueObjectClassMock,
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 describe('Utilities for comparing entities identifiers', () => {
   describe('compareEntitiesIdentitiesUtility', () => {

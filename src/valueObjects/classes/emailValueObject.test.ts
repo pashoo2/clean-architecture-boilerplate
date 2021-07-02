@@ -1,4 +1,4 @@
-import {EmailVO} from 'src/valueObjects/classes/emailValueObject';
+import {EmailVO} from '@root/valueObjects/classes/emailValueObject';
 
 // https://www.w3resource.com/javascript/form/email-validation.php
 

@@ -1,4 +1,4 @@
-import {ICompareValuesShallowStrategy} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
+import {ICompareValuesShallowStrategy} from '@root/utilities/interfaces/comparison/valuesComparisonStrategies';
 import {
   SIMPLE_TYPE_VALUES_SET_EMPTY,
   SIMPLE_TYPE_VALUES_SET_NUMBERS,

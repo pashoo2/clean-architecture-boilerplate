@@ -1,12 +1,12 @@
 import {
   IMultiValuesValueObject,
   IMultiValuesValueObjectValue,
-} from 'src/valueObjects/interfaces';
-import {MultiValuesValueObjectAsync} from 'src/valueObjects/interfaces/abstractClasses';
+} from '@root/valueObjects/interfaces';
+import {MultiValuesValueObjectAsync} from '@root/valueObjects/interfaces/abstractClasses';
 import {
   IMultipleValuesValueObjectAsyncConstructor,
   IMultipleValuesValueObjectAsyncFabricParameters,
-} from 'src/valueObjects/interfaces/multipleValuesValueObjectAsync';
+} from '@root/valueObjects/interfaces/multipleValuesValueObjectAsync';
 
 export function multipleValuesValueObjectAsyncFabric<
   V extends IMultiValuesValueObjectValue

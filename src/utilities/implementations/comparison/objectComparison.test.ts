@@ -2,13 +2,13 @@ import {
   ICompareAnyByStrategy,
   ICompareValuesShallowStrategy,
   ICompareValuesStrategy,
-} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
+} from '@root/utilities/interfaces/comparison/valuesComparisonStrategies';
 import {
   OBJECT_TYPE_VALUES_SET_ARRAYS,
   OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES,
   OBJECT_TYPE_VALUES_SET_OBJECTS,
   OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
-} from 'src/__mock__/objectTypes.stubs';
+} from '@root/__mock__/objectTypes.stubs';
 import {
   compareObjectsDeepByStrategy,
   compareObjectsDeepWithCompareValuesFunction,

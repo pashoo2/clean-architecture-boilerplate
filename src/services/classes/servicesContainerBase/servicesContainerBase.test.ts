@@ -1,4 +1,4 @@
-import {ServicesContainerBase} from 'src/services/classes/servicesContainerBase/servicesContainerBase';
+import {ServicesContainerBase} from '@root/services/classes/servicesContainerBase/servicesContainerBase';
 
 describe('ServicesContainerBase', () => {
   test('Constructor should throw an error if no parameters passed', () => {

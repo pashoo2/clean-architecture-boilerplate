@@ -1,13 +1,13 @@
-import {BaseEntity} from 'src/entities/abstractClasses/baseEntity';
-import {IBaseEntityParameters} from 'src/entities/interfaces/baseEntity';
+import {BaseEntity} from '@root/entities/abstractClasses/baseEntity';
+import {IBaseEntityParameters} from '@root/entities/interfaces/baseEntity';
 import {
   ITransferable,
   TPickTransferableProperties,
-} from 'src/interfaces/transferable';
-import {mockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {convertTransferableToSerializableAsync} from 'src/utilities/implementations/serialization/convertTransferableToSerializable/convertTransferableToSerializable';
-import {BaseValueObjectStringSerialization} from 'src/valueObjects/interfaces/abstractClasses';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+} from '@root/interfaces/transferable';
+import {mockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {convertTransferableToSerializableAsync} from '@root/utilities/implementations/serialization/convertTransferableToSerializable/convertTransferableToSerializable';
+import {BaseValueObjectStringSerialization} from '@root/valueObjects/interfaces/abstractClasses';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 
 const ENTITY_CLASS_TYPE = 'TransferableEntity' as const;
 

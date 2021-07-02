@@ -1,4 +1,4 @@
-import {baseValueObjectClassFabric} from 'src/valueObjects/implementations/baseValueObjectClassFabrics';
+import {baseValueObjectClassFabric} from '@root/valueObjects/implementations/baseValueObjectClassFabrics';
 
 describe('Fabrics allows to construct various constructors of the base value object interface', () => {
   describe('baseValueObjectClassFabric', () => {

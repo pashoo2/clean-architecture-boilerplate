@@ -1,7 +1,7 @@
-import {DOMAIN_ENTITY_EVENT_NAME_DELETE} from 'src/constants/domainEvents';
-import {TEntityTypeMain} from 'src/entities/interfaces';
-import {BaseDomainEntityEvent} from 'src/events/classes/baseDomainEntityEvent';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+import {DOMAIN_ENTITY_EVENT_NAME_DELETE} from '@root/constants/domainEvents';
+import {TEntityTypeMain} from '@root/entities/interfaces';
+import {BaseDomainEntityEvent} from '@root/events/classes/baseDomainEntityEvent';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export type TDomainEvent = typeof DOMAIN_ENTITY_EVENT_NAME_DELETE;
 

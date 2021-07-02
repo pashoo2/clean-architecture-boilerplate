@@ -1,8 +1,8 @@
-import {TSimpleType} from 'src/interfaces/common';
+import {TSimpleType} from '@root/interfaces/common';
 import {
   SIMPLE_TYPE_VALUES_SET_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 import {
   BaseValueObject,
   BaseValueObjectStringSerialization,

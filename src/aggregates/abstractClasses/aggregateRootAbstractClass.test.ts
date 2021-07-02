@@ -1,24 +1,24 @@
-import {BaseAggregateRootAbstractClass} from 'src/aggregates/abstractClasses/aggregateRootAbstractClass';
+import {BaseAggregateRootAbstractClass} from '@root/aggregates/abstractClasses/aggregateRootAbstractClass';
 import {
   IAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
-} from 'src/aggregates/interfaces';
-import {runTestEntityWithDeleteMethod} from 'src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.test';
-import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {Constructor} from 'src/interfaces/classes';
-import {getDomainEntityEventMock} from 'src/__mock__/domainEvents/domainEvents.mock';
-import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
-import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+} from '@root/aggregates/interfaces';
+import {runTestEntityWithDeleteMethod} from '@root/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.test';
+import {TDomainEventFailedNameForDomainEventName} from '@root/events/interfaces';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {Constructor} from '@root/interfaces/classes';
+import {getDomainEntityEventMock} from '@root/__mock__/domainEvents/domainEvents.mock';
+import {ENTITY_TYPE_STUB} from '@root/__mock__/entityType.stub';
+import {getMockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 import {
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 export type TAggregateTestClassEventsList = IBaseAggregateRootEventsList<
   | MultipleIdentityValueObjectClassWithComparisonMock

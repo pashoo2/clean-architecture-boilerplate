@@ -1,9 +1,9 @@
-import {TSimpleType} from 'src/interfaces';
+import {TSimpleType} from '@root/interfaces';
 import {
   IBaseValueObject,
   IMultiValuesValueObject,
   IMultiValuesValueObjectValue,
-} from 'src/valueObjects/interfaces';
+} from '@root/valueObjects/interfaces';
 
 export interface IIsEmptyBaseValueObjectValue {
   (valueObjectValue: IBaseValueObject<TSimpleType>['value']): boolean;

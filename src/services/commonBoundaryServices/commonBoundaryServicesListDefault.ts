@@ -1,4 +1,4 @@
-import {ICommonBoundaryServicesList} from 'src/services/commonBoundaryServices/interfaces/commonBoundaryServicesList';
+import {ICommonBoundaryServicesList} from '@root/services/commonBoundaryServices/interfaces/commonBoundaryServicesList';
 import {serviceGenerateUniqueIdentifier} from './implementations/serviceGenerateUniqueIdentifier';
 
 export const CommonBoundaryServicesListDefault: ICommonBoundaryServicesList = {

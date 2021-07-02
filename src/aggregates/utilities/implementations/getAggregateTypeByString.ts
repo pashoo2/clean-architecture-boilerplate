@@ -1,6 +1,6 @@
-import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
-import {TAggregateTypeMain} from 'src/aggregates/interfaces';
-import {isEntityTypeStringContainsCorrectCharacters} from 'src/entities/utilities/implementations/typeGuards';
+import {AGGREGATE_TYPE_PREFIX} from '@root/aggregates/constants/aggregateType';
+import {TAggregateTypeMain} from '@root/aggregates/interfaces';
+import {isEntityTypeStringContainsCorrectCharacters} from '@root/entities/utilities/implementations/typeGuards';
 
 export function getAggregateTypeByString<T extends string | String>(
   stringValue: T

@@ -1,5 +1,5 @@
-import {ServicesContainerResolverBase} from 'src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase';
-import {IServicesContainer} from 'src/services/interfaces/common';
+import {ServicesContainerResolverBase} from '@root/services/classes/servicesContainerResolverBase/servicesContainerResolverBase';
+import {IServicesContainer} from '@root/services/interfaces/common';
 
 describe('Services container resolver base class', () => {
   let servicesContainer: IServicesContainer<any>;

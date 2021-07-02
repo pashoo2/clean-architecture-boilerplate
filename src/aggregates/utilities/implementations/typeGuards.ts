@@ -1,6 +1,6 @@
-import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
-import {TAggregateTypeMain} from 'src/aggregates/interfaces';
-import {isEntityTypeStringContainsCorrectCharacters} from 'src/entities/utilities/implementations';
+import {AGGREGATE_TYPE_PREFIX} from '@root/aggregates/constants/aggregateType';
+import {TAggregateTypeMain} from '@root/aggregates/interfaces';
+import {isEntityTypeStringContainsCorrectCharacters} from '@root/entities/utilities/implementations';
 
 export function isAggregateMainType(
   typeValue: any

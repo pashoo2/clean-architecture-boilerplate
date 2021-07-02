@@ -1,4 +1,4 @@
-import {IDomainEvent} from 'src/events/interfaces/domainEvents';
+import {IDomainEvent} from '@root/events/interfaces/domainEvents';
 
 export interface IEventsList {
   [eventName: string]: IDomainEvent<typeof eventName, any>;

@@ -7,4 +7,7 @@ module.exports = {
   },
   cache: true,
   moduleDirectories: ['node_modules', './'],
+  moduleNameMapper: {
+    '^@root/(.*)': '<rootDir>/src/$1',
+  },
 };

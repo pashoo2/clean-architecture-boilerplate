@@ -1,12 +1,12 @@
-import {TAggregateTypeMain} from 'src/aggregates/interfaces';
-import {TEntityTypeMain} from 'src/entities/interfaces';
+import {TAggregateTypeMain} from '@root/aggregates/interfaces';
+import {TEntityTypeMain} from '@root/entities/interfaces';
 import {
   BaseDomainEntityEvent,
   TBaseDomainEntityEventParameters,
-} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
-import {EDomainEntityEventType} from 'src/events/constants/eventType';
-import {TDomainEventPayload} from 'src/events/interfaces';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {EDomainEntityEventType} from '@root/events/constants/eventType';
+import {TDomainEventPayload} from '@root/events/interfaces';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 import {
   DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_MULTI_ENTITY_ID_STUB,
   DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_SIMPLE_ENTITY_ID_STUB,
@@ -15,7 +15,7 @@ import {
   EVENT_ENTITY_TYPE_STUB,
   EVENT_NAME_STUB,
   EVENT_TYPE_STUB,
-} from 'src/__mock__/domainEvents/constructorParameters.stub';
+} from '@root/__mock__/domainEvents/constructorParameters.stub';
 
 export interface ITestBaseDomainEntityOrAggregateEventParameters<
   EntityId extends TIdentityValueObject,

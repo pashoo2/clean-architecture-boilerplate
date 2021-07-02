@@ -1,4 +1,4 @@
-import {multipleValuesValueObjectAsyncFabric} from 'src/valueObjects/implementations/multipleValuesValueObjectAsyncClassFabrics';
+import {multipleValuesValueObjectAsyncFabric} from '@root/valueObjects/implementations/multipleValuesValueObjectAsyncClassFabrics';
 
 describe('Fabrics allows to construct various constructors of the multiple values value object interface', () => {
   describe('multipleValuesValueObjectBaseFabric', () => {

@@ -1,10 +1,10 @@
-import {TSimpleType} from 'src/interfaces';
-import {isSimpleType} from 'src/utilities/implementations/typeGuards';
+import {TSimpleType} from '@root/interfaces';
+import {isSimpleType} from '@root/utilities/implementations/typeGuards';
 import {
   IBaseValueObject,
   IMultiValuesValueObject,
   IMultiValuesValueObjectValue,
-} from 'src/valueObjects/interfaces';
+} from '@root/valueObjects/interfaces';
 
 export function isValueObject(
   valueObject: any

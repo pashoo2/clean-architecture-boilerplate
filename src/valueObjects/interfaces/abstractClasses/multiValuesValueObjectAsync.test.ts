@@ -1,4 +1,4 @@
-import {MultiValuesValueObjectAsync} from 'src/valueObjects/interfaces/abstractClasses/multiValuesValueObjectAsync';
+import {MultiValuesValueObjectAsync} from '@root/valueObjects/interfaces/abstractClasses/multiValuesValueObjectAsync';
 
 describe('multiValuesValueObject', () => {
   class MultiValuesValueObjectTestClass extends MultiValuesValueObjectAsync<{

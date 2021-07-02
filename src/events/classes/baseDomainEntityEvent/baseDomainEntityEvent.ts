@@ -1,15 +1,15 @@
 import {
   BaseDomainEventClass,
   TBaseDomainEventClassParameters,
-} from 'src/events/classes/baseDomainEvent/baseDomainEvent';
-import {EDomainEntityEventType} from 'src/events/constants/eventType';
+} from '@root/events/classes/baseDomainEvent/baseDomainEvent';
+import {EDomainEntityEventType} from '@root/events/constants/eventType';
 import {
   TDomainEventPayload,
   IDomainEntityEvent,
   IDomainEntityEventPropertiesSerialized,
   IDomainEventPropertiesSerialized,
-} from 'src/events/interfaces/domainEvents';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/events/interfaces/domainEvents';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export type TBaseDomainEntityEventParameters<
   Id extends TIdentityValueObject,

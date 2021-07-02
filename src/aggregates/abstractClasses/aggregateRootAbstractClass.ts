@@ -3,9 +3,9 @@ import {
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
-} from 'src/aggregates/interfaces/aggregateRoot';
-import {BaseEntity} from 'src/entities/abstractClasses';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/aggregates/interfaces/aggregateRoot';
+import {BaseEntity} from '@root/entities/abstractClasses';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export abstract class BaseAggregateRootAbstractClass<
     Id extends TIdentityValueObject,

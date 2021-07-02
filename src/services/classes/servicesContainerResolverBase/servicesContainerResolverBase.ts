@@ -1,8 +1,8 @@
 import {
   IServicesContainer,
   TServicesList,
-} from 'src/services/interfaces/common';
-import {IServicesContainerResolver} from 'src/services/interfaces/common/servicesContainerResolver';
+} from '@root/services/interfaces/common';
+import {IServicesContainerResolver} from '@root/services/interfaces/common/servicesContainerResolver';
 
 export class ServicesContainerResolverBase<L extends TServicesList>
   implements IServicesContainerResolver<L>

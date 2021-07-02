@@ -1,6 +1,6 @@
-import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
-import {testBaseDomainEntityEvent} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent.test';
-import {createDomainEntityEventConstructor} from 'src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor';
+import {TBaseDomainEntityEventParameters} from '@root/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {testBaseDomainEntityEvent} from '@root/events/classes/baseDomainEntityEvent/baseDomainEntityEvent.test';
+import {createDomainEntityEventConstructor} from '@root/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor';
 import {
   DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_MULTI_ENTITY_ID_STUB,
   DOMAIN_ENTITY_EVENT_CONSTRUCTOR_PARAMETERS_WITHOUT_PAYLOAD_SIMPLE_ENTITY_ID_STUB,
@@ -9,7 +9,7 @@ import {
   EVENT_ENTITY_TYPE_STUB,
   EVENT_NAME_STUB,
   EVENT_TYPE_STUB,
-} from 'src/__mock__/domainEvents/constructorParameters.stub';
+} from '@root/__mock__/domainEvents/constructorParameters.stub';
 
 describe('Base domain entity event', () => {
   describe.each([

@@ -1,18 +1,18 @@
-import {IRunEntityTestsParameters} from 'src/entities/abstractClasses/baseEntity/baseEntity.test';
-import {entityClassWithDeleteMethodAndServicesFabric} from 'src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric';
-import {runTestEntityWithDeleteMethod} from 'src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.test';
-import {IEntity} from 'src/entities/interfaces';
-import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
-import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+import {IRunEntityTestsParameters} from '@root/entities/abstractClasses/baseEntity/baseEntity.test';
+import {entityClassWithDeleteMethodAndServicesFabric} from '@root/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric';
+import {runTestEntityWithDeleteMethod} from '@root/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.test';
+import {IEntity} from '@root/entities/interfaces';
+import {TDomainEventFailedNameForDomainEventName} from '@root/events/interfaces';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {ENTITY_TYPE_STUB} from '@root/__mock__/entityType.stub';
+import {getMockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 import {
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 describe('entityClassWithDeleteMethodAndServicesFabric', () => {
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;

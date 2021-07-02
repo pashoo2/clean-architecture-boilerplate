@@ -1,4 +1,4 @@
-import {multipleValuesValueObjectBaseFabric} from 'src/valueObjects/implementations/multipleValuesValueObjectBaseClassFabrics';
+import {multipleValuesValueObjectBaseFabric} from '@root/valueObjects/implementations/multipleValuesValueObjectBaseClassFabrics';
 
 describe('Fabrics allows to construct various constructors of the multiple values value object interface', () => {
   describe('multipleValuesValueObjectBaseFabric', () => {

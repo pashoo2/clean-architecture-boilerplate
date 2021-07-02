@@ -1,13 +1,13 @@
-import {TEntityTypeMain} from 'src/entities/interfaces';
+import {TEntityTypeMain} from '@root/entities/interfaces';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
   IBaseEntityServices,
-} from 'src/entities/interfaces/baseEntity';
-import {IEntity, IEntityImplementation} from 'src/entities/interfaces/entity';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {Constructor} from 'src/interfaces/classes';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/entities/interfaces/baseEntity';
+import {IEntity, IEntityImplementation} from '@root/entities/interfaces/entity';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {Constructor} from '@root/interfaces/classes';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export interface IValidateEntity<
   EntityId extends TIdentityValueObject,

@@ -1,4 +1,4 @@
-import {serviceGenerateUniqueIdentifier} from 'src/services/commonBoundaryServices/implementations/serviceGenerateUniqueIdentifier';
+import {serviceGenerateUniqueIdentifier} from '@root/services/commonBoundaryServices/implementations/serviceGenerateUniqueIdentifier';
 
 describe('serviceGenerateUniqueIdentifier', () => {
   it('Should return a unique string', () => {

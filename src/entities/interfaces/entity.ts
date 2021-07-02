@@ -1,14 +1,14 @@
-import {ENTITY_TYPE_PREFIX} from 'src/entities/constants/entityType';
-import {IBaseEntityEventsList} from 'src/entities/interfaces/baseEntity';
+import {ENTITY_TYPE_PREFIX} from '@root/entities/constants/entityType';
+import {IBaseEntityEventsList} from '@root/entities/interfaces/baseEntity';
 import {
   IDomainEventFailed,
   IDomainEventListener,
   IDomainFailedEventListener,
   TGetEvents,
   TGetEventsNames,
-} from 'src/events/interfaces';
-import {IComparable} from 'src/interfaces/comparison';
-import {ITransferable} from 'src/interfaces/transferable';
+} from '@root/events/interfaces';
+import {IComparable} from '@root/interfaces/comparison';
+import {ITransferable} from '@root/interfaces/transferable';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 
 export type TEntityTypeMain<T extends string = string> =

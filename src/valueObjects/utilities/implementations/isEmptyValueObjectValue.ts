@@ -1,10 +1,13 @@
-import {TSimpleType} from 'src/interfaces';
-import {isAnyNumber, isString} from 'src/utilities/implementations/typeGuards';
+import {TSimpleType} from '@root/interfaces';
+import {
+  isAnyNumber,
+  isString,
+} from '@root/utilities/implementations/typeGuards';
 import {
   IBaseValueObject,
   IMultiValuesValueObject,
   IMultiValuesValueObjectValue,
-} from 'src/valueObjects/interfaces';
+} from '@root/valueObjects/interfaces';
 
 export function isEmptyBaseValueObjectValue(
   valueObjectValue: IBaseValueObject<TSimpleType>['value']

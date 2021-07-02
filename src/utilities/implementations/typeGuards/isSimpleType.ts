@@ -1,4 +1,4 @@
-import {TSimpleType} from 'src/interfaces/common';
+import {TSimpleType} from '@root/interfaces/common';
 
 export function isAnyNumber(v: unknown): v is Number | number {
   return typeof v === 'number' || v instanceof Number;

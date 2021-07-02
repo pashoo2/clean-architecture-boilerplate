@@ -1,4 +1,4 @@
-import {ServicesContainerResolverBase} from 'src/services/classes';
+import {ServicesContainerResolverBase} from '@root/services/classes';
 import {commonBoundaryServicesContainerDefault} from './commonBoundaryServicesContainerDefault';
 import {ICommonBoundaryServicesList} from './interfaces/commonBoundaryServicesList';
 

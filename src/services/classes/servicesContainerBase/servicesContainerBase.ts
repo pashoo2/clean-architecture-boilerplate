@@ -1,7 +1,7 @@
-import {DeepPartial} from 'src/interfaces/common';
-import {TServicesList} from 'src/services/interfaces/common/servicesList';
-import {IServicesContainer} from 'src/services/interfaces/common/servicesContainer';
-import {mergeDeep} from 'src/utilities/implementations/objects';
+import {DeepPartial} from '@root/interfaces/common';
+import {TServicesList} from '@root/services/interfaces/common/servicesList';
+import {IServicesContainer} from '@root/services/interfaces/common/servicesContainer';
+import {mergeDeep} from '@root/utilities/implementations/objects';
 import {ServicesContainerAbstractClass} from '../../interfaces/abstractClasses/serviceContainerAbstractClass';
 
 export class ServicesContainerBase<L extends TServicesList>

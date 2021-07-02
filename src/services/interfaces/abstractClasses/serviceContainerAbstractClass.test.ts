@@ -1,4 +1,4 @@
-import {ServicesContainerAbstractClass} from 'src/services/interfaces/common';
+import {ServicesContainerAbstractClass} from '@root/services/interfaces/common';
 
 describe('ServicesContainerAbstractClass', () => {
   it('Should have protected property "_services" property that returns services passed into constructor', () => {

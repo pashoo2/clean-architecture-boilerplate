@@ -1,27 +1,27 @@
-import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from 'src/constants/domainEvents';
-import {BaseEntity} from 'src/entities/abstractClasses/baseEntity/baseEntity';
+import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from '@root/constants/domainEvents';
+import {BaseEntity} from '@root/entities/abstractClasses/baseEntity/baseEntity';
 import {
   TBaseEntityEventsListCommonEvents,
   IBaseEntityServices,
   IBaseEntityParameters,
   IEntityImplementation,
-} from 'src/entities/interfaces';
+} from '@root/entities/interfaces';
 import {
   IDomainEventFailed,
   TDomainEventFailedNameForDomainEventName,
-} from 'src/events/interfaces';
-import {Constructor} from 'src/interfaces/classes';
-import {TPickTransferableProperties} from 'src/interfaces/index';
-import {getDomainEntityEventMock} from 'src/__mock__/domainEvents/domainEvents.mock';
-import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
-import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+} from '@root/events/interfaces';
+import {Constructor} from '@root/interfaces/classes';
+import {TPickTransferableProperties} from '@root/interfaces/index';
+import {getDomainEntityEventMock} from '@root/__mock__/domainEvents/domainEvents.mock';
+import {ENTITY_TYPE_STUB} from '@root/__mock__/entityType.stub';
+import {getMockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 import {
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 type TEntityTestClassEventsList = TBaseEntityEventsListCommonEvents<
   | MultipleIdentityValueObjectClassWithComparisonMock

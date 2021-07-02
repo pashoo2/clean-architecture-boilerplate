@@ -3,14 +3,14 @@ import {
   isSimpleArray,
   isSimpleObject,
   isSimpleTypeOrArrayOrObject,
-} from 'src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject';
+} from '@root/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject';
 import {
   OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES,
   OBJECT_TYPE_VALUES_SET_DATES,
   OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
   OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR,
   OBJECT_TYPE_VALUE_WITHOUT_CONSTRUCTOR_WITH_SIMPLE_VALUES,
-} from 'src/__mock__/objectTypes.stubs';
+} from '@root/__mock__/objectTypes.stubs';
 
 describe('isSimpleTypeOrArrayOrObject utilities', () => {
   describe('isObjectWithoutConstructor', () => {

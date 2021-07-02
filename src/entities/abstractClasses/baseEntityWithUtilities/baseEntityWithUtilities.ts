@@ -1,15 +1,15 @@
-import {TEntityTypeMain} from 'src/entities/interfaces/entity';
+import {TEntityTypeMain} from '@root/entities/interfaces/entity';
 import {TIdentityValueObject} from '../../../valueObjects/interfaces/identityValueObject';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
   IBaseEntityServices,
 } from '../../interfaces/baseEntity';
-import {BaseEntity} from 'src/entities/abstractClasses/baseEntity/baseEntity';
+import {BaseEntity} from '@root/entities/abstractClasses/baseEntity/baseEntity';
 import {
   ICompareEntitiesIdentities,
   ICompareEntitiesTypes,
-} from 'src/entities/utilities/interfaces';
+} from '@root/entities/utilities/interfaces';
 
 export interface IBaseEntityAbstractClassImplementationUtitlities<
   Id extends TIdentityValueObject,

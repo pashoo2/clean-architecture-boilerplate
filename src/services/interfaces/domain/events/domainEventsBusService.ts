@@ -1,5 +1,5 @@
-import {IDomainEventBus, IEventsList} from 'src/events/interfaces';
-import {IClassService} from 'src/services/interfaces/common';
+import {IDomainEventBus, IEventsList} from '@root/events/interfaces';
+import {IClassService} from '@root/services/interfaces/common';
 
 /**
  * Domain event bus that is using for emitting

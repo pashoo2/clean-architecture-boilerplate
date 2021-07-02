@@ -1,4 +1,4 @@
-import {UuidValueObject} from 'src/valueObjects/classes/uuidValueObject';
+import {UuidValueObject} from '@root/valueObjects/classes/uuidValueObject';
 
 const VALID_UUID_V4 = [
   '2a17485a-e133-4424-a890-d7d3b6aa861e',

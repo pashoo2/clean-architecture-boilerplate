@@ -1,4 +1,4 @@
-import {BaseEntity} from 'src/entities/abstractClasses';
+import {BaseEntity} from '@root/entities/abstractClasses';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
@@ -6,10 +6,10 @@ import {
   IEntityFabricParameters,
   IEntityImplementation,
   TEntityTypeMain,
-} from 'src/entities/interfaces';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {Constructor} from 'src/interfaces/classes';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/entities/interfaces';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {Constructor} from '@root/interfaces/classes';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export function entityClassFabricWithServices<
   Id extends TIdentityValueObject,

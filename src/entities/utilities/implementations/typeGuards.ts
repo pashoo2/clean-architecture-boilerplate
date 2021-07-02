@@ -1,9 +1,9 @@
 import {
   ENTITY_TYPE_PREFIX,
   ENTITY_TYPE_VALIDATION_REGEXP,
-} from 'src/entities/constants/entityType';
-import {TEntityTypeMain} from 'src/entities/interfaces';
-import {isString} from 'src/utilities/implementations/typeGuards';
+} from '@root/entities/constants/entityType';
+import {TEntityTypeMain} from '@root/entities/interfaces';
+import {isString} from '@root/utilities/implementations/typeGuards';
 
 export function isEntityTypeStringContainsCorrectCharacters(
   entityTypeString: string | String

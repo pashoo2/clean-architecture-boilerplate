@@ -1,4 +1,4 @@
-import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
+import {IServiceGeneratorIdentifierUnique} from '@root/services/interfaces/domain/generators/identifiers';
 
 let currentIndex = 0;
 
