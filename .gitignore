@@ -34,3 +34,6 @@ Thumbs.db
 
 # Typescript incremental builds cahce
 *.tsbuildinfo
+
+# Application build directory
+build/
