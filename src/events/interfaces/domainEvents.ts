@@ -1,9 +1,12 @@
-import {TAggregateTypeMain} from 'src/aggregates/interfaces';
-import {TEntityTypeMain} from 'src/entities/interfaces';
-import {EDomainEntityEventType} from 'src/events/constants/eventType';
-import {TSimpleType} from 'src/interfaces/common';
-import {ISerializable, TSerializableValue} from 'src/interfaces/serialization';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+import {TAggregateTypeMain} from '@root/aggregates/interfaces';
+import {TEntityTypeMain} from '@root/entities/interfaces';
+import {EDomainEntityEventType} from '@root/events/constants/eventType';
+import {TSimpleType} from '@root/interfaces/common';
+import {
+  ISerializable,
+  TSerializableValue,
+} from '@root/interfaces/serialization';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export interface IDomainEventPayloadKeyValue {
   [key: string]: TSimpleType | IDomainEventPayloadKeyValue;

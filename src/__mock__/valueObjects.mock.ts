@@ -1,6 +1,6 @@
-import {TSimpleType} from 'src/interfaces';
-import {baseValueObjectClassFabric} from 'src/valueObjects/implementations/baseValueObjectClassFabrics';
-import {multipleValuesValueObjectBaseFabric} from 'src/valueObjects/implementations/multipleValuesValueObjectBaseClassFabrics';
+import {TSimpleType} from '@root/interfaces';
+import {baseValueObjectClassFabric} from '@root/valueObjects/implementations/baseValueObjectClassFabrics';
+import {multipleValuesValueObjectBaseFabric} from '@root/valueObjects/implementations/multipleValuesValueObjectBaseClassFabrics';
 import {
   IBaseValueObject,
   IBaseValueObjectConstructorFabricParameters,
@@ -9,7 +9,7 @@ import {
   IMultipleValuesValueObjectBaseFabricParameters,
   IMultiValuesValueObjectBase,
   IMultiValuesValueObjectValue,
-} from 'src/valueObjects/interfaces';
+} from '@root/valueObjects/interfaces';
 
 export const UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB =
   'UNIQUE_ENTITY_IDENTITY_SIMPLE' as const;

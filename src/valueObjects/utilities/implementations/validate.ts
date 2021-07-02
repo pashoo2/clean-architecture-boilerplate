@@ -1,19 +1,19 @@
-import {TSimpleType} from 'src/interfaces';
+import {TSimpleType} from '@root/interfaces';
 import {
   IBaseValueObject,
   IMultiValuesValueObject,
   TIdentityValueObject,
-} from 'src/valueObjects/interfaces';
+} from '@root/valueObjects/interfaces';
 import {
   isEmptyBaseValueObjectValue,
   isEmptyMultipleValuesValueObjectValue,
-} from 'src/valueObjects/utilities/implementations/isEmptyValueObjectValue';
+} from '@root/valueObjects/utilities/implementations/isEmptyValueObjectValue';
 import {
   isBaseValueObject,
   isMultipleValuesValueObject,
   isMultipleValuesValueObjectInsteadOfBase,
   isValueObject,
-} from 'src/valueObjects/utilities/implementations/typeGuards';
+} from '@root/valueObjects/utilities/implementations/typeGuards';
 
 export function validateEntityIdentityBase(
   entityId: IBaseValueObject<TSimpleType>

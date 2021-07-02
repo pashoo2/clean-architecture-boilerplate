@@ -1,8 +1,8 @@
-import {TDomainBoundaryName} from 'src/interfaces/domain';
+import {TDomainBoundaryName} from '@root/interfaces/domain';
 import {
   IService,
   IServiceAggregate,
-} from 'src/services/interfaces/common/service';
+} from '@root/services/interfaces/common/service';
 
 export type TServicesList = {
   [boundaryName in TDomainBoundaryName]:

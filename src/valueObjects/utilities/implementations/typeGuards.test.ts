@@ -3,14 +3,14 @@ import {
   isMultipleValuesValueObject,
   isMultipleValuesValueObjectInsteadOfBase,
   isValueObject,
-} from 'src/valueObjects/utilities/implementations/typeGuards';
+} from '@root/valueObjects/utilities/implementations/typeGuards';
 import {
   SimpleIdentityValueObjectClassMock,
   MultipleIdentityValueObjectClassMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleValueObjectClassMock,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 export function runCheckResultsOfValueObjectTypeGuard(
   isValueObjectTypeGuardCallback: (value: any) => boolean

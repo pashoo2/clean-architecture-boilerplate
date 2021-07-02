@@ -1,5 +1,5 @@
-import {IBaseEntityAbstractClassImplementationUtitlities} from 'src/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
-import {entityClassFabricWithServicesAndUtilities} from 'src/entities/fabrics/entityClassFabricWithServicesAndUtilities';
+import {IBaseEntityAbstractClassImplementationUtitlities} from '@root/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
+import {entityClassFabricWithServicesAndUtilities} from '@root/entities/fabrics/entityClassFabricWithServicesAndUtilities';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
@@ -7,9 +7,9 @@ import {
   IEntityFabricParameters,
   IEntityImplementationWithDeleteMethod,
   TEntityTypeMain,
-} from 'src/entities/interfaces';
-import {Constructor} from 'src/interfaces/classes';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/entities/interfaces';
+import {Constructor} from '@root/interfaces/classes';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export function entityClassWithDeleteMethodServicesAndUtilitiesFabric<
   Id extends TIdentityValueObject,

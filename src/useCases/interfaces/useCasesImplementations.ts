@@ -1,11 +1,11 @@
-import {TBaseEntityEventsListCommonEvents} from 'src/entities/interfaces/baseEntity';
-import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
-import {TEntityTypeMain} from 'src/entities/interfaces/entity';
+import {TBaseEntityEventsListCommonEvents} from '@root/entities/interfaces/baseEntity';
+import {BaseEntityAbstractClass} from '@root/entities/abstractClasses/baseEntityAbstractClass';
+import {TEntityTypeMain} from '@root/entities/interfaces/entity';
 import {
   IUseCaseParameters,
   IUseCaseServices,
-} from 'src/useCases/interfaces/useCasesOuter';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/useCases/interfaces/useCasesOuter';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export type TUseCaseEntitiesClasses<
   T extends TEntityTypeMain = TEntityTypeMain,

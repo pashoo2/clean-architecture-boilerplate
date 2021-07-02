@@ -1,6 +1,6 @@
-import {Constructor} from 'src/interfaces/classes';
-import {IValidator} from 'src/interfaces/validation';
-import {ICompareValuesAsync} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
+import {Constructor} from '@root/interfaces/classes';
+import {IValidator} from '@root/interfaces/validation';
+import {ICompareValuesAsync} from '@root/utilities/interfaces/comparison/valuesComparisonStrategies';
 import {
   IComparableAsync,
   ISerializableAsync,

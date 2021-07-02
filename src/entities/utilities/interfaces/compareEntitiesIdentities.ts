@@ -1,4 +1,4 @@
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export interface ICompareEntitiesIdentities<Id extends TIdentityValueObject> {
   (firstId: Id, secondId: Id): boolean;

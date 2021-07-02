@@ -1,30 +1,30 @@
-import {ENTITY_TYPE_PREFIX} from 'src/entities/constants/entityType';
-import {entityClassFabric} from 'src/entities/fabrics';
+import {ENTITY_TYPE_PREFIX} from '@root/entities/constants/entityType';
+import {entityClassFabric} from '@root/entities/fabrics';
 import {
   IEntity,
   IEntityImplementation,
   TEntityTypeMain,
-} from 'src/entities/interfaces';
+} from '@root/entities/interfaces';
 import {
   validateEntityBasic,
   validateEntityObject,
   validateEntityType,
-} from 'src/entities/utilities/implementations/validateEntityBasic';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
-import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
-import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+} from '@root/entities/utilities/implementations/validateEntityBasic';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
+import {ENTITY_TYPE_STUB} from '@root/__mock__/entityType.stub';
+import {getMockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 import {
   SIMPLE_TYPE_VALUES_SET_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 import {
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 describe('Basic utilities for an entities validation', () => {
   function runTestsForValidateEntityObject(

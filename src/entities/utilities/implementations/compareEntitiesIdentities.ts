@@ -1,9 +1,9 @@
-import {isSimpleType} from 'src/utilities/implementations/typeGuards/index';
+import {isSimpleType} from '@root/utilities/implementations/typeGuards/index';
 import {
   IIdentityMultiValueObject,
   IIdentityValueObjectSimple,
   TIdentityValueObject,
-} from 'src/valueObjects/interfaces/index';
+} from '@root/valueObjects/interfaces/index';
 
 export function compareEntitiesIdentitiesUtility(
   firstId: TIdentityValueObject,

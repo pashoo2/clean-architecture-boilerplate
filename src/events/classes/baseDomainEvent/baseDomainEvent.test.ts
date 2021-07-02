@@ -2,14 +2,14 @@ import {
   BaseDomainEventClass,
   IBaseDomainEventParameters,
   IBaseDomainEventParametersWithoutPayload,
-} from 'src/events/classes/baseDomainEvent/baseDomainEvent';
-import {TDomainEventPayload} from 'src/events/interfaces';
-import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR_SERIALIZABLE} from 'src/__mock__/objectTypes.stubs';
+} from '@root/events/classes/baseDomainEvent/baseDomainEvent';
+import {TDomainEventPayload} from '@root/events/interfaces';
+import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR_SERIALIZABLE} from '@root/__mock__/objectTypes.stubs';
 import {
   SIMPLE_TYPE_VALUES_SET_EMPTY,
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_FINITE_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 
 const TEST_EVENT_NAME = 'TEST_EVENT_NAME' as const;
 

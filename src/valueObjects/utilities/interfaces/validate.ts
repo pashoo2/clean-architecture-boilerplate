@@ -1,9 +1,9 @@
-import {TSimpleType} from 'src/interfaces';
+import {TSimpleType} from '@root/interfaces';
 import {
   IBaseValueObject,
   IMultiValuesValueObject,
   TIdentityValueObject,
-} from 'src/valueObjects/interfaces';
+} from '@root/valueObjects/interfaces';
 
 export interface IValidateEntityIdentityBase {
   (entityId: IBaseValueObject<TSimpleType>): void;

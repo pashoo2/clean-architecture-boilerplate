@@ -1,6 +1,6 @@
-import {BaseDomainEntityEvent} from 'src/events/classes';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+import {BaseDomainEntityEvent} from '@root/events/classes';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 
 export const DOMAIN_ENTITY_EVENT_MOCK_NAME =
   'DOMAIN_ENTITY_EVENT_MOCK_NAME' as const;

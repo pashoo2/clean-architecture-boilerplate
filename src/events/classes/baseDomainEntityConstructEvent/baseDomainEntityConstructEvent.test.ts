@@ -1,14 +1,14 @@
-import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from 'src/constants/domainEvents';
-import {BaseDomainEntityConstructEvent} from 'src/events/classes/baseDomainEntityConstructEvent/baseDomainEntityConstructEvent';
-import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
-import {EDomainEntityEventType} from 'src/events/constants/eventType';
-import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
+import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from '@root/constants/domainEvents';
+import {BaseDomainEntityConstructEvent} from '@root/events/classes/baseDomainEntityConstructEvent/baseDomainEntityConstructEvent';
+import {TBaseDomainEntityEventParameters} from '@root/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {EDomainEntityEventType} from '@root/events/constants/eventType';
+import {ENTITY_TYPE_STUB} from '@root/__mock__/entityType.stub';
 import {
   MultipleIdentityValueObjectClassMock,
   SimpleIdentityValueObjectClassMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 const EVENT_IDENTITY_UNIQUE = 'EVENT_IDENTITY_UNIQUE' as const;
 

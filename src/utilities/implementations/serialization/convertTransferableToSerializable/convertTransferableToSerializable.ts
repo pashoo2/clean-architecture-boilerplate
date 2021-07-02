@@ -2,12 +2,12 @@ import {
   ISerializable,
   ISerializableAsync,
   TSerializableSimple,
-} from 'src/interfaces/serialization';
-import {TSimpleType} from 'src/interfaces/common';
+} from '@root/interfaces/serialization';
+import {TSimpleType} from '@root/interfaces/common';
 import {
   ITransferable,
   TPickTransferableProperties,
-} from 'src/interfaces/transferable';
+} from '@root/interfaces/transferable';
 import {isSimpleTypeOrArrayOrObject} from '../../typeGuards/isSimpleTypeOrArrayOrObject';
 
 export async function convertTransferableToSerializableAsync<

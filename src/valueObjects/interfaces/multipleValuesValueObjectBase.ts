@@ -4,9 +4,9 @@ import {
   TSerializableValue,
 } from '../../interfaces/serialization';
 import {IComparable} from '../../interfaces/comparison';
-import {Constructor} from 'src/interfaces/classes';
-import {ICompareValues} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
-import {IValidator} from 'src/interfaces/validation';
+import {Constructor} from '@root/interfaces/classes';
+import {ICompareValues} from '@root/utilities/interfaces/comparison/valuesComparisonStrategies';
+import {IValidator} from '@root/interfaces/validation';
 
 export interface IMultiValuesValueObjectValue {
   [key: string]: TSerializableValue;

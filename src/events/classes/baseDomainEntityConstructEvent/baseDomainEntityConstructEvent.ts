@@ -1,6 +1,6 @@
-import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from 'src/constants/domainEvents';
-import {BaseDomainEntityEvent} from 'src/events/classes/baseDomainEntityEvent';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+import {DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED} from '@root/constants/domainEvents';
+import {BaseDomainEntityEvent} from '@root/events/classes/baseDomainEntityEvent';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export type TDomainEventName = typeof DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED;
 

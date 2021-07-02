@@ -8,7 +8,7 @@ import {
   IEventsList,
   TGetEvents,
   TGetEventsNames,
-} from 'src/events/interfaces';
+} from '@root/events/interfaces';
 
 export class BaseDomainEventBus<E extends IEventsList, EE extends EventEmitter>
   implements IDomainEventBus<E>

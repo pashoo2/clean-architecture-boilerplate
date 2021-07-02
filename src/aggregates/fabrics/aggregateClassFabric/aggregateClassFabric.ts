@@ -1,14 +1,14 @@
-import {BaseAggregateRootAbstractClass} from 'src/aggregates/abstractClasses';
+import {BaseAggregateRootAbstractClass} from '@root/aggregates/abstractClasses';
 import {
   IAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   TAggregateTypeMain,
-} from 'src/aggregates/interfaces';
-import {IAggregateRootClassFabricParameters} from 'src/aggregates/interfaces/aggregateRootFabric';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {Constructor} from 'src/interfaces/classes';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+} from '@root/aggregates/interfaces';
+import {IAggregateRootClassFabricParameters} from '@root/aggregates/interfaces/aggregateRootFabric';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {Constructor} from '@root/interfaces/classes';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export function aggregateClassFabric<
   Id extends TIdentityValueObject,

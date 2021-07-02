@@ -1,5 +1,5 @@
-import {compareEntitiesTypesUtility} from 'src/entities/utilities/implementations/compareEntitiesTypes';
-import {SIMPLE_TYPE_VALUES_SET_STRINGS} from 'src/__mock__/simpleTypes.stubs';
+import {compareEntitiesTypesUtility} from '@root/entities/utilities/implementations/compareEntitiesTypes';
+import {SIMPLE_TYPE_VALUES_SET_STRINGS} from '@root/__mock__/simpleTypes.stubs';
 
 describe('Entities types comparison utilities', () => {
   describe('compareEntitiesTypesUtility', () => {

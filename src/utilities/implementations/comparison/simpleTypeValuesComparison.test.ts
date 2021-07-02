@@ -3,7 +3,7 @@ import {
   SIMPLE_TYPE_VALUES_SET_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_STRINGS,
 } from '../../../__mock__/simpleTypes.stubs';
-import {areSimpleValuesEqual} from 'src/utilities/implementations/comparison/simpleTypeValuesComparison';
+import {areSimpleValuesEqual} from '@root/utilities/implementations/comparison/simpleTypeValuesComparison';
 
 describe('Utils for comparison simple type values', () => {
   describe('areSimpleValuesEqual', () => {

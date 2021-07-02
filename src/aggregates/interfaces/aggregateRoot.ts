@@ -5,8 +5,8 @@ import {
   IBaseEntityServices,
   IBaseEntityEventsList,
 } from '../../entities/interfaces/baseEntity';
-import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
-import {TPickTransferableProperties} from 'src/interfaces';
+import {AGGREGATE_TYPE_PREFIX} from '@root/aggregates/constants/aggregateType';
+import {TPickTransferableProperties} from '@root/interfaces';
 
 export type TAggregateTypeMain<T extends string = string> =
   `${typeof AGGREGATE_TYPE_PREFIX}__${T}`;

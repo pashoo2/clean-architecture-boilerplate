@@ -1,8 +1,8 @@
-import {Constructor} from 'src/interfaces/classes';
+import {Constructor} from '@root/interfaces/classes';
 import {
   applyMixinsMethodInheritance,
   applyMixinsPropsAndMethodsInheritance,
-} from 'src/utilities/implementations/classes/multipleInheritance';
+} from '@root/utilities/implementations/classes/multipleInheritance';
 
 describe('multipleInheritance', () => {
   describe('applyMixinsMethodInheritance', () => {

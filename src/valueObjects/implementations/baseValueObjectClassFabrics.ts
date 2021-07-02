@@ -1,10 +1,10 @@
-import {TSimpleType} from 'src/interfaces';
-import {BaseValueObject} from 'src/valueObjects/interfaces/abstractClasses/baseValueObject';
+import {TSimpleType} from '@root/interfaces';
+import {BaseValueObject} from '@root/valueObjects/interfaces/abstractClasses/baseValueObject';
 import {
   IBaseValueObject,
   IBaseValueObjectConstructor,
   IBaseValueObjectConstructorFabricParameters,
-} from 'src/valueObjects/interfaces/baseValueObject';
+} from '@root/valueObjects/interfaces/baseValueObject';
 
 export function baseValueObjectClassFabric<
   V extends TSimpleType,

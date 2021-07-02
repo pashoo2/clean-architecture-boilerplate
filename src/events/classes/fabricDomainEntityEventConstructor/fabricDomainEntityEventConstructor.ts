@@ -1,12 +1,12 @@
-import {Constructor} from 'src/interfaces/classes';
+import {Constructor} from '@root/interfaces/classes';
 import {
   IDomainEntityEvent,
   TDomainEventPayload,
-} from 'src/events/interfaces/domainEvents';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
-import {BaseDomainEntityEvent} from 'src/events/classes/baseDomainEntityEvent';
-import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
-import {EDomainEntityEventType} from 'src/events/constants/eventType';
+} from '@root/events/interfaces/domainEvents';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
+import {BaseDomainEntityEvent} from '@root/events/classes/baseDomainEntityEvent';
+import {TBaseDomainEntityEventParameters} from '@root/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {EDomainEntityEventType} from '@root/events/constants/eventType';
 
 export interface IFabricDomainEntityEventParameters<
   EntityType extends string,

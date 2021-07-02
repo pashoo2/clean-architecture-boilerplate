@@ -1,29 +1,29 @@
-import {BaseAggregateRootAbstractClass} from 'src/aggregates/abstractClasses';
+import {BaseAggregateRootAbstractClass} from '@root/aggregates/abstractClasses';
 import {
   IRunAggregateTestsParameters,
   runAggregateTests,
   TAggregateTestClassEventsList,
-} from 'src/aggregates/abstractClasses/aggregateRootAbstractClass.test';
-import {aggregateClassFabric} from 'src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric';
+} from '@root/aggregates/abstractClasses/aggregateRootAbstractClass.test';
+import {aggregateClassFabric} from '@root/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric';
 import {
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
-} from 'src/aggregates/interfaces';
+} from '@root/aggregates/interfaces';
 import {
   compareEntitiesIdentitiesUtility,
   compareEntitiesTypesUtility,
-} from 'src/entities/utilities/implementations';
-import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {AGGREGATE_TYPE_STUB} from 'src/__mock__/entityType.stub';
-import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+} from '@root/entities/utilities/implementations';
+import {TDomainEventFailedNameForDomainEventName} from '@root/events/interfaces';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {AGGREGATE_TYPE_STUB} from '@root/__mock__/entityType.stub';
+import {getMockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 import {
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 describe('aggregateClassFabric', () => {
   const AGGREGATE_EVENT_NAME = 'AGGREGATE_EVENT_NAME' as const;

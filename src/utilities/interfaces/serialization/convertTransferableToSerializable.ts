@@ -1,5 +1,5 @@
-import {TSerializableSimple} from 'src/interfaces/serialization';
-import {TPickTransferableProperties} from 'src/interfaces/transferable';
+import {TSerializableSimple} from '@root/interfaces/serialization';
+import {TPickTransferableProperties} from '@root/interfaces/transferable';
 
 export interface IConvertTransferableToSerializable<
   O extends Object,

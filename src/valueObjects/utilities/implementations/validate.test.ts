@@ -2,23 +2,23 @@ import {
   validateEntityIdentity,
   validateEntityIdentityBase,
   validateEntityIdentityMultipleValue,
-} from 'src/valueObjects/utilities/implementations/validate';
+} from '@root/valueObjects/utilities/implementations/validate';
 import {
   OBJECT_TYPE_VALUES_SET_ARRAYS_EMPTY,
   OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY,
   OBJECT_TYPE_VALUES_SET_OBJECTS_EMPTY,
   OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
-} from 'src/__mock__/objectTypes.stubs';
+} from '@root/__mock__/objectTypes.stubs';
 import {
   SIMPLE_TYPE_VALUES_SET_EMPTY_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS,
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 import {
   MultipleValueObjectClassMock,
   SimpleValueObjectClassMock,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 describe('Value object validation utilities', () => {
   function runTestsForEntityIdentityBaseValidator(

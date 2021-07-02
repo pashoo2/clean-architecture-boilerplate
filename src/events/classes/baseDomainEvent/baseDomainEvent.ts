@@ -2,7 +2,7 @@ import {
   IDomainEvent,
   IDomainEventPropertiesSerialized,
   TDomainEventPayload,
-} from 'src/events/interfaces/domainEvents';
+} from '@root/events/interfaces/domainEvents';
 
 export interface IBaseDomainEventParametersWithoutPayload {
   id: string;

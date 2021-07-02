@@ -9,8 +9,11 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "baseUrl": "./",
-    "incremental": true
+    "baseUrl": "./src",
+    "incremental": true,
+    "paths": {
+      "@root/*": ["./*"],
+    }
   },
   "include": [
     "src/**/*.ts",

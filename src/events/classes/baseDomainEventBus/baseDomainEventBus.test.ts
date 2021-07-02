@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
-import {BaseDomainEventBus} from 'src/events/classes/baseDomainEventBus/baseDomainEventBus';
-import {IDomainEvent, IDomainEventFailed} from 'src/events/interfaces';
+import {BaseDomainEventBus} from '@root/events/classes/baseDomainEventBus/baseDomainEventBus';
+import {IDomainEvent, IDomainEventFailed} from '@root/events/interfaces';
 
 const EVENT_EXPECTED_NAME = 'EVENT_EXPECTED_NAME' as const;
 const EVENT_FAILED_NAME = `failed::${EVENT_EXPECTED_NAME}` as const;

@@ -1,11 +1,11 @@
-import {getAggregateTypeByString} from 'src/aggregates/utilities/implementations/getAggregateTypeByString';
-import {isAggregateMainType} from 'src/aggregates/utilities/implementations/typeGuards';
-import {ENTITY_TYPE_VALIDATION_REGEXP} from 'src/entities/constants/entityType';
-import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from 'src/__mock__/objectTypes.stubs';
+import {getAggregateTypeByString} from '@root/aggregates/utilities/implementations/getAggregateTypeByString';
+import {isAggregateMainType} from '@root/aggregates/utilities/implementations/typeGuards';
+import {ENTITY_TYPE_VALIDATION_REGEXP} from '@root/entities/constants/entityType';
+import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from '@root/__mock__/objectTypes.stubs';
 import {
   SIMPLE_TYPE_VALUES_SET_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 
 describe('getAggregateTypeByString', () => {
   it.each([

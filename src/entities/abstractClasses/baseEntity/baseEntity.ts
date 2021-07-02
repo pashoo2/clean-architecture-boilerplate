@@ -1,28 +1,28 @@
-import {BaseDomainEntityCreateEvent} from 'src/events/classes/baseDomainEntityConstructEvent/index';
-import {BaseDomainEntityDeleteEvent} from 'src/events/classes/baseDomainEntityDeleteEvent/index';
-import {TGetEvents, TGetEventsNames} from 'src/events/interfaces/events';
+import {BaseDomainEntityCreateEvent} from '@root/events/classes/baseDomainEntityConstructEvent/index';
+import {BaseDomainEntityDeleteEvent} from '@root/events/classes/baseDomainEntityDeleteEvent/index';
+import {TGetEvents, TGetEventsNames} from '@root/events/interfaces/events';
 import {
   IDomainEventFailed,
   IDomainEventListener,
   IDomainFailedEventListener,
-} from 'src/events/interfaces/domainEvents';
-import {IEntity} from 'src/entities/interfaces/entity';
+} from '@root/events/interfaces/domainEvents';
+import {IEntity} from '@root/entities/interfaces/entity';
 import {
   IIdentityMultiValueObject,
   IIdentityValueObjectSimple,
   TIdentityValueObject,
 } from '../../../valueObjects/interfaces/identityValueObject';
-import {IDomainEventBus} from 'src/events/interfaces/domainEventBus';
+import {IDomainEventBus} from '@root/events/interfaces/domainEventBus';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
   IBaseEntityServices,
 } from '../../interfaces/baseEntity';
-import {TPickTransferableProperties} from 'src/interfaces/transferable';
-import {BaseEntityAbstractClass} from 'src/entities/abstractClasses/baseEntityAbstractClass';
-import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
-import {Constructor} from 'src/interfaces/classes';
-import {TBaseDomainEntityEventParameters} from 'src/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {TPickTransferableProperties} from '@root/interfaces/transferable';
+import {BaseEntityAbstractClass} from '@root/entities/abstractClasses/baseEntityAbstractClass';
+import {IServiceGeneratorIdentifierUnique} from '@root/services/interfaces/domain/generators/identifiers';
+import {Constructor} from '@root/interfaces/classes';
+import {TBaseDomainEntityEventParameters} from '@root/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
 
 export abstract class BaseEntity<
   Id extends TIdentityValueObject,

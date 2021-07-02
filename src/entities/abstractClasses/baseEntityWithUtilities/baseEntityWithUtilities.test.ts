@@ -1,25 +1,25 @@
-import {BaseEntity} from 'src/entities/abstractClasses/baseEntity/baseEntity';
+import {BaseEntity} from '@root/entities/abstractClasses/baseEntity/baseEntity';
 import {
   IRunEntityTestsParameters,
   runEntityTests,
-} from 'src/entities/abstractClasses/baseEntity/baseEntity.test';
+} from '@root/entities/abstractClasses/baseEntity/baseEntity.test';
 import {
   BaseEntityWithUtilities,
   IBaseEntityAbstractClassImplementationUtitlities,
-} from 'src/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
-import {TBaseEntityEventsListCommonEvents} from 'src/entities/interfaces';
-import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
-import {TPickTransferableProperties} from 'src/interfaces/index';
-import {getDomainEntityEventMock} from 'src/__mock__/domainEvents/domainEvents.mock';
-import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
-import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+} from '@root/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
+import {TBaseEntityEventsListCommonEvents} from '@root/entities/interfaces';
+import {TDomainEventFailedNameForDomainEventName} from '@root/events/interfaces';
+import {TPickTransferableProperties} from '@root/interfaces/index';
+import {getDomainEntityEventMock} from '@root/__mock__/domainEvents/domainEvents.mock';
+import {ENTITY_TYPE_STUB} from '@root/__mock__/entityType.stub';
+import {getMockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 import {
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 type TEntityTestClassEventsList = TBaseEntityEventsListCommonEvents<
   | MultipleIdentityValueObjectClassWithComparisonMock

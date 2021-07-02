@@ -1,5 +1,5 @@
-import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
-import {pad} from 'src/utilities/implementations/format';
+import {IServiceGeneratorIdentifierUnique} from '@root/services/interfaces/domain/generators/identifiers';
+import {pad} from '@root/utilities/implementations/format';
 
 export const serviceGeneratorIdentifierUnique: IServiceGeneratorIdentifierUnique =
   (() => {

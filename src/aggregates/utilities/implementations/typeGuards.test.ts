@@ -1,11 +1,11 @@
-import {AGGREGATE_TYPE_PREFIX} from 'src/aggregates/constants/aggregateType';
-import {isAggregateMainType} from 'src/aggregates/utilities/implementations/typeGuards';
-import {isEntityTypeStringContainsCorrectCharacters} from 'src/entities/utilities/implementations';
-import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from 'src/__mock__/objectTypes.stubs';
+import {AGGREGATE_TYPE_PREFIX} from '@root/aggregates/constants/aggregateType';
+import {isAggregateMainType} from '@root/aggregates/utilities/implementations/typeGuards';
+import {isEntityTypeStringContainsCorrectCharacters} from '@root/entities/utilities/implementations';
+import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from '@root/__mock__/objectTypes.stubs';
 import {
   SIMPLE_TYPE_VALUES_SET_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 
 describe('Aggregates utilities type guards', () => {
   describe('isAggregateType', () => {

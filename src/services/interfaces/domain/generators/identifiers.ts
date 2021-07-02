@@ -1,4 +1,4 @@
-import {IService} from 'src/services/interfaces/common';
+import {IService} from '@root/services/interfaces/common';
 
 /**
  * Should generate a completely unique identifiers

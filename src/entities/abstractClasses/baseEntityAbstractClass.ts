@@ -2,21 +2,21 @@ import {
   IEntity,
   IEntityImplementation,
   TEntityTypeMain,
-} from 'src/entities/interfaces/entity';
+} from '@root/entities/interfaces/entity';
 
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
   IBaseEntityServices,
-} from 'src/entities/interfaces/baseEntity';
-import {TPickTransferableProperties} from 'src/interfaces/transferable';
-import {TGetEvents, TGetEventsNames} from 'src/events/interfaces/events';
+} from '@root/entities/interfaces/baseEntity';
+import {TPickTransferableProperties} from '@root/interfaces/transferable';
+import {TGetEvents, TGetEventsNames} from '@root/events/interfaces/events';
 import {
   IDomainEventFailed,
   IDomainEventListener,
   IDomainFailedEventListener,
-} from 'src/events/interfaces/domainEvents';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces/index';
+} from '@root/events/interfaces/domainEvents';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces/index';
 
 export abstract class BaseEntityAbstractClass<
   Id extends TIdentityValueObject,

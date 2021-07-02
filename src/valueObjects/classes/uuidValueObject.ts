@@ -1,5 +1,5 @@
-import {BaseValueObjectStringSerialization} from 'src/valueObjects/interfaces/abstractClasses/baseValueObject';
-import {IUuidVO} from 'src/valueObjects/interfaces/uuidValueObject';
+import {BaseValueObjectStringSerialization} from '@root/valueObjects/interfaces/abstractClasses/baseValueObject';
+import {IUuidVO} from '@root/valueObjects/interfaces/uuidValueObject';
 
 export class UuidValueObject
   extends BaseValueObjectStringSerialization<string>

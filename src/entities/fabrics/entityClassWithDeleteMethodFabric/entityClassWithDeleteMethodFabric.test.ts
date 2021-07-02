@@ -1,27 +1,27 @@
-import {DOMAIN_ENTITY_EVENT_NAME_DELETE} from 'src/constants/domainEvents';
+import {DOMAIN_ENTITY_EVENT_NAME_DELETE} from '@root/constants/domainEvents';
 import {
   IRunEntityTestsParameters,
   runEntityTests,
-} from 'src/entities/abstractClasses/baseEntity/baseEntity.test';
-import {entityClassWithDeleteMethodFabric} from 'src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric';
+} from '@root/entities/abstractClasses/baseEntity/baseEntity.test';
+import {entityClassWithDeleteMethodFabric} from '@root/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric';
 import {
   IBaseEntityEventsList,
   IEntity,
   IEntityImplementationWithDeleteMethod,
   TEntityTypeMain,
-} from 'src/entities/interfaces';
-import {TDomainEventFailedNameForDomainEventName} from 'src/events/interfaces';
-import {TPickTransferableProperties} from 'src/interfaces';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
-import {ENTITY_TYPE_STUB} from 'src/__mock__/entityType.stub';
-import {getMockDomainEventBus} from 'src/__mock__/services/domainEventsBus.mock';
-import {serviceGeneratorIdentifierUnique} from 'src/__mock__/services/identifiers.mock';
+} from '@root/entities/interfaces';
+import {TDomainEventFailedNameForDomainEventName} from '@root/events/interfaces';
+import {TPickTransferableProperties} from '@root/interfaces';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
+import {ENTITY_TYPE_STUB} from '@root/__mock__/entityType.stub';
+import {getMockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
+import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
 import {
   MultipleIdentityValueObjectClassWithComparisonMock,
   SimpleIdentityValueObjectClassWithComparisonMock,
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
-} from 'src/__mock__/valueObjects.mock';
+} from '@root/__mock__/valueObjects.mock';
 
 export interface IRunTestEntityWithDeleteMethod
   extends IRunEntityTestsParameters {

@@ -3,8 +3,8 @@ import {
   IMultipleValuesValueObjectBaseFabricParameters,
   IMultiValuesValueObject,
   IMultiValuesValueObjectValue,
-} from 'src/valueObjects/interfaces';
-import {MultiValuesValueObject} from 'src/valueObjects/interfaces/abstractClasses';
+} from '@root/valueObjects/interfaces';
+import {MultiValuesValueObject} from '@root/valueObjects/interfaces/abstractClasses';
 
 export function multipleValuesValueObjectBaseFabric<
   V extends IMultiValuesValueObjectValue

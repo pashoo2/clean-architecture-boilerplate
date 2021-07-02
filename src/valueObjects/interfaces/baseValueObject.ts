@@ -1,9 +1,9 @@
-import {Constructor} from 'src/interfaces/classes';
-import {TSimpleType} from 'src/interfaces/common';
-import {IComparable} from 'src/interfaces/comparison';
-import {ISerializable, ISerializer} from 'src/interfaces/serialization';
-import {IValidator} from 'src/interfaces/validation';
-import {ICompareValues} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
+import {Constructor} from '@root/interfaces/classes';
+import {TSimpleType} from '@root/interfaces/common';
+import {IComparable} from '@root/interfaces/comparison';
+import {ISerializable, ISerializer} from '@root/interfaces/serialization';
+import {IValidator} from '@root/interfaces/validation';
+import {ICompareValues} from '@root/utilities/interfaces/comparison/valuesComparisonStrategies';
 
 export interface IBaseValueObject<
   V extends TSimpleType,

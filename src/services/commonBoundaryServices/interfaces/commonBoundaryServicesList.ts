@@ -1,5 +1,5 @@
-import {TServicesList} from 'src/services/interfaces/common';
-import {IServiceGeneratorIdentifierUnique} from 'src/services/interfaces/domain/generators/identifiers';
+import {TServicesList} from '@root/services/interfaces/common';
+import {IServiceGeneratorIdentifierUnique} from '@root/services/interfaces/domain/generators/identifiers';
 
 export interface ICommonBoundaryServicesList extends TServicesList {
   common: {

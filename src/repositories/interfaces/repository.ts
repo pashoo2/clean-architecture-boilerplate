@@ -1,5 +1,5 @@
-import {IEntity} from 'src/entities/interfaces/entity';
-import {TIdentityValueObject} from 'src/valueObjects/interfaces';
+import {IEntity} from '@root/entities/interfaces/entity';
+import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export interface IEntityRepositoryCRUD<
   Entity extends IEntity<TIdentityValueObject, string>

@@ -3,13 +3,13 @@ import {
   OBJECT_TYPE_VALUES_SET_DATES,
   OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR,
   OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR,
-} from 'src/__mock__/objectTypes.stubs';
+} from '@root/__mock__/objectTypes.stubs';
 import {compareValuesByStrategy} from './compareByStrategy';
 import {
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_FINITE_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS,
 } from '../../../__mock__/simpleTypes.stubs';
-import {ICompareValuesStrategy} from 'src/utilities/interfaces/comparison/valuesComparisonStrategies';
+import {ICompareValuesStrategy} from '@root/utilities/interfaces/comparison/valuesComparisonStrategies';
 
 const COMPARISON_STRATEGY_STUB: ICompareValuesStrategy<any> = {
   compareSimpleType: jest.fn(() => true),

@@ -1,17 +1,17 @@
 import {
   isEmptyBaseValueObjectValue,
   isEmptyMultipleValuesValueObjectValue,
-} from 'src/valueObjects/utilities/implementations/isEmptyValueObjectValue';
+} from '@root/valueObjects/utilities/implementations/isEmptyValueObjectValue';
 import {
   OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY,
   OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR_SERIALIZABLE,
-} from 'src/__mock__/objectTypes.stubs';
+} from '@root/__mock__/objectTypes.stubs';
 import {
   SIMPLE_TYPE_VALUES_SET_EMPTY_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_EMPTY_STRINGS,
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_NOT_EMPTY_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 
 describe('Utilities for checking whether a value object is empty', () => {
   describe('isEmptyBaseValueObjectValue', () => {

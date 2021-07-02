@@ -1,4 +1,4 @@
-import {areSimpleValuesEqual} from 'src/utilities/implementations/comparison/simpleTypeValuesComparison';
+import {areSimpleValuesEqual} from '@root/utilities/implementations/comparison/simpleTypeValuesComparison';
 import {
   ICompareValuesShallowStrategy,
   ICompareValues,

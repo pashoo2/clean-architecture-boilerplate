@@ -1,16 +1,16 @@
 import {
   ENTITY_TYPE_PREFIX,
   ENTITY_TYPE_VALIDATION_REGEXP,
-} from 'src/entities/constants/entityType';
+} from '@root/entities/constants/entityType';
 import {
   isEntityMainType,
   isEntityTypeStringContainsCorrectCharacters,
-} from 'src/entities/utilities/implementations/typeGuards';
-import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from 'src/__mock__/objectTypes.stubs';
+} from '@root/entities/utilities/implementations/typeGuards';
+import {OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR} from '@root/__mock__/objectTypes.stubs';
 import {
   SIMPLE_TYPE_VALUES_SET_NUMBERS,
   SIMPLE_TYPE_VALUES_SET_STRINGS,
-} from 'src/__mock__/simpleTypes.stubs';
+} from '@root/__mock__/simpleTypes.stubs';
 
 describe('Entities utilities type guards', () => {
   describe('isEntityTypeStringContainsCorrectCharacters', () => {
