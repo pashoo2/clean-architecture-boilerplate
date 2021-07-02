@@ -15,7 +15,7 @@
     "typescript"
   ],
   "author": "Pavel Akulich",
-  "homepage": "https://github.com/pashoo2/clean-architecture-boilerplate",
+  "homepage": "https://github.com/pashoo2/clean-architecture-boilerplate/blob/main/docs/README.md",
   "license": "ISC",
   "scripts": {
     "lint": "gts lint",
