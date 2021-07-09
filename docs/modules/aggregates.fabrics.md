@@ -9,6 +9,7 @@
 ### Functions
 
 - [aggregateClassFabric](aggregates.fabrics.md#aggregateclassfabric)
+- [runTestsForAggregateClassFabric](aggregates.fabrics.md#runtestsforaggregateclassfabric)
 
 ## Functions
 
@@ -36,4 +37,25 @@
 
 #### Defined in
 
-[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
+[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
+
+___
+
+### runTestsForAggregateClassFabric
+
+▸ **runTestsForAggregateClassFabric**(`aggregateClassFabric`, `testName?`): `void`
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `aggregateClassFabric` | [`IAggregateRootClassFabric`](../interfaces/aggregates.interfaces.iaggregaterootclassfabric.md)<[`TIdentityValueObject`](valueobject.interfaces.md#tidentityvalueobject), [`TAggregateTypeMain`](aggregates.interfaces.md#taggregatetypemain), `TAggregateTestClassEventsList`\> | `undefined` |
+| `testName` | `string` | `''` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts:30

@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[src/utilities/implementations/format/numbers.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/format/numbers.ts#L1)
+[src/utilities/implementations/format/numbers.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/utilities/implementations/format/numbers.ts#L1)

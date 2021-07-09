@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/entities/interfaces/baseEntity.ts:21](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/interfaces/baseEntity.ts#L21)
+[src/entities/interfaces/baseEntity.ts:21](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/interfaces/baseEntity.ts#L21)
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/baseEntity.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/interfaces/baseEntity.ts#L17)
+[src/entities/interfaces/baseEntity.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/interfaces/baseEntity.ts#L17)

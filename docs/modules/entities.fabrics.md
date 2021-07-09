@@ -14,6 +14,7 @@
 - [entityClassWithDeleteMethodAndServicesFabric](entities.fabrics.md#entityclasswithdeletemethodandservicesfabric)
 - [entityClassWithDeleteMethodFabric](entities.fabrics.md#entityclasswithdeletemethodfabric)
 - [entityClassWithDeleteMethodServicesAndUtilitiesFabric](entities.fabrics.md#entityclasswithdeletemethodservicesandutilitiesfabric)
+- [runTestsForEntityClassFabricWithServicesAndUtilities](entities.fabrics.md#runtestsforentityclassfabricwithservicesandutilities)
 
 ## Functions
 
@@ -41,7 +42,7 @@
 
 #### Defined in
 
-[src/entities/fabrics/entityClassFabric/entityClassFabric.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/fabrics/entityClassFabric/entityClassFabric.ts#L15)
+[src/entities/fabrics/entityClassFabric/entityClassFabric.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/fabrics/entityClassFabric/entityClassFabric.ts#L14)
 
 ___
 
@@ -70,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts#L14)
+[src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts#L14)
 
 ___
 
@@ -100,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts#L18)
+[src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts#L17)
 
 ___
 
@@ -129,7 +130,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts#L13)
+[src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts#L13)
 
 ___
 
@@ -157,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts#L13)
+[src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts#L13)
 
 ___
 
@@ -187,4 +188,33 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts#L14)
+[src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts#L14)
+
+___
+
+### runTestsForEntityClassFabricWithServicesAndUtilities
+
+▸ **runTestsForEntityClassFabricWithServicesAndUtilities**<`Id`, `Type`, `E`\>(`entityClassFabricWithServicesAndUtilities`, `testName?`): `void`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Id` | extends [`TIdentityValueObject`](valueobject.interfaces.md#tidentityvalueobject) |
+| `Type` | extends ``"entity____entity_type"`` |
+| `E` | extends [`IBaseEntityEventsList`](../interfaces/entities.interfaces.ibaseentityeventslist.md)<`Id`, `Type`, `E`\> |
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `entityClassFabricWithServicesAndUtilities` | (`parameters`: [`IEntityFabricParameters`](../interfaces/entities.interfaces.ientityfabricparameters.md)<`Id`, `Type`\>, `services`: [`IBaseEntityServices`](../interfaces/entities.interfaces.ibaseentityservices.md)<`E`\>, `utilities`: `IBaseEntityAbstractClassImplementationUtitlities`<`Id`, `Type`\>) => `Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\> | `undefined` |
+| `testName` | `string` | `''` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.runTest.ts:29
