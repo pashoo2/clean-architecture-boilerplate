@@ -2,7 +2,6 @@ import {
   IRunEntityTestsParameters,
   runEntityTests,
 } from '@root/entities/abstractClasses/baseEntity/baseEntity.test';
-import {ENTITY_TYPE_PREFIX} from '@root/entities/constants/entityType';
 import {entityClassFabricWithServices} from '@root/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices';
 import {IEntity} from '@root/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from '@root/events/interfaces';

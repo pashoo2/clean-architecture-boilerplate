@@ -1,5 +1,4 @@
 import {BaseEntity} from '@root/entities/abstractClasses';
-import {IBaseEntityAbstractClassImplementationUtitlities} from '@root/entities/abstractClasses/baseEntityWithUtilities/baseEntityWithUtilities';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,

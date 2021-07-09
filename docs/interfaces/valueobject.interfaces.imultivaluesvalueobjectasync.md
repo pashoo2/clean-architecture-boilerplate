@@ -47,7 +47,7 @@ Omit.value
 
 #### Defined in
 
-[src/valueObjects/interfaces/multipleValuesValueObjectBase.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/valueObjects/interfaces/multipleValuesValueObjectBase.ts#L20)
+[src/valueObjects/interfaces/multipleValuesValueObjectBase.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/valueObjects/interfaces/multipleValuesValueObjectBase.ts#L20)
 
 ## Methods
 
@@ -71,7 +71,7 @@ IComparableAsync.equalsTo
 
 #### Defined in
 
-[src/interfaces/comparison.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/interfaces/comparison.ts#L6)
+[src/interfaces/comparison.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/interfaces/comparison.ts#L6)
 
 ___
 
@@ -89,4 +89,4 @@ ISerializableAsync.serialize
 
 #### Defined in
 
-[src/interfaces/serialization.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/interfaces/serialization.ts#L16)
+[src/interfaces/serialization.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/interfaces/serialization.ts#L16)

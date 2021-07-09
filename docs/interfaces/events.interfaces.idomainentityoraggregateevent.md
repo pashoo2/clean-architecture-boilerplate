@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:106](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L106)
+[src/events/interfaces/domainEvents.ts:106](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L106)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:107](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L107)
+[src/events/interfaces/domainEvents.ts:107](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L107)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:108](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L108)
+[src/events/interfaces/domainEvents.ts:108](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L108)
 
 ___
 
@@ -98,7 +98,7 @@ A unique identifier of an event
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:24](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L24)
+[src/events/interfaces/domainEvents.ts:24](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L24)
 
 ___
 
@@ -116,7 +116,7 @@ Version of the event format
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:38](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L38)
+[src/events/interfaces/domainEvents.ts:38](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L38)
 
 ___
 
@@ -134,7 +134,7 @@ A name of the event
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L31)
+[src/events/interfaces/domainEvents.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L31)
 
 ___
 
@@ -152,7 +152,7 @@ Payload of the event
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L51)
+[src/events/interfaces/domainEvents.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L51)
 
 ## Methods
 
@@ -170,4 +170,4 @@ Payload of the event
 
 #### Defined in
 
-[src/interfaces/serialization.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/interfaces/serialization.ts#L12)
+[src/interfaces/serialization.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/interfaces/serialization.ts#L12)

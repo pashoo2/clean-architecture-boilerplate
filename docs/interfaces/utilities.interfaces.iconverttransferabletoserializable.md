@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[src/utilities/interfaces/serialization/convertTransferableToSerializable.ts:8](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/interfaces/serialization/convertTransferableToSerializable.ts#L8)
+[src/utilities/interfaces/serialization/convertTransferableToSerializable.ts:8](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/utilities/interfaces/serialization/convertTransferableToSerializable.ts#L8)
