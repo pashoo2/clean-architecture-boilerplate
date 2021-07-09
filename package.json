@@ -1,10 +1,13 @@
 {
   "name": "@pashoo2/clean-architecture-boilerplate",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "private": false,
   "description": "Clean architecture boilerplate",
-  "main": "build/src/index.js",
-  "types": "build/src/index.d.ts",
+  "main": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "es/**/*"
+  ],
   "keywords": [
     "clean",
     "architecture",
@@ -20,7 +23,7 @@
   "scripts": {
     "lint": "gts lint",
     "clean": "gts clean",
-    "compile": "tsc --project ./tsconfig.build.json",
+    "compile": "tsc --project ./tsconfig.build.json && tsc-alias -p ./tsconfig.build.json",
     "fix": "gts fix",
     "typecheck": "tsc --noEmit",
     "prepare": "npm run compile",
@@ -34,9 +37,6 @@
     "postversion": "git push && git push --tags",
     "docs": "typedoc --out docs src/index.ts"
   },
-  "files": [
-    "build/**/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pashoo2/clean-architecture-boilerplate.git"
@@ -50,6 +50,7 @@
     "gts": "^3.1.0",
     "jest": "^27.0.3",
     "ts-jest": "27.0.2",
+    "tsc-alias": "^1.3.6",
     "typedoc": "^0.21.2",
     "typedoc-plugin-markdown": "^3.10.2",
     "typescript": "^4.3.4"
