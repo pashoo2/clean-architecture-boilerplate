@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:69](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/domainEvents.ts#L69)
+[src/events/interfaces/domainEvents.ts:72](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L72)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:77](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/domainEvents.ts#L77)
+[src/events/interfaces/domainEvents.ts:80](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L80)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:74](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/domainEvents.ts#L74)
+[src/events/interfaces/domainEvents.ts:77](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L77)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/domainEvents.ts#L12)
+[src/events/interfaces/domainEvents.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L15)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/domainEvents.ts#L51)
+[src/events/interfaces/domainEvents.ts:54](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L54)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/events.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/events.ts#L10)
+[src/events/interfaces/events.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/events.ts#L10)
 
 ___
 
@@ -142,4 +142,4 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/events.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/events.ts#L7)
+[src/events/interfaces/events.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/events.ts#L7)

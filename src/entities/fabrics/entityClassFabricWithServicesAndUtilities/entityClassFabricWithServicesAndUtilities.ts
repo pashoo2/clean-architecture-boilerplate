@@ -1,4 +1,3 @@
-import {BaseEntity} from '@root/entities/abstractClasses';
 import {
   BaseEntityWithUtilities,
   IBaseEntityAbstractClassImplementationUtitlities,

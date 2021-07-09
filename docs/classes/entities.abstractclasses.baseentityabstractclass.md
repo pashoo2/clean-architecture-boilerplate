@@ -74,7 +74,7 @@
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
 
 ## Properties
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
 
 ## Accessors
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L27)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L27)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L29)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L29)
 
 ## Methods
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:72](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L72)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:72](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L72)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:70](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L70)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:70](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L70)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:49](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L49)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:49](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L49)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L51)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L51)
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L45)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L45)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L47)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L47)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:55](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L55)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:55](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L55)
 
 ___
 
@@ -328,7 +328,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:60](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L60)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:60](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L60)
 
 ___
 
@@ -359,4 +359,4 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:65](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L65)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:65](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/entities/abstractClasses/baseEntityAbstractClass.ts#L65)
