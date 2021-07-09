@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/multipleValuesValueObjectBase.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/valueObjects/interfaces/multipleValuesValueObjectBase.ts#L20)
+[src/valueObjects/interfaces/multipleValuesValueObjectBase.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/valueObjects/interfaces/multipleValuesValueObjectBase.ts#L20)
 
 ## Methods
 
@@ -63,7 +63,7 @@ IComparable.equalsTo
 
 #### Defined in
 
-[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/interfaces/comparison.ts#L2)
+[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/interfaces/comparison.ts#L2)
 
 ___
 
@@ -81,4 +81,4 @@ ISerializable.serialize
 
 #### Defined in
 
-[src/interfaces/serialization.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/interfaces/serialization.ts#L12)
+[src/interfaces/serialization.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/interfaces/serialization.ts#L12)

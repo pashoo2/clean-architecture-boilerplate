@@ -34,7 +34,7 @@ v is number \| Number
 
 #### Defined in
 
-[src/utilities/implementations/typeGuards/isSimpleType.ts:3](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/utilities/implementations/typeGuards/isSimpleType.ts#L3)
+[src/utilities/implementations/typeGuards/isSimpleType.ts:3](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/typeGuards/isSimpleType.ts#L3)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L14)
+[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L14)
 
 ___
 
@@ -74,7 +74,7 @@ arr is TSimpleArray
 
 #### Defined in
 
-[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:28](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L28)
+[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:28](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L28)
 
 ___
 
@@ -94,7 +94,7 @@ o is Partial<object\>
 
 #### Defined in
 
-[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L18)
+[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L18)
 
 ___
 
@@ -114,7 +114,7 @@ v is TSimpleType
 
 #### Defined in
 
-[src/utilities/implementations/typeGuards/isSimpleType.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/utilities/implementations/typeGuards/isSimpleType.ts#L13)
+[src/utilities/implementations/typeGuards/isSimpleType.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/typeGuards/isSimpleType.ts#L13)
 
 ___
 
@@ -134,7 +134,7 @@ item is TSimpleType \| Partial<object\> \| TSimpleArray
 
 #### Defined in
 
-[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:8](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L8)
+[src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts:8](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/typeGuards/isSimpleTypeOrArrayOrObject.ts#L8)
 
 ___
 
@@ -154,4 +154,4 @@ v is string \| String
 
 #### Defined in
 
-[src/utilities/implementations/typeGuards/isSimpleType.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/utilities/implementations/typeGuards/isSimpleType.ts#L7)
+[src/utilities/implementations/typeGuards/isSimpleType.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/utilities/implementations/typeGuards/isSimpleType.ts#L7)

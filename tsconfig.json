@@ -1,7 +1,7 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "lib": ["es2018", "DOM", "DOM.Iterable", "ES2015", "ES5", "ES6"],
+    "target": "ES6",
     "esModuleInterop": true,
     "downlevelIteration": true,
     "emitDecoratorMetadata": true,

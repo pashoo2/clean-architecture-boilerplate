@@ -22,4 +22,4 @@ typeValue is \`aggregate\_\_\_\_${string}\`
 
 #### Defined in
 
-[src/aggregates/utilities/interfaces/typeGuards.ts:3](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/aggregates/utilities/interfaces/typeGuards.ts#L3)
+[src/aggregates/utilities/interfaces/typeGuards.ts:3](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/aggregates/utilities/interfaces/typeGuards.ts#L3)

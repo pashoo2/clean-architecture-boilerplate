@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[src/valueObjects/utilities/interfaces/validate.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/valueObjects/utilities/interfaces/validate.ts#L16)
+[src/valueObjects/utilities/interfaces/validate.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/valueObjects/utilities/interfaces/validate.ts#L16)

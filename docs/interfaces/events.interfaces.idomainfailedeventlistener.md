@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:90](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/events/interfaces/domainEvents.ts#L90)
+[src/events/interfaces/domainEvents.ts:93](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/events/interfaces/domainEvents.ts#L93)

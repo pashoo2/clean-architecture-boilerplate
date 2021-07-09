@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[src/repositories/interfaces/repository.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/repositories/interfaces/repository.ts#L7)
+[src/repositories/interfaces/repository.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/repositories/interfaces/repository.ts#L7)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/repositories/interfaces/repository.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/repositories/interfaces/repository.ts#L10)
+[src/repositories/interfaces/repository.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/repositories/interfaces/repository.ts#L10)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[src/repositories/interfaces/repository.ts:8](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/repositories/interfaces/repository.ts#L8)
+[src/repositories/interfaces/repository.ts:8](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/repositories/interfaces/repository.ts#L8)
 
 ___
 
@@ -97,4 +97,4 @@ ___
 
 #### Defined in
 
-[src/repositories/interfaces/repository.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e54a93c/src/repositories/interfaces/repository.ts#L9)
+[src/repositories/interfaces/repository.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/914ff8c/src/repositories/interfaces/repository.ts#L9)
