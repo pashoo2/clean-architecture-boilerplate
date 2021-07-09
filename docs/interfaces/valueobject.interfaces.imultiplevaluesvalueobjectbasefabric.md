@@ -28,4 +28,4 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/multipleValuesValueObjectBase.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/valueObjects/interfaces/multipleValuesValueObjectBase.ts#L37)
+[src/valueObjects/interfaces/multipleValuesValueObjectBase.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/multipleValuesValueObjectBase.ts#L37)

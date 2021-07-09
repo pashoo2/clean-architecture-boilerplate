@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/entities/interfaces/entityFabric.ts:34](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/interfaces/entityFabric.ts#L34)
+[src/entities/interfaces/entityFabric.ts:34](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entityFabric.ts#L34)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entityFabric.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/interfaces/entityFabric.ts#L32)
+[src/entities/interfaces/entityFabric.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entityFabric.ts#L32)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entityFabric.ts:33](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/interfaces/entityFabric.ts#L33)
+[src/entities/interfaces/entityFabric.ts:33](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entityFabric.ts#L33)

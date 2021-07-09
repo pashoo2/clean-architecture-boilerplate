@@ -25,7 +25,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
 
-export function runTestsForEntityClassFabricWithServicesAndUtilities<
+export function runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric<
   Id extends TIdentityValueObject,
   Type extends typeof ENTITY_TYPE_STUB,
   E extends IBaseEntityEventsList<Id, Type>

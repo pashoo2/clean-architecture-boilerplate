@@ -40,4 +40,4 @@ Constructor<IMultiValuesValueObjectAsync<V\>, [V]\>.constructor
 
 #### Defined in
 
-[src/interfaces/classes.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/interfaces/classes.ts#L1)
+[src/interfaces/classes.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/interfaces/classes.ts#L1)

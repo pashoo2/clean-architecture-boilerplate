@@ -1,8 +1,8 @@
-import {runTestsForEntityClassFabricWithServicesAndUtilities} from './entityClassWithDeleteMethodServicesAndUtilitiesFabric.runTest';
+import {runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric} from './entityClassWithDeleteMethodServicesAndUtilitiesFabric.runTest';
 import {entityClassWithDeleteMethodServicesAndUtilitiesFabric} from './entityClassWithDeleteMethodServicesAndUtilitiesFabric';
 
 describe('entityClassWithDeleteMethodServicesAndUtilitiesFabric', () => {
-  runTestsForEntityClassFabricWithServicesAndUtilities(
+  runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric(
     entityClassWithDeleteMethodServicesAndUtilitiesFabric
   );
 });

@@ -35,4 +35,4 @@
 
 #### Defined in
 
-[src/entities/interfaces/entityFabric.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/interfaces/entityFabric.ts#L22)
+[src/entities/interfaces/entityFabric.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entityFabric.ts#L22)

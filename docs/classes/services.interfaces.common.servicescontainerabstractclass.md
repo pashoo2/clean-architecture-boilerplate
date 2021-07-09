@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L6)
+[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L6)
 
 ## Properties
 
@@ -92,7 +92,7 @@
 
 #### Defined in
 
-[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L13)
+[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L13)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:11](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L11)
+[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:11](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L11)
 
 ___
 
@@ -134,4 +134,4 @@ ___
 
 #### Defined in
 
-[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L9)
+[src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/interfaces/abstractClasses/serviceContainerAbstractClass.ts#L9)
