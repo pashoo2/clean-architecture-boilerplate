@@ -1,6 +1,6 @@
 {
   "name": "@pashoo2/clean-architecture-boilerplate",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "description": "Clean architecture boilerplate",
   "main": "es/index.js",

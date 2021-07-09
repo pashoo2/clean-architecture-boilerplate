@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:41](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/aggregates/interfaces/aggregateRootFabric.ts#L41)
+[src/aggregates/interfaces/aggregateRootFabric.ts:41](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L41)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:40](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/aggregates/interfaces/aggregateRootFabric.ts#L40)
+[src/aggregates/interfaces/aggregateRootFabric.ts:40](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L40)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:39](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/aggregates/interfaces/aggregateRootFabric.ts#L39)
+[src/aggregates/interfaces/aggregateRootFabric.ts:39](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L39)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/aggregates/interfaces/aggregateRootFabric.ts#L37)
+[src/aggregates/interfaces/aggregateRootFabric.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L37)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/aggregates/interfaces/aggregateRootFabric.ts#L36)
+[src/aggregates/interfaces/aggregateRootFabric.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L36)
 
 ___
 
@@ -81,4 +81,4 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:38](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/aggregates/interfaces/aggregateRootFabric.ts#L38)
+[src/aggregates/interfaces/aggregateRootFabric.ts:38](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L38)

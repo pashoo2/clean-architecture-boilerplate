@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/useCases/interfaces/useCasesOuter.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/useCases/interfaces/useCasesOuter.ts#L5)
+[src/useCases/interfaces/useCasesOuter.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/useCases/interfaces/useCasesOuter.ts#L5)
 
 ### IUseCaseAsync
 
@@ -53,4 +53,4 @@
 
 #### Defined in
 
-[src/useCases/interfaces/useCasesOuter.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/useCases/interfaces/useCasesOuter.ts#L9)
+[src/useCases/interfaces/useCasesOuter.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/useCases/interfaces/useCasesOuter.ts#L9)

@@ -22,4 +22,4 @@ valueObject is IBaseValueObject<TSimpleType, string\> \| IMultiValuesValueObject
 
 #### Defined in
 
-[src/valueObjects/utilities/interfaces/typeGuards.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/valueObjects/utilities/interfaces/typeGuards.ts#L18)
+[src/valueObjects/utilities/interfaces/typeGuards.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/utilities/interfaces/typeGuards.ts#L18)

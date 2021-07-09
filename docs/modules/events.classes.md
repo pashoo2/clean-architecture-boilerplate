@@ -48,4 +48,4 @@
 
 #### Defined in
 
-[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L19)
+[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L19)

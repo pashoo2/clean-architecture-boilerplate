@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L15)
+[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L15)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L16)
+[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L16)

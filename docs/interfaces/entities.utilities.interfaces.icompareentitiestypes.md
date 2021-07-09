@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[src/entities/utilities/interfaces/compareEntitiesTypes.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/entities/utilities/interfaces/compareEntitiesTypes.ts#L1)
+[src/entities/utilities/interfaces/compareEntitiesTypes.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/utilities/interfaces/compareEntitiesTypes.ts#L1)

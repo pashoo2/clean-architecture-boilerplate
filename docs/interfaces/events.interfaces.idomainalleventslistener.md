@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:89](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L89)
+[src/events/interfaces/domainEvents.ts:89](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEvents.ts#L89)
 
 ### IDomainAllEventsListener
 
@@ -54,4 +54,4 @@
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:93](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/events/interfaces/domainEvents.ts#L93)
+[src/events/interfaces/domainEvents.ts:93](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEvents.ts#L93)

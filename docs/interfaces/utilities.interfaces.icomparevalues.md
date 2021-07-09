@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[src/utilities/interfaces/comparison/valuesComparisonStrategies.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/utilities/interfaces/comparison/valuesComparisonStrategies.ts#L36)
+[src/utilities/interfaces/comparison/valuesComparisonStrategies.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/utilities/interfaces/comparison/valuesComparisonStrategies.ts#L36)

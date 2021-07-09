@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[src/services/commonBoundaryServices/commonBoundaryServicesContainerResolver.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/4202db5/src/services/commonBoundaryServices/commonBoundaryServicesContainerResolver.ts#L5)
+[src/services/commonBoundaryServices/commonBoundaryServicesContainerResolver.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/commonBoundaryServices/commonBoundaryServicesContainerResolver.ts#L5)
