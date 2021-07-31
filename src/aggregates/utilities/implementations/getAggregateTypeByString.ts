@@ -4,12 +4,14 @@ import {isEntityTypeStringContainsCorrectCharacters} from '@root/entities/utilit
 
 export function getAggregateTypeByString<T extends string | String>(
   stringValue: T
-): TAggregateTypeMain<T extends String ? ReturnType<T['toString']> : T> {
+): TAggregateTypeMain<T extends string ? T : ReturnType<T['toString']>> {
   const stringTrimmed = stringValue.trim() as T extends String
     ? ReturnType<T['toString']>
     : T;
   if (!isEntityTypeStringContainsCorrectCharacters(stringTrimmed)) {
     throw new Error('The string passed contains non valid characters');
   }
-  return `${AGGREGATE_TYPE_PREFIX}__${stringTrimmed}`;
+  return `${AGGREGATE_TYPE_PREFIX}__${stringTrimmed}` as unknown as TAggregateTypeMain<
+    T extends string ? T : ReturnType<T['toString']>
+  >;
 }
