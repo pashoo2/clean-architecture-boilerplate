@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/services/interfaces/common/service.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/interfaces/common/service.ts#L6)
+[src/services/interfaces/common/service.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/service.ts#L6)
 
 ### IServiceAsync
 
@@ -40,4 +40,4 @@
 
 #### Defined in
 
-[src/services/interfaces/common/service.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/interfaces/common/service.ts#L7)
+[src/services/interfaces/common/service.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/service.ts#L7)

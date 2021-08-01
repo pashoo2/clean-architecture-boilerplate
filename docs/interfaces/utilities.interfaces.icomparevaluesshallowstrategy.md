@@ -29,7 +29,7 @@ Omit.compareDates
 
 #### Defined in
 
-[src/utilities/interfaces/comparison/valuesComparisonStrategies.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/utilities/interfaces/comparison/valuesComparisonStrategies.ts#L16)
+[src/utilities/interfaces/comparison/valuesComparisonStrategies.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/interfaces/comparison/valuesComparisonStrategies.ts#L16)
 
 ___
 
@@ -43,4 +43,4 @@ Omit.compareSimpleType
 
 #### Defined in
 
-[src/utilities/interfaces/comparison/valuesComparisonStrategies.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/utilities/interfaces/comparison/valuesComparisonStrategies.ts#L15)
+[src/utilities/interfaces/comparison/valuesComparisonStrategies.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/interfaces/comparison/valuesComparisonStrategies.ts#L15)

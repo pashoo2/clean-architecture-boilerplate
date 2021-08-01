@@ -1,6 +1,6 @@
 [@pashoo2/clean-architecture-boilerplate](../README.md) / [Exports](../modules.md) / [aggregates](../modules/aggregates.md) / [interfaces](../modules/aggregates.interfaces.md) / IValidateAggregate
 
-# Interface: IValidateAggregate<Id, Type\>
+# Interface: IValidateAggregate<Id, Type, Instance\>
 
 [aggregates](../modules/aggregates.md).[interfaces](../modules/aggregates.interfaces.md).IValidateAggregate
 
@@ -10,6 +10,7 @@
 | :------ | :------ |
 | `Id` | extends [`TIdentityValueObject`](../modules/valueobject.interfaces.md#tidentityvalueobject) |
 | `Type` | extends `string` |
+| `Instance` | extends [`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `any`\>[`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `any`\> |
 
 ## Callable
 
@@ -21,7 +22,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `aggregateRoot` | [`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `any`\> |
+| `aggregateRoot` | `Instance` |
 
 #### Returns
 
@@ -29,4 +30,4 @@
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L18)
+[src/aggregates/interfaces/aggregateRootFabric.ts:23](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L23)

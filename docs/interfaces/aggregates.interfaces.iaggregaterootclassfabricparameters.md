@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:53](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L53)
+[src/aggregates/interfaces/aggregateRootFabric.ts:58](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L58)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:52](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L52)
+[src/aggregates/interfaces/aggregateRootFabric.ts:57](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L57)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L45)
+[src/aggregates/interfaces/aggregateRootFabric.ts:50](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L50)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L47)
+[src/aggregates/interfaces/aggregateRootFabric.ts:52](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L52)
 
 ___
 
@@ -80,14 +80,14 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:44](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L44)
+[src/aggregates/interfaces/aggregateRootFabric.ts:49](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L49)
 
 ___
 
 ### validateInstance
 
-• **validateInstance**: [`IValidateAggregate`](aggregates.interfaces.ivalidateaggregate.md)<`Id`, `Type`\>
+• **validateInstance**: [`IValidateAggregate`](aggregates.interfaces.ivalidateaggregate.md)<`Id`, `Type`, `Instance`\>
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L46)
+[src/aggregates/interfaces/aggregateRootFabric.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L51)

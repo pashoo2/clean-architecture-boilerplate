@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/baseValueObject.ts#L13)
+[src/valueObjects/interfaces/baseValueObject.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/interfaces/baseValueObject.ts#L13)
 
 ## Methods
 
@@ -63,7 +63,7 @@
 
 #### Defined in
 
-[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/interfaces/comparison.ts#L2)
+[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/interfaces/comparison.ts#L2)
 
 ___
 
@@ -81,4 +81,4 @@ ___
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:23](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/baseValueObject.ts#L23)
+[src/valueObjects/interfaces/baseValueObject.ts:23](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/interfaces/baseValueObject.ts#L23)
