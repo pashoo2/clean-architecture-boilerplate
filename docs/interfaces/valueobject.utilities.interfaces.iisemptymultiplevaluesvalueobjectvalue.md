@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[src/valueObjects/utilities/interfaces/isEmptyValueObjectValue.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/utilities/interfaces/isEmptyValueObjectValue.ts#L12)
+[src/valueObjects/utilities/interfaces/isEmptyValueObjectValue.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/utilities/interfaces/isEmptyValueObjectValue.ts#L12)

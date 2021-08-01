@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[src/utilities/interfaces/comparison/objectsComparison.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/utilities/interfaces/comparison/objectsComparison.ts#L19)
+[src/utilities/interfaces/comparison/objectsComparison.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/interfaces/comparison/objectsComparison.ts#L19)

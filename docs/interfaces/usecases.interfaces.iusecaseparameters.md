@@ -4,8 +4,6 @@
 
 [useCases](../modules/usecases.md).[interfaces](../modules/usecases.interfaces.md).IUseCaseParameters
 
-## Hierarchy
+## Indexable
 
-- `Record`<`string`, `any`\>
-
-  ↳ **`IUseCaseParameters`**
+▪ [key: `string`]: `any`

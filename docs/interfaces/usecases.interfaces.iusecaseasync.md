@@ -1,40 +1,18 @@
 [@pashoo2/clean-architecture-boilerplate](../README.md) / [Exports](../modules.md) / [useCases](../modules/usecases.md) / [interfaces](../modules/usecases.interfaces.md) / IUseCaseAsync
 
-# Interface: IUseCaseAsync<R\>
+# Interface: IUseCaseAsync<R, P, S\>
 
 [useCases](../modules/usecases.md).[interfaces](../modules/usecases.interfaces.md).IUseCaseAsync
 
 ## Type parameters
 
-| Name |
-| :------ |
-| `R` |
-
-## Hierarchy
-
-- [`IUseCaseSync`](usecases.interfaces.iusecasesync.md)<`Promise`<`R`\>\>
-
-  ↳ **`IUseCaseAsync`**
-
-## Callable
-
-### IUseCaseAsync
-
-▸ **IUseCaseAsync**(`parameters`): `Promise`<`R`\>
-
-#### Parameters
-
 | Name | Type |
 | :------ | :------ |
-| `parameters` | [`IUseCaseParameters`](usecases.interfaces.iusecaseparameters.md) |
+| `R` | `R` |
+| `P` | extends [`IUseCaseParameters`](usecases.interfaces.iusecaseparameters.md) |
+| `S` | extends [`IUseCaseServices`](usecases.interfaces.iusecaseservices.md) |
 
-#### Returns
-
-`Promise`<`R`\>
-
-#### Defined in
-
-[src/useCases/interfaces/useCasesOuter.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/useCases/interfaces/useCasesOuter.ts#L5)
+## Callable
 
 ### IUseCaseAsync
 
@@ -44,8 +22,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `parameters` | [`IUseCaseParameters`](usecases.interfaces.iusecaseparameters.md) |
-| `services` | [`IUseCaseServices`](usecases.interfaces.iusecaseservices.md) |
+| `parameters` | `P` |
+| `services` | `S` |
 
 #### Returns
 
@@ -53,4 +31,4 @@
 
 #### Defined in
 
-[src/useCases/interfaces/useCasesOuter.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/useCases/interfaces/useCasesOuter.ts#L9)
+[src/useCases/interfaces/useCasesOuter.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/useCases/interfaces/useCasesOuter.ts#L25)

@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/entities/interfaces/baseEntity.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/baseEntity.ts#L9)
+[src/entities/interfaces/baseEntity.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/baseEntity.ts#L9)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRoot.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRoot.ts#L16)
+[src/aggregates/interfaces/aggregateRoot.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRoot.ts#L16)

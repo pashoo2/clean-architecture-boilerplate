@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
+[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts#L30)
+[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts#L30)
