@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L18)
+[src/aggregates/interfaces/aggregateRootFabric.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L18)

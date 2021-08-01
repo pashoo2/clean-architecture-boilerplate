@@ -22,4 +22,4 @@ valueObject is IMultiValuesValueObject<IMultiValuesValueObjectValue\>
 
 #### Defined in
 
-[src/valueObjects/utilities/interfaces/typeGuards.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/utilities/interfaces/typeGuards.ts#L12)
+[src/valueObjects/utilities/interfaces/typeGuards.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/utilities/interfaces/typeGuards.ts#L12)

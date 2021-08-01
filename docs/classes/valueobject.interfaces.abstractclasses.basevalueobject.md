@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L14)
+[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L14)
 
 ## Accessors
 
@@ -76,7 +76,7 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L12)
+[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L12)
 
 ## Methods
 
@@ -90,7 +90,7 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:26](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L26)
+[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:26](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L26)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L22)
+[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L22)
 
 ___
 
@@ -132,4 +132,4 @@ ___
 
 #### Defined in
 
-[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L20)
+[src/valueObjects/interfaces/abstractClasses/baseValueObject.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/abstractClasses/baseValueObject.ts#L20)

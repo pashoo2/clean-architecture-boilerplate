@@ -21,22 +21,34 @@ export interface IValidateAggregate<
 
 export interface IGetTransferablePropertiesOfAggregateRoot<
   Id extends TIdentityValueObject,
-  Type extends string
+  Type extends string,
+  Instance extends IAggregateRootImplementation<
+    Id,
+    Type,
+    any
+  > = IAggregateRootImplementation<Id, Type, any>
 > {
-  <T extends IAggregateRootImplementation<Id, Type, any>>(
-    aggregateRoot: T
-  ): TPickTransferableProperties<T>;
+  (aggregateRoot: Instance): TPickTransferableProperties<Instance>;
 }
 
 export interface IAggregateRootClassFabricParameters<
   Id extends TIdentityValueObject,
   Type extends string,
-  E extends IBaseAggregateRootEventsList<Id, Type>
+  E extends IBaseAggregateRootEventsList<Id, Type>,
+  Instance extends IAggregateRootImplementation<
+    Id,
+    Type,
+    E
+  > = IAggregateRootImplementation<Id, Type, E>
 > {
   type: Type;
-  services: IBaseAggregateRootServices<E>;
+  getServices: () => IBaseAggregateRootServices<E>;
   validateInstance: IValidateAggregate<Id, Type>;
-  getTransferableProps: IGetTransferablePropertiesOfAggregateRoot<Id, Type>;
+  getTransferableProps: IGetTransferablePropertiesOfAggregateRoot<
+    Id,
+    Type,
+    Instance
+  >;
   compareEntitiesTypes: ICompareEntitiesTypes<Type>;
   compareEntitiesIdentities: ICompareEntitiesIdentities<Id>;
 }

@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/services/interfaces/domain/index.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/interfaces/domain/index.ts#L6)
+[src/services/interfaces/domain/index.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/interfaces/domain/index.ts#L6)
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[src/services/interfaces/domain/index.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/interfaces/domain/index.ts#L7)
+[src/services/interfaces/domain/index.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/interfaces/domain/index.ts#L7)

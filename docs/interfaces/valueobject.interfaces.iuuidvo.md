@@ -8,6 +8,8 @@
 
 - [`IBaseValueObjectStringSerialization`](valueobject.interfaces.ibasevalueobjectstringserialization.md)<`string`\>
 
+- [`IIdentityValueObjectSimple`](valueobject.interfaces.iidentityvalueobjectsimple.md)
+
   ↳ **`IUuidVO`**
 
 ## Implemented by
@@ -33,11 +35,11 @@
 
 #### Inherited from
 
-[IBaseValueObjectStringSerialization](valueobject.interfaces.ibasevalueobjectstringserialization.md).[value](valueobject.interfaces.ibasevalueobjectstringserialization.md#value)
+[IIdentityValueObjectSimple](valueobject.interfaces.iidentityvalueobjectsimple.md).[value](valueobject.interfaces.iidentityvalueobjectsimple.md#value)
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/baseValueObject.ts#L13)
+[src/valueObjects/interfaces/baseValueObject.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/baseValueObject.ts#L13)
 
 ## Methods
 
@@ -57,11 +59,11 @@
 
 #### Inherited from
 
-[IBaseValueObjectStringSerialization](valueobject.interfaces.ibasevalueobjectstringserialization.md).[equalsTo](valueobject.interfaces.ibasevalueobjectstringserialization.md#equalsto)
+[IIdentityValueObjectSimple](valueobject.interfaces.iidentityvalueobjectsimple.md).[equalsTo](valueobject.interfaces.iidentityvalueobjectsimple.md#equalsto)
 
 #### Defined in
 
-[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/interfaces/comparison.ts#L2)
+[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/interfaces/comparison.ts#L2)
 
 ___
 
@@ -75,8 +77,8 @@ ___
 
 #### Inherited from
 
-[IBaseValueObjectStringSerialization](valueobject.interfaces.ibasevalueobjectstringserialization.md).[serialize](valueobject.interfaces.ibasevalueobjectstringserialization.md#serialize)
+[IIdentityValueObjectSimple](valueobject.interfaces.iidentityvalueobjectsimple.md).[serialize](valueobject.interfaces.iidentityvalueobjectsimple.md#serialize)
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:23](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/baseValueObject.ts#L23)
+[src/valueObjects/interfaces/baseValueObject.ts:23](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/baseValueObject.ts#L23)

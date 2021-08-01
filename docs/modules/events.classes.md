@@ -11,6 +11,7 @@
 - [BaseDomainEntityCreateEvent](../classes/events.classes.basedomainentitycreateevent.md)
 - [BaseDomainEntityDeleteEvent](../classes/events.classes.basedomainentitydeleteevent.md)
 - [BaseDomainEntityEvent](../classes/events.classes.basedomainentityevent.md)
+- [BaseDomainEventBus](../classes/events.classes.basedomaineventbus.md)
 - [BaseDomainEventClass](../classes/events.classes.basedomaineventclass.md)
 
 ### Interfaces
@@ -48,4 +49,4 @@
 
 #### Defined in
 
-[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L19)
+[src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/classes/fabricDomainEntityEventConstructor/fabricDomainEntityEventConstructor.ts#L19)

@@ -15,7 +15,7 @@
 
 ### getAggregateTypeByString
 
-▸ **getAggregateTypeByString**<`T`\>(`stringValue`): [`TAggregateTypeMain`](aggregates.interfaces.md#taggregatetypemain)<`T` extends `String` ? `ReturnType`<`T`[``"toString"``]\> : `T`\>
+▸ **getAggregateTypeByString**<`T`\>(`stringValue`): [`TAggregateTypeMain`](aggregates.interfaces.md#taggregatetypemain)<`T` extends `string` ? `T` : `ReturnType`<`T`[``"toString"``]\>\>
 
 #### Type parameters
 
@@ -31,11 +31,11 @@
 
 #### Returns
 
-[`TAggregateTypeMain`](aggregates.interfaces.md#taggregatetypemain)<`T` extends `String` ? `ReturnType`<`T`[``"toString"``]\> : `T`\>
+[`TAggregateTypeMain`](aggregates.interfaces.md#taggregatetypemain)<`T` extends `string` ? `T` : `ReturnType`<`T`[``"toString"``]\>\>
 
 #### Defined in
 
-[src/aggregates/utilities/implementations/getAggregateTypeByString.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/utilities/implementations/getAggregateTypeByString.ts#L5)
+[src/aggregates/utilities/implementations/getAggregateTypeByString.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/utilities/implementations/getAggregateTypeByString.ts#L5)
 
 ___
 
@@ -55,4 +55,4 @@ typeValue is \`aggregate\_\_\_\_${string}\`
 
 #### Defined in
 
-[src/aggregates/utilities/implementations/typeGuards.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/utilities/implementations/typeGuards.ts#L5)
+[src/aggregates/utilities/implementations/typeGuards.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/utilities/implementations/typeGuards.ts#L5)

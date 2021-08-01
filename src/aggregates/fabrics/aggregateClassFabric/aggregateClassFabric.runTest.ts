@@ -105,9 +105,7 @@ export function runTestsForAggregateClassFabric(
           function getTestsParams(): IRunAggregateTestsParameters {
             class AggregateRootTestClass extends aggregateClassFabric({
               type: AGGREGATE_TYPE_STUB,
-              services: services as Parameters<
-                typeof aggregateClassFabric
-              >[0]['services'],
+              getServices: () => services,
               validateInstance,
               getTransferableProps,
               compareEntitiesTypes,
@@ -138,7 +136,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance: validateInstanceUtil,
                   getTransferableProps,
                   compareEntitiesTypes,
@@ -151,7 +149,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance: validateInstanceUtil,
                   getTransferableProps,
                   compareEntitiesTypes,
@@ -170,7 +168,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance: validateInstanceUtil,
                   getTransferableProps,
                   compareEntitiesTypes,
@@ -185,7 +183,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps: getTransferablePropsUtil,
                   compareEntitiesTypes,
@@ -198,7 +196,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps: getTransferablePropsUtil,
                   compareEntitiesTypes,
@@ -214,7 +212,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps: getTransferablePropsUtil,
                   compareEntitiesTypes,
@@ -236,7 +234,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps: getTransferablePropsUtil,
                   compareEntitiesTypes,
@@ -256,7 +254,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: compareEntitiesTypesUtil,
@@ -269,7 +267,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: compareEntitiesTypesUtil,
@@ -285,7 +283,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: compareEntitiesTypesUtil,
@@ -307,7 +305,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: compareEntitiesTypesUtil,
@@ -327,7 +325,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: () => true,
@@ -340,7 +338,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: () => true,
@@ -356,7 +354,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: () => true,
@@ -378,7 +376,7 @@ export function runTestsForAggregateClassFabric(
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 class AggregateRootTestClass extends aggregateClassFabric({
                   type: AGGREGATE_TYPE_STUB,
-                  services,
+                  getServices: () => services,
                   validateInstance,
                   getTransferableProps,
                   compareEntitiesTypes: () => true,
@@ -398,7 +396,7 @@ export function runTestsForAggregateClassFabric(
               // eslint-disable-next-line @typescript-eslint/no-unused-vars
               class AggregateRootTestClass extends aggregateClassFabric({
                 type: AGGREGATE_TYPE_STUB,
-                services,
+                getServices: () => services,
                 validateInstance,
                 getTransferableProps,
                 compareEntitiesTypes: compareEntitiesTypesUtil,

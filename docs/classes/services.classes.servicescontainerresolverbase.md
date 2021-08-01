@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L10)
+[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L10)
 
 ## Properties
 
@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L10)
+[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L10)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L37)
+[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L37)
 
 ___
 
@@ -99,7 +99,7 @@ IServicesContainerResolver.getServicesContainer
 
 #### Defined in
 
-[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L16)
+[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L16)
 
 ___
 
@@ -123,4 +123,4 @@ IServicesContainerResolver.setServicesContainer
 
 #### Defined in
 
-[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L25)
+[src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerResolverBase/servicesContainerResolverBase.ts#L25)

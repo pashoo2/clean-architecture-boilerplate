@@ -15,7 +15,7 @@
 
 ### aggregateClassFabric
 
-▸ **aggregateClassFabric**<`Id`, `Type`, `E`\>(`__namedParameters`): `Constructor`<[`IAggregateRootImplementation`](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseAggregateRootParameters`](../interfaces/aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\>]\>
+▸ **aggregateClassFabric**<`Id`, `Type`, `E`, `Instance`, `Params`\>(`__namedParameters`): `Constructor`<`Instance`, [`Params`]\>
 
 #### Type parameters
 
@@ -24,20 +24,22 @@
 | `Id` | extends [`TIdentityValueObject`](valueobject.interfaces.md#tidentityvalueobject) |
 | `Type` | extends \`aggregate\_\_\_\_${string}\` |
 | `E` | extends [`IBaseAggregateRootEventsList`](../interfaces/aggregates.interfaces.ibaseaggregaterooteventslist.md)<`Id`, `Type`, `E`\>[`IBaseAggregateRootEventsList`](../interfaces/aggregates.interfaces.ibaseaggregaterooteventslist.md)<`Id`, `Type`\> |
+| `Instance` | extends [`IAggregateRootImplementation`](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`, `Instance`\>[`IAggregateRootImplementation`](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\> |
+| `Params` | extends [`IBaseAggregateRootParameters`](../interfaces/aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`, `Params`\>[`IBaseAggregateRootParameters`](../interfaces/aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\> |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `__namedParameters` | [`IAggregateRootClassFabricParameters`](../interfaces/aggregates.interfaces.iaggregaterootclassfabricparameters.md)<`Id`, `Type`, `E`\> |
+| `__namedParameters` | [`IAggregateRootClassFabricParameters`](../interfaces/aggregates.interfaces.iaggregaterootclassfabricparameters.md)<`Id`, `Type`, `E`, `Instance`\> |
 
 #### Returns
 
-`Constructor`<[`IAggregateRootImplementation`](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseAggregateRootParameters`](../interfaces/aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\>]\>
+`Constructor`<`Instance`, [`Params`]\>
 
 #### Defined in
 
-[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
+[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
 
 ___
 
@@ -58,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts#L30)
+[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts#L30)

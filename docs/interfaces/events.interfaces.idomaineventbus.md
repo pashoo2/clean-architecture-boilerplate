@@ -10,6 +10,10 @@
 | :------ | :------ |
 | `E` | extends [`IEventsList`](events.interfaces.ieventslist.md) |
 
+## Implemented by
+
+- [`BaseDomainEventBus`](../classes/events.classes.basedomaineventbus.md)
+
 ## Table of contents
 
 ### Methods
@@ -46,7 +50,7 @@
 
 #### Defined in
 
-[src/events/interfaces/domainEventBus.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEventBus.ts#L10)
+[src/events/interfaces/domainEventBus.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/interfaces/domainEventBus.ts#L10)
 
 ___
 
@@ -72,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEventBus.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEventBus.ts#L12)
+[src/events/interfaces/domainEventBus.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/interfaces/domainEventBus.ts#L12)
 
 ___
 
@@ -99,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEventBus.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEventBus.ts#L18)
+[src/events/interfaces/domainEventBus.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/interfaces/domainEventBus.ts#L18)
 
 ___
 
@@ -119,7 +123,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEventBus.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEventBus.ts#L15)
+[src/events/interfaces/domainEventBus.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/interfaces/domainEventBus.ts#L15)
 
 ___
 
@@ -146,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEventBus.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEventBus.ts#L22)
+[src/events/interfaces/domainEventBus.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/interfaces/domainEventBus.ts#L22)
 
 ___
 
@@ -173,7 +177,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEventBus.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEventBus.ts#L27)
+[src/events/interfaces/domainEventBus.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/interfaces/domainEventBus.ts#L27)
 
 ___
 
@@ -193,4 +197,4 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEventBus.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/events/interfaces/domainEventBus.ts#L31)
+[src/events/interfaces/domainEventBus.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/events/interfaces/domainEventBus.ts#L31)
