@@ -22,7 +22,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `parameters` | [`IAggregateRootClassFabricParameters`](aggregates.interfaces.iaggregaterootclassfabricparameters.md)<`Id`, `Type`, `E`\> |
+| `parameters` | [`IAggregateRootClassFabricParameters`](aggregates.interfaces.iaggregaterootclassfabricparameters.md)<`Id`, `Type`, `E`, [`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\>\> |
 
 #### Returns
 
@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:48](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L48)
+[src/aggregates/interfaces/aggregateRootFabric.ts:60](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L60)

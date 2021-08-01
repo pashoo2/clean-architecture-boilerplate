@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[src/services/classes/servicesContainerBase/servicesContainerBase.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L10)
+[src/services/classes/servicesContainerBase/servicesContainerBase.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L10)
 
 ## Properties
 
@@ -104,7 +104,7 @@
 
 #### Defined in
 
-[src/services/classes/servicesContainerBase/servicesContainerBase.ts:24](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L24)
+[src/services/classes/servicesContainerBase/servicesContainerBase.ts:24](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L24)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/services/classes/servicesContainerBase/servicesContainerBase.ts:21](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L21)
+[src/services/classes/servicesContainerBase/servicesContainerBase.ts:21](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L21)
 
 ___
 
@@ -154,4 +154,4 @@ ___
 
 #### Defined in
 
-[src/services/classes/servicesContainerBase/servicesContainerBase.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L18)
+[src/services/classes/servicesContainerBase/servicesContainerBase.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/services/classes/servicesContainerBase/servicesContainerBase.ts#L18)

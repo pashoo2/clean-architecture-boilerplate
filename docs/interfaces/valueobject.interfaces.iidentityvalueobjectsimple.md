@@ -10,6 +10,8 @@
 
   ↳ **`IIdentityValueObjectSimple`**
 
+  ↳↳ [`IUuidVO`](valueobject.interfaces.iuuidvo.md)
+
 ## Table of contents
 
 ### Properties
@@ -33,7 +35,7 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/valueObjects/interfaces/baseValueObject.ts#L13)
+[src/valueObjects/interfaces/baseValueObject.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/valueObjects/interfaces/baseValueObject.ts#L13)
 
 ## Methods
 
@@ -57,7 +59,7 @@
 
 #### Defined in
 
-[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/interfaces/comparison.ts#L2)
+[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/interfaces/comparison.ts#L2)
 
 ___
 
@@ -75,4 +77,4 @@ ___
 
 #### Defined in
 
-[src/interfaces/serialization.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/interfaces/serialization.ts#L12)
+[src/interfaces/serialization.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/interfaces/serialization.ts#L12)

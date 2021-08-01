@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L18)
+[src/entities/interfaces/entity.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L18)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L20)
+[src/entities/interfaces/entity.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L20)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L19)
+[src/entities/interfaces/entity.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L19)
 
 ## Methods
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRoot.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRoot.ts#L46)
+[src/aggregates/interfaces/aggregateRoot.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRoot.ts#L46)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L30)
+[src/entities/interfaces/entity.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L30)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L32)
+[src/entities/interfaces/entity.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L32)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRoot.ts:42](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRoot.ts#L42)
+[src/aggregates/interfaces/aggregateRoot.ts:42](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRoot.ts#L42)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRoot.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRoot.ts#L45)
+[src/aggregates/interfaces/aggregateRoot.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRoot.ts#L45)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L36)
+[src/entities/interfaces/entity.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L36)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:41](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L41)
+[src/entities/interfaces/entity.ts:41](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L41)
 
 ___
 
@@ -292,4 +292,4 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/entities/interfaces/entity.ts#L46)
+[src/entities/interfaces/entity.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/entities/interfaces/entity.ts#L46)

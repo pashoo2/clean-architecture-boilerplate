@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[src/useCases/interfaces/useCasesImplementations.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/useCases/interfaces/useCasesImplementations.ts#L10)
+[src/useCases/interfaces/useCasesImplementations.ts:10](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/useCases/interfaces/useCasesImplementations.ts#L10)

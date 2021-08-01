@@ -1,6 +1,6 @@
 [@pashoo2/clean-architecture-boilerplate](../README.md) / [Exports](../modules.md) / [aggregates](../modules/aggregates.md) / [interfaces](../modules/aggregates.interfaces.md) / IGetTransferablePropertiesOfAggregateRoot
 
-# Interface: IGetTransferablePropertiesOfAggregateRoot<Id, Type\>
+# Interface: IGetTransferablePropertiesOfAggregateRoot<Id, Type, Instance\>
 
 [aggregates](../modules/aggregates.md).[interfaces](../modules/aggregates.interfaces.md).IGetTransferablePropertiesOfAggregateRoot
 
@@ -10,29 +10,24 @@
 | :------ | :------ |
 | `Id` | extends [`TIdentityValueObject`](../modules/valueobject.interfaces.md#tidentityvalueobject) |
 | `Type` | extends `string` |
+| `Instance` | extends [`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `any`\>[`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `any`\> |
 
 ## Callable
 
 ### IGetTransferablePropertiesOfAggregateRoot
 
-▸ **IGetTransferablePropertiesOfAggregateRoot**<`T`\>(`aggregateRoot`): `TPickTransferableProperties`<`T`\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `any`, `T`\> |
+▸ **IGetTransferablePropertiesOfAggregateRoot**(`aggregateRoot`): `TPickTransferableProperties`<`Instance`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `aggregateRoot` | `T` |
+| `aggregateRoot` | `Instance` |
 
 #### Returns
 
-`TPickTransferableProperties`<`T`\>
+`TPickTransferableProperties`<`Instance`\>
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/aggregates/interfaces/aggregateRootFabric.ts#L25)
+[src/aggregates/interfaces/aggregateRootFabric.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/aggregates/interfaces/aggregateRootFabric.ts#L30)

@@ -23,4 +23,4 @@
 
 #### Defined in
 
-[src/utilities/interfaces/comparison/objectTypeValuesComparison.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/88f8e3d/src/utilities/interfaces/comparison/objectTypeValuesComparison.ts#L1)
+[src/utilities/interfaces/comparison/objectTypeValuesComparison.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/5d0a725/src/utilities/interfaces/comparison/objectTypeValuesComparison.ts#L1)
