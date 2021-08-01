@@ -14,9 +14,14 @@ import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export interface IValidateAggregate<
   Id extends TIdentityValueObject,
-  Type extends string
+  Type extends string,
+  Instance extends IAggregateRootImplementation<
+    Id,
+    Type,
+    any
+  > = IAggregateRootImplementation<Id, Type, any>
 > {
-  (aggregateRoot: IAggregateRootImplementation<Id, Type, any>): void;
+  (aggregateRoot: Instance): void;
 }
 
 export interface IGetTransferablePropertiesOfAggregateRoot<
@@ -43,7 +48,7 @@ export interface IAggregateRootClassFabricParameters<
 > {
   type: Type;
   getServices: () => IBaseAggregateRootServices<E>;
-  validateInstance: IValidateAggregate<Id, Type>;
+  validateInstance: IValidateAggregate<Id, Type, Instance>;
   getTransferableProps: IGetTransferablePropertiesOfAggregateRoot<
     Id,
     Type,
