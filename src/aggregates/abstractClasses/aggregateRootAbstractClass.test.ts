@@ -1,6 +1,6 @@
 import {BaseAggregateRootAbstractClass} from '@root/aggregates/abstractClasses/aggregateRootAbstractClass';
 import {
-  IAggregateRootImplementation,
+  TAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
@@ -30,10 +30,10 @@ export type TAggregateTestClassEventsList = IBaseAggregateRootEventsList<
 
 export interface IRunAggregateTestsParameters<
   BA extends Constructor<
-    IAggregateRootImplementation<any, any, TAggregateTestClassEventsList>,
+    TAggregateRootImplementation<any, any, TAggregateTestClassEventsList>,
     [Params, Services]
   > = Constructor<
-    IAggregateRootImplementation<any, any, TAggregateTestClassEventsList>,
+    TAggregateRootImplementation<any, any, TAggregateTestClassEventsList>,
     [any, any]
   >,
   EVName extends keyof TAggregateTestClassEventsList = keyof TAggregateTestClassEventsList,

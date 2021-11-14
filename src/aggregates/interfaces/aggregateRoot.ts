@@ -1,4 +1,4 @@
-import {IEntity, IEntityImplementation} from '../../entities/interfaces/entity';
+import {IEntity, TEntityImplementation} from '../../entities/interfaces/entity';
 import {TIdentityValueObject} from '../../valueObjects/interfaces/identityValueObject';
 import {
   IBaseEntityParameters,
@@ -30,18 +30,22 @@ export interface IAggregateRoot<
   Type extends string
 > extends IEntity<Id, Type> {}
 
-export interface IAggregateRootImplementation<
-  Id extends TIdentityValueObject,
-  Type extends string,
-  E extends IBaseAggregateRootEventsList<
-    Id,
-    Type
-  > = IBaseAggregateRootEventsList<Id, Type>
-> extends IAggregateRoot<Id, Type>,
-    IEntityImplementation<Id, Type, E> {
+export interface IAggregateRootImplementationMethods {
   equalsTo(
     anotherAggregate: IAggregateRoot<TIdentityValueObject, string>
   ): boolean;
   getTransferableProps(): TPickTransferableProperties<this>;
   delete(): void;
 }
+
+export type TAggregateRootImplementation<
+  Id extends TIdentityValueObject,
+  Type extends string,
+  E extends IBaseAggregateRootEventsList<
+    Id,
+    Type
+  > = IBaseAggregateRootEventsList<Id, Type>,
+  Aggregate extends IAggregateRoot<Id, Type> = IAggregateRoot<Id, Type>
+> = Aggregate &
+  TEntityImplementation<Id, Type, E> &
+  IAggregateRootImplementationMethods;

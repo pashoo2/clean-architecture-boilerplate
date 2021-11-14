@@ -26,7 +26,7 @@ export function entityClassWithDeleteMethodAndServicesFabric<
     Type,
     E
   >(parameters, services) {
-    public $delete() {
+    public $markDeleted() {
       // TODO - find a way to resolve the instance type without casting to ANY
       (this as any)._delete();
     }

@@ -4,7 +4,7 @@ import {
   TBaseEntityEventsListCommonEvents,
   IBaseEntityServices,
   IBaseEntityParameters,
-  IEntityImplementation,
+  TEntityImplementation,
 } from '@root/entities/interfaces';
 import {
   IDomainEventFailed,
@@ -33,10 +33,10 @@ type TEntityTestClassEventsList = TBaseEntityEventsListCommonEvents<
 
 export interface IRunEntityTestsParameters<
   BE extends Constructor<
-    IEntityImplementation<any, ET, TEntityTestClassEventsList>,
+    TEntityImplementation<any, ET, TEntityTestClassEventsList>,
     [Params, Services]
   > = Constructor<
-    IEntityImplementation<any, any, TEntityTestClassEventsList>,
+    TEntityImplementation<any, any, TEntityTestClassEventsList>,
     [any, any]
   >,
   EVName extends keyof TEntityTestClassEventsList = keyof TEntityTestClassEventsList,

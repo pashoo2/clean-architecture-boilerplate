@@ -1,14 +1,12 @@
 import {BaseEntity} from '@root/entities/abstractClasses';
 import {
   IBaseEntityEventsList,
-  IBaseEntityParameters,
-  IBaseEntityServices,
   IEntityFabricParameters,
-  IEntityImplementation,
+  TEntityImplementation,
   TEntityTypeMain,
 } from '@root/entities/interfaces';
+import {TEntityImplementationConstructor} from '@root/entities/interfaces/entityFabric';
 import {TPickTransferableProperties} from '@root/interfaces';
-import {Constructor} from '@root/interfaces/classes';
 import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export function entityClassFabric<
@@ -17,14 +15,11 @@ export function entityClassFabric<
   E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
 >(
   parameters: IEntityFabricParameters<Id, Type>
-): Constructor<
-  IEntityImplementation<Id, Type, E>,
-  [IBaseEntityParameters<Id>, IBaseEntityServices<E>]
-> {
+): TEntityImplementationConstructor<Id, Type, E> {
   const {type, validateInstance, getTransferableProps} = parameters;
   class EntityConstructor extends BaseEntity<Id, Type, E> {
     protected _type = type;
-    public getTransferableProps<T extends IEntityImplementation<Id, Type, E>>(
+    public getTransferableProps<T extends TEntityImplementation<Id, Type, E>>(
       this: T
     ): TPickTransferableProperties<T> {
       return getTransferableProps<T>(this);

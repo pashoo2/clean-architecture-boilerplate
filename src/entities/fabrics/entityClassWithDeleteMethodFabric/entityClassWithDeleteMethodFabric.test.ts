@@ -52,7 +52,7 @@ export function runTestEntityWithDeleteMethod<
       >;
       services = testsParams.services;
       parameters = testsParams.parameters;
-      deleteMethodName = testsParams.deleteMethodName ?? '$delete';
+      deleteMethodName = testsParams.deleteMethodName ?? '$markDeleted';
     });
 
     it('Should have "delete" method', () => {

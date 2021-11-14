@@ -1,6 +1,6 @@
 import {BaseAggregateRootAbstractClass} from '@root/aggregates/abstractClasses';
 import {
-  IAggregateRootImplementation,
+  TAggregateRootImplementation,
   IBaseAggregateRootEventsList,
   IBaseAggregateRootParameters,
   TAggregateTypeMain,
@@ -17,11 +17,11 @@ export function aggregateClassFabric<
     Id,
     Type
   > = IBaseAggregateRootEventsList<Id, Type>,
-  Instance extends IAggregateRootImplementation<
+  Instance extends TAggregateRootImplementation<
     Id,
     Type,
     E
-  > = IAggregateRootImplementation<Id, Type, E>,
+  > = TAggregateRootImplementation<Id, Type, E>,
   Params extends IBaseAggregateRootParameters<Id> = IBaseAggregateRootParameters<Id>
 >({
   type,
@@ -36,7 +36,7 @@ export function aggregateClassFabric<
 > {
   class AggregateRootConstructor
     extends BaseAggregateRootAbstractClass<Id, Type, E>
-    implements IAggregateRootImplementation<Id, Type, E>
+    implements TAggregateRootImplementation<Id, Type, E>
   {
     protected _type = type;
 
