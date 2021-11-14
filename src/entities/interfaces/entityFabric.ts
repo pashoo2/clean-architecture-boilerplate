@@ -4,7 +4,7 @@ import {
   IBaseEntityParameters,
   IBaseEntityServices,
 } from '@root/entities/interfaces/baseEntity';
-import {IEntity, IEntityImplementation} from '@root/entities/interfaces/entity';
+import {IEntity, TEntityImplementation} from '@root/entities/interfaces/entity';
 import {TPickTransferableProperties} from '@root/interfaces';
 import {Constructor} from '@root/interfaces/classes';
 import {TIdentityValueObject} from '@root/valueObjects/interfaces';
@@ -37,13 +37,54 @@ export interface IEntityFabricParameters<
   >;
 }
 
+export type TEntityImplementationConstructor<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityTypeMain,
+  E extends IBaseEntityEventsList<EntityId, EntityType>,
+  EntityImplementation extends TEntityImplementation<
+    EntityId,
+    EntityType,
+    E
+  > = TEntityImplementation<EntityId, EntityType, E>,
+  ConstructorParameters extends IBaseEntityParameters<EntityId> = IBaseEntityParameters<EntityId>
+> = Constructor<
+  EntityImplementation,
+  [ConstructorParameters, IBaseEntityServices<E>]
+>;
+
 export interface IEntityClassFabric<
   EntityId extends TIdentityValueObject,
   EntityType extends TEntityTypeMain,
   E extends IBaseEntityEventsList<EntityId, EntityType>
 > {
-  (parameters: IEntityFabricParameters<EntityId, EntityType>): Constructor<
-    IEntityImplementation<EntityId, EntityType, E>,
-    [IBaseEntityParameters<EntityId>, IBaseEntityServices<E>]
-  >;
+  (
+    parameters: IEntityFabricParameters<EntityId, EntityType>
+  ): TEntityImplementationConstructor<EntityId, EntityType, E>;
 }
+
+/**
+ * All parameters that are necessary for creation of an instance of the entity.
+ */
+export type TEntityImplementationConstructorParametersFull<
+  Entity extends IEntity<EntityId, string>,
+  EntityId extends TIdentityValueObject = TIdentityValueObject
+> = IBaseEntityParameters<EntityId> &
+  Readonly<TPickTransferableProperties<Entity>>;
+
+/**
+ * A constructor of an instance of the entity, which doesn't require
+ * services as a parameter
+ */
+export type TEntityImplementationConstructorNoServices<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityTypeMain,
+  E extends IBaseEntityEventsList<EntityId, EntityType>,
+  Entity extends IEntity<EntityId, EntityType> = IEntity<EntityId, EntityType>,
+  EntityImplementation extends TEntityImplementation<
+    EntityId,
+    EntityType,
+    E,
+    Entity
+  > = TEntityImplementation<EntityId, EntityType, E, Entity>,
+  ConstructorParameters extends TEntityImplementationConstructorParametersFull<Entity> = TEntityImplementationConstructorParametersFull<Entity>
+> = Constructor<EntityImplementation, [ConstructorParameters]>;

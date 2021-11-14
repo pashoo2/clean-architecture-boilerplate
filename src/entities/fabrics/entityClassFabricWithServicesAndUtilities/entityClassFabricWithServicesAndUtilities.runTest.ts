@@ -10,7 +10,7 @@ import {
   IBaseEntityServices,
   IEntity,
   IEntityFabricParameters,
-  IEntityImplementation,
+  TEntityImplementation,
 } from '@root/entities/interfaces';
 import {TDomainEventFailedNameForDomainEventName} from '@root/events/interfaces';
 import {TPickTransferableProperties} from '@root/interfaces';
@@ -36,7 +36,7 @@ export function runTestsForEntityClassFabricWithServicesAndUtilities<
     services: IBaseEntityServices<E>,
     utilities: IBaseEntityAbstractClassImplementationUtitlities<Id, Type>
   ) => Constructor<
-    IEntityImplementation<Id, Type, E>,
+    TEntityImplementation<Id, Type, E>,
     [IBaseEntityParameters<Id>]
   >,
   testName = ''

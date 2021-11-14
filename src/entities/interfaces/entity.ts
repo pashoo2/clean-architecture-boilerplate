@@ -20,13 +20,11 @@ export interface IEntity<Id extends TIdentityValueObject, Type extends string> {
   readonly isDeleted: boolean;
 }
 
-export interface IEntityImplementation<
+export interface IEntityImplementationMethods<
   Id extends TIdentityValueObject,
   Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
-> extends IEntity<Id, Type>,
-    IComparable<IEntity<TIdentityValueObject, string>>,
-    ITransferable {
+> {
   emit<Event extends TGetEvents<E>>(event: Event): void;
 
   emitEventFailed<Ev extends TGetEvents<E>>(
@@ -49,11 +47,26 @@ export interface IEntityImplementation<
   ): void;
 }
 
+export type TEntityImplementation<
+  Id extends TIdentityValueObject,
+  Type extends string,
+  E extends IBaseEntityEventsList<Id, Type>,
+  Entity extends IEntity<Id, Type> = IEntity<Id, Type>
+> = Entity &
+  IComparable<Entity> &
+  ITransferable &
+  IEntityImplementationMethods<Id, Type, E>;
+
 // The method shouldn't be accessible from an outside, only within an aggregate
 export interface IEntityImplementationWithDeleteMethod<
   Id extends TIdentityValueObject,
   Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
-> extends IEntityImplementation<Id, Type, E> {
-  $delete(): void;
+> extends TEntityImplementation<Id, Type, E> {
+  /**
+   * Just set a flag that the entity's been deleted
+   *
+   * @memberof IEntityImplementationWithDeleteMethod
+   */
+  $markDeleted(): void;
 }

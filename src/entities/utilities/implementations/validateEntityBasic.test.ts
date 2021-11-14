@@ -2,7 +2,7 @@ import {ENTITY_TYPE_PREFIX} from '@root/entities/constants/entityType';
 import {entityClassFabric} from '@root/entities/fabrics';
 import {
   IEntity,
-  IEntityImplementation,
+  TEntityImplementation,
   TEntityTypeMain,
 } from '@root/entities/interfaces';
 import {
@@ -88,13 +88,13 @@ describe('Basic utilities for an entities validation', () => {
       'Entity identity %p',
       entityUniqueIdentifier => {
         describe.each([true, false])('Is deleted %p', isDeleted => {
-          let entity: IEntityImplementation<
+          let entity: TEntityImplementation<
             TIdentityValueObject,
             TEntityTypeMain,
             any
           >;
-          let entityWithWrongType: IEntityImplementation<any, any, any>;
-          let entityWithWrongIdentity: IEntityImplementation<any, any, any>;
+          let entityWithWrongType: TEntityImplementation<any, any, any>;
+          let entityWithWrongIdentity: TEntityImplementation<any, any, any>;
           beforeEach(() => {
             class EntityTestClass extends entityClassFabric({
               type: ENTITY_TYPE_STUB,

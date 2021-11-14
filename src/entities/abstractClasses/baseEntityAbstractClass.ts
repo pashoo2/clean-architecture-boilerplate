@@ -1,6 +1,6 @@
 import {
   IEntity,
-  IEntityImplementation,
+  TEntityImplementation,
   TEntityTypeMain,
 } from '@root/entities/interfaces/entity';
 
@@ -22,7 +22,7 @@ export abstract class BaseEntityAbstractClass<
   Id extends TIdentityValueObject,
   Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
-> implements IEntityImplementation<Id, Type, E>
+> implements TEntityImplementation<Id, Type, E>
 {
   public abstract get id(): Id;
 

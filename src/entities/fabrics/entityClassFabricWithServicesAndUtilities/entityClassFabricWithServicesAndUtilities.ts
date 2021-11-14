@@ -7,7 +7,7 @@ import {
   IBaseEntityParameters,
   IBaseEntityServices,
   IEntityFabricParameters,
-  IEntityImplementation,
+  TEntityImplementation,
   TEntityTypeMain,
 } from '@root/entities/interfaces';
 import {TPickTransferableProperties} from '@root/interfaces';
@@ -23,7 +23,7 @@ export function entityClassFabricWithServicesAndUtilities<
   services: IBaseEntityServices<E>,
   utilities: IBaseEntityAbstractClassImplementationUtitlities<Id, Type>
 ): Constructor<
-  IEntityImplementation<Id, Type, E>,
+  TEntityImplementation<Id, Type, E>,
   [IBaseEntityParameters<Id>]
 > {
   const {type, validateInstance, getTransferableProps} = parameters;
@@ -39,7 +39,7 @@ export function entityClassFabricWithServicesAndUtilities<
       super(parameters, services, utilities);
     }
 
-    public getTransferableProps<T extends IEntityImplementation<Id, Type, E>>(
+    public getTransferableProps<T extends TEntityImplementation<Id, Type, E>>(
       this: T
     ): TPickTransferableProperties<T> {
       return getTransferableProps<T>(this);
