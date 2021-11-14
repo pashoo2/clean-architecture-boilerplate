@@ -41,4 +41,4 @@ Constructor<IBaseValueObject<V, S\>, [V]\>.constructor
 
 #### Defined in
 
-[src/interfaces/classes.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/interfaces/classes.ts#L1)
+[src/interfaces/classes.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/interfaces/classes.ts#L1)

@@ -28,4 +28,4 @@
 
 #### Defined in
 
-[src/utilities/interfaces/objects/makeObjectReadOnly.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/interfaces/objects/makeObjectReadOnly.ts#L1)
+[src/utilities/interfaces/objects/makeObjectReadOnly.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/interfaces/objects/makeObjectReadOnly.ts#L1)

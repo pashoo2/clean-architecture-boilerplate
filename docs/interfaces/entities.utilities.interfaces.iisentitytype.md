@@ -22,4 +22,4 @@ typeValue is \`entity\_\_\_\_${string}\`
 
 #### Defined in
 
-[src/entities/utilities/interfaces/typeGuards.ts:3](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/utilities/interfaces/typeGuards.ts#L3)
+[src/entities/utilities/interfaces/typeGuards.ts:3](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/utilities/interfaces/typeGuards.ts#L3)

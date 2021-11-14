@@ -40,7 +40,7 @@ TBaseEntityEventsListCommonEvents.DOMAIN\_ENTITY\_CONSTRUCTED
 
 #### Defined in
 
-[src/entities/interfaces/baseEntity.ts:21](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/baseEntity.ts#L21)
+[src/entities/interfaces/baseEntity.ts:21](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/baseEntity.ts#L21)
 
 ___
 
@@ -54,4 +54,4 @@ TBaseEntityEventsListCommonEvents.DOMAIN\_ENTITY\_DELETED
 
 #### Defined in
 
-[src/entities/interfaces/baseEntity.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/baseEntity.ts#L17)
+[src/entities/interfaces/baseEntity.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/baseEntity.ts#L17)

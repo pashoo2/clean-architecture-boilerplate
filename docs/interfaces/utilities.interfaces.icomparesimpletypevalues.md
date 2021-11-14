@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[src/utilities/interfaces/comparison/simpleTypeValueComparison.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/interfaces/comparison/simpleTypeValueComparison.ts#L6)
+[src/utilities/interfaces/comparison/simpleTypeValueComparison.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/interfaces/comparison/simpleTypeValueComparison.ts#L6)

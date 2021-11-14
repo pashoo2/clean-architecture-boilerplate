@@ -21,7 +21,7 @@
 
 ### entityClassFabric
 
-▸ **entityClassFabric**<`Id`, `Type`, `E`\>(`parameters`): `Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>, [`IBaseEntityServices`](../interfaces/entities.interfaces.ibaseentityservices.md)<`E`\>]\>
+▸ **entityClassFabric**<`Id`, `Type`, `E`\>(`parameters`): `TEntityImplementationConstructor`<`Id`, `Type`, `E`\>
 
 #### Type parameters
 
@@ -39,17 +39,17 @@
 
 #### Returns
 
-`Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>, [`IBaseEntityServices`](../interfaces/entities.interfaces.ibaseentityservices.md)<`E`\>]\>
+`TEntityImplementationConstructor`<`Id`, `Type`, `E`\>
 
 #### Defined in
 
-[src/entities/fabrics/entityClassFabric/entityClassFabric.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassFabric/entityClassFabric.ts#L14)
+[src/entities/fabrics/entityClassFabric/entityClassFabric.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassFabric/entityClassFabric.ts#L12)
 
 ___
 
 ### entityClassFabricWithServices
 
-▸ **entityClassFabricWithServices**<`Id`, `Type`, `E`\>(`parameters`, `services`): `Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
+▸ **entityClassFabricWithServices**<`Id`, `Type`, `E`\>(`parameters`, `services`): `Constructor`<[`TEntityImplementation`](entities.interfaces.md#tentityimplementation)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
 
 #### Type parameters
 
@@ -68,17 +68,17 @@ ___
 
 #### Returns
 
-`Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
+`Constructor`<[`TEntityImplementation`](entities.interfaces.md#tentityimplementation)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
 
 #### Defined in
 
-[src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts#L14)
+[src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassFabricWithServices/entityClassFabricWithServices.ts#L14)
 
 ___
 
 ### entityClassFabricWithServicesAndUtilities
 
-▸ **entityClassFabricWithServicesAndUtilities**<`Id`, `Type`, `E`\>(`parameters`, `services`, `utilities`): `Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
+▸ **entityClassFabricWithServicesAndUtilities**<`Id`, `Type`, `E`\>(`parameters`, `services`, `utilities`): `Constructor`<[`TEntityImplementation`](entities.interfaces.md#tentityimplementation)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
 
 #### Type parameters
 
@@ -98,11 +98,11 @@ ___
 
 #### Returns
 
-`Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
+`Constructor`<[`TEntityImplementation`](entities.interfaces.md#tentityimplementation)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\>
 
 #### Defined in
 
-[src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts#L17)
+[src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.ts#L17)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts#L13)
+[src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassWithDeleteMethodAndServicesFabric/entityClassWithDeleteMethodAndServicesFabric.ts#L13)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts#L13)
+[src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassWithDeleteMethodFabric/entityClassWithDeleteMethodFabric.ts#L13)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts#L14)
+[src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts:14](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.ts#L14)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.runTest.ts:28](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.runTest.ts#L28)
+[src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.runTest.ts:28](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassWithDeleteMethodServicesAndUtilitiesFabric/entityClassWithDeleteMethodServicesAndUtilitiesFabric.runTest.ts#L28)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `entityClassFabricWithServicesAndUtilities` | (`parameters`: [`IEntityFabricParameters`](../interfaces/entities.interfaces.ientityfabricparameters.md)<`Id`, `Type`\>, `services`: [`IBaseEntityServices`](../interfaces/entities.interfaces.ibaseentityservices.md)<`E`\>, `utilities`: `IBaseEntityAbstractClassImplementationUtitlities`<`Id`, `Type`\>) => `Constructor`<[`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\> | `undefined` |
+| `entityClassFabricWithServicesAndUtilities` | (`parameters`: [`IEntityFabricParameters`](../interfaces/entities.interfaces.ientityfabricparameters.md)<`Id`, `Type`\>, `services`: [`IBaseEntityServices`](../interfaces/entities.interfaces.ibaseentityservices.md)<`E`\>, `utilities`: `IBaseEntityAbstractClassImplementationUtitlities`<`Id`, `Type`\>) => `Constructor`<[`TEntityImplementation`](entities.interfaces.md#tentityimplementation)<`Id`, `Type`, `E`\>, [[`IBaseEntityParameters`](../interfaces/entities.interfaces.ibaseentityparameters.md)<`Id`\>]\> | `undefined` |
 | `testName` | `string` | `''` |
 
 #### Returns
@@ -247,4 +247,4 @@ ___
 
 #### Defined in
 
-[src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.runTest.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.runTest.ts#L29)
+[src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.runTest.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/fabrics/entityClassFabricWithServicesAndUtilities/entityClassFabricWithServicesAndUtilities.runTest.ts#L29)

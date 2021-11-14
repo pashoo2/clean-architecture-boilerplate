@@ -16,18 +16,18 @@
 
 ### IAggregateRootClassFabric
 
-▸ **IAggregateRootClassFabric**(`parameters`): `Constructor`<[`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseAggregateRootParameters`](aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\>]\>
+▸ **IAggregateRootClassFabric**(`parameters`): `Constructor`<[`TAggregateRootImplementation`](../modules/aggregates.interfaces.md#taggregaterootimplementation)<`Id`, `Type`, `E`, [`IAggregateRoot`](aggregates.interfaces.iaggregateroot.md)<`Id`, `Type`\>\>, [[`IBaseAggregateRootParameters`](aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\>]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `parameters` | [`IAggregateRootClassFabricParameters`](aggregates.interfaces.iaggregaterootclassfabricparameters.md)<`Id`, `Type`, `E`, [`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\>\> |
+| `parameters` | [`IAggregateRootClassFabricParameters`](aggregates.interfaces.iaggregaterootclassfabricparameters.md)<`Id`, `Type`, `E`, [`TAggregateRootImplementation`](../modules/aggregates.interfaces.md#taggregaterootimplementation)<`Id`, `Type`, `E`, [`IAggregateRoot`](aggregates.interfaces.iaggregateroot.md)<`Id`, `Type`\>\>\> |
 
 #### Returns
 
-`Constructor`<[`IAggregateRootImplementation`](aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\>, [[`IBaseAggregateRootParameters`](aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\>]\>
+`Constructor`<[`TAggregateRootImplementation`](../modules/aggregates.interfaces.md#taggregaterootimplementation)<`Id`, `Type`, `E`, [`IAggregateRoot`](aggregates.interfaces.iaggregateroot.md)<`Id`, `Type`\>\>, [[`IBaseAggregateRootParameters`](aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\>]\>
 
 #### Defined in
 
-[src/aggregates/interfaces/aggregateRootFabric.ts:65](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/interfaces/aggregateRootFabric.ts#L65)
+[src/aggregates/interfaces/aggregateRootFabric.ts:67](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/aggregates/interfaces/aggregateRootFabric.ts#L67)

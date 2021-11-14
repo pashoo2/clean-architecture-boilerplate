@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L15)
+[src/utilities/implementations/classes/multipleInheritance.ts:15](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L15)
 
 ▸ **applyMixinsMethodInheritance**<`C`, `C1`, `C2`, `C3`\>(`DerivedCtor`, `constructors`): `Constructor`<`InstanceType`<`C`\> & `PickByValueType`<`InstanceType`<`C1`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C2`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C3`\>, `Function`\>, `ConstructorParameters`<`C`\>\>
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:28](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L28)
+[src/utilities/implementations/classes/multipleInheritance.ts:28](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L28)
 
 ▸ **applyMixinsMethodInheritance**<`C`, `C1`, `C2`, `C3`, `C4`\>(`DerivedCtor`, `constructors`): `Constructor`<`InstanceType`<`C`\> & `PickByValueType`<`InstanceType`<`C1`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C2`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C3`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C4`\>, `Function`\>, `ConstructorParameters`<`C`\>\>
 
@@ -91,7 +91,7 @@
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:43](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L43)
+[src/utilities/implementations/classes/multipleInheritance.ts:43](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L43)
 
 ▸ **applyMixinsMethodInheritance**<`C`, `C1`, `C2`, `C3`, `C4`, `C5`\>(`DerivedCtor`, `constructors`): `Constructor`<`InstanceType`<`C`\> & `PickByValueType`<`InstanceType`<`C1`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C2`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C3`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C4`\>, `Function`\> & `PickByValueType`<`InstanceType`<`C5`\>, `Function`\>, `ConstructorParameters`<`C`\>\>
 
@@ -119,7 +119,7 @@
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:60](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L60)
+[src/utilities/implementations/classes/multipleInheritance.ts:60](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L60)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:118](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L118)
+[src/utilities/implementations/classes/multipleInheritance.ts:118](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L118)
 
 ▸ **applyMixinsPropsAndMethodsInheritance**<`C1`, `C2`, `C3`\>(`ctor1`, `ctor2`, `ctor3`): `Constructor`<`InstanceType`<`C3`\> & `InstanceType`<`C2`\> & `InstanceType`<`C1`\>, `ConstructorParameters`<`C1`\>\>
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:125](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L125)
+[src/utilities/implementations/classes/multipleInheritance.ts:125](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L125)
 
 ▸ **applyMixinsPropsAndMethodsInheritance**<`C1`, `C2`, `C3`, `C4`\>(`ctor1`, `ctor2`, `ctor3`, `ctor4`): `Constructor`<`InstanceType`<`C4`\> & `InstanceType`<`C3`\> & `InstanceType`<`C2`\> & `InstanceType`<`C1`\>, `ConstructorParameters`<`C1`\>\>
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:137](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L137)
+[src/utilities/implementations/classes/multipleInheritance.ts:137](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L137)
 
 ▸ **applyMixinsPropsAndMethodsInheritance**<`C1`, `C2`, `C3`, `C4`, `C5`\>(`ctor1`, `ctor2`, `ctor3`, `ctor4`, `ctor5`): `Constructor`<`InstanceType`<`C5`\> & `InstanceType`<`C4`\> & `InstanceType`<`C3`\> & `InstanceType`<`C2`\> & `InstanceType`<`C1`\>, `ConstructorParameters`<`C1`\>\>
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:151](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L151)
+[src/utilities/implementations/classes/multipleInheritance.ts:151](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L151)
 
 ▸ **applyMixinsPropsAndMethodsInheritance**<`C1`, `C2`, `C3`, `C4`, `C5`, `C6`\>(`ctor1`, `ctor2`, `ctor3`, `ctor4`, `ctor5`, `ctor6`): `Constructor`<`InstanceType`<`C6`\> & `InstanceType`<`C5`\> & `InstanceType`<`C4`\> & `InstanceType`<`C3`\> & `InstanceType`<`C2`\> & `InstanceType`<`C1`\>, `ConstructorParameters`<`C1`\>\>
 
@@ -263,4 +263,4 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/classes/multipleInheritance.ts:171](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/classes/multipleInheritance.ts#L171)
+[src/utilities/implementations/classes/multipleInheritance.ts:171](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/classes/multipleInheritance.ts#L171)

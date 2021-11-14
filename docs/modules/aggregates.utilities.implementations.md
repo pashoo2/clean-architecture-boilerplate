@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/aggregates/utilities/implementations/getAggregateTypeByString.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/utilities/implementations/getAggregateTypeByString.ts#L5)
+[src/aggregates/utilities/implementations/getAggregateTypeByString.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/aggregates/utilities/implementations/getAggregateTypeByString.ts#L5)
 
 ___
 
@@ -55,4 +55,4 @@ typeValue is \`aggregate\_\_\_\_${string}\`
 
 #### Defined in
 
-[src/aggregates/utilities/implementations/typeGuards.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/utilities/implementations/typeGuards.ts#L5)
+[src/aggregates/utilities/implementations/typeGuards.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/aggregates/utilities/implementations/typeGuards.ts#L5)

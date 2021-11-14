@@ -8,7 +8,7 @@
 
 ### IIsValueObject
 
-▸ **IIsValueObject**(`valueObject`): valueObject is IBaseValueObject<TSimpleType, string\> \| IMultiValuesValueObject<IMultiValuesValueObjectValue\>
+▸ **IIsValueObject**(`valueObject`): valueObject is IMultiValuesValueObject<IMultiValuesValueObjectValue\> \| IBaseValueObject<TSimpleType, string\>
 
 #### Parameters
 
@@ -18,8 +18,8 @@
 
 #### Returns
 
-valueObject is IBaseValueObject<TSimpleType, string\> \| IMultiValuesValueObject<IMultiValuesValueObjectValue\>
+valueObject is IMultiValuesValueObject<IMultiValuesValueObjectValue\> \| IBaseValueObject<TSimpleType, string\>
 
 #### Defined in
 
-[src/valueObjects/utilities/interfaces/typeGuards.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/utilities/interfaces/typeGuards.ts#L18)
+[src/valueObjects/utilities/interfaces/typeGuards.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/valueObjects/utilities/interfaces/typeGuards.ts#L18)

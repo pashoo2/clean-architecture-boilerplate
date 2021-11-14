@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[src/services/interfaces/common/servicesList.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/servicesList.ts#L7)
+[src/services/interfaces/common/servicesList.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/services/interfaces/common/servicesList.ts#L7)

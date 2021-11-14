@@ -24,7 +24,7 @@
 | `Id` | extends [`TIdentityValueObject`](valueobject.interfaces.md#tidentityvalueobject) |
 | `Type` | extends \`aggregate\_\_\_\_${string}\` |
 | `E` | extends [`IBaseAggregateRootEventsList`](../interfaces/aggregates.interfaces.ibaseaggregaterooteventslist.md)<`Id`, `Type`, `E`\>[`IBaseAggregateRootEventsList`](../interfaces/aggregates.interfaces.ibaseaggregaterooteventslist.md)<`Id`, `Type`\> |
-| `Instance` | extends [`IAggregateRootImplementation`](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`, `Instance`\>[`IAggregateRootImplementation`](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\> |
+| `Instance` | extends [`IAggregateRoot`](../interfaces/aggregates.interfaces.iaggregateroot.md)<`Id`, `Type`, `Instance`\> & [`IEntity`](../interfaces/entities.interfaces.ientity.md)<`Id`, `Type`, `Instance`\> & `IComparable`<[`IEntity`](../interfaces/entities.interfaces.ientity.md)<`Id`, `Type`\>, `Instance`\> & `ITransferable`<`Instance`\> & [`IEntityImplementationMethods`](../interfaces/entities.interfaces.ientityimplementationmethods.md)<`Id`, `Type`, `E`, `Instance`\> & [`IAggregateRootImplementationMethods`](../interfaces/aggregates.interfaces.iaggregaterootimplementationmethods.md)<`Instance`\>[`TAggregateRootImplementation`](aggregates.interfaces.md#taggregaterootimplementation)<`Id`, `Type`, `E`, [`IAggregateRoot`](../interfaces/aggregates.interfaces.iaggregateroot.md)<`Id`, `Type`\>\> |
 | `Params` | extends [`IBaseAggregateRootParameters`](../interfaces/aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`, `Params`\>[`IBaseAggregateRootParameters`](../interfaces/aggregates.interfaces.ibaseaggregaterootparameters.md)<`Id`\> |
 
 #### Parameters
@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
+[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts:13](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.ts#L13)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts#L30)
+[src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/aggregates/fabrics/aggregateClassFabric/aggregateClassFabric.runTest.ts#L30)

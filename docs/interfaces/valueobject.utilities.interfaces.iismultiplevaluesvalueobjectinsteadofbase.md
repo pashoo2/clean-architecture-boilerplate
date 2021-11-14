@@ -14,7 +14,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `valueObject` | [`IBaseValueObject`](valueobject.interfaces.ibasevalueobject.md)<`TSimpleType`, `string`\> \| [`IMultiValuesValueObject`](valueobject.interfaces.imultivaluesvalueobject.md)<[`IMultiValuesValueObjectValue`](valueobject.interfaces.imultivaluesvalueobjectvalue.md)\> |
+| `valueObject` | [`IMultiValuesValueObject`](valueobject.interfaces.imultivaluesvalueobject.md)<[`IMultiValuesValueObjectValue`](valueobject.interfaces.imultivaluesvalueobjectvalue.md)\> \| [`IBaseValueObject`](valueobject.interfaces.ibasevalueobject.md)<`TSimpleType`, `string`\> |
 
 #### Returns
 
@@ -22,4 +22,4 @@ valueObject is IMultiValuesValueObject<IMultiValuesValueObjectValue\>
 
 #### Defined in
 
-[src/valueObjects/utilities/interfaces/typeGuards.ts:24](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/utilities/interfaces/typeGuards.ts#L24)
+[src/valueObjects/utilities/interfaces/typeGuards.ts:24](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/valueObjects/utilities/interfaces/typeGuards.ts#L24)

@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:86](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/interfaces/domainEvents.ts#L86)
+[src/events/interfaces/domainEvents.ts:86](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/interfaces/domainEvents.ts#L86)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:85](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/interfaces/domainEvents.ts#L85)
+[src/events/interfaces/domainEvents.ts:85](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/interfaces/domainEvents.ts#L85)
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-[src/events/interfaces/domainEvents.ts:84](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/interfaces/domainEvents.ts#L84)
+[src/events/interfaces/domainEvents.ts:84](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/interfaces/domainEvents.ts#L84)

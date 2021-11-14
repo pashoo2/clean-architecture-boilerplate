@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[src/useCases/interfaces/useCasesOuter.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/useCases/interfaces/useCasesOuter.ts#L25)
+[src/useCases/interfaces/useCasesOuter.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/useCases/interfaces/useCasesOuter.ts#L25)

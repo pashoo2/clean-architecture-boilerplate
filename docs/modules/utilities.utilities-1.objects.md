@@ -38,7 +38,7 @@ target is T & B
 
 #### Defined in
 
-[src/utilities/implementations/objects/copyOwnProperties.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/objects/copyOwnProperties.ts#L1)
+[src/utilities/implementations/objects/copyOwnProperties.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/objects/copyOwnProperties.ts#L1)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/objects/makeObjectReadOnly.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/objects/makeObjectReadOnly.ts#L1)
+[src/utilities/implementations/objects/makeObjectReadOnly.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/objects/makeObjectReadOnly.ts#L1)
 
 ___
 
@@ -90,4 +90,4 @@ ___
 
 #### Defined in
 
-[src/utilities/implementations/objects/mergeDeep.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/utilities/implementations/objects/mergeDeep.ts#L29)
+[src/utilities/implementations/objects/mergeDeep.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/utilities/implementations/objects/mergeDeep.ts#L29)
