@@ -67,7 +67,7 @@
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L47)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L47)
 
 ## Properties
 
@@ -77,7 +77,7 @@
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L47)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L47)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L45)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L45)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L46)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L46)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:43](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L43)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:43](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L43)
 
 ## Accessors
 
@@ -127,7 +127,7 @@ A unique identifier of an event
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:39](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L39)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:39](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L39)
 
 ___
 
@@ -147,7 +147,7 @@ Version of the event format
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L31)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L31)
 
 ___
 
@@ -167,7 +167,7 @@ A name of the event
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L27)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L27)
 
 ___
 
@@ -187,7 +187,7 @@ Payload of the event
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:35](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L35)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:35](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L35)
 
 ## Methods
 
@@ -201,7 +201,7 @@ Payload of the event
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:75](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L75)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:75](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L75)
 
 ___
 
@@ -219,4 +219,4 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEvent/baseDomainEvent.ts:71](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L71)
+[src/events/classes/baseDomainEvent/baseDomainEvent.ts:71](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEvent/baseDomainEvent.ts#L71)

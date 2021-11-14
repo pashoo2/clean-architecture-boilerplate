@@ -16,7 +16,7 @@
 
 ### IEntityClassFabric
 
-▸ **IEntityClassFabric**(`parameters`): `Constructor`<[`IEntityImplementation`](entities.interfaces.ientityimplementation.md)<`EntityId`, `EntityType`, `E`\>, [[`IBaseEntityParameters`](entities.interfaces.ibaseentityparameters.md)<`EntityId`\>, [`IBaseEntityServices`](entities.interfaces.ibaseentityservices.md)<`E`\>]\>
+▸ **IEntityClassFabric**(`parameters`): `TEntityImplementationConstructor`<`EntityId`, `EntityType`, `E`, [`TEntityImplementation`](../modules/entities.interfaces.md#tentityimplementation)<`EntityId`, `EntityType`, `E`, [`IEntity`](entities.interfaces.ientity.md)<`EntityId`, `EntityType`\>\>, [`IBaseEntityParameters`](entities.interfaces.ibaseentityparameters.md)<`EntityId`\>\>
 
 #### Parameters
 
@@ -26,8 +26,8 @@
 
 #### Returns
 
-`Constructor`<[`IEntityImplementation`](entities.interfaces.ientityimplementation.md)<`EntityId`, `EntityType`, `E`\>, [[`IBaseEntityParameters`](entities.interfaces.ibaseentityparameters.md)<`EntityId`\>, [`IBaseEntityServices`](entities.interfaces.ibaseentityservices.md)<`E`\>]\>
+`TEntityImplementationConstructor`<`EntityId`, `EntityType`, `E`, [`TEntityImplementation`](../modules/entities.interfaces.md#tentityimplementation)<`EntityId`, `EntityType`, `E`, [`IEntity`](entities.interfaces.ientity.md)<`EntityId`, `EntityType`\>\>, [`IBaseEntityParameters`](entities.interfaces.ibaseentityparameters.md)<`EntityId`\>\>
 
 #### Defined in
 
-[src/entities/interfaces/entityFabric.ts:44](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entityFabric.ts#L44)
+[src/entities/interfaces/entityFabric.ts:59](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entityFabric.ts#L59)

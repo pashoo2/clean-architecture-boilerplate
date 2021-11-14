@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:38](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/interfaces/baseValueObject.ts#L38)
+[src/valueObjects/interfaces/baseValueObject.ts:38](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/valueObjects/interfaces/baseValueObject.ts#L38)

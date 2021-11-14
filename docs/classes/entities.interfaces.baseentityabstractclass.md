@@ -14,7 +14,7 @@
 
 ## Implements
 
-- [`IEntityImplementation`](../interfaces/entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>
+- [`TEntityImplementation`](../modules/entities.interfaces.md#tentityimplementation)<`Id`, `Type`, `E`\>
 
 ## Table of contents
 
@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
 
 ## Properties
 
@@ -90,11 +90,11 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[type](../interfaces/entities.interfaces.ientityimplementation.md#type)
+TEntityImplementation.type
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L31)
 
 ## Accessors
 
@@ -106,13 +106,9 @@ ___
 
 `Id`
 
-#### Implementation of
-
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[id](../interfaces/entities.interfaces.ientityimplementation.md#id)
-
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L27)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:27](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L27)
 
 ___
 
@@ -124,13 +120,9 @@ ___
 
 `boolean`
 
-#### Implementation of
-
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[isDeleted](../interfaces/entities.interfaces.ientityimplementation.md#isdeleted)
-
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L29)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:29](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L29)
 
 ## Methods
 
@@ -144,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:72](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L72)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:72](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L72)
 
 ___
 
@@ -158,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:70](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L70)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:70](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L70)
 
 ___
 
@@ -184,11 +176,11 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[emit](../interfaces/entities.interfaces.ientityimplementation.md#emit)
+TEntityImplementation.emit
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:49](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L49)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:49](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L49)
 
 ___
 
@@ -214,11 +206,11 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[emitEventFailed](../interfaces/entities.interfaces.ientityimplementation.md#emiteventfailed)
+TEntityImplementation.emitEventFailed
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L51)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:51](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L51)
 
 ___
 
@@ -238,11 +230,11 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[equalsTo](../interfaces/entities.interfaces.ientityimplementation.md#equalsto)
+TEntityImplementation.equalsTo
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L45)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:45](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L45)
 
 ___
 
@@ -256,11 +248,11 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[getTransferableProps](../interfaces/entities.interfaces.ientityimplementation.md#gettransferableprops)
+TEntityImplementation.getTransferableProps
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L47)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:47](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L47)
 
 ___
 
@@ -287,11 +279,11 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[subscribe](../interfaces/entities.interfaces.ientityimplementation.md#subscribe)
+TEntityImplementation.subscribe
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:55](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L55)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:55](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L55)
 
 ___
 
@@ -318,11 +310,11 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[subscribeOnFailed](../interfaces/entities.interfaces.ientityimplementation.md#subscribeonfailed)
+TEntityImplementation.subscribeOnFailed
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:60](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L60)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:60](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L60)
 
 ___
 
@@ -349,8 +341,8 @@ ___
 
 #### Implementation of
 
-[IEntityImplementation](../interfaces/entities.interfaces.ientityimplementation.md).[unsubscribe](../interfaces/entities.interfaces.ientityimplementation.md#unsubscribe)
+TEntityImplementation.unsubscribe
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntityAbstractClass.ts:65](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntityAbstractClass.ts#L65)
+[src/entities/abstractClasses/baseEntityAbstractClass.ts:65](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntityAbstractClass.ts#L65)

@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[src/useCases/interfaces/useCasesOuter.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/useCases/interfaces/useCasesOuter.ts#L9)
+[src/useCases/interfaces/useCasesOuter.ts:9](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/useCases/interfaces/useCasesOuter.ts#L9)
 
 ### IUseCaseSync
 
@@ -49,4 +49,4 @@
 
 #### Defined in
 
-[src/useCases/interfaces/useCasesOuter.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/useCases/interfaces/useCasesOuter.ts#L17)
+[src/useCases/interfaces/useCasesOuter.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/useCases/interfaces/useCasesOuter.ts#L17)

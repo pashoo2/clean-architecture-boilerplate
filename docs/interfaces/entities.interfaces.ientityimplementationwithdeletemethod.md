@@ -14,7 +14,7 @@
 
 ## Hierarchy
 
-- [`IEntityImplementation`](entities.interfaces.ientityimplementation.md)<`Id`, `Type`, `E`\>
+- [`TEntityImplementation`](../modules/entities.interfaces.md#tentityimplementation)<`Id`, `Type`, `E`\>
 
   ↳ **`IEntityImplementationWithDeleteMethod`**
 
@@ -28,7 +28,7 @@
 
 ### Methods
 
-- [$delete](entities.interfaces.ientityimplementationwithdeletemethod.md#$delete)
+- [$markDeleted](entities.interfaces.ientityimplementationwithdeletemethod.md#$markdeleted)
 - [emit](entities.interfaces.ientityimplementationwithdeletemethod.md#emit)
 - [emitEventFailed](entities.interfaces.ientityimplementationwithdeletemethod.md#emiteventfailed)
 - [equalsTo](entities.interfaces.ientityimplementationwithdeletemethod.md#equalsto)
@@ -45,11 +45,11 @@
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[id](entities.interfaces.ientityimplementation.md#id)
+TEntityImplementation.id
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L18)
+[src/entities/interfaces/entity.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L18)
 
 ___
 
@@ -59,11 +59,11 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[isDeleted](entities.interfaces.ientityimplementation.md#isdeleted)
+TEntityImplementation.isDeleted
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L20)
+[src/entities/interfaces/entity.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L20)
 
 ___
 
@@ -73,17 +73,21 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[type](entities.interfaces.ientityimplementation.md#type)
+TEntityImplementation.type
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L19)
+[src/entities/interfaces/entity.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L19)
 
 ## Methods
 
-### $delete
+### $markDeleted
 
-▸ **$delete**(): `void`
+▸ **$markDeleted**(): `void`
+
+Just set a flag that the entity's been deleted
+
+**`memberof`** IEntityImplementationWithDeleteMethod
 
 #### Returns
 
@@ -91,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:58](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L58)
+[src/entities/interfaces/entity.ts:71](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L71)
 
 ___
 
@@ -117,11 +121,11 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[emit](entities.interfaces.ientityimplementation.md#emit)
+TEntityImplementation.emit
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L30)
+[src/entities/interfaces/entity.ts:28](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L28)
 
 ___
 
@@ -147,11 +151,11 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[emitEventFailed](entities.interfaces.ientityimplementation.md#emiteventfailed)
+TEntityImplementation.emitEventFailed
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L32)
+[src/entities/interfaces/entity.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L30)
 
 ___
 
@@ -163,7 +167,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `anotherValue` | [`IEntity`](entities.interfaces.ientity.md)<[`TIdentityValueObject`](../modules/valueobject.interfaces.md#tidentityvalueobject), `string`\> |
+| `anotherValue` | [`IEntity`](entities.interfaces.ientity.md)<`Id`, `Type`\> |
 
 #### Returns
 
@@ -171,11 +175,11 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[equalsTo](entities.interfaces.ientityimplementation.md#equalsto)
+TEntityImplementation.equalsTo
 
 #### Defined in
 
-[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/interfaces/comparison.ts#L2)
+[src/interfaces/comparison.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/interfaces/comparison.ts#L2)
 
 ___
 
@@ -189,11 +193,11 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[getTransferableProps](entities.interfaces.ientityimplementation.md#gettransferableprops)
+TEntityImplementation.getTransferableProps
 
 #### Defined in
 
-[src/interfaces/transferable.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/interfaces/transferable.ts#L12)
+[src/interfaces/transferable.ts:12](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/interfaces/transferable.ts#L12)
 
 ___
 
@@ -220,11 +224,11 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[subscribe](entities.interfaces.ientityimplementation.md#subscribe)
+TEntityImplementation.subscribe
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L36)
+[src/entities/interfaces/entity.ts:34](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L34)
 
 ___
 
@@ -251,11 +255,11 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[subscribeOnFailed](entities.interfaces.ientityimplementation.md#subscribeonfailed)
+TEntityImplementation.subscribeOnFailed
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:41](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L41)
+[src/entities/interfaces/entity.ts:39](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L39)
 
 ___
 
@@ -282,8 +286,8 @@ ___
 
 #### Inherited from
 
-[IEntityImplementation](entities.interfaces.ientityimplementation.md).[unsubscribe](entities.interfaces.ientityimplementation.md#unsubscribe)
+TEntityImplementation.unsubscribe
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L46)
+[src/entities/interfaces/entity.ts:44](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L44)

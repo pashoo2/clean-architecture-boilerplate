@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[src/services/interfaces/common/servicesContainer.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/servicesContainer.ts#L7)
+[src/services/interfaces/common/servicesContainer.ts:7](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/services/interfaces/common/servicesContainer.ts#L7)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[src/services/interfaces/common/servicesContainer.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/servicesContainer.ts#L6)
+[src/services/interfaces/common/servicesContainer.ts:6](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/services/interfaces/common/servicesContainer.ts#L6)
 
 ___
 
@@ -81,4 +81,4 @@ ___
 
 #### Defined in
 
-[src/services/interfaces/common/servicesContainer.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/servicesContainer.ts#L5)
+[src/services/interfaces/common/servicesContainer.ts:5](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/services/interfaces/common/servicesContainer.ts#L5)

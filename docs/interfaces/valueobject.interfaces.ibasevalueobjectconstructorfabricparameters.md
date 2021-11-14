@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/interfaces/baseValueObject.ts#L30)
+[src/valueObjects/interfaces/baseValueObject.ts:30](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/valueObjects/interfaces/baseValueObject.ts#L30)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/interfaces/baseValueObject.ts#L31)
+[src/valueObjects/interfaces/baseValueObject.ts:31](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/valueObjects/interfaces/baseValueObject.ts#L31)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-[src/valueObjects/interfaces/baseValueObject.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/valueObjects/interfaces/baseValueObject.ts#L32)
+[src/valueObjects/interfaces/baseValueObject.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/valueObjects/interfaces/baseValueObject.ts#L32)

@@ -17,8 +17,6 @@
 
   ↳ [`IAggregateRoot`](aggregates.interfaces.iaggregateroot.md)
 
-  ↳ [`IEntityImplementation`](entities.interfaces.ientityimplementation.md)
-
 ## Table of contents
 
 ### Properties
@@ -35,7 +33,7 @@
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L18)
+[src/entities/interfaces/entity.ts:18](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L18)
 
 ___
 
@@ -45,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L20)
+[src/entities/interfaces/entity.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L20)
 
 ___
 
@@ -55,4 +53,4 @@ ___
 
 #### Defined in
 
-[src/entities/interfaces/entity.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/interfaces/entity.ts#L19)
+[src/entities/interfaces/entity.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/interfaces/entity.ts#L19)

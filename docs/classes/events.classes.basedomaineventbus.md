@@ -62,7 +62,7 @@
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L20)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:20](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L20)
 
 ## Properties
 
@@ -72,7 +72,7 @@
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L19)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:19](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L19)
 
 ## Accessors
 
@@ -86,7 +86,7 @@
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L16)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:16](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L16)
 
 ## Methods
 
@@ -112,7 +112,7 @@
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:74](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L74)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:74](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L74)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:68](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L68)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:68](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L68)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L22)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:22](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L22)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:26](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L26)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:26](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L26)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L37)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:37](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L37)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L32)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L32)
 
 ___
 
@@ -284,7 +284,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:43](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L43)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:43](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L43)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:50](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L50)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:50](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L50)
 
 ___
 
@@ -339,4 +339,4 @@ ___
 
 #### Defined in
 
-[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:63](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L63)
+[src/events/classes/baseDomainEventBus/baseDomainEventBus.ts:63](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/events/classes/baseDomainEventBus/baseDomainEventBus.ts#L63)

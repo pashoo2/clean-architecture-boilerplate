@@ -20,7 +20,7 @@
 
 ## Implements
 
-- [`IAggregateRootImplementation`](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md)<`Id`, `Type`, `E`\>
+- [`TAggregateRootImplementation`](../modules/aggregates.interfaces.md#taggregaterootimplementation)<`Id`, `Type`, `E`\>
 
 ## Table of contents
 
@@ -89,7 +89,7 @@
 
 #### Defined in
 
-[src/aggregates/abstractClasses/aggregateRootAbstractClass.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/abstractClasses/aggregateRootAbstractClass.ts#L17)
+[src/aggregates/abstractClasses/aggregateRootAbstractClass.ts:17](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/aggregates/abstractClasses/aggregateRootAbstractClass.ts#L17)
 
 ## Properties
 
@@ -103,7 +103,7 @@
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:59](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L59)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:59](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L59)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:54](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L54)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:54](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L54)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L46)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:46](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L46)
 
 ## Accessors
 
@@ -163,13 +163,9 @@ ___
 
 `Id`
 
-#### Implementation of
-
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[id](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#id)
-
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L32)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:32](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L32)
 
 ___
 
@@ -181,13 +177,9 @@ ___
 
 `boolean`
 
-#### Implementation of
-
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[isDeleted](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#isdeleted)
-
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L36)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:36](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L36)
 
 ___
 
@@ -199,13 +191,9 @@ ___
 
 `Type`
 
-#### Implementation of
-
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[type](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#type)
-
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:40](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L40)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:40](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L40)
 
 ## Methods
 
@@ -230,7 +218,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:135](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L135)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:135](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L135)
 
 ___
 
@@ -255,7 +243,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:144](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L144)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:144](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L144)
 
 ___
 
@@ -273,7 +261,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:151](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L151)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:151](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L151)
 
 ___
 
@@ -291,7 +279,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:169](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L169)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:169](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L169)
 
 ___
 
@@ -309,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:163](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L163)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:163](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L163)
 
 ___
 
@@ -327,7 +315,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:175](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L175)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:175](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L175)
 
 ___
 
@@ -345,7 +333,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:179](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L179)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:179](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L179)
 
 ___
 
@@ -363,7 +351,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:159](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L159)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:159](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L159)
 
 ___
 
@@ -381,7 +369,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:133](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L133)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:133](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L133)
 
 ___
 
@@ -395,11 +383,11 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[delete](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#delete)
+TAggregateRootImplementation.delete
 
 #### Defined in
 
-[src/aggregates/abstractClasses/aggregateRootAbstractClass.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/aggregates/abstractClasses/aggregateRootAbstractClass.ts#L25)
+[src/aggregates/abstractClasses/aggregateRootAbstractClass.ts:25](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/aggregates/abstractClasses/aggregateRootAbstractClass.ts#L25)
 
 ___
 
@@ -425,7 +413,7 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[emit](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#emit)
+TAggregateRootImplementation.emit
 
 #### Inherited from
 
@@ -433,7 +421,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:102](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L102)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:102](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L102)
 
 ___
 
@@ -459,7 +447,7 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[emitEventFailed](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#emiteventfailed)
+TAggregateRootImplementation.emitEventFailed
 
 #### Inherited from
 
@@ -467,7 +455,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:106](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L106)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:106](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L106)
 
 ___
 
@@ -487,7 +475,7 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[equalsTo](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#equalsto)
+TAggregateRootImplementation.equalsTo
 
 #### Inherited from
 
@@ -495,7 +483,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:91](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L91)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:91](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L91)
 
 ___
 
@@ -509,7 +497,7 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[getTransferableProps](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#gettransferableprops)
+TAggregateRootImplementation.getTransferableProps
 
 #### Inherited from
 
@@ -517,7 +505,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:98](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L98)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:98](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L98)
 
 ___
 
@@ -544,7 +532,7 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[subscribe](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#subscribe)
+TAggregateRootImplementation.subscribe
 
 #### Inherited from
 
@@ -552,7 +540,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:112](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L112)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:112](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L112)
 
 ___
 
@@ -579,7 +567,7 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[subscribeOnFailed](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#subscribeonfailed)
+TAggregateRootImplementation.subscribeOnFailed
 
 #### Inherited from
 
@@ -587,7 +575,7 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:119](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L119)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:119](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L119)
 
 ___
 
@@ -614,7 +602,7 @@ ___
 
 #### Implementation of
 
-[IAggregateRootImplementation](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md).[unsubscribe](../interfaces/aggregates.interfaces.iaggregaterootimplementation.md#unsubscribe)
+TAggregateRootImplementation.unsubscribe
 
 #### Inherited from
 
@@ -622,4 +610,4 @@ ___
 
 #### Defined in
 
-[src/entities/abstractClasses/baseEntity/baseEntity.ts:126](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/entities/abstractClasses/baseEntity/baseEntity.ts#L126)
+[src/entities/abstractClasses/baseEntity/baseEntity.ts:126](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/entities/abstractClasses/baseEntity/baseEntity.ts#L126)

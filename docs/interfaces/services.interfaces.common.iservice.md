@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/services/interfaces/common/service.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/service.ts#L1)
+[src/services/interfaces/common/service.ts:1](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/services/interfaces/common/service.ts#L1)
 
 ### IService
 
@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[src/services/interfaces/common/service.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/e82048b/src/services/interfaces/common/service.ts#L2)
+[src/services/interfaces/common/service.ts:2](https://github.com/pashoo2/clean-architecture-boilerplate/blob/741b3a2/src/services/interfaces/common/service.ts#L2)
 
 ## Table of contents
 
