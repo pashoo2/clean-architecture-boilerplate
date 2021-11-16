@@ -5,9 +5,19 @@ import {
   IBaseEntityServices,
 } from '@root/entities/interfaces/baseEntity';
 import {IEntity, TEntityImplementation} from '@root/entities/interfaces/entity';
-import {TPickTransferableProperties} from '@root/interfaces';
+import {
+  TMakeTargetNullOrUndefined,
+  TMergeProperties,
+  TPickReadOnlyProperties,
+  TPickTransferableProperties,
+  TSimpleType,
+} from '@root/interfaces';
 import {Constructor} from '@root/interfaces/classes';
-import {TIdentityValueObject} from '@root/valueObjects/interfaces';
+import {
+  IBaseValueObject,
+  IIdentityMultiValueObject,
+  TIdentityValueObject,
+} from '@root/valueObjects/interfaces';
 
 export interface IValidateEntity<
   EntityId extends TIdentityValueObject,
@@ -62,20 +72,46 @@ export interface IEntityClassFabric<
   ): TEntityImplementationConstructor<EntityId, EntityType, E>;
 }
 
+export type TPickEntityPropertyRequiredValue<P extends unknown> =
+  P extends Exclude<TSimpleType, null | undefined>
+    ? P
+    : P extends IBaseValueObject<infer V, any>
+    ? V
+    : P extends IIdentityMultiValueObject<infer V>
+    ? V
+    : never;
+
+export type TPickEntityProperties<C extends Object> = {
+  [K in TPickReadOnlyProperties<C>]: TMakeTargetNullOrUndefined<
+    C[K],
+    TPickEntityPropertyRequiredValue<C[K]>
+  >;
+};
+
 /**
  * All parameters that are necessary for creation of an instance of the entity.
  */
 export type TEntityImplementationConstructorParametersFull<
   Entity extends IEntity<EntityId, string>,
   EntityId extends TIdentityValueObject = TIdentityValueObject
-> = IBaseEntityParameters<EntityId> &
-  Readonly<TPickTransferableProperties<Entity>>;
+> = TMergeProperties<
+  IBaseEntityParameters<Entity['id']>,
+  Readonly<TPickEntityProperties<Entity>>
+>;
+
+/**
+ * All parameters that are necessary for creation of an instance of the entity.
+ */
+export type TEntityImplementationConstructorParametersRawFull<
+  Entity extends IEntity<EntityId, string>,
+  EntityId extends TIdentityValueObject = TIdentityValueObject
+> = TPickEntityProperties<Entity>;
 
 /**
  * A constructor of an instance of the entity, which doesn't require
  * services as a parameter
  */
-export type TEntityImplementationConstructorNoServices<
+export type TEntityImplementationConstructorByRawDataNoServices<
   EntityId extends TIdentityValueObject,
   EntityType extends TEntityTypeMain,
   E extends IBaseEntityEventsList<EntityId, EntityType>,
@@ -86,5 +122,5 @@ export type TEntityImplementationConstructorNoServices<
     E,
     Entity
   > = TEntityImplementation<EntityId, EntityType, E, Entity>,
-  ConstructorParameters extends TEntityImplementationConstructorParametersFull<Entity> = TEntityImplementationConstructorParametersFull<Entity>
+  ConstructorParameters extends TEntityImplementationConstructorParametersRawFull<Entity> = TEntityImplementationConstructorParametersRawFull<Entity>
 > = Constructor<EntityImplementation, [ConstructorParameters]>;

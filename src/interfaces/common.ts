@@ -65,3 +65,16 @@ export type TNotSimpleObjectValuesType<O extends Object> = Exclude<
   ValueOf<O>,
   TSimpleObjectValuesType<O> | Function
 >;
+
+export type TMakeTargetUndefined<CheckValue, TargetValue> =
+  CheckValue extends undefined ? TargetValue | undefined : TargetValue;
+
+export type TMakeTargetNull<CheckValue, TargetValue> = CheckValue extends null
+  ? TargetValue | null
+  : TargetValue;
+
+export type TMakeTargetNullOrUndefined<CheckValue, TargetValue> =
+  TMakeTargetNull<CheckValue, TMakeTargetUndefined<CheckValue, TargetValue>>;
+
+export type TMergeProperties<Main, Additional> = Main &
+  Pick<Additional, Exclude<keyof Additional, keyof Main>>;
