@@ -2,14 +2,14 @@ import {
   IAggregateRoot,
   IBaseAggregateRootEventsList,
   TAggregateRootImplementation,
-  TAggregateRootImplementationConstructorNoServices,
+  TAggregateRootImplementationConstructorByRawDataNoServices,
 } from '@root/aggregates/interfaces';
 import {
   IBaseEntityEventsList,
   TEntityImplementation,
 } from '@root/entities/interfaces';
 import {IEntity, TEntityTypeMain} from '@root/entities/interfaces/entity';
-import {TEntityImplementationConstructorNoServices} from '@root/entities/interfaces/entityFabric';
+import {TEntityImplementationConstructorByRawDataNoServices} from '@root/entities/interfaces/entityFabric';
 import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export type EntityList<Entity extends IEntity<TIdentityValueObject, string>> =
@@ -86,7 +86,7 @@ export interface IEntityRepositoryCRUDFabricParameters<
    * A constructor that allow to create an implementation of the entity
    * based only on properties of the entity.
    *
-   * @type {TEntityImplementationConstructorNoServices<
+   * @type {TEntityImplementationConstructorByRawDataNoServices<
    *     EntityId,
    *     EntityType,
    *     E,
@@ -99,7 +99,7 @@ export interface IEntityRepositoryCRUDFabricParameters<
    *   >}
    * @memberof IEntityRepositoryCRUDFabricParameters
    */
-  entityConstructor: TEntityImplementationConstructorNoServices<
+  entityConstructor: TEntityImplementationConstructorByRawDataNoServices<
     EntityId,
     EntityType,
     E,
@@ -128,7 +128,7 @@ export interface IAggregateRepositoryCRUDFabricParameters<
   /**
    * Constructor of an instance of the aggregate
    *
-   * @type {TAggregateRootImplementationConstructorNoServices<
+   * @type {TAggregateRootImplementationConstructorByRawDataNoServices<
    *     AggregateId,
    *     AggregateType,
    *     E,
@@ -136,7 +136,7 @@ export interface IAggregateRepositoryCRUDFabricParameters<
    *   >}
    * @memberof IAggregateRepositoryCRUDFabricParameters
    */
-  aggregateConstructor: TAggregateRootImplementationConstructorNoServices<
+  aggregateConstructor: TAggregateRootImplementationConstructorByRawDataNoServices<
     AggregateId,
     AggregateType,
     E,

@@ -1,6 +1,6 @@
 {
   "name": "@pashoo2/clean-architecture-boilerplate",
-  "version": "0.0.21",
+  "version": "0.0.23",
   "private": false,
   "description": "Clean architecture boilerplate",
   "main": "es/index.js",
@@ -35,7 +35,8 @@
     "preversion": "npm run lint",
     "version": "npm run fix && git add -A src",
     "postversion": "git push && git push --tags",
-    "docs": "typedoc --out docs src/index.ts"
+    "docs": "typedoc --out docs src/index.ts",
+    "build": "npm run test && npm run compile"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,6 @@
     "tsc-alias": "^1.3.6",
     "typedoc": "^0.21.2",
     "typedoc-plugin-markdown": "^3.10.2",
-    "typescript": "^4.3.4"
+    "typescript": "^4.4.0"
   }
 }

@@ -16,10 +16,7 @@ export interface ISerializableAsync<S extends TSimpleType> {
   serialize(): Promise<S>;
 }
 
-export type TPropertySerializable =
-  | ISerializable<string>
-  | ISerializableAsync<string>
-  | TSimpleType;
+export type TPropertySerializable = ISerializable<string> | TSimpleType;
 
 interface ISerializableSimpleObject {
   [key: string]: TSerializableSimple;
