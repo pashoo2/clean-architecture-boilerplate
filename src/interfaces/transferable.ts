@@ -1,11 +1,15 @@
 import {TPickReadOnlyProperties} from './common';
-import {TPropertySerializable} from './serialization';
+import {TPropertySerializable, TSerializableSimple} from './serialization';
 
 export type TPickTransferableProperties<C extends Object> = {
-  [K in TPickReadOnlyProperties<C>]:
+  [K in TPickReadOnlyProperties<C>]: C[K] extends
     | TPropertySerializable
-    | TPickTransferableProperties<C[K]>
-    | ITransferable;
+    | ITransferable
+    | TSerializableSimple
+    ? C[K]
+    : C[K] extends {}
+    ? TPickTransferableProperties<C[K]>
+    : never;
 };
 
 export interface ITransferable {

@@ -5,7 +5,10 @@ import {
   IBaseAggregateRootParameters,
   IBaseAggregateRootServices,
 } from '@root/aggregates/interfaces/aggregateRoot';
-import {TEntityImplementationConstructorParametersRawFull} from '@root/entities/interfaces/entityFabric';
+import {
+  TEntityImplementationConstructorParametersFull,
+  TEntityImplementationConstructorParametersRawFull,
+} from '@root/entities/interfaces/entityFabric';
 import {
   ICompareEntitiesIdentities,
   ICompareEntitiesTypes,
@@ -70,6 +73,24 @@ export interface IAggregateRootClassFabric<
     [IBaseAggregateRootParameters<Id>]
   >;
 }
+
+/**
+ * A constructor of an instance of the entity, which doesn't require
+ * services as a parameter
+ */
+export type TAggregateRootImplementationConstructor<
+  Id extends TIdentityValueObject,
+  Type extends string,
+  E extends IBaseAggregateRootEventsList<Id, Type>,
+  AggregateRoot extends IAggregateRoot<Id, Type> = IAggregateRoot<Id, Type>,
+  AggregateRootImplementation extends TAggregateRootImplementation<
+    Id,
+    Type,
+    E,
+    AggregateRoot
+  > = TAggregateRootImplementation<Id, Type, E, AggregateRoot>,
+  ConstructorParameters extends TEntityImplementationConstructorParametersFull<AggregateRoot> = TEntityImplementationConstructorParametersFull<AggregateRoot>
+> = Constructor<AggregateRootImplementation, [ConstructorParameters]>;
 
 /**
  * A constructor of an instance of the entity, which doesn't require

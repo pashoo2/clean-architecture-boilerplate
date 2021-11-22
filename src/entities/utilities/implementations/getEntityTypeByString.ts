@@ -4,10 +4,10 @@ import {isEntityTypeStringContainsCorrectCharacters} from '@root/entities/utilit
 
 export function getEntityTypeByString<T extends string | String>(
   stringValue: T
-): TEntityTypeMain<T extends String ? ReturnType<T['toString']> : T> {
-  const stringTrimmed = stringValue.trim() as T extends String
-    ? ReturnType<T['toString']>
-    : T;
+): TEntityTypeMain<T extends string ? T : ReturnType<T['toString']>> {
+  const stringTrimmed = stringValue.trim() as T extends string
+    ? T
+    : ReturnType<T['toString']>;
   if (!isEntityTypeStringContainsCorrectCharacters(stringTrimmed)) {
     throw new Error('The string passed contains non valid characters');
   }
