@@ -73,6 +73,11 @@ export interface IEntityRepositoryCRUD<
   list(filterFunction: FilterEntityFunc<Entity>): Promise<EntityList<Entity>>;
 }
 
+export type TEntityRepositoryCRUDPartial<
+  Entity extends IEntity<EntityId, string>,
+  EntityId extends TIdentityValueObject = TIdentityValueObject
+> = Partial<IEntityRepositoryCRUD<Entity, EntityId>>;
+
 export interface IEntityRepositoryCRUDFabricParameters<
   Entity extends IEntity<EntityId, EntityType>,
   EntityId extends TIdentityValueObject = TIdentityValueObject,
@@ -108,13 +113,13 @@ export interface IEntityRepositoryCRUDFabricParameters<
 }
 
 /**
- * A fabric for construction an instance of the entity.
+ * A fabric for construction an instance of a repository for reading data of an entity.
  */
 export type TEntityRepositoryCRUDFabric<
-  Entity extends IEntity<TIdentityValueObject, TEntityTypeMain>
-> = (
-  parameters: IEntityRepositoryCRUDFabricParameters<Entity>
-) => IEntityRepositoryCRUD<Entity>;
+  Entity extends IEntity<TIdentityValueObject, TEntityTypeMain>,
+  Repository extends TEntityRepositoryCRUDPartial<Entity> = TEntityRepositoryCRUDPartial<Entity>,
+  Parameters extends IEntityRepositoryCRUDFabricParameters<Entity> = IEntityRepositoryCRUDFabricParameters<Entity>
+> = (parameters: Parameters) => Repository;
 
 export interface IAggregateRepositoryCRUDFabricParameters<
   Aggregate extends IAggregateRoot<AggregateId, AggregateType>,
@@ -145,10 +150,10 @@ export interface IAggregateRepositoryCRUDFabricParameters<
 }
 
 /**
- * A fabric for construction an instance of the aggregate root.
+ * A fabric for construction an instance of a repository for reading data of an aggregate root.
  */
 export type TAggregateRepositoryCRUDFabric<
-  Aggregate extends IAggregateRoot<TIdentityValueObject, string>
-> = (
-  parameters: IAggregateRepositoryCRUDFabricParameters<Aggregate>
-) => IEntityRepositoryCRUD<Aggregate>;
+  Aggregate extends IAggregateRoot<TIdentityValueObject, string>,
+  Repository extends TEntityRepositoryCRUDPartial<Aggregate> = TEntityRepositoryCRUDPartial<Aggregate>,
+  Parameters extends IAggregateRepositoryCRUDFabricParameters<Aggregate> = IAggregateRepositoryCRUDFabricParameters<Aggregate>
+> = (parameters: Parameters) => Repository;

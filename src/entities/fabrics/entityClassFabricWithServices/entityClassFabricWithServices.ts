@@ -1,4 +1,4 @@
-import {BaseEntity} from '@root/entities/abstractClasses';
+import {entityClassFabric} from '@root/entities/fabrics/entityClassFabric/entityClassFabric';
 import {
   IBaseEntityEventsList,
   IBaseEntityParameters,
@@ -7,42 +7,28 @@ import {
   TEntityImplementation,
   TEntityTypeMain,
 } from '@root/entities/interfaces';
-import {TPickTransferableProperties} from '@root/interfaces';
 import {Constructor} from '@root/interfaces/classes';
 import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 
 export function entityClassFabricWithServices<
   Id extends TIdentityValueObject,
   Type extends TEntityTypeMain,
-  E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
+  E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>,
+  Entity extends TEntityImplementation<Id, Type, E> = TEntityImplementation<
+    Id,
+    Type,
+    E
+  >
 >(
-  parameters: IEntityFabricParameters<Id, Type>,
+  parameters: IEntityFabricParameters<Id, Type, Entity>,
   services: IBaseEntityServices<E>
-): Constructor<
-  TEntityImplementation<Id, Type, E>,
-  [IBaseEntityParameters<Id>]
-> {
-  const {type, validateInstance, getTransferableProps} = parameters;
-  class EntityConstructor extends BaseEntity<Id, Type, E> {
-    protected _type = type;
-
+): Constructor<Entity, [IBaseEntityParameters<Id>]> {
+  const BaseEntityClass = entityClassFabric<Id, Type, E, Entity>(parameters);
+  // TODO - resolve any
+  class EntityConstructor extends (BaseEntityClass as any) {
     constructor(parameters: IBaseEntityParameters<Id>) {
       super(parameters, services);
     }
-
-    public getTransferableProps<T extends TEntityImplementation<Id, Type, E>>(
-      this: T
-    ): TPickTransferableProperties<T> {
-      return getTransferableProps<T>(this);
-    }
-    protected _validate<T extends this>(this: T): void {
-      validateInstance(this);
-    }
-    protected _getTransferableProps<T extends this>(
-      this: T
-    ): TPickTransferableProperties<T> {
-      return getTransferableProps<T>(this);
-    }
   }
-  return EntityConstructor;
+  return EntityConstructor as Constructor<Entity, [IBaseEntityParameters<Id>]>;
 }

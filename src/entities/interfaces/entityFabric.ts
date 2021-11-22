@@ -28,22 +28,31 @@ export interface IValidateEntity<
 
 export interface IGetTransferablePropertiesOfEntity<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityTypeMain
+  EntityType extends TEntityTypeMain,
+  Entity extends IEntity<EntityId, EntityType> = IEntity<EntityId, EntityType>
 > {
-  <T extends IEntity<EntityId, EntityType>>(
-    entity: T
-  ): TPickTransferableProperties<T>;
+  <T extends Entity>(entity: T): TPickTransferableProperties<T>;
 }
 
 export interface IEntityFabricParameters<
   EntityId extends TIdentityValueObject,
-  EntityType extends TEntityTypeMain
+  EntityType extends TEntityTypeMain,
+  Entity extends TEntityImplementation<
+    EntityId,
+    EntityType,
+    IBaseEntityEventsList<EntityId, EntityType>
+  > = TEntityImplementation<
+    EntityId,
+    EntityType,
+    IBaseEntityEventsList<EntityId, EntityType>
+  >
 > {
   type: EntityType;
   validateInstance: IValidateEntity<EntityId, EntityType>;
   getTransferableProps: IGetTransferablePropertiesOfEntity<
     EntityId,
-    EntityType
+    EntityType,
+    Entity
   >;
 }
 
@@ -100,12 +109,30 @@ export type TEntityImplementationConstructorParametersFull<
 >;
 
 /**
+ * A constructor of an instance of the entity, which doesn't require
+ * services as a parameter
+ */
+export type TEntityImplementationConstructorNoServices<
+  EntityId extends TIdentityValueObject,
+  EntityType extends TEntityTypeMain,
+  E extends IBaseEntityEventsList<EntityId, EntityType>,
+  Entity extends IEntity<EntityId, EntityType> = IEntity<EntityId, EntityType>,
+  EntityImplementation extends TEntityImplementation<
+    EntityId,
+    EntityType,
+    E,
+    Entity
+  > = TEntityImplementation<EntityId, EntityType, E, Entity>,
+  ConstructorParameters extends TEntityImplementationConstructorParametersFull<Entity> = TEntityImplementationConstructorParametersFull<Entity>
+> = Constructor<EntityImplementation, [ConstructorParameters]>;
+
+/**
  * All parameters that are necessary for creation of an instance of the entity.
  */
 export type TEntityImplementationConstructorParametersRawFull<
   Entity extends IEntity<EntityId, string>,
   EntityId extends TIdentityValueObject = TIdentityValueObject
-> = TPickEntityProperties<Entity>;
+> = Omit<TPickEntityProperties<Entity>, 'type'>;
 
 /**
  * A constructor of an instance of the entity, which doesn't require

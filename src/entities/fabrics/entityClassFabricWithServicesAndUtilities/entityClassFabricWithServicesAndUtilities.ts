@@ -17,15 +17,17 @@ import {TIdentityValueObject} from '@root/valueObjects/interfaces';
 export function entityClassFabricWithServicesAndUtilities<
   Id extends TIdentityValueObject,
   Type extends TEntityTypeMain,
-  E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>
+  E extends IBaseEntityEventsList<Id, Type> = IBaseEntityEventsList<Id, Type>,
+  Entity extends TEntityImplementation<Id, Type, E> = TEntityImplementation<
+    Id,
+    Type,
+    E
+  >
 >(
-  parameters: IEntityFabricParameters<Id, Type>,
+  parameters: IEntityFabricParameters<Id, Type, Entity>,
   services: IBaseEntityServices<E>,
   utilities: IBaseEntityAbstractClassImplementationUtitlities<Id, Type>
-): Constructor<
-  TEntityImplementation<Id, Type, E>,
-  [IBaseEntityParameters<Id>]
-> {
+): Constructor<Entity, [IBaseEntityParameters<Id>]> {
   const {type, validateInstance, getTransferableProps} = parameters;
   class EntityConstructor extends BaseEntityWithUtilities<
     Id,
@@ -38,20 +40,20 @@ export function entityClassFabricWithServicesAndUtilities<
     constructor(parameters: IBaseEntityParameters<Id>) {
       super(parameters, services, utilities);
     }
-
-    public getTransferableProps<T extends TEntityImplementation<Id, Type, E>>(
-      this: T
-    ): TPickTransferableProperties<T> {
-      return getTransferableProps<T>(this);
-    }
     protected _validate<T extends this>(this: T): void {
       validateInstance(this);
     }
     protected _getTransferableProps<T extends this>(
       this: T
     ): TPickTransferableProperties<T> {
-      return getTransferableProps<T>(this);
+      // TODO - resolve any
+      return getTransferableProps(
+        this as any as Entity
+      ) as any as TPickTransferableProperties<T>;
     }
   }
-  return EntityConstructor;
+  return EntityConstructor as any as Constructor<
+    Entity,
+    [IBaseEntityParameters<Id>]
+  >;
 }
