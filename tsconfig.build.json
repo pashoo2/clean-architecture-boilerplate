@@ -8,8 +8,16 @@
         "declaration": true,
         "strict": true
     },
+    "include": [
+        "src/**/*.ts"
+    ],
     "exclude": [
-        "config/**/*.ts",
-        "src/**/*.test.ts"
+        "./config/**/*.ts",
+        "**/*.test.ts",
+        "**/*.runTest.ts",
+        "**/*.mock.ts",
+        "**/*.stub.ts",
+        "**/*.stubs.ts",
+        "node_modules"
     ]
 }

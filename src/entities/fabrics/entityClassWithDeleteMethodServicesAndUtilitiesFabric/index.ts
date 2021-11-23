@@ -1,3 +1,1 @@
 export {entityClassWithDeleteMethodServicesAndUtilitiesFabric} from './entityClassWithDeleteMethodServicesAndUtilitiesFabric';
-
-export {runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric} from './entityClassWithDeleteMethodServicesAndUtilitiesFabric.runTest';

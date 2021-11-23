@@ -123,7 +123,7 @@ export function runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric<
                     id: instance.id,
                     isDeleted: instance.isDeleted,
                     type: instance.type,
-                  } as TPickTransferableProperties<T>;
+                  } as unknown as TPickTransferableProperties<T>;
                 },
                 validateInstance() {},
               },
