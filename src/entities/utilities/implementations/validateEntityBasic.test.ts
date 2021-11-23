@@ -105,7 +105,7 @@ describe('Basic utilities for an entities validation', () => {
                   id: instance.id,
                   isDeleted: instance.isDeleted,
                   type: instance.type,
-                } as TPickTransferableProperties<T>;
+                } as unknown as TPickTransferableProperties<T>;
               },
               validateInstance() {},
             }) {}
@@ -118,7 +118,7 @@ describe('Basic utilities for an entities validation', () => {
                   id: instance.id,
                   isDeleted: instance.isDeleted,
                   type: instance.type,
-                } as TPickTransferableProperties<T>;
+                } as unknown as TPickTransferableProperties<T>;
               },
               validateInstance() {},
             }) {}

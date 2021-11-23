@@ -45,7 +45,7 @@ describe('entityClassFabric', () => {
                 id: instance.id,
                 isDeleted: instance.isDeleted,
                 type: instance.type,
-              } as TPickTransferableProperties<T>;
+              } as unknown as TPickTransferableProperties<T>;
             },
             validateInstance() {},
           }) {}
@@ -71,7 +71,7 @@ describe('entityClassFabric', () => {
             isDeleted,
             parameters,
             services,
-          } as IRunEntityTestsParameters;
+          } as unknown as IRunEntityTestsParameters;
         }
 
         runEntityTests(getTestsParams);
