@@ -8,6 +8,7 @@ import {mockDomainEventBus} from '@root/__mock__/services/domainEventsBus.mock';
 import {convertTransferableToSerializableAsync} from '@root/utilities/implementations/serialization/convertTransferableToSerializable/convertTransferableToSerializable';
 import {BaseValueObjectStringSerialization} from '@root/valueObjects/interfaces/abstractClasses';
 import {serviceGeneratorIdentifierUnique} from '@root/__mock__/services/identifiers.mock';
+import {createAndInitializeEntity} from '../../../../entities/utilities/implementations';
 
 const ENTITY_CLASS_TYPE = 'TransferableEntity' as const;
 
@@ -128,7 +129,7 @@ describe('Transferable object utilities', () => {
 
   beforeEach(() => {
     const id = new IdVO(ENTITY_ID);
-    transferableEntity = new TransferableEntity({
+    transferableEntity = createAndInitializeEntity(TransferableEntity, {
       id,
       isDeleted: false,
     });

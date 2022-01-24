@@ -11,6 +11,7 @@
     "baseUrl": "./",
     "rootDir": "./src",
     "incremental": true,
+    "lib": ["dom"],
     "paths": {
       "@root/*": ["./src/*"],
     }

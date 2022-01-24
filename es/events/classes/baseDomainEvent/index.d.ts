@@ -1,0 +1,1 @@
+export { BaseDomainEventClass } from './baseDomainEvent';

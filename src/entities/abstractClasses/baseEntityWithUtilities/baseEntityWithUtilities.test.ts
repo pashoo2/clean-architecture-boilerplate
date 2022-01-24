@@ -20,6 +20,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '../../utilities/implementations';
 
 type TEntityTestClassEventsList = TBaseEntityEventsListCommonEvents<
   | MultipleIdentityValueObjectClassWithComparisonMock
@@ -70,8 +71,8 @@ describe('BaseEntity class', () => {
           ): TPickTransferableProperties<T> {
             return {} as any;
           }
-
           protected _validate() {}
+
           public compareEntitiesIdentities(...args: any[]) {
             return this._compareEntitiesIdentities(args[0], args[1]);
           }
@@ -79,7 +80,11 @@ describe('BaseEntity class', () => {
             return this._compareEntitiesTypes(args[0], args[1]);
           }
         }
-        const entityBaseEntity = new BaseEntityTestClass(parameters, services);
+        const entityBaseEntity = createAndInitializeEntity(
+          BaseEntityTestClass,
+          parameters,
+          services
+        );
 
         const utilities: IBaseEntityAbstractClassImplementationUtitlities<
           any,
@@ -119,7 +124,6 @@ describe('BaseEntity class', () => {
                 };
               return transferableObject as TPickTransferableProperties<T>;
             }
-
             protected _validate() {}
           }
 
@@ -129,7 +133,12 @@ describe('BaseEntity class', () => {
             }
           }
 
-          const entity = new EntityTestClass(parameters, services, utilities);
+          const entity = createAndInitializeEntity(
+            EntityTestClass,
+            parameters,
+            services,
+            utilities
+          );
 
           return {
             EntityClass: EntityTestClassNoUtilities,

@@ -23,6 +23,10 @@ import {BaseEntityAbstractClass} from '@root/entities/abstractClasses/baseEntity
 import {IServiceGeneratorIdentifierUnique} from '@root/services/interfaces/domain/generators/identifiers';
 import {Constructor} from '@root/interfaces/classes';
 import {TBaseDomainEntityEventParameters} from '@root/events/classes/baseDomainEntityEvent/baseDomainEntityEvent';
+import {
+  createAndInitializeEntity,
+  definedOrThrow,
+} from '../../utilities/implementations';
 
 export abstract class BaseEntity<
   Id extends TIdentityValueObject,
@@ -41,15 +45,23 @@ export abstract class BaseEntity<
     return this._type;
   }
 
-  private readonly __id: Id;
+  protected get _domainEventBus(): IDomainEventBus<E> {
+    return this.__domainEventBus;
+  }
 
-  protected abstract readonly _type: Type;
+  protected get _generateUniqueIdentityString(): IServiceGeneratorIdentifierUnique {
+    return this.__generateUniqueIdentityString;
+  }
+
+  protected abstract _type: Type;
+
+  private __id: Id;
 
   private __isDeleted: boolean;
 
-  private readonly __domainEventBus: IDomainEventBus<E>;
+  private __domainEventBus: IDomainEventBus<E>;
 
-  private readonly __generateUniqueIdentityString: IServiceGeneratorIdentifierUnique;
+  private __generateUniqueIdentityString: IServiceGeneratorIdentifierUnique;
 
   protected readonly _EntityDeleteEventClass: Constructor<
     BaseDomainEntityDeleteEvent<Id, Type>,
@@ -83,9 +95,6 @@ export abstract class BaseEntity<
 
     this._EntityDeleteEventClass = this.__getEntityDeleteEventClass();
     this._EntityCreateEventClass = this.__getEntityCreateEventClass();
-
-    this._validate();
-    this._emitCreateEvent();
   }
 
   public equalsTo(anotherEntity: IEntity<Id, Type>): boolean {
@@ -100,34 +109,34 @@ export abstract class BaseEntity<
   }
 
   public emit<Event extends TGetEvents<E>>(event: Event): void {
-    this.__domainEventBus.emit(event);
+    this._domainEventBus.emit(event);
   }
 
   public emitEventFailed<Ev extends TGetEvents<E>>(
     eventFailed: IDomainEventFailed<Ev>
   ): void {
-    this.__domainEventBus.emitEventFailed(eventFailed);
+    this._domainEventBus.emitEventFailed(eventFailed);
   }
 
   public subscribe<N extends TGetEventsNames<E>>(
     eventName: N,
     eventListener: IDomainEventListener<E[N]>
   ): void {
-    this.__domainEventBus.subscribe(eventName, eventListener);
+    this._domainEventBus.subscribe(eventName, eventListener);
   }
 
   public subscribeOnFailed<N extends TGetEventsNames<E>>(
     eventName: N,
     eventListener: IDomainFailedEventListener<E[N]>
   ): void {
-    this.__domainEventBus.subscribeOnFailed(eventName, eventListener);
+    this._domainEventBus.subscribeOnFailed(eventName, eventListener);
   }
 
   public unsubscribe<N extends TGetEventsNames<E>>(
     eventName: N,
     eventListener: IDomainEventListener<E[N]>
   ): void {
-    this.__domainEventBus.unsubscribe(eventName, eventListener);
+    this._domainEventBus.unsubscribe(eventName, eventListener);
   }
 
   protected abstract _validate(): void;
@@ -173,7 +182,7 @@ export abstract class BaseEntity<
   }
 
   protected _getEventUniqueIdentity(): string {
-    return this.__generateUniqueIdentityString();
+    return this._generateUniqueIdentityString();
   }
 
   protected abstract _getTransferableProps(): TPickTransferableProperties<this>;

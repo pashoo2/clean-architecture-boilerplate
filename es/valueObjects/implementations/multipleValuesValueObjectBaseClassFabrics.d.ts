@@ -1,0 +1,2 @@
+import { IMultipleValuesValueObjectBaseConstructor, IMultipleValuesValueObjectBaseFabricParameters, IMultiValuesValueObjectValue } from '../../valueObjects/interfaces';
+export declare function multipleValuesValueObjectBaseFabric<V extends IMultiValuesValueObjectValue>({ compareValues, serializeValue, validateValue, }: IMultipleValuesValueObjectBaseFabricParameters<V>): IMultipleValuesValueObjectBaseConstructor<V>;

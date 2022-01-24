@@ -1,0 +1,1 @@
+export { entityClassFabric } from './entityClassFabric';

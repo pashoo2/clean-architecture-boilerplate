@@ -52,6 +52,12 @@ export type TPickReadOnlyProperties<C extends Object> = ReadonlyKeys<
   OmitByValueType<C, Function>
 >;
 
+export type OmitNeverProps<C extends Object> = {
+  [K in {
+    [P in keyof C]-?: C[P] extends never ? never : P;
+  }[keyof C]]: C[K];
+};
+
 export type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
 };
