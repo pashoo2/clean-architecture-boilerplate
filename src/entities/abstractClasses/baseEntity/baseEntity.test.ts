@@ -22,6 +22,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '../../utilities/implementations';
 
 type TEntityTestClassEventsList = TBaseEntityEventsListCommonEvents<
   | MultipleIdentityValueObjectClassWithComparisonMock
@@ -102,12 +103,17 @@ export function runEntityTests<P extends IRunEntityTestsParameters>(
       expect(typeof entity.equalsTo === 'function').toBe(true);
     });
     it('Should return true for an entity with the same id', () => {
-      expect(entity.equalsTo(new EntityClass(parameters, services))).toBe(true);
+      expect(
+        entity.equalsTo(
+          createAndInitializeEntity(EntityClass, parameters, services)
+        )
+      ).toBe(true);
     });
     it('Should return false for an event with an id that is not equal to the identity of the entity', () => {
       expect(
         entity.equalsTo(
-          new EntityClass(
+          createAndInitializeEntity(
+            EntityClass,
             {
               ...parameters,
               id: new SimpleIdentityValueObjectClassWithComparisonMock(
@@ -130,7 +136,13 @@ export function runEntityTests<P extends IRunEntityTestsParameters>(
         }
       }
       expect(
-        entity.equalsTo(new AnotherTypeEntity(parameters, services) as any)
+        entity.equalsTo(
+          createAndInitializeEntity(
+            AnotherTypeEntity,
+            parameters,
+            services
+          ) as any
+        )
       ).toBe(false);
     });
   });
@@ -152,7 +164,9 @@ export function runEntityTests<P extends IRunEntityTestsParameters>(
       DOMAIN_ENTITY_EVENT_NAME_CONSTRUCTED,
       listenerEntityConstructedEvents
     );
-    expect(() => new EntityClass(parameters, services)).not.toThrow();
+    expect(() =>
+      createAndInitializeEntity(EntityClass, parameters, services)
+    ).not.toThrow();
     expect(listenerEntityConstructedEvents).toHaveBeenCalledWith(
       expect.objectContaining({
         entityId: parameters.id,
@@ -383,11 +397,14 @@ describe('BaseEntity class', () => {
                 };
               return transferableObject as TPickTransferableProperties<T>;
             }
-
             protected _validate() {}
           }
 
-          const entity = new EntityTestClass(parameters, services);
+          const entity = createAndInitializeEntity(
+            EntityTestClass,
+            parameters,
+            services
+          );
 
           return {
             EntityClass: EntityTestClass,

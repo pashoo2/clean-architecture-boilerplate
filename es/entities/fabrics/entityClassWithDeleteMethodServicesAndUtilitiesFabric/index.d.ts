@@ -1,0 +1,1 @@
+export { entityClassWithDeleteMethodServicesAndUtilitiesFabric } from './entityClassWithDeleteMethodServicesAndUtilitiesFabric';

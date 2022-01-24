@@ -1,6 +1,6 @@
 {
   "name": "@pashoo2/clean-architecture-boilerplate",
-  "version": "0.0.25",
+  "version": "0.1.0",
   "private": false,
   "description": "Clean architecture boilerplate",
   "main": "es/index.js",
@@ -21,8 +21,11 @@
   "homepage": "https://github.com/pashoo2/clean-architecture-boilerplate/blob/main/docs/README.md",
   "license": "ISC",
   "scripts": {
-    "lint": "gts lint",
-    "clean": "gts clean",
+    "lint": "eslint --resolve-plugins-relative-to .",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:gts": "gts lint",
+    "lint:gts:fix": "npm run fix",
+    "clean": "gts clean && rm -rf ./es && rm -rf *.tsbuildinfo",
     "compile": "tsc --project ./tsconfig.build.json && tsc-alias -p ./tsconfig.build.json",
     "fix": "gts fix",
     "typecheck": "tsc --noEmit",

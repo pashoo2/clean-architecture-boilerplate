@@ -1,0 +1,1 @@
+export { BaseAggregateRootAbstractClass } from './aggregateRootAbstractClass';

@@ -25,6 +25,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '../../utilities/implementations';
 
 export function runTestsForEntityClassFabricWithServicesAndUtilities<
   Id extends TIdentityValueObject,
@@ -82,8 +83,14 @@ export function runTestsForEntityClassFabricWithServicesAndUtilities<
             ): TPickTransferableProperties<T> {
               return {} as any;
             }
-
-            protected _validate() {}
+            protected _validate() {
+              if (!this.id) {
+                throw new Error('Id should not be empty');
+              }
+              if (!this.type) {
+                throw new Error('Type should not be empty');
+              }
+            }
             public compareEntitiesIdentities(...args: any[]) {
               return this._compareEntitiesIdentities(args[0], args[1]);
             }
@@ -91,7 +98,8 @@ export function runTestsForEntityClassFabricWithServicesAndUtilities<
               return this._compareEntitiesTypes(args[0], args[1]);
             }
           }
-          const entityBaseEntity = new BaseEntityTestClass(
+          const entityBaseEntity = createAndInitializeEntity(
+            BaseEntityTestClass,
             parameters,
             services
           );
@@ -124,7 +132,7 @@ export function runTestsForEntityClassFabricWithServicesAndUtilities<
                     id: instance.id,
                     isDeleted: instance.isDeleted,
                     type: instance.type,
-                  } as TPickTransferableProperties<T>;
+                  } as unknown as TPickTransferableProperties<T>;
                 },
                 validateInstance() {},
               },
@@ -137,7 +145,8 @@ export function runTestsForEntityClassFabricWithServicesAndUtilities<
               isDeleted,
             };
 
-            const entity = new EntityTestClass(
+            const entity = createAndInitializeEntity(
+              EntityTestClass,
               parameters as IBaseEntityParameters<Id>
             );
 

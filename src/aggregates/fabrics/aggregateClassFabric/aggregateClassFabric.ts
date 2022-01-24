@@ -43,7 +43,6 @@ export function aggregateClassFabric<
     constructor(parameters: Params) {
       super(parameters, getServices());
     }
-
     protected _validate(this: Instance): void {
       validateInstance(this);
     }

@@ -1,0 +1,1 @@
+export { BaseDomainEntityDeleteEvent } from './baseDomainEntityDeleteEvent';

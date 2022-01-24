@@ -22,6 +22,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '../../utilities/implementations';
 
 export interface IRunTestEntityWithDeleteMethod
   extends IRunEntityTestsParameters {
@@ -127,7 +128,7 @@ describe('entityClassWithDeleteMethodFabric', () => {
                 id: instance.id,
                 isDeleted: instance.isDeleted,
                 type: instance.type,
-              } as TPickTransferableProperties<T>;
+              } as unknown as TPickTransferableProperties<T>;
             },
             validateInstance() {},
           }) {}
@@ -141,7 +142,11 @@ describe('entityClassWithDeleteMethodFabric', () => {
             generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
           };
 
-          const entity = new EntityTestClass(parameters, services);
+          const entity = createAndInitializeEntity(
+            EntityTestClass,
+            parameters,
+            services
+          );
 
           return {
             EntityClass: EntityTestClass,

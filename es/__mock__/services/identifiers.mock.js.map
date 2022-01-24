@@ -1,0 +1,1 @@
+{"version":3,"file":"identifiers.mock.js","sourceRoot":"","sources":["../../../src/__mock__/services/identifiers.mock.ts"],"names":[],"mappings":";;;AACA,mEAA2D;AAE9C,QAAA,gCAAgC,GAC3C,CAAC,GAAG,EAAE;IACJ,IAAI,UAAU,GAAG,CAAC,CAAC;IAEnB,OAAO,SAAS,yBAAyB;QACvC,OAAO,mCAAmC,GAAG,IAAA,YAAG,EAAC,CAAC,UAAU,IAAI,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;IACzE,CAAC,CAAC;AACJ,CAAC,CAAC,EAAE,CAAC"}

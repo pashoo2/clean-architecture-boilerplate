@@ -1,0 +1,1 @@
+export { BaseDomainEntityEvent } from './baseDomainEntityEvent';

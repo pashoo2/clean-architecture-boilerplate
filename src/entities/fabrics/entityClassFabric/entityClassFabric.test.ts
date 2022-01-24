@@ -15,6 +15,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '../../utilities/implementations';
 
 describe('entityClassFabric', () => {
   const ENTITY_EVENT_NAME = 'ENTITY_EVENT_NAME' as const;
@@ -45,7 +46,7 @@ describe('entityClassFabric', () => {
                 id: instance.id,
                 isDeleted: instance.isDeleted,
                 type: instance.type,
-              } as TPickTransferableProperties<T>;
+              } as unknown as TPickTransferableProperties<T>;
             },
             validateInstance() {},
           }) {}
@@ -59,7 +60,11 @@ describe('entityClassFabric', () => {
             generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
           };
 
-          const entity = new EntityTestClass(parameters, services);
+          const entity = createAndInitializeEntity(
+            EntityTestClass,
+            parameters,
+            services
+          );
 
           return {
             EntityClass: EntityTestClass,
@@ -71,7 +76,7 @@ describe('entityClassFabric', () => {
             isDeleted,
             parameters,
             services,
-          } as IRunEntityTestsParameters;
+          } as unknown as IRunEntityTestsParameters;
         }
 
         runEntityTests(getTestsParams);

@@ -26,6 +26,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '@root/entities/utilities/implementations';
 
 export function runTestsForAggregateClassFabric(
   aggregateClassFabric: IAggregateRootClassFabric<
@@ -88,12 +89,20 @@ export function runTestsForAggregateClassFabric(
             protected _validate() {}
           }
 
-          const baseAggregateRootImplementation = new BaseAggregateRoot(
+          const baseAggregateRootImplementation = createAndInitializeEntity(
+            BaseAggregateRoot,
             parameters,
             services
           );
 
-          const validateInstance = jest.fn(() => {});
+          const validateInstance = jest.fn(entity => {
+            if (!entity.id) {
+              throw new Error('Id should not be empty');
+            }
+            if (!entity.type) {
+              throw new Error('Type should not be empty');
+            }
+          });
           const getTransferableProps = jest.fn(() => {
             return baseAggregateRootImplementation.getTransferableProps();
           }) as any;
@@ -112,7 +121,10 @@ export function runTestsForAggregateClassFabric(
               compareEntitiesIdentities,
             }) {}
 
-            const aggregate = new AggregateRootTestClass(parameters);
+            const aggregate = createAndInitializeEntity(
+              AggregateRootTestClass,
+              parameters
+            );
 
             return {
               AggregateClass: AggregateRootTestClass as any,
@@ -156,8 +168,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesIdentities,
                 }) {}
                 expect(validateInstanceUtil).not.toBeCalled();
-                expect(
-                  () => new AggregateRootTestClass(parameters)
+                expect(() =>
+                  createAndInitializeEntity(AggregateRootTestClass, parameters)
                 ).not.toThrow();
                 expect(validateInstanceUtil).toBeCalled();
               });
@@ -174,7 +186,9 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes,
                   compareEntitiesIdentities,
                 }) {}
-                expect(() => new AggregateRootTestClass(parameters)).toThrow();
+                expect(() =>
+                  createAndInitializeEntity(AggregateRootTestClass, parameters)
+                ).toThrow();
               });
             });
             describe('getTransferableProps', () => {
@@ -202,8 +216,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes,
                   compareEntitiesIdentities,
                 }) {}
-                expect(
-                  () => new AggregateRootTestClass(parameters)
+                expect(() =>
+                  createAndInitializeEntity(AggregateRootTestClass, parameters)
                 ).not.toThrow();
                 expect(getTransferablePropsUtil).not.toBeCalled();
               });
@@ -218,7 +232,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes,
                   compareEntitiesIdentities,
                 }) {}
-                const aggregateInstance = new AggregateRootTestClass(
+                const aggregateInstance = createAndInitializeEntity(
+                  AggregateRootTestClass,
                   parameters
                 );
                 expect(() =>
@@ -240,7 +255,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes,
                   compareEntitiesIdentities,
                 }) {}
-                const aggregateInstance = new AggregateRootTestClass(
+                const aggregateInstance = createAndInitializeEntity(
+                  AggregateRootTestClass,
                   parameters
                 );
                 expect(aggregateInstance.getTransferableProps()).toBe(
@@ -273,8 +289,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes: compareEntitiesTypesUtil,
                   compareEntitiesIdentities: () => true,
                 }) {}
-                expect(
-                  () => new AggregateRootTestClass(parameters)
+                expect(() =>
+                  createAndInitializeEntity(AggregateRootTestClass, parameters)
                 ).not.toThrow();
                 expect(compareEntitiesTypesUtil).not.toBeCalled();
               });
@@ -289,7 +305,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes: compareEntitiesTypesUtil,
                   compareEntitiesIdentities: () => true,
                 }) {}
-                const aggregateInstance = new AggregateRootTestClass(
+                const aggregateInstance = createAndInitializeEntity(
+                  AggregateRootTestClass,
                   parameters
                 );
                 expect(() =>
@@ -311,7 +328,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes: compareEntitiesTypesUtil,
                   compareEntitiesIdentities: () => true,
                 }) {}
-                const aggregateInstance = new AggregateRootTestClass(
+                const aggregateInstance = createAndInitializeEntity(
+                  AggregateRootTestClass,
                   parameters
                 );
                 expect(aggregateInstance.equalsTo({} as any)).toBe(
@@ -344,8 +362,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes: () => true,
                   compareEntitiesIdentities: compareEntitiesIdentitiesUtil,
                 }) {}
-                expect(
-                  () => new AggregateRootTestClass(parameters)
+                expect(() =>
+                  createAndInitializeEntity(AggregateRootTestClass, parameters)
                 ).not.toThrow();
                 expect(compareEntitiesIdentitiesUtil).not.toBeCalled();
               });
@@ -360,7 +378,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes: () => true,
                   compareEntitiesIdentities: compareEntitiesIdentitiesUtil,
                 }) {}
-                const aggregateInstance = new AggregateRootTestClass(
+                const aggregateInstance = createAndInitializeEntity(
+                  AggregateRootTestClass,
                   parameters
                 );
                 expect(() =>
@@ -382,7 +401,8 @@ export function runTestsForAggregateClassFabric(
                   compareEntitiesTypes: () => true,
                   compareEntitiesIdentities: compareEntitiesIdentitiesUtil,
                 }) {}
-                const aggregateInstance = new AggregateRootTestClass(
+                const aggregateInstance = createAndInitializeEntity(
+                  AggregateRootTestClass,
                   parameters
                 );
                 expect(aggregateInstance.equalsTo({} as any)).toBe(
@@ -402,7 +422,10 @@ export function runTestsForAggregateClassFabric(
                 compareEntitiesTypes: compareEntitiesTypesUtil,
                 compareEntitiesIdentities: compareEntitiesIdentitiesUtil,
               }) {}
-              const aggregateInstance = new AggregateRootTestClass(parameters);
+              const aggregateInstance = createAndInitializeEntity(
+                AggregateRootTestClass,
+                parameters
+              );
               expect(aggregateInstance.equalsTo({} as any)).toBe(true);
               expect(compareEntitiesTypesUtil).toBeCalled();
               expect(compareEntitiesTypesUtil).toBeCalled();

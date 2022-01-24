@@ -1,7 +1,7 @@
 import {
   IEntity,
   TEntityImplementation,
-  TEntityTypeMain,
+  IEntityImplementationWithInitialization,
 } from '@root/entities/interfaces/entity';
 
 import {
@@ -17,12 +17,15 @@ import {
   IDomainFailedEventListener,
 } from '@root/events/interfaces/domainEvents';
 import {TIdentityValueObject} from '@root/valueObjects/interfaces/index';
+import {ENTITY_INITIALIZER_SCOPE_NAME} from '../constants/entityInitialize';
 
 export abstract class BaseEntityAbstractClass<
   Id extends TIdentityValueObject,
   Type extends string,
   E extends IBaseEntityEventsList<Id, Type>
-> implements TEntityImplementation<Id, Type, E>
+> implements
+    TEntityImplementation<Id, Type, E>,
+    IEntityImplementationWithInitialization
 {
   public abstract get id(): Id;
 
@@ -31,17 +34,25 @@ export abstract class BaseEntityAbstractClass<
   public abstract readonly type: Type;
 
   protected constructor(
-    protected readonly _parameters: IBaseEntityParameters<Id>,
-    protected readonly _services: IBaseEntityServices<E>
+    parameters: IBaseEntityParameters<Id>,
+    services: IBaseEntityServices<E>
   ) {
-    if (!_parameters) {
+    if (!(self as any)[ENTITY_INITIALIZER_SCOPE_NAME]) {
+      throw new Error(
+        'The entity should be constructed within a certain scope'
+      );
+    }
+    if (!parameters) {
       throw new Error('Parameters must be passed to entity constructor');
     }
-    if (!_services) {
+    if (!services) {
       throw new Error('Services must be passed to entity constructor');
     }
   }
-
+  public $initializeInstance(): void {
+    this._validate();
+    this._emitCreateEvent();
+  }
   public abstract equalsTo(anotherEntity: IEntity<Id, Type>): boolean;
 
   public abstract getTransferableProps(): TPickTransferableProperties<this>;
@@ -66,6 +77,7 @@ export abstract class BaseEntityAbstractClass<
     eventName: N,
     eventListener: IDomainEventListener<E[N]>
   ): void;
+  protected abstract _emitCreateEvent(): void;
 
   protected abstract _validate(): void;
 

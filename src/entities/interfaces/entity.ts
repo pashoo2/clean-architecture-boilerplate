@@ -57,6 +57,16 @@ export type TEntityImplementation<
   ITransferable &
   IEntityImplementationMethods<Id, Type, E>;
 
+export interface IEntityImplementationWithInitialization {
+  /**
+   * This is special public method for performing
+   * an initialization an instance
+   *
+   * @memberof IEntityImplementationWithInitialization
+   */
+  $initializeInstance(): void;
+}
+
 // The method shouldn't be accessible from an outside, only within an aggregate
 export interface IEntityImplementationWithDeleteMethod<
   Id extends TIdentityValueObject,

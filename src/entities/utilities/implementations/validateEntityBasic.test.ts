@@ -25,6 +25,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '.';
 
 describe('Basic utilities for an entities validation', () => {
   function runTestsForValidateEntityObject(
@@ -105,7 +106,7 @@ describe('Basic utilities for an entities validation', () => {
                   id: instance.id,
                   isDeleted: instance.isDeleted,
                   type: instance.type,
-                } as TPickTransferableProperties<T>;
+                } as unknown as TPickTransferableProperties<T>;
               },
               validateInstance() {},
             }) {}
@@ -118,7 +119,7 @@ describe('Basic utilities for an entities validation', () => {
                   id: instance.id,
                   isDeleted: instance.isDeleted,
                   type: instance.type,
-                } as TPickTransferableProperties<T>;
+                } as unknown as TPickTransferableProperties<T>;
               },
               validateInstance() {},
             }) {}
@@ -132,12 +133,18 @@ describe('Basic utilities for an entities validation', () => {
               generateUniqueIdentifierString: serviceGeneratorIdentifierUnique,
             };
 
-            entity = new EntityTestClass(parameters, services);
-            entityWithWrongType = new EntityWithWrongTypeTestClass(
+            entity = createAndInitializeEntity(
+              EntityTestClass,
               parameters,
               services
             );
-            entityWithWrongIdentity = new EntityTestClass(
+            entityWithWrongType = createAndInitializeEntity(
+              EntityWithWrongTypeTestClass,
+              parameters,
+              services
+            );
+            entityWithWrongIdentity = createAndInitializeEntity(
+              EntityTestClass,
               {
                 ...parameters,
                 id: 'Identity' as any,

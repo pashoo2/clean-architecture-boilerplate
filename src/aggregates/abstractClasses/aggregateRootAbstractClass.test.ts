@@ -19,6 +19,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '../../entities/utilities/implementations';
 
 export type TAggregateTestClassEventsList = IBaseAggregateRootEventsList<
   | MultipleIdentityValueObjectClassWithComparisonMock
@@ -140,11 +141,14 @@ describe('BaseAggregateRootAbstractClass', () => {
                 };
               return transferableObject as TPickTransferableProperties<T>;
             }
-
             protected _validate() {}
           }
 
-          const aggregate = new AggregateRootTestClass(parameters, services);
+          const aggregate = createAndInitializeEntity(
+            AggregateRootTestClass,
+            parameters,
+            services
+          );
 
           return {
             AggregateClass: AggregateRootTestClass,

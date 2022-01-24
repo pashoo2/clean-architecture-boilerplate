@@ -1,0 +1,11 @@
+export declare const OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY_NOT_EMPTY_VALUES: (string[] | number[])[];
+export declare const OBJECT_TYPE_VALUES_SET_ARRAYS_NOT_EMPTY: (string | number | null | undefined)[][];
+export declare const OBJECT_TYPE_VALUES_SET_ARRAYS_EMPTY: any[][];
+export declare const OBJECT_TYPE_VALUES_SET_ARRAYS: any[][];
+export declare const OBJECT_TYPE_VALUE_WITHOUT_CONSTRUCTOR_WITH_SIMPLE_VALUES: any;
+export declare const OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR_SERIALIZABLE: any[];
+export declare const OBJECT_TYPE_VALUES_SET_OBJECTS_NOT_EMPTY_WITHOUT_CONSTRUCTOR: any[];
+export declare const OBJECT_TYPE_VALUES_SET_OBJECTS_EMPTY: {}[];
+export declare const OBJECT_TYPE_VALUES_SET_OBJECTS: any[];
+export declare const OBJECT_TYPE_VALUES_SET_DATES: Date[];
+export declare const OBJECT_TYPE_VALUES_SET_WITH_CONSTRUCTOR: unknown[];

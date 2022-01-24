@@ -24,6 +24,7 @@ import {
   UNIQUE_ENTITY_IDENTITY_MULTI_STUB,
   UNIQUE_ENTITY_IDENTITY_SIMPLE_STUB,
 } from '@root/__mock__/valueObjects.mock';
+import {createAndInitializeEntity} from '../../utilities/implementations';
 
 export function runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric<
   Id extends TIdentityValueObject,
@@ -81,7 +82,6 @@ export function runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric<
             ): TPickTransferableProperties<T> {
               return {} as any;
             }
-
             protected _validate() {}
             public compareEntitiesIdentities(...args: any[]) {
               return this._compareEntitiesIdentities(args[0], args[1]);
@@ -90,7 +90,8 @@ export function runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric<
               return this._compareEntitiesTypes(args[0], args[1]);
             }
           }
-          const entityBaseEntity = new BaseEntityTestClass(
+          const entityBaseEntity = createAndInitializeEntity(
+            BaseEntityTestClass,
             parameters,
             services
           );
@@ -123,7 +124,7 @@ export function runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric<
                     id: instance.id,
                     isDeleted: instance.isDeleted,
                     type: instance.type,
-                  } as TPickTransferableProperties<T>;
+                  } as unknown as TPickTransferableProperties<T>;
                 },
                 validateInstance() {},
               },
@@ -136,7 +137,10 @@ export function runTestEntityClassWithDeleteMethodServicesAndUtilitiesFabric<
               isDeleted,
             };
 
-            const entity = new EntityTestClass(parameters);
+            const entity = createAndInitializeEntity(
+              EntityTestClass,
+              parameters
+            );
 
             return {
               EntityClass: EntityTestClass,

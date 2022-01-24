@@ -15,13 +15,6 @@ export abstract class BaseAggregateRootAbstractClass<
   extends BaseEntity<Id, Type, E>
   implements TAggregateRootImplementation<Id, Type, E>
 {
-  constructor(
-    parameters: IBaseAggregateRootParameters<Id>,
-    services: IBaseAggregateRootServices<E>
-  ) {
-    super(parameters, services);
-  }
-
   public delete(): void {
     this._delete();
   }

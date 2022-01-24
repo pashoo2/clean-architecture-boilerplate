@@ -6,11 +6,14 @@ import {
 } from '@root/entities/interfaces/baseEntity';
 import {IEntity, TEntityImplementation} from '@root/entities/interfaces/entity';
 import {
+  OmitNeverProps,
   TMakeTargetNullOrUndefined,
   TMergeProperties,
   TPickReadOnlyProperties,
   TPickTransferableProperties,
   TSimpleType,
+  TSimpleObject,
+  TSimpleArray,
 } from '@root/interfaces';
 import {Constructor} from '@root/interfaces/classes';
 import {
@@ -81,19 +84,45 @@ export interface IEntityClassFabric<
   ): TEntityImplementationConstructor<EntityId, EntityType, E>;
 }
 
-export type TPickEntityPropertyRequiredValue<P extends unknown> =
-  P extends Exclude<TSimpleType, null | undefined>
-    ? P
-    : P extends IBaseValueObject<infer V, any>
+export type TSimpleTypeProp =
+  | Exclude<TSimpleType, null | undefined>
+  | TSimpleObject
+  | TSimpleArray;
+
+export type TPickEntityPropertyRequiredValueRaw<P extends unknown> =
+  P extends IBaseValueObject<infer V, any>
     ? V
     : P extends IIdentityMultiValueObject<infer V>
     ? V
+    : P extends IBaseValueObject<infer V, any>[]
+    ? V[]
+    : P extends IIdentityMultiValueObject<infer V>[]
+    ? V[]
+    : P extends TSimpleTypeProp
+    ? P
     : never;
+
+export type TPickEntityPropertyRequiredValue<P extends unknown> = P extends
+  | IBaseValueObject<any, any>
+  | IBaseValueObject<any, any>[]
+  ? P
+  : P extends IIdentityMultiValueObject<any> | IIdentityMultiValueObject<any>[]
+  ? P
+  : P extends TSimpleTypeProp
+  ? P
+  : never;
 
 export type TPickEntityProperties<C extends Object> = {
   [K in TPickReadOnlyProperties<C>]: TMakeTargetNullOrUndefined<
     C[K],
     TPickEntityPropertyRequiredValue<C[K]>
+  >;
+};
+
+export type TPickEntityPropertiesRaw<C extends Object> = {
+  [K in TPickReadOnlyProperties<C>]: TMakeTargetNullOrUndefined<
+    C[K],
+    TPickEntityPropertyRequiredValueRaw<C[K]>
   >;
 };
 
@@ -103,9 +132,11 @@ export type TPickEntityProperties<C extends Object> = {
 export type TEntityImplementationConstructorParametersFull<
   Entity extends IEntity<EntityId, string>,
   EntityId extends TIdentityValueObject = TIdentityValueObject
-> = TMergeProperties<
-  IBaseEntityParameters<Entity['id']>,
-  Readonly<TPickEntityProperties<Entity>>
+> = OmitNeverProps<
+  TMergeProperties<
+    IBaseEntityParameters<Entity['id']>,
+    Readonly<TPickEntityProperties<Entity>>
+  >
 >;
 
 /**
@@ -132,7 +163,7 @@ export type TEntityImplementationConstructorNoServices<
 export type TEntityImplementationConstructorParametersRawFull<
   Entity extends IEntity<EntityId, string>,
   EntityId extends TIdentityValueObject = TIdentityValueObject
-> = Omit<TPickEntityProperties<Entity>, 'type'>;
+> = Omit<TPickEntityPropertiesRaw<Entity>, 'type'>;
 
 /**
  * A constructor of an instance of the entity, which doesn't require
